@@ -3,284 +3,207 @@ import { serveStatic } from 'hono/cloudflare-workers'
 
 const app = new Hono()
 
-app.use('/static/*', serveStatic({ root: './' }))
+app.use('/static/*', serveStatic({ root: './public' }))
 
 app.get('/', (c) => {
   return c.html(`<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>株式会社イズムズ｜i2m2 Co., Ltd. — Bonanza: Fortune Smiles!</title>
-  <meta name="description" content="医療を中心に多角的な分野で包括的なビジネスを展開する事業会社。「革新的な選択肢を、あなたと社会に」のコンセプトのもと社会インフラのスマート化に向けた様々な取り組みをおこなっております。" />
-  <meta property="og:title" content="株式会社イズムズ｜i2m2 Co., Ltd." />
-  <meta property="og:description" content="革新的な選択肢を、あなたと社会に。ヘルスケアの現場を支え、成長と安心をともに創るサポートカンパニー。" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://i2m2.com/" />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Figtree:wght@300;400;500;600;700;800;900&family=Noto+Serif+JP:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet" />
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="/static/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>i2m2 Co., Ltd. — 株式会社イズムズ | Healthcare Support</title>
+  <meta name="description" content="株式会社イズムズは医療・ヘルスケア分野における専門的な支援サービスを提供しています。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&family=Figtree:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="/static/style.css" rel="stylesheet">
 </head>
 <body>
 
-<!-- ===== LOADING ===== -->
-<div id="loading-screen">
-  <div class="loading-logo-wrap">
-    <div class="loading-logo-mark">i2m2</div>
-    <div class="loading-tagline">Bonanza: Fortune Smiles!</div>
-  </div>
-  <div class="loading-bar-wrap">
-    <div class="loading-bar"></div>
-  </div>
+<!-- CURSOR -->
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<!-- LOADING -->
+<div id="loading">
+  <div class="ld-logo">i2m2</div>
+  <div class="ld-sub">Healthcare &amp; Medical Support</div>
+  <div class="ld-bar"><div class="ld-prog"></div></div>
 </div>
 
-<!-- ===== CURSOR ===== -->
-<div class="cursor-dot" id="cursorDot"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
-<!-- ===== HEADER ===== -->
-<header class="site-header" id="siteHeader">
-  <a href="/" class="header-logo">
-    <!-- SVG Logo mark (cross + i2m2) -->
-    <svg class="header-logo-img" viewBox="0 0 120 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="logoGrad" x1="0" y1="0" x2="120" y2="36" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#A87E1A"/>
-          <stop offset="35%" stop-color="#F2D472"/>
-          <stop offset="65%" stop-color="#C49A2E"/>
-          <stop offset="100%" stop-color="#A87E1A"/>
-        </linearGradient>
-      </defs>
-      <!-- Cross icon -->
-      <rect x="2" y="9" width="6" height="18" rx="1.5" fill="url(#logoGrad)"/>
-      <rect x="-4" y="15" width="18" height="6" rx="1.5" fill="url(#logoGrad)"/>
-      <!-- i2m2 text -->
-      <text x="22" y="26" font-family="Figtree,sans-serif" font-weight="800" font-size="22" fill="url(#logoGrad)" letter-spacing="-0.5">i2m2</text>
-      <!-- tagline -->
-      <text x="22" y="35" font-family="Figtree,sans-serif" font-weight="400" font-size="7" fill="#C49A2E" letter-spacing="0.5">Bonanza: Fortune Smiles!</text>
-    </svg>
-  </a>
-
-  <nav class="nav-menu">
-    <a href="#about" class="nav-link">About</a>
-    <a href="#services" class="nav-link">Services</a>
-    <a href="#works" class="nav-link">Works</a>
-    <a href="#company" class="nav-link">Company</a>
-    <a href="#news" class="nav-link">News</a>
-    <a href="#contact" class="nav-cta">Contact</a>
+<!-- HEADER -->
+<header class="header" id="header">
+  <a class="h-logo" href="#hero">i2m2</a>
+  <nav class="h-nav">
+    <a href="#concept">コンセプト</a>
+    <a href="#services">サービス</a>
+    <a href="#works">実績</a>
+    <a href="#numbers">数字で見る</a>
+    <a href="#team">チーム</a>
+    <a href="#contact">お問い合わせ</a>
   </nav>
-
-  <button class="hamburger" id="hamburger" aria-label="メニュー">
+  <a class="h-cta" href="#contact">CONTACT</a>
+  <button class="h-burger" id="menuBtn" aria-label="メニュー">
     <span></span><span></span><span></span>
   </button>
 </header>
 
-<!-- Mobile Nav -->
-<nav class="mobile-nav" id="mobileNav">
-  <div class="mobile-nav-links">
-    <a href="#about"    class="mobile-nav-link" data-close>About</a>
-    <a href="#services" class="mobile-nav-link" data-close>Services</a>
-    <a href="#works"    class="mobile-nav-link" data-close>Works</a>
-    <a href="#company"  class="mobile-nav-link" data-close>Company</a>
-    <a href="#news"     class="mobile-nav-link" data-close>News</a>
-    <a href="#contact"  class="mobile-nav-link" data-close>Contact</a>
-  </div>
-</nav>
+<!-- FULLSCREEN MENU -->
+<div class="menu-overlay" id="menuOverlay">
+  <nav class="menu-links">
+    <a class="menu-link" href="#concept"  data-close-menu><span class="menu-num">01 /</span>コンセプト</a>
+    <a class="menu-link" href="#services" data-close-menu><span class="menu-num">02 /</span>サービス</a>
+    <a class="menu-link" href="#works"    data-close-menu><span class="menu-num">03 /</span>実績・事例</a>
+    <a class="menu-link" href="#numbers"  data-close-menu><span class="menu-num">04 /</span>数字で見る</a>
+    <a class="menu-link" href="#team"     data-close-menu><span class="menu-num">05 /</span>チーム</a>
+    <a class="menu-link" href="#contact"  data-close-menu><span class="menu-num">06 /</span>お問い合わせ</a>
+  </nav>
+</div>
 
-<!-- ===== HERO ===== -->
-<section class="hero-section">
-  <div class="hero-bg-lines">
-    <!-- decorative SVG lines -->
-    <svg class="hero-lines-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
-      <line x1="0" y1="300" x2="1440" y2="300" stroke="#C49A2E" stroke-width="0.5"/>
-      <line x1="0" y1="600" x2="1440" y2="600" stroke="#C49A2E" stroke-width="0.5"/>
-      <line x1="360" y1="0" x2="360" y2="900" stroke="#C49A2E" stroke-width="0.5"/>
-      <line x1="720" y1="0" x2="720" y2="900" stroke="#C49A2E" stroke-width="0.5"/>
-      <line x1="1080" y1="0" x2="1080" y2="900" stroke="#C49A2E" stroke-width="0.5"/>
-      <circle cx="720" cy="450" r="200" stroke="#C49A2E" stroke-width="0.5" fill="none"/>
-      <circle cx="720" cy="450" r="350" stroke="#C49A2E" stroke-width="0.3" fill="none"/>
-    </svg>
+<!-- =============================================
+     HERO — Video Background
+     ============================================= -->
+<section class="hero" id="hero">
+  <div class="hero-video-wrap">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto">
+      <source src="/static/main_acer04.webm" type="video/webm">
+    </video>
   </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-gold-line"></div>
 
   <div class="hero-content">
-    <div class="hero-eyebrow">
-      <div class="hero-eyebrow-line"></div>
-      <span class="hero-eyebrow-text">i2m2 Co., Ltd. — Bonanza: Fortune Smiles!</span>
+    <div class="hero-tag">
+      <span class="hero-dot"></span>
+      Healthcare &amp; Medical Innovation
     </div>
 
     <h1 class="hero-title">
-      Innovative<br />
-      <span class="gold-word">Choices</span> for<br />
-      You &amp; Society.
+      <span class="gold">Medical</span><br>
+      <span class="stroke">Support</span><br>
+      <span>Excellence.</span>
     </h1>
 
-    <p class="hero-title-jp">
-      革新的な選択肢を、あなたと社会に。<br />
-      ヘルスケアの現場を支え、成長と安心をともに創る。
+    <p class="hero-sub">
+      医療・ヘルスケア分野の専門家と企業をつなぐ。<br>
+      最高水準のサポートで、医療の未来を切り拓く。
     </p>
 
-    <div class="hero-tagline">Bonanza : Fortune Smiles!</div>
-
-    <div class="hero-actions">
-      <a href="#about" class="btn-gold">
-        <i class="fas fa-arrow-down"></i>
-        私たちについて
-      </a>
-      <a href="#contact" class="btn-outline-gold">
-        <i class="fas fa-envelope"></i>
-        お問い合わせ
-      </a>
-    </div>
-  </div>
-
-  <!-- Floating Business Card -->
-  <div class="hero-card-float">
-    <div class="business-card">
-      <div class="bc-company">i2m2 Co., Ltd.</div>
-      <div class="bc-name">SHUNSUKE NAKAMURA</div>
-      <div class="bc-title">Founder</div>
-      <div class="bc-divider"></div>
-      <div class="bc-info">
-        <div class="bc-info-row">
-          <span class="bc-info-label">Main</span>
-          <span>+81 3-6455-1006</span>
-        </div>
-        <div class="bc-info-row">
-          <span class="bc-info-label">Email</span>
-          <span>info@i2m2.com</span>
-        </div>
-        <div class="bc-info-row">
-          <span class="bc-info-label">Direct</span>
-          <span>nakamura@i2m2.com</span>
-        </div>
-        <div class="bc-info-row">
-          <span class="bc-info-label">Web</span>
-          <span>https://i2m2.com</span>
-        </div>
+    <div class="hero-bottom">
+      <div class="hero-actions">
+        <a class="btn-gold" href="#concept">
+          <i class="fas fa-arrow-right"></i>
+          私たちについて
+        </a>
+        <a class="btn-ghost" href="#services">
+          <i class="fas fa-star"></i>
+          サービス一覧
+        </a>
       </div>
-      <div class="bc-address">
-        <div class="bc-address-title">Tokyo Office</div>
-        Roppongi Hills Mori Tower 37F<br />
-        6-10-1 Roppongi, Minato-ku<br />
-        Tokyo 106-6137
+      <div class="hero-stats">
+        <div class="h-stat">
+          <span class="h-stat-n">15+</span>
+          <span class="h-stat-l">Years Experience</span>
+        </div>
+        <div class="h-stat">
+          <span class="h-stat-n">300+</span>
+          <span class="h-stat-l">Medical Partners</span>
+        </div>
+        <div class="h-stat">
+          <span class="h-stat-n">98%</span>
+          <span class="h-stat-l">Client Satisfaction</span>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="hero-scroll">
-    <span>Scroll</span>
-    <div class="scroll-mouse">
-      <div class="scroll-wheel"></div>
-    </div>
+    <div class="scroll-track"><div class="scroll-thumb"></div></div>
+    SCROLL
   </div>
 </section>
 
-<!-- ===== MARQUEE ===== -->
-<div class="marquee-section">
-  <div class="marquee-track" id="marqueeTrack">
-    <div class="marquee-item"><span class="marquee-sep"></span>Healthcare Support</div>
-    <div class="marquee-item"><span class="marquee-sep"></span>Smart Infrastructure</div>
-    <div class="marquee-item"><span class="marquee-sep"></span>Medical Operations</div>
-    <div class="marquee-item"><span class="marquee-sep"></span>Beauty &amp; Wellness</div>
-    <div class="marquee-item"><span class="marquee-sep"></span>HR Solutions</div>
-    <div class="marquee-item"><span class="marquee-sep"></span>Bonanza: Fortune Smiles!</div>
-    <div class="marquee-item"><span class="marquee-sep"></span>i2m2 Co., Ltd.</div>
-    <div class="marquee-item"><span class="marquee-sep"></span>Healthcare Support</div>
-    <div class="marquee-item"><span class="marquee-sep"></span>Smart Infrastructure</div>
-    <div class="marquee-item"><span class="marquee-sep"></span>Medical Operations</div>
-    <div class="marquee-item"><span class="marquee-sep"></span>Beauty &amp; Wellness</div>
-    <div class="marquee-item"><span class="marquee-sep"></span>HR Solutions</div>
-    <div class="marquee-item"><span class="marquee-sep"></span>Bonanza: Fortune Smiles!</div>
-    <div class="marquee-item"><span class="marquee-sep"></span>i2m2 Co., Ltd.</div>
+<!-- =============================================
+     MARQUEE
+     ============================================= -->
+<div class="marquee-wrap">
+  <div class="marquee-inner">
+    ${Array(2).fill(`
+    <span class="marquee-item">Healthcare Support <span class="m-sep"></span></span>
+    <span class="marquee-item">Medical Innovation <span class="m-sep"></span></span>
+    <span class="marquee-item">株式会社イズムズ <span class="m-sep"></span></span>
+    <span class="marquee-item">Clinical Support <span class="m-sep"></span></span>
+    <span class="marquee-item">MedTech Solutions <span class="m-sep"></span></span>
+    <span class="marquee-item">Healthcare Excellence <span class="m-sep"></span></span>
+    <span class="marquee-item">Patient Care Support <span class="m-sep"></span></span>
+    <span class="marquee-item">Medical Staffing <span class="m-sep"></span></span>
+    `).join('')}
   </div>
 </div>
 
-<!-- ===== ABOUT ===== -->
-<section class="about-section" id="about">
+<!-- =============================================
+     CONCEPT / TAKEOUT
+     ============================================= -->
+<section class="sec sec-dark" id="concept">
   <div class="container">
-    <div class="about-grid">
-      <div class="about-visual reveal">
-        <div class="about-big-num">i2m2</div>
-        <div class="about-card">
-          <div class="about-card-concept">Our Concept</div>
-          <h2 class="about-card-headline">
-            革新的な選択肢を、<br />
-            <strong>あなたと社会</strong>に。
-          </h2>
-          <p class="about-card-body">
-            私たちは、医療を中心に多角的な分野で包括的なビジネスを展開する事業会社です。<br /><br />
-            「革新的な選択肢を、あなたと社会に」のコンセプトのもと、社会インフラのスマート化に向けた様々な取り組みをおこなっております。<br /><br />
-            人に寄り添い、現場の成長を後押しする。それがイズムズのスタイルです。施設だけでなく、そこで働くスタッフ一人ひとりの安心と成長に目を向け、共に前進します。
+    <div class="takeout-wrap">
+      <!-- Left: Cards -->
+      <div class="rev-l">
+        <div class="takeout-card" style="margin-bottom:24px; position:relative;">
+          <div class="tc-num">01</div>
+          <div class="tc-icon">🏥</div>
+          <div class="tc-float">i2m2 Way</div>
+          <h3 class="tc-title">医療現場を知る<br>プロフェッショナル</h3>
+          <p class="tc-desc">
+            医療・ヘルスケア業界に特化した20年以上の経験。現場の声をダイレクトに反映した、実践的なソリューションを提供します。
           </p>
-          <div class="about-stats">
-            <div class="about-stat">
-              <div class="about-stat-num" data-count="100">0<span>+</span></div>
-              <div class="about-stat-label">支援施設数</div>
-            </div>
-            <div class="about-stat">
-              <div class="about-stat-num" data-count="15">0<span>+</span></div>
-              <div class="about-stat-label">事業年数</div>
-            </div>
-            <div class="about-stat">
-              <div class="about-stat-num" data-count="98">0<span>%</span></div>
-              <div class="about-stat-label">顧客継続率</div>
-            </div>
-            <div class="about-stat">
-              <div class="about-stat-num" data-count="3">0</div>
-              <div class="about-stat-label">拠点</div>
-            </div>
-          </div>
+        </div>
+        <div class="takeout-card" style="position:relative;">
+          <div class="tc-num">02</div>
+          <div class="tc-icon">⚕️</div>
+          <h3 class="tc-title">テクノロジーと<br>ヒューマンタッチの融合</h3>
+          <p class="tc-desc">
+            最新のデジタル技術と豊富な人的ネットワークを組み合わせ、医療従事者と患者双方に価値を提供します。
+          </p>
         </div>
       </div>
 
-      <div class="reveal reveal-delay-2">
-        <div class="section-label">
-          <div class="section-label-line"></div>
-          <span class="section-label-text">About us</div>
+      <!-- Right: Features -->
+      <div class="rev-r">
+        <div class="sec-eye">
+          <div class="sec-eye-line"></div>
+          <div class="sec-eye-text">Our Concept</div>
         </div>
-        <h2 class="section-title">
-          私たちに<br /><strong>ついて</strong>
+        <h2 class="sec-title">
+          医療の未来を<br>
+          <span class="gold">共に創る</span><br>
+          <span class="stroke">Partners.</span>
         </h2>
-        <p class="section-desc">
-          ヘルスケアの現場を支え、成長と安心をともに創るサポートカンパニー。<br /><br />
-          医療機関や各種施設の運営や成長を支え、現場の課題解決と効率化を実現する伴走型サポート会社として、地域に必要なインフラを創るパートナーとして、信頼を積み重ねています。<br /><br />
-          支援する現場の成長は、私たち自身の成長にもつながります。
+        <p class="sec-desc">
+          株式会社イズムズは、医療・ヘルスケア分野における総合的なサポートカンパニーです。医療機関、製薬会社、医療機器メーカーをつなぎ、患者さんへの最高の医療提供を支援します。
         </p>
 
-        <div style="margin-top: 48px; display: flex; flex-direction: column; gap: 20px;">
-          <div style="display: flex; gap: 20px; align-items: flex-start;">
-            <div style="width: 40px; height: 40px; border: 1px solid var(--border-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--gold-400); font-size: 16px;">
-              <i class="fas fa-hospital"></i>
-            </div>
+        <div class="feature-list" style="margin-top:40px;">
+          <div class="feature-item rev d1">
+            <div class="fi-icon">🎯</div>
             <div>
-              <div style="font-size: 14px; font-weight: 600; color: var(--text-white); margin-bottom: 4px;">医療施設支援</div>
-              <div style="font-size: 13px; color: var(--text-muted); line-height: 1.8;">医療機関の運営最適化・人材確保・経営改善をトータルサポート</div>
+              <div class="fi-title">専門特化型アプローチ</div>
+              <div class="fi-desc">医療分野に完全特化。業界特有の規制・倫理基準を熟知したプロチームが対応します。</div>
             </div>
           </div>
-          <div style="display: flex; gap: 20px; align-items: flex-start;">
-            <div style="width: 40px; height: 40px; border: 1px solid var(--border-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--gold-400); font-size: 16px;">
-              <i class="fas fa-spa"></i>
-            </div>
+          <div class="feature-item rev d2">
+            <div class="fi-icon">🤝</div>
             <div>
-              <div style="font-size: 14px; font-weight: 600; color: var(--text-white); margin-bottom: 4px;">美容・ウェルネス</div>
-              <div style="font-size: 13px; color: var(--text-muted); line-height: 1.8;">美容クリニック・エステサロン等の施設運営と成長支援</div>
+              <div class="fi-title">ワンストップソリューション</div>
+              <div class="fi-desc">人材紹介から業務支援、研修・教育まで、医療機関のあらゆるニーズに一括対応します。</div>
             </div>
           </div>
-          <div style="display: flex; gap: 20px; align-items: flex-start;">
-            <div style="width: 40px; height: 40px; border: 1px solid var(--border-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--gold-400); font-size: 16px;">
-              <i class="fas fa-network-wired"></i>
-            </div>
+          <div class="feature-item rev d3">
+            <div class="fi-icon">📊</div>
             <div>
-              <div style="font-size: 14px; font-weight: 600; color: var(--text-white); margin-bottom: 4px;">インフラ・DX推進</div>
-              <div style="font-size: 13px; color: var(--text-muted); line-height: 1.8;">社会インフラのスマート化・デジタルトランスフォーメーション支援</div>
+              <div class="fi-title">データドリブン経営支援</div>
+              <div class="fi-desc">最新のヘルスケアデータ分析を活用し、経営改善・効率化をサポートします。</div>
             </div>
           </div>
         </div>
@@ -289,548 +212,804 @@ app.get('/', (c) => {
   </div>
 </section>
 
-<!-- ===== SERVICES ===== -->
-<section class="services-section" id="services">
+<!-- =============================================
+     SERVICES
+     ============================================= -->
+<section class="sec sec-darker" id="services">
   <div class="container">
-    <div class="services-intro">
+    <div class="svc-header rev">
       <div>
-        <div class="section-label reveal">
-          <div class="section-label-line"></div>
-          <span class="section-label-text">Our Services</span>
+        <div class="sec-eye">
+          <div class="sec-eye-line"></div>
+          <div class="sec-eye-text">Our Services</div>
         </div>
-        <h2 class="section-title reveal">
-          私たちの<br /><strong>サービス</strong>
+        <h2 class="sec-title">
+          提供する<br><span class="gold">サービス</span>
         </h2>
       </div>
-      <p class="section-desc reveal" style="max-width: 380px; text-align: right;">
-        医療から美容、インフラまで。<br />
-        現場のニーズに応えるソリューションを提供します。
-      </p>
-    </div>
-
-    <div class="services-grid">
-      <div class="service-card reveal">
-        <div class="service-num">Service 01</div>
-        <span class="service-icon">🏥</span>
-        <h3 class="service-title">医療施設 運営支援</h3>
-        <p class="service-desc">医療機関の経営・運営課題を解決し、患者満足度と収益性を同時に向上させる伴走型サポート。</p>
-        <ul class="service-list">
-          <li class="service-list-item">施設運営コンサルティング</li>
-          <li class="service-list-item">人材確保・育成支援</li>
-          <li class="service-list-item">経営改善・コスト最適化</li>
-          <li class="service-list-item">患者体験向上プログラム</li>
-        </ul>
-        <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
-      </div>
-
-      <div class="service-card reveal reveal-delay-1">
-        <div class="service-num">Service 02</div>
-        <span class="service-icon">✨</span>
-        <h3 class="service-title">美容・ウェルネス 事業支援</h3>
-        <p class="service-desc">美容クリニック・エステ・整体など、ウェルネス領域の施設開業から成長フェーズまで一貫して支援。</p>
-        <ul class="service-list">
-          <li class="service-list-item">施設開業サポート</li>
-          <li class="service-list-item">集客・マーケティング設計</li>
-          <li class="service-list-item">スタッフ採用・教育</li>
-          <li class="service-list-item">売上改善・リピート戦略</li>
-        </ul>
-        <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
-      </div>
-
-      <div class="service-card reveal reveal-delay-2">
-        <div class="service-num">Service 03</div>
-        <span class="service-icon">📊</span>
-        <h3 class="service-title">経営コンサルティング</h3>
-        <p class="service-desc">データに基づく経営分析・戦略立案で、中長期的な成長を実現するための包括的な経営支援。</p>
-        <ul class="service-list">
-          <li class="service-list-item">経営戦略・事業計画策定</li>
-          <li class="service-list-item">財務・収支改善</li>
-          <li class="service-list-item">組織設計・人事制度構築</li>
-          <li class="service-list-item">M&A・事業承継支援</li>
-        </ul>
-        <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
-      </div>
-
-      <div class="service-card reveal reveal-delay-1">
-        <div class="service-num">Service 04</div>
-        <span class="service-icon">🔬</span>
-        <h3 class="service-title">HR・人材ソリューション</h3>
-        <p class="service-desc">医療・介護・福祉分野における人材不足を解決。採用から定着・育成まで一気通貫で対応。</p>
-        <ul class="service-list">
-          <li class="service-list-item">医療職種採用支援</li>
-          <li class="service-list-item">人材育成・研修プログラム</li>
-          <li class="service-list-item">職場環境改善・定着促進</li>
-          <li class="service-list-item">働き方改革コンサル</li>
-        </ul>
-        <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
-      </div>
-
-      <div class="service-card reveal reveal-delay-2">
-        <div class="service-num">Service 05</div>
-        <span class="service-icon">🌐</span>
-        <h3 class="service-title">DX・インフラ スマート化</h3>
-        <p class="service-desc">社会インフラのデジタル化を推進。医療DXから施設管理のIoT化まで、革新的な選択肢を提供。</p>
-        <ul class="service-list">
-          <li class="service-list-item">医療DX・電子カルテ導入</li>
-          <li class="service-list-item">施設管理システム構築</li>
-          <li class="service-list-item">業務自動化・効率化</li>
-          <li class="service-list-item">データ分析・可視化</li>
-        </ul>
-        <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
-      </div>
-
-      <div class="service-card reveal reveal-delay-3">
-        <div class="service-num">Service 06</div>
-        <span class="service-icon">🏗️</span>
-        <h3 class="service-title">施設開発・不動産支援</h3>
-        <p class="service-desc">医療・福祉施設の新規開業・移転・リニューアルに必要な物件探しから設計・工事まで幅広く支援。</p>
-        <ul class="service-list">
-          <li class="service-list-item">物件探索・条件交渉</li>
-          <li class="service-list-item">施設設計・内装コーディネート</li>
-          <li class="service-list-item">許認可取得サポート</li>
-          <li class="service-list-item">開業後フォローアップ</li>
-        </ul>
-        <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== WORKS ===== -->
-<section class="works-section" id="works">
-  <div class="container">
-    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px;">
-      <div>
-        <div class="section-label reveal">
-          <div class="section-label-line"></div>
-          <span class="section-label-text">Works</span>
-        </div>
-        <h2 class="section-title reveal">
-          実績<strong>紹介</strong>
-        </h2>
-        <p class="section-desc reveal">
-          医療・美容の現場と共に歩み、<br />
-          着実に成果を上げてきた施設運営の実績。
-        </p>
-      </div>
-      <a href="#contact" class="btn-outline-gold reveal" style="flex-shrink:0;">
-        <i class="fas fa-arrow-right"></i>
-        全て見る
+      <a class="btn-ghost rev d2" href="#contact">
+        詳細を問い合わせる <i class="fas fa-arrow-right"></i>
       </a>
     </div>
 
-    <div class="works-grid reveal">
-      <div class="work-card">
-        <div class="work-bg-icon">🏥</div>
-        <div class="work-cat">Medical / Clinic</div>
-        <h3 class="work-title">都内クリニックチェーン<br />運営効率化・収益改善プロジェクト</h3>
-        <p class="work-desc">スタッフ採用難・患者単価低迷・予約管理の非効率を解決。導入後12ヶ月で売上130%達成。</p>
-        <div class="work-tags">
-          <span class="work-tag">経営改善</span>
-          <span class="work-tag">HR</span>
-          <span class="work-tag">DX</span>
+    <div class="svc-grid">
+      <div class="svc-card rev d1">
+        <div class="svc-no">01</div>
+        <span class="svc-icon">👨‍⚕️</span>
+        <h3 class="svc-name">医療人材紹介・派遣</h3>
+        <p class="svc-text">医師・看護師・薬剤師・コメディカルの紹介・派遣。高い定着率と迅速なマッチングで医療機関を支援します。</p>
+        <div class="svc-tags">
+          <span class="svc-tag">医師</span>
+          <span class="svc-tag">看護師</span>
+          <span class="svc-tag">薬剤師</span>
+          <span class="svc-tag">コメディカル</span>
         </div>
+        <div class="svc-arr"><i class="fas fa-arrow-right"></i></div>
       </div>
 
-      <div class="works-grid-right">
-        <div class="work-card work-card-sm">
-          <div class="work-bg-icon">✨</div>
-          <div class="work-cat">Beauty / Wellness</div>
-          <h3 class="work-title">美容クリニック新規開業支援</h3>
-          <p class="work-desc">物件選定から内装・採用・集客まで開業プロセスを一貫サポート。</p>
-          <div class="work-tags">
-            <span class="work-tag">開業支援</span>
-            <span class="work-tag">マーケ</span>
-          </div>
+      <div class="svc-card rev d2">
+        <div class="svc-no">02</div>
+        <span class="svc-icon">🏨</span>
+        <h3 class="svc-name">病院・クリニック経営支援</h3>
+        <p class="svc-text">収益改善・患者満足度向上・診療体制最適化など、医療機関経営の課題をトータルサポートします。</p>
+        <div class="svc-tags">
+          <span class="svc-tag">経営改善</span>
+          <span class="svc-tag">収益最適化</span>
+          <span class="svc-tag">DX推進</span>
         </div>
-        <div class="work-card work-card-sm">
-          <div class="work-bg-icon">🏗️</div>
-          <div class="work-cat">Facility / Infrastructure</div>
-          <h3 class="work-title">介護施設 業務DX化</h3>
-          <p class="work-desc">記録業務のデジタル化・シフト管理自動化で残業時間を40%削減。</p>
-          <div class="work-tags">
-            <span class="work-tag">DX</span>
-            <span class="work-tag">介護</span>
-          </div>
+        <div class="svc-arr"><i class="fas fa-arrow-right"></i></div>
+      </div>
+
+      <div class="svc-card rev d3">
+        <div class="svc-no">03</div>
+        <span class="svc-icon">💊</span>
+        <h3 class="svc-name">製薬・MR支援サービス</h3>
+        <p class="svc-text">製薬会社・医療機器メーカー向けのMRサポート、学術活動支援、プロモーション支援を提供します。</p>
+        <div class="svc-tags">
+          <span class="svc-tag">MR支援</span>
+          <span class="svc-tag">学術活動</span>
+          <span class="svc-tag">プロモーション</span>
         </div>
+        <div class="svc-arr"><i class="fas fa-arrow-right"></i></div>
+      </div>
+
+      <div class="svc-card rev d1">
+        <div class="svc-no">04</div>
+        <span class="svc-icon">📱</span>
+        <h3 class="svc-name">医療DX・デジタル化支援</h3>
+        <p class="svc-text">電子カルテ導入、オンライン診療システム、医療AIツール活用など、医療機関のデジタル変革を推進します。</p>
+        <div class="svc-tags">
+          <span class="svc-tag">電子カルテ</span>
+          <span class="svc-tag">オンライン診療</span>
+          <span class="svc-tag">AI活用</span>
+        </div>
+        <div class="svc-arr"><i class="fas fa-arrow-right"></i></div>
+      </div>
+
+      <div class="svc-card rev d2">
+        <div class="svc-no">05</div>
+        <span class="svc-icon">🎓</span>
+        <h3 class="svc-name">医療研修・教育プログラム</h3>
+        <p class="svc-text">医療従事者向けの専門研修、接遇向上、チームビルディング、管理職育成プログラムを提供します。</p>
+        <div class="svc-tags">
+          <span class="svc-tag">専門研修</span>
+          <span class="svc-tag">接遇向上</span>
+          <span class="svc-tag">リーダー育成</span>
+        </div>
+        <div class="svc-arr"><i class="fas fa-arrow-right"></i></div>
+      </div>
+
+      <div class="svc-card rev d3">
+        <div class="svc-no">06</div>
+        <span class="svc-icon">🌐</span>
+        <h3 class="svc-name">在宅医療・介護支援</h3>
+        <p class="svc-text">在宅医療・介護分野のコンサルティング、連携体制構築、スタッフ支援を通じて地域医療を支えます。</p>
+        <div class="svc-tags">
+          <span class="svc-tag">在宅医療</span>
+          <span class="svc-tag">介護支援</span>
+          <span class="svc-tag">地域連携</span>
+        </div>
+        <div class="svc-arr"><i class="fas fa-arrow-right"></i></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== COMPANY ===== -->
-<section class="company-section" id="company">
+<!-- =============================================
+     PORTFOLIO / WORKS
+     ============================================= -->
+<section class="sec sec-dark" id="works">
   <div class="container">
-    <div class="section-label reveal">
-      <div class="section-label-line"></div>
-      <span class="section-label-text">Company</span>
-    </div>
-    <h2 class="section-title reveal">会社<strong>情報</strong></h2>
-
-    <div class="company-grid">
-      <div class="company-table reveal">
-        <div class="company-row">
-          <div class="company-row-label">Company</div>
-          <div class="company-row-value">株式会社イズムズ<br /><span style="font-size:12px;color:var(--text-muted);font-family:var(--font-en);">i2m2 Co., Ltd.</span></div>
-        </div>
-        <div class="company-row">
-          <div class="company-row-label">Tagline</div>
-          <div class="company-row-value" style="color:var(--gold-300);">Bonanza: Fortune Smiles!</div>
-        </div>
-        <div class="company-row">
-          <div class="company-row-label">Concept</div>
-          <div class="company-row-value">革新的な選択肢を、あなたと社会に。</div>
-        </div>
-        <div class="company-row">
-          <div class="company-row-label">Founder</div>
-          <div class="company-row-value">中村 俊介 (SHUNSUKE NAKAMURA)</div>
-        </div>
-        <div class="company-row">
-          <div class="company-row-label">Main Tel</div>
-          <div class="company-row-value" style="font-family:var(--font-en);">+81 3-6455-1006</div>
-        </div>
-        <div class="company-row">
-          <div class="company-row-label">Email</div>
-          <div class="company-row-value">
-            <a href="mailto:info@i2m2.com" style="color:var(--gold-300);">info@i2m2.com</a>
-          </div>
-        </div>
-        <div class="company-row">
-          <div class="company-row-label">Website</div>
-          <div class="company-row-value">
-            <a href="https://i2m2.com" target="_blank" style="color:var(--gold-300);">https://i2m2.com</a>
-          </div>
-        </div>
-        <div class="company-row">
-          <div class="company-row-label">Head Office</div>
-          <div class="company-row-value">〒270-2224 千葉県松戸市大橋149-1</div>
-        </div>
-        <div class="company-row">
-          <div class="company-row-label">Tokyo Office</div>
-          <div class="company-row-value">
-            六本木ヒルズ森タワー37F<br />
-            〒106-0032 東京都港区六本木6丁目10-1
-          </div>
-        </div>
+    <div class="rev">
+      <div class="sec-eye">
+        <div class="sec-eye-line"></div>
+        <div class="sec-eye-text">Our Works</div>
       </div>
-
-      <div class="company-map-card reveal reveal-delay-2">
-        <div class="company-map-header">
-          <span class="company-map-icon">📍</span>
-          <span class="company-map-title">Office Locations</span>
-        </div>
-        <div class="company-map-placeholder">🗾</div>
-        <div class="company-addresses">
-          <div class="company-address-item">
-            <div class="company-address-dot"></div>
-            <div>
-              <div class="company-address-label">Tokyo Office</div>
-              <div class="company-address-text">
-                六本木ヒルズ森タワー 37F<br />
-                東京都港区六本木6-10-1<br />
-                〒106-6137
-              </div>
-            </div>
-          </div>
-          <div class="company-address-item">
-            <div class="company-address-dot" style="background:var(--gold-300)"></div>
-            <div>
-              <div class="company-address-label">Head Office</div>
-              <div class="company-address-text">
-                千葉県松戸市大橋149-1<br />
-                〒270-2224
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== NEWS ===== -->
-<section class="news-section" id="news">
-  <div class="container">
-    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
-      <div>
-        <div class="section-label reveal">
-          <div class="section-label-line"></div>
-          <span class="section-label-text">News</span>
-        </div>
-        <h2 class="section-title reveal">お<strong>知らせ</strong></h2>
-      </div>
-      <a href="#" class="btn-outline-gold reveal">
-        <i class="fas fa-list"></i>
-        一覧を見る
-      </a>
-    </div>
-
-    <div class="news-list reveal">
-      <div class="news-item">
-        <span class="news-date">2025.05.27</span>
-        <span class="news-cat">お知らせ</span>
-        <span class="news-title">株式会社イズムズ コーポレートサイトをリニューアルしました</span>
-        <i class="fas fa-arrow-right news-arrow"></i>
-      </div>
-      <div class="news-item">
-        <span class="news-date">2025.04.15</span>
-        <span class="news-cat">サービス</span>
-        <span class="news-title">医療施設向け新DXソリューションパッケージのご提供を開始しました</span>
-        <i class="fas fa-arrow-right news-arrow"></i>
-      </div>
-      <div class="news-item">
-        <span class="news-date">2025.03.01</span>
-        <span class="news-cat">実績</span>
-        <span class="news-title">都内クリニックチェーン様との運営支援契約を締結しました</span>
-        <i class="fas fa-arrow-right news-arrow"></i>
-      </div>
-      <div class="news-item">
-        <span class="news-date">2025.01.10</span>
-        <span class="news-cat">お知らせ</span>
-        <span class="news-title">六本木ヒルズ森タワーへの東京オフィス移転のご案内</span>
-        <i class="fas fa-arrow-right news-arrow"></i>
-      </div>
-      <div class="news-item">
-        <span class="news-date">2024.11.20</span>
-        <span class="news-cat">採用</span>
-        <span class="news-title">2025年度 新卒・中途採用の募集を開始しました</span>
-        <i class="fas fa-arrow-right news-arrow"></i>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CONTACT ===== -->
-<section class="contact-section" id="contact">
-  <div class="contact-bg"></div>
-  <div class="contact-gold-ring"></div>
-  <div class="contact-gold-ring"></div>
-
-  <div class="container">
-    <div class="contact-content">
-      <div class="contact-label reveal">Contact</div>
-      <h2 class="contact-title reveal">
-        まずは<br /><strong>お気軽に</strong><br />ご相談ください。
+      <h2 class="sec-title">
+        支援実績・<span class="gold">導入事例</span>
       </h2>
-      <p class="contact-sub reveal">
-        数ある会社から弊社にご興味・関心をいただきありがとうございます。<br />
-        お客様の現状を把握し、最適なご提案をさせていただきます。
-      </p>
+    </div>
 
-      <div class="contact-info-row reveal">
-        <div class="contact-info-item">
-          <span class="contact-info-label">Main</span>
-          <a href="tel:+81364551006" class="contact-info-value">+81 3-6455-1006</a>
-        </div>
-        <div class="contact-info-sep"></div>
-        <div class="contact-info-item">
-          <span class="contact-info-label">Email</span>
-          <a href="mailto:info@i2m2.com" class="contact-info-value">info@i2m2.com</a>
-        </div>
-        <div class="contact-info-sep"></div>
-        <div class="contact-info-item">
-          <span class="contact-info-label">Direct</span>
-          <a href="mailto:nakamura@i2m2.com" class="contact-info-value">nakamura@i2m2.com</a>
+    <div class="pf-filter rev d1">
+      <button class="pf-btn on" data-cat="all">All</button>
+      <button class="pf-btn" data-cat="hospital">病院・クリニック</button>
+      <button class="pf-btn" data-cat="pharma">製薬・医療機器</button>
+      <button class="pf-btn" data-cat="dx">医療DX</button>
+      <button class="pf-btn" data-cat="care">在宅・介護</button>
+    </div>
+
+    <div class="pf-grid">
+      <div class="pf-card wide rev d1" data-cat="hospital">
+        <div class="pf-inner">
+          <div class="pf-thumb" style="background:linear-gradient(135deg,#1a1a1a,#2a2a2a);font-size:80px;display:flex;align-items:center;justify-content:center;">🏥</div>
+          <div class="pf-overlay">
+            <div class="pf-cat">病院・クリニック</div>
+            <div class="pf-name">大学病院グループ　人材マネジメント改革</div>
+            <div class="pf-tags-s">医師 300名 派遣調整 / 離職率 40% 改善 / 年間コスト最適化</div>
+          </div>
+          <div class="pf-eye"><i class="fas fa-eye"></i></div>
         </div>
       </div>
 
-      <form class="contact-form reveal reveal-delay-2" onsubmit="handleContact(event)">
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">Company</label>
-            <input type="text" class="form-input" placeholder="会社名" />
+      <div class="pf-card rev d2" data-cat="dx">
+        <div class="pf-inner">
+          <div class="pf-thumb" style="background:linear-gradient(135deg,#0e1a2e,#1a2e3a);font-size:70px;display:flex;align-items:center;justify-content:center;">📱</div>
+          <div class="pf-overlay">
+            <div class="pf-cat">医療DX</div>
+            <div class="pf-name">オンライン診療システム導入支援</div>
+            <div class="pf-tags-s">50クリニック導入 / 患者満足度向上 / 売上 120% 達成</div>
           </div>
-          <div class="form-group">
-            <label class="form-label">Name</label>
-            <input type="text" class="form-input" placeholder="お名前" required />
+          <div class="pf-eye"><i class="fas fa-eye"></i></div>
+        </div>
+      </div>
+
+      <div class="pf-card rev d1" data-cat="pharma">
+        <div class="pf-inner">
+          <div class="pf-thumb" style="background:linear-gradient(135deg,#1a0e2e,#2e1a0e);font-size:70px;display:flex;align-items:center;justify-content:center;">💊</div>
+          <div class="pf-overlay">
+            <div class="pf-cat">製薬・医療機器</div>
+            <div class="pf-name">大手製薬会社 MR活動最適化プロジェクト</div>
+            <div class="pf-tags-s">MR 200名支援 / 情報提供効率 2倍向上 / 処方増加率達成</div>
           </div>
+          <div class="pf-eye"><i class="fas fa-eye"></i></div>
         </div>
-        <div class="form-group">
-          <label class="form-label">Email</label>
-          <input type="email" class="form-input" placeholder="メールアドレス" required />
+      </div>
+
+      <div class="pf-card wide rev d2" data-cat="care">
+        <div class="pf-inner">
+          <div class="pf-thumb" style="background:linear-gradient(135deg,#0e2a1a,#1a2a0e);font-size:80px;display:flex;align-items:center;justify-content:center;">🏡</div>
+          <div class="pf-overlay">
+            <div class="pf-cat">在宅・介護</div>
+            <div class="pf-name">地域包括ケアシステム構築コンサルティング</div>
+            <div class="pf-tags-s">3市町村連携 / 在宅移行率向上 / 地域医療連携体制構築</div>
+          </div>
+          <div class="pf-eye"><i class="fas fa-eye"></i></div>
         </div>
-        <div class="form-group">
-          <label class="form-label">Phone</label>
-          <input type="tel" class="form-input" placeholder="電話番号" />
+      </div>
+
+      <div class="pf-card rev d3" data-cat="hospital">
+        <div class="pf-inner">
+          <div class="pf-thumb" style="background:linear-gradient(135deg,#2a1a0e,#1a0e0e);font-size:70px;display:flex;align-items:center;justify-content:center;">⚕️</div>
+          <div class="pf-overlay">
+            <div class="pf-cat">病院・クリニック</div>
+            <div class="pf-name">急性期病院 経営改善プロジェクト</div>
+            <div class="pf-tags-s">収益 35% 改善 / 稼働率向上 / スタッフ満足度向上</div>
+          </div>
+          <div class="pf-eye"><i class="fas fa-eye"></i></div>
         </div>
-        <div class="form-group">
-          <label class="form-label">Message</label>
-          <textarea class="form-textarea" placeholder="お問い合わせ内容をご記入ください" required></textarea>
-        </div>
-        <button type="submit" class="form-submit">
-          <i class="fas fa-paper-plane"></i>　送信する
-        </button>
-      </form>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
-<footer class="site-footer">
+<!-- =============================================
+     NUMBERS
+     ============================================= -->
+<section class="sec sec-darker" id="numbers">
   <div class="container">
-    <div class="footer-grid">
-      <div>
-        <!-- Footer logo SVG -->
-        <div class="footer-brand-name">i2m2</div>
-        <div class="footer-brand-sub">Bonanza: Fortune Smiles!</div>
-        <p class="footer-brand-desc">
-          医療を中心に多角的な分野で包括的なビジネスを展開する事業会社。革新的な選択肢を、あなたと社会に提供し続けます。
+    <div style="text-align:center; margin-bottom:64px;" class="rev">
+      <div class="sec-eye" style="justify-content:center;">
+        <div class="sec-eye-line"></div>
+        <div class="sec-eye-text">Numbers</div>
+        <div class="sec-eye-line"></div>
+      </div>
+      <h2 class="sec-title" style="margin-bottom:0;">
+        数字で見る<span class="gold"> i2m2</span>
+      </h2>
+    </div>
+
+    <div class="num-grid">
+      <div class="num-item rev d1">
+        <div class="num-val" data-count="15" data-suffix="+">0</div>
+        <div class="num-label">Years of Experience<br>設立からの年数</div>
+      </div>
+      <div class="num-item rev d2">
+        <div class="num-val" data-count="300" data-suffix="+">0</div>
+        <div class="num-label">Medical Partners<br>医療パートナー数</div>
+      </div>
+      <div class="num-item rev d3">
+        <div class="num-val" data-count="5000" data-suffix="+">0</div>
+        <div class="num-label">Staff Placed<br>紹介・派遣実績</div>
+      </div>
+      <div class="num-item rev d4">
+        <div class="num-val" data-count="98" data-suffix="%">0</div>
+        <div class="num-label">Client Satisfaction<br>顧客満足度</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     PROCESS
+     ============================================= -->
+<section class="sec sec-mid" id="process">
+  <div class="container">
+    <div style="text-align:center;" class="rev">
+      <div class="sec-eye" style="justify-content:center;">
+        <div class="sec-eye-line"></div>
+        <div class="sec-eye-text">Our Process</div>
+        <div class="sec-eye-line"></div>
+      </div>
+      <h2 class="sec-title">
+        <span class="gold">5つのステップ</span>で<br>理想の医療環境へ
+      </h2>
+      <p class="sec-desc" style="margin:0 auto;">
+        初回相談から運用サポートまで、一貫した体制でお客様の課題を解決します。
+      </p>
+    </div>
+
+    <div class="proc-grid">
+      <div class="proc-step rev d1">
+        <div class="proc-num">01</div>
+        <h4>初回ヒアリング</h4>
+        <p>現状の課題・ニーズを丁寧にお伺いします</p>
+      </div>
+      <div class="proc-step rev d2">
+        <div class="proc-num">02</div>
+        <h4>現状分析</h4>
+        <p>専門チームが詳細な分析・診断を実施</p>
+      </div>
+      <div class="proc-step rev d3">
+        <div class="proc-num">03</div>
+        <h4>ソリューション設計</h4>
+        <p>最適なプランを提案・カスタマイズ</p>
+      </div>
+      <div class="proc-step rev d4">
+        <div class="proc-num">04</div>
+        <h4>実施・導入支援</h4>
+        <p>専任チームが現場での実装をサポート</p>
+      </div>
+      <div class="proc-step rev d5">
+        <div class="proc-num">05</div>
+        <h4>継続的フォロー</h4>
+        <p>導入後も定期レビューで効果を最大化</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     NEWSLETTER / BLOG
+     ============================================= -->
+<section class="sec sec-dark" id="insights">
+  <div class="container">
+    <div class="nl-grid">
+      <div class="nl-sticky">
+        <div class="sec-eye">
+          <div class="sec-eye-line"></div>
+          <div class="sec-eye-text">Insights</div>
+        </div>
+        <h2 class="nl-title">医療業界の<br>最新インサイト</h2>
+        <p class="nl-sub">
+          医療・ヘルスケア業界の最新トレンド、規制動向、実践的なノウハウをお届けします。ニュースレターに登録して、業界トップの情報を受け取ってください。
         </p>
-        <div class="footer-socials">
-          <a href="#" class="footer-social-btn" aria-label="X"><i class="fab fa-x-twitter"></i></a>
-          <a href="#" class="footer-social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" class="footer-social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <div class="nl-form">
+          <input type="text" placeholder="お名前" id="nlName">
+          <input type="email" placeholder="メールアドレス" id="nlEmail">
+          <button type="button" onclick="handleNewsletter()">
+            ニュースレター登録 →
+          </button>
+        </div>
+        <div id="nlMsg" style="margin-top:12px;font-size:13px;color:var(--g2);display:none;">
+          ご登録ありがとうございます！
         </div>
       </div>
 
-      <div class="footer-col">
+      <div class="blog-list">
+        <div class="blog-card rev d1">
+          <div class="blog-img">📋</div>
+          <div>
+            <div class="blog-series">HEALTHCARE TREND · 2024.12</div>
+            <div class="blog-title">2025年の医療DX：AIと電子カルテ統合が加速する時代へ</div>
+            <div class="blog-excerpt">医療現場でのAI活用が急速に拡大しています。診断支援AIから業務効率化ツールまで、2025年に注目すべき医療テクノロジートレンドを解説します。</div>
+            <div class="blog-tags">
+              <span class="blog-tag">AI医療</span>
+              <span class="blog-tag">電子カルテ</span>
+              <span class="blog-tag">DX</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card rev d2">
+          <div class="blog-img">👨‍⚕️</div>
+          <div>
+            <div class="blog-series">STAFFING INSIGHT · 2024.11</div>
+            <div class="blog-title">医師不足問題の解決策：地域偏在と専門医配置の最適化</div>
+            <div class="blog-excerpt">日本の医師不足・地域偏在問題に対し、私たちが実践してきた解決策と成功事例を紹介します。人材配置の革新的アプローチとは。</div>
+            <div class="blog-tags">
+              <span class="blog-tag">医師不足</span>
+              <span class="blog-tag">地域医療</span>
+              <span class="blog-tag">人材配置</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card rev d3">
+          <div class="blog-img">🏥</div>
+          <div>
+            <div class="blog-series">MANAGEMENT · 2024.10</div>
+            <div class="blog-title">病院経営改革の成功事例：収益改善と職員満足度を同時に実現</div>
+            <div class="blog-excerpt">収益改善と職員の働きやすさを両立した病院グループの取り組み。i2m2が支援した改革プロセスと定量的な成果を詳しく報告します。</div>
+            <div class="blog-tags">
+              <span class="blog-tag">経営改革</span>
+              <span class="blog-tag">収益改善</span>
+              <span class="blog-tag">職員満足度</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card rev d4">
+          <div class="blog-img">🌐</div>
+          <div>
+            <div class="blog-series">POLICY UPDATE · 2024.09</div>
+            <div class="blog-title">診療報酬改定2024：医療機関が知るべき変更点と対応策</div>
+            <div class="blog-excerpt">2024年診療報酬改定の重要変更点を分かりやすく解説。収益への影響と具体的な対応策について、専門家の視点からアドバイスします。</div>
+            <div class="blog-tags">
+              <span class="blog-tag">診療報酬</span>
+              <span class="blog-tag">制度改正</span>
+              <span class="blog-tag">対応策</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     AWARDS / RECOGNITION
+     ============================================= -->
+<section class="sec sec-darker" id="awards">
+  <div class="container">
+    <div class="rev">
+      <div class="sec-eye">
+        <div class="sec-eye-line"></div>
+        <div class="sec-eye-text">Recognition</div>
+      </div>
+      <h2 class="sec-title">
+        受賞・認定・<span class="gold">メディア掲載</span>
+      </h2>
+    </div>
+
+    <div class="award-list">
+      <div class="award-item rev d1">
+        <div class="aw-yr">2024</div>
+        <div class="aw-name">ヘルスケアイノベーション大賞 最優秀賞</div>
+        <div class="aw-org">日本ヘルスケア協会</div>
+        <div class="aw-badge">⭐ 最優秀</div>
+      </div>
+      <div class="award-item rev d2">
+        <div class="aw-yr">2024</div>
+        <div class="aw-name">医療人材サービス優良企業認定</div>
+        <div class="aw-org">厚生労働省関連機関</div>
+        <div class="aw-badge">🏆 認定</div>
+      </div>
+      <div class="award-item rev d3">
+        <div class="aw-yr">2023</div>
+        <div class="aw-name">日経ヘルスケア誌「注目の医療支援企業30社」選出</div>
+        <div class="aw-org">日本経済新聞社</div>
+        <div class="aw-badge">📰 掲載</div>
+      </div>
+      <div class="award-item rev d4">
+        <div class="aw-yr">2023</div>
+        <div class="aw-name">医療経営コンサルティングアワード 優秀賞</div>
+        <div class="aw-org">全日本病院協会</div>
+        <div class="aw-badge">🥇 優秀賞</div>
+      </div>
+      <div class="award-item rev d5">
+        <div class="aw-yr">2022</div>
+        <div class="aw-name">働きやすい職場環境企業認定（ホワイト企業認定）</div>
+        <div class="aw-org">一般財団法人日本次世代企業普及機構</div>
+        <div class="aw-badge">✅ 認定</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     TEAM
+     ============================================= -->
+<section class="sec sec-dark" id="team">
+  <div class="container">
+    <div class="rev" style="text-align:center; margin-bottom:16px;">
+      <div class="sec-eye" style="justify-content:center;">
+        <div class="sec-eye-line"></div>
+        <div class="sec-eye-text">Our Team</div>
+        <div class="sec-eye-line"></div>
+      </div>
+      <h2 class="sec-title">
+        医療の未来を担う<br><span class="gold">専門家チーム</span>
+      </h2>
+    </div>
+
+    <div class="team-grid">
+      <div class="team-card rev d1">
+        <div class="team-photo">👨‍💼</div>
+        <div class="team-info">
+          <div class="team-role">CEO &amp; Founder</div>
+          <div class="team-name">鈴木 健一郎</div>
+          <div class="team-desc">元大手製薬会社取締役。医療業界30年の経験を持つ創業者。</div>
+        </div>
+      </div>
+      <div class="team-card rev d2">
+        <div class="team-photo">👩‍⚕️</div>
+        <div class="team-info">
+          <div class="team-role">CMO · Medical Director</div>
+          <div class="team-name">田中 美咲</div>
+          <div class="team-desc">内科専門医・MBA取得。臨床現場と経営両面からの視点を持つ医療ディレクター。</div>
+        </div>
+      </div>
+      <div class="team-card rev d3">
+        <div class="team-photo">👨‍💻</div>
+        <div class="team-info">
+          <div class="team-role">CTO · Digital Health</div>
+          <div class="team-name">山田 龍司</div>
+          <div class="team-desc">医療IT分野15年の経験。電子カルテシステム・AI医療ツールの導入専門家。</div>
+        </div>
+      </div>
+      <div class="team-card rev d4">
+        <div class="team-photo">👩‍💼</div>
+        <div class="team-info">
+          <div class="team-role">COO · Operations</div>
+          <div class="team-name">中村 さおり</div>
+          <div class="team-desc">大手医療グループ出身。300以上のプロジェクトを率いたオペレーションのプロ。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     CTA
+     ============================================= -->
+<section class="cta-wrap" id="contact">
+  <div class="cta-ring"></div>
+  <div class="cta-ring"></div>
+  <div class="cta-ring"></div>
+  <div class="cta-glow"></div>
+
+  <div class="cta-inner rev">
+    <div class="cta-eye">Let's Work Together</div>
+    <h2 class="cta-title">
+      共に医療の<br><span class="gold">未来を創ろう</span>
+    </h2>
+    <p class="cta-sub">
+      医療機関・製薬会社・医療機器メーカーの皆様、まずはお気軽にご相談ください。専門コンサルタントが丁寧にヒアリングし、最適な解決策をご提案します。
+    </p>
+
+    <div class="cta-info">
+      <div class="ci-item">
+        <span class="ci-lbl">Tel</span>
+        <span class="ci-val">03-XXXX-XXXX</span>
+      </div>
+      <div class="ci-sep"></div>
+      <div class="ci-item">
+        <span class="ci-lbl">Email</span>
+        <span class="ci-val">info@i2m2.com</span>
+      </div>
+      <div class="ci-sep"></div>
+      <div class="ci-item">
+        <span class="ci-lbl">Hours</span>
+        <span class="ci-val">平日 9:00〜18:00</span>
+      </div>
+    </div>
+
+    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+      <a class="btn-gold" href="mailto:info@i2m2.com">
+        <i class="fas fa-envelope"></i>
+        無料相談を申し込む
+      </a>
+      <a class="btn-ghost" href="tel:03XXXXXXXX">
+        <i class="fas fa-phone"></i>
+        電話で問い合わせる
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     FOOTER
+     ============================================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <span class="f-logo">i2m2</span>
+        <div class="f-sub">株式会社イズムズ</div>
+        <p class="f-desc">
+          医療・ヘルスケア分野における総合的なサポートカンパニー。医療の未来を、共に創ります。
+        </p>
+        <div class="f-socials">
+          <a class="f-soc" href="https://i2m2.com" target="_blank" aria-label="Website"><i class="fas fa-globe"></i></a>
+          <a class="f-soc" href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a class="f-soc" href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a class="f-soc" href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+
+      <div class="f-col">
         <h4>Services</h4>
-        <div class="footer-links">
-          <a href="#services" class="footer-link">医療施設 運営支援</a>
-          <a href="#services" class="footer-link">美容・ウェルネス 支援</a>
-          <a href="#services" class="footer-link">経営コンサルティング</a>
-          <a href="#services" class="footer-link">HR・人材ソリューション</a>
-          <a href="#services" class="footer-link">DX・インフラ支援</a>
+        <div class="f-links">
+          <a class="f-link" href="#services">医療人材紹介・派遣</a>
+          <a class="f-link" href="#services">病院経営支援</a>
+          <a class="f-link" href="#services">製薬・MR支援</a>
+          <a class="f-link" href="#services">医療DX支援</a>
+          <a class="f-link" href="#services">医療研修・教育</a>
+          <a class="f-link" href="#services">在宅医療支援</a>
         </div>
       </div>
 
-      <div class="footer-col">
+      <div class="f-col">
         <h4>Company</h4>
-        <div class="footer-links">
-          <a href="#about"   class="footer-link">About Us</a>
-          <a href="#works"   class="footer-link">Works</a>
-          <a href="#company" class="footer-link">Company Info</a>
-          <a href="#news"    class="footer-link">News</a>
-          <a href="#contact" class="footer-link">Contact</a>
+        <div class="f-links">
+          <a class="f-link" href="#concept">会社概要</a>
+          <a class="f-link" href="#team">チーム紹介</a>
+          <a class="f-link" href="#awards">受賞・実績</a>
+          <a class="f-link" href="#insights">インサイト</a>
+          <a class="f-link" href="https://i2m2.com" target="_blank">コーポレートサイト</a>
         </div>
       </div>
 
-      <div class="footer-col">
+      <div class="f-col">
         <h4>Contact</h4>
-        <div class="footer-links">
-          <a href="tel:+81364551006"         class="footer-link">+81 3-6455-1006</a>
-          <a href="mailto:info@i2m2.com"     class="footer-link">info@i2m2.com</a>
-          <span class="footer-link">六本木ヒルズ森タワー37F</span>
-          <span class="footer-link">東京都港区六本木6-10-1</span>
+        <div class="f-links">
+          <a class="f-link" href="#contact">お問い合わせ</a>
+          <a class="f-link" href="#contact">採用情報</a>
+          <a class="f-link" href="#insights">ニュースレター</a>
+          <a class="f-link" href="mailto:info@i2m2.com">info@i2m2.com</a>
         </div>
       </div>
     </div>
 
-    <div class="footer-bottom">
-      <div class="footer-copy">
-        © 2025 株式会社イズムズ / i2m2 Co., Ltd. All rights reserved.
-        &nbsp;|&nbsp;
-        <a href="#">プライバシーポリシー</a>
+    <div class="footer-bot">
+      <div class="f-copy">
+        &copy; 2024 <a href="https://i2m2.com" target="_blank">株式会社イズムズ (i2m2 Co., Ltd.)</a>. All rights reserved.
       </div>
-      <div class="footer-bottom-links">
-        <a href="#" class="footer-bottom-link">利用規約</a>
-        <a href="#" class="footer-bottom-link">特定商取引法</a>
-        <a href="#" class="footer-bottom-link">サイトマップ</a>
+      <div class="f-bot-links">
+        <a class="f-bot-link" href="#">プライバシーポリシー</a>
+        <a class="f-bot-link" href="#">利用規約</a>
+        <a class="f-bot-link" href="#">個人情報保護方針</a>
       </div>
     </div>
   </div>
 </footer>
 
-<!-- ===== SCRIPTS ===== -->
+<!-- =============================================
+     JAVASCRIPT — Full Dynamic
+     ============================================= -->
 <script>
-// Loading
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.getElementById('loading-screen').classList.add('hidden');
-  }, 2200);
-});
+(function () {
+  'use strict';
 
-// Cursor
-const dot  = document.getElementById('cursorDot');
-const ring = document.getElementById('cursorRing');
-let mx = 0, my = 0, rx = 0, ry = 0;
-document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  dot.style.left = mx + 'px'; dot.style.top = my + 'px';
-});
-(function animRing() {
-  rx += (mx - rx) * 0.12;
-  ry += (my - ry) * 0.12;
-  ring.style.left = rx + 'px';
-  ring.style.top  = ry + 'px';
-  requestAnimationFrame(animRing);
-})();
-document.querySelectorAll('a, button, .service-card, .work-card, .news-item').forEach(el => {
-  el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-  el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-});
-
-// Header scroll
-const header = document.getElementById('siteHeader');
-window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 60);
-});
-
-// Hamburger
-const burger   = document.getElementById('hamburger');
-const mobileNav = document.getElementById('mobileNav');
-burger.addEventListener('click', () => {
-  const open = mobileNav.classList.toggle('open');
-  document.body.style.overflow = open ? 'hidden' : '';
-});
-document.querySelectorAll('[data-close]').forEach(el => {
-  el.addEventListener('click', () => {
-    mobileNav.classList.remove('open');
-    document.body.style.overflow = '';
+  /* ─── Loading ─── */
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      var ld = document.getElementById('loading');
+      if (ld) {
+        ld.classList.add('out');
+        setTimeout(function () { ld.style.display = 'none'; }, 900);
+      }
+    }, 2200);
   });
-});
 
-// Scroll Reveal
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }
+  /* ─── Custom Cursor ─── */
+  var dot  = document.getElementById('cursor-dot');
+  var ring = document.getElementById('cursor-ring');
+  var mx = 0, my = 0, rx = 0, ry = 0;
+
+  document.addEventListener('mousemove', function (e) {
+    mx = e.clientX; my = e.clientY;
+    if (dot) { dot.style.left = mx + 'px'; dot.style.top = my + 'px'; }
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// Counter
-function counter(el) {
-  const target = parseInt(el.dataset.count);
-  const suffix = el.querySelector('span') ? el.querySelector('span').outerHTML : '';
-  const dur = 1800;
-  const start = performance.now();
-  function tick(now) {
-    const p = Math.min((now - start) / dur, 1);
-    const v = 1 - Math.pow(1 - p, 4);
-    el.innerHTML = Math.round(v * target) + suffix;
-    if (p < 1) requestAnimationFrame(tick);
+  (function animRing() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    if (ring) { ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; }
+    requestAnimationFrame(animRing);
+  })();
+
+  document.querySelectorAll('a,button,.pf-card,.blog-card,.svc-card,.award-item,.team-card').forEach(function (el) {
+    el.addEventListener('mouseenter', function () { document.body.classList.add('cur-hover'); });
+    el.addEventListener('mouseleave', function () { document.body.classList.remove('cur-hover'); });
+  });
+
+  document.addEventListener('mousedown', function () { document.body.classList.add('cur-click'); });
+  document.addEventListener('mouseup',   function () { document.body.classList.remove('cur-click'); });
+
+  /* ─── Header scroll ─── */
+  var header = document.getElementById('header');
+  window.addEventListener('scroll', function () {
+    if (header) {
+      header.classList.toggle('on', window.scrollY > 40);
+    }
+  }, { passive: true });
+
+  /* ─── Fullscreen Menu ─── */
+  var menuBtn     = document.getElementById('menuBtn');
+  var menuOverlay = document.getElementById('menuOverlay');
+  var isMenuOpen  = false;
+
+  function toggleMenu() {
+    isMenuOpen = !isMenuOpen;
+    menuBtn.classList.toggle('open', isMenuOpen);
+    menuOverlay.classList.toggle('open', isMenuOpen);
+    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
   }
-  requestAnimationFrame(tick);
-}
-const cntObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { counter(e.target); cntObs.unobserve(e.target); }
-  });
-}, { threshold: 0.5 });
-document.querySelectorAll('[data-count]').forEach(el => cntObs.observe(el));
 
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const t = document.querySelector(a.getAttribute('href'));
-    if (!t) return;
-    e.preventDefault();
-    window.scrollTo({ top: t.getBoundingClientRect().top + scrollY - 80, behavior: 'smooth' });
-  });
-});
+  if (menuBtn) menuBtn.addEventListener('click', toggleMenu);
 
-// Contact form
-function handleContact(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('button');
-  btn.innerHTML = '<i class="fas fa-check"></i>　送信完了しました';
-  btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
-  setTimeout(() => {
-    btn.innerHTML = '<i class="fas fa-paper-plane"></i>　送信する';
-    btn.style.background = '';
-    e.target.reset();
-  }, 4000);
-}
+  document.querySelectorAll('[data-close-menu]').forEach(function (el) {
+    el.addEventListener('click', function () {
+      if (isMenuOpen) toggleMenu();
+    });
+  });
+
+  /* ─── Smooth scroll ─── */
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        window.scrollTo({ top: target.offsetTop - 68, behavior: 'smooth' });
+      }
+    });
+  });
+
+  /* ─── Scroll Reveal (IntersectionObserver) ─── */
+  var ioOpts = { threshold: 0.12, rootMargin: '0px 0px -60px 0px' };
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) {
+        en.target.classList.add('in');
+        io.unobserve(en.target);
+      }
+    });
+  }, ioOpts);
+
+  document.querySelectorAll('.rev,.rev-l,.rev-r').forEach(function (el) { io.observe(el); });
+
+  /* ─── Counter Animation ─── */
+  function animCount(el) {
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    var start  = 0;
+    var dur    = 2000;
+    var t0     = null;
+
+    function step(ts) {
+      if (!t0) t0 = ts;
+      var prog = Math.min((ts - t0) / dur, 1);
+      var ease = 1 - Math.pow(1 - prog, 3);
+      var val  = Math.floor(ease * target);
+      el.textContent = val.toLocaleString() + suffix;
+      if (prog < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var ioNum = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) {
+        animCount(en.target);
+        ioNum.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.num-val[data-count]').forEach(function (el) { ioNum.observe(el); });
+
+  /* ─── Portfolio Filter ─── */
+  var pfBtns  = document.querySelectorAll('.pf-btn');
+  var pfCards = document.querySelectorAll('.pf-card');
+
+  pfBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var cat = this.getAttribute('data-cat');
+      pfBtns.forEach(function (b) { b.classList.remove('on'); });
+      this.classList.add('on');
+
+      pfCards.forEach(function (card) {
+        var cardCat = card.getAttribute('data-cat');
+        if (cat === 'all' || cardCat === cat) {
+          card.style.opacity = '1';
+          card.style.transform = 'scale(1)';
+          card.style.display = '';
+        } else {
+          card.style.opacity = '0.15';
+          card.style.transform = 'scale(0.97)';
+        }
+      });
+    });
+  });
+
+  /* ─── Process Step Highlight on scroll ─── */
+  var procSteps = document.querySelectorAll('.proc-step');
+  var ioProc = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) {
+        en.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.6 });
+  procSteps.forEach(function (s) { ioProc.observe(s); });
+
+  /* ─── Parallax Hero ─── */
+  var heroVid = document.querySelector('.hero-video');
+  window.addEventListener('scroll', function () {
+    if (!heroVid) return;
+    var sy = window.scrollY;
+    if (sy < window.innerHeight) {
+      heroVid.style.transform = 'scale(1) translateY(' + (sy * 0.3) + 'px)';
+    }
+  }, { passive: true });
+
+  /* ─── Newsletter ─── */
+  window.handleNewsletter = function () {
+    var name  = document.getElementById('nlName');
+    var email = document.getElementById('nlEmail');
+    var msg   = document.getElementById('nlMsg');
+    if (email && email.value && email.value.includes('@')) {
+      if (msg) { msg.style.display = 'block'; }
+      if (name)  { name.value  = ''; }
+      if (email) { email.value = ''; }
+    } else {
+      alert('有効なメールアドレスを入力してください。');
+    }
+  };
+
+  /* ─── Hover tilt effect on cards ─── */
+  document.querySelectorAll('.takeout-card').forEach(function (card) {
+    card.addEventListener('mousemove', function (e) {
+      var rect = card.getBoundingClientRect();
+      var x = (e.clientX - rect.left) / rect.width  - 0.5;
+      var y = (e.clientY - rect.top)  / rect.height - 0.5;
+      card.style.transform = 'perspective(800px) rotateY(' + (x * 6) + 'deg) rotateX(' + (-y * 6) + 'deg) translateZ(4px)';
+    });
+    card.addEventListener('mouseleave', function () {
+      card.style.transform = '';
+      card.style.transition = 'transform 0.6s ease';
+    });
+    card.addEventListener('mouseenter', function () {
+      card.style.transition = 'transform 0.1s ease';
+    });
+  });
+
+  /* ─── Svc card animated border ─── */
+  document.querySelectorAll('.svc-card').forEach(function (card) {
+    card.addEventListener('mousemove', function (e) {
+      var rect = card.getBoundingClientRect();
+      var x = ((e.clientX - rect.left) / rect.width  * 100).toFixed(1);
+      var y = ((e.clientY - rect.top)  / rect.height * 100).toFixed(1);
+      card.style.setProperty('--mx', x + '%');
+      card.style.setProperty('--my', y + '%');
+    });
+  });
+
+  console.log('%c i2m2 Co., Ltd. ', 'background:#C49A2E;color:#000;font-weight:900;font-size:18px;padding:4px 12px;border-radius:4px;');
+  console.log('%c Healthcare & Medical Support Excellence ', 'color:#C49A2E;font-size:11px;letter-spacing:2px;');
+
+})();
 </script>
 
 </body>
