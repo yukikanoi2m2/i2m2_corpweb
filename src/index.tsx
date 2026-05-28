@@ -142,10 +142,10 @@ app.get('/', async (c) => {
 <!-- ══ § 1 HERO ══ -->
 <section class="hero" id="top">
   <div class="hero-vid-wrap">
-    <video class="hero-vid" id="heroVid" autoplay muted loop playsinline preload="auto"
+    <video class="hero-vid" id="heroVid" autoplay muted loop playsinline preload="none"
       poster="/static/frame_5s.jpg">
-      <source src="/static/hero_video.mp4" type="video/mp4">
-      <source src="/static/main_acer04.webm" type="video/webm">
+      <source data-src="/static/hero_video.mp4" type="video/mp4">
+      <source data-src="/static/main_acer04.webm" type="video/webm">
     </video>
     <div class="hero-placeholder" id="heroPlaceholder">
       <div class="hp-grid">${Array(20).fill('<div class="hp-cell"></div>').join('')}</div>
@@ -420,8 +420,8 @@ app.get('/', async (c) => {
     <div class="pf-grid">
       <div class="pf-card span2" data-cat="hospital">
         <!-- 仮動画：後で専用動画に差し替え予定 -->
-        <video class="pf-card-video" autoplay muted loop playsinline poster="/static/frame_5s.jpg">
-          <source src="/static/hero_video.mp4" type="video/mp4">
+        <video class="pf-card-video" autoplay muted loop playsinline preload="none" poster="/static/frame_5s.jpg" data-lazy-video>
+          <source data-src="/static/hero_video.mp4" type="video/mp4">
         </video>
         <div class="pf-card-overlay"></div>
         <div class="view-hint">View</div>
@@ -432,8 +432,8 @@ app.get('/', async (c) => {
       </div>
       <div class="pf-card" data-cat="dx">
         <!-- 仮動画：後で専用動画に差し替え予定 -->
-        <video class="pf-card-video" autoplay muted loop playsinline poster="/static/frame_5s.jpg">
-          <source src="/static/hero_video.mp4" type="video/mp4">
+        <video class="pf-card-video" autoplay muted loop playsinline preload="none" poster="/static/frame_5s.jpg" data-lazy-video>
+          <source data-src="/static/hero_video.mp4" type="video/mp4">
         </video>
         <div class="pf-card-overlay"></div>
         <div class="view-hint">View</div>
@@ -444,8 +444,8 @@ app.get('/', async (c) => {
       </div>
       <div class="pf-card" data-cat="staffing">
         <!-- 仮動画：後で専用動画に差し替え予定 -->
-        <video class="pf-card-video" autoplay muted loop playsinline poster="/static/frame_5s.jpg">
-          <source src="/static/hero_video.mp4" type="video/mp4">
+        <video class="pf-card-video" autoplay muted loop playsinline preload="none" poster="/static/frame_5s.jpg" data-lazy-video>
+          <source data-src="/static/hero_video.mp4" type="video/mp4">
         </video>
         <div class="pf-card-overlay"></div>
         <div class="view-hint">View</div>
@@ -456,8 +456,8 @@ app.get('/', async (c) => {
       </div>
       <div class="pf-card span2" data-cat="consulting">
         <!-- 仮動画：後で専用動画に差し替え予定 -->
-        <video class="pf-card-video" autoplay muted loop playsinline poster="/static/frame_5s.jpg">
-          <source src="/static/hero_video.mp4" type="video/mp4">
+        <video class="pf-card-video" autoplay muted loop playsinline preload="none" poster="/static/frame_5s.jpg" data-lazy-video>
+          <source data-src="/static/hero_video.mp4" type="video/mp4">
         </video>
         <div class="pf-card-overlay"></div>
         <div class="view-hint">View</div>
@@ -468,8 +468,8 @@ app.get('/', async (c) => {
       </div>
       <div class="pf-card" data-cat="dx">
         <!-- 仮動画：後で専用動画に差し替え予定 -->
-        <video class="pf-card-video" autoplay muted loop playsinline poster="/static/frame_5s.jpg">
-          <source src="/static/hero_video.mp4" type="video/mp4">
+        <video class="pf-card-video" autoplay muted loop playsinline preload="none" poster="/static/frame_5s.jpg" data-lazy-video>
+          <source data-src="/static/hero_video.mp4" type="video/mp4">
         </video>
         <div class="pf-card-overlay"></div>
         <div class="view-hint">View</div>
@@ -525,8 +525,8 @@ app.get('/', async (c) => {
 <section class="about" id="about">
   <!-- 仮動画背景：後で専用動画に差し替え予定 -->
   <div class="about-vid-wrap">
-    <video class="about-vid" autoplay muted loop playsinline poster="/static/frame_5s.jpg">
-      <source src="/static/hero_video.mp4" type="video/mp4">
+    <video class="about-vid" autoplay muted loop playsinline preload="none" poster="/static/frame_5s.jpg" data-lazy-video>
+      <source data-src="/static/hero_video.mp4" type="video/mp4">
     </video>
     <div class="about-vid-overlay"></div>
   </div>
@@ -756,6 +756,43 @@ app.get('/', async (c) => {
 </footer>
 
 <script src="/static/main.js"></script>
+<script>
+/* ── Hero video: load after page paint ── */
+(function(){
+  var hv = document.getElementById('heroVid');
+  if(!hv) return;
+  function loadHero(){
+    hv.querySelectorAll('source[data-src]').forEach(function(s){
+      s.setAttribute('src',s.getAttribute('data-src'));
+      s.removeAttribute('data-src');
+    });
+    hv.load();
+    hv.play().catch(function(){});
+  }
+  if(document.readyState==='complete'){ setTimeout(loadHero,100); }
+  else { window.addEventListener('load', function(){ setTimeout(loadHero,100); }); }
+})();
+
+/* ── Lazy-load other videos (data-lazy-video) via IntersectionObserver ── */
+(function(){
+  var videos = document.querySelectorAll('video[data-lazy-video]:not(#heroVid)');
+  if (!videos.length) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var v = e.target;
+      v.querySelectorAll('source[data-src]').forEach(function(s){
+        s.setAttribute('src', s.getAttribute('data-src'));
+        s.removeAttribute('data-src');
+      });
+      v.load();
+      v.play().catch(function(){});
+      io.unobserve(v);
+    });
+  }, {rootMargin: '300px'});
+  videos.forEach(function(v){ io.observe(v); });
+})();
+</script>
 `)
 })
 
