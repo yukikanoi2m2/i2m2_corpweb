@@ -142,7 +142,9 @@ app.get('/', async (c) => {
 <!-- ══ § 1 HERO ══ -->
 <section class="hero" id="top">
   <div class="hero-vid-wrap">
-    <video class="hero-vid" id="heroVid" autoplay muted loop playsinline preload="auto">
+    <video class="hero-vid" id="heroVid" autoplay muted loop playsinline preload="auto"
+      poster="/static/frame_5s.jpg">
+      <source src="/static/hero_video.mp4" type="video/mp4">
       <source src="/static/main_acer04.webm" type="video/webm">
     </video>
     <div class="hero-placeholder" id="heroPlaceholder">
@@ -417,7 +419,10 @@ app.get('/', async (c) => {
     </div>
     <div class="pf-grid">
       <div class="pf-card span2" data-cat="hospital">
-        <div class="pf-card-bg">🏥</div>
+        <!-- 仮動画：後で専用動画に差し替え予定 -->
+        <video class="pf-card-video" autoplay muted loop playsinline poster="/static/frame_5s.jpg">
+          <source src="/static/hero_video.mp4" type="video/mp4">
+        </video>
         <div class="pf-card-overlay"></div>
         <div class="view-hint">View</div>
         <div class="pf-card-info">
@@ -426,7 +431,10 @@ app.get('/', async (c) => {
         </div>
       </div>
       <div class="pf-card" data-cat="dx">
-        <div class="pf-card-bg">🤖</div>
+        <!-- 仮動画：後で専用動画に差し替え予定 -->
+        <video class="pf-card-video" autoplay muted loop playsinline poster="/static/frame_5s.jpg">
+          <source src="/static/hero_video.mp4" type="video/mp4">
+        </video>
         <div class="pf-card-overlay"></div>
         <div class="view-hint">View</div>
         <div class="pf-card-info">
@@ -435,7 +443,10 @@ app.get('/', async (c) => {
         </div>
       </div>
       <div class="pf-card" data-cat="staffing">
-        <div class="pf-card-bg">👩‍⚕️</div>
+        <!-- 仮動画：後で専用動画に差し替え予定 -->
+        <video class="pf-card-video" autoplay muted loop playsinline poster="/static/frame_5s.jpg">
+          <source src="/static/hero_video.mp4" type="video/mp4">
+        </video>
         <div class="pf-card-overlay"></div>
         <div class="view-hint">View</div>
         <div class="pf-card-info">
@@ -444,7 +455,10 @@ app.get('/', async (c) => {
         </div>
       </div>
       <div class="pf-card span2" data-cat="consulting">
-        <div class="pf-card-bg">📊</div>
+        <!-- 仮動画：後で専用動画に差し替え予定 -->
+        <video class="pf-card-video" autoplay muted loop playsinline poster="/static/frame_5s.jpg">
+          <source src="/static/hero_video.mp4" type="video/mp4">
+        </video>
         <div class="pf-card-overlay"></div>
         <div class="view-hint">View</div>
         <div class="pf-card-info">
@@ -453,7 +467,10 @@ app.get('/', async (c) => {
         </div>
       </div>
       <div class="pf-card" data-cat="dx">
-        <div class="pf-card-bg">📱</div>
+        <!-- 仮動画：後で専用動画に差し替え予定 -->
+        <video class="pf-card-video" autoplay muted loop playsinline poster="/static/frame_5s.jpg">
+          <source src="/static/hero_video.mp4" type="video/mp4">
+        </video>
         <div class="pf-card-overlay"></div>
         <div class="view-hint">View</div>
         <div class="pf-card-info">
@@ -506,6 +523,13 @@ app.get('/', async (c) => {
 
 <!-- ══ § 7 ABOUT — "For the Better" ══ -->
 <section class="about" id="about">
+  <!-- 仮動画背景：後で専用動画に差し替え予定 -->
+  <div class="about-vid-wrap">
+    <video class="about-vid" autoplay muted loop playsinline poster="/static/frame_5s.jpg">
+      <source src="/static/hero_video.mp4" type="video/mp4">
+    </video>
+    <div class="about-vid-overlay"></div>
+  </div>
   <div class="about-ticker-v">
     <div class="about-ticker-v-track">
       We always think better good · We always think better good · We always think better good ·
