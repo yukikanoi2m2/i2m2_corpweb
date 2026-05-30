@@ -147,14 +147,7 @@ app.get('/', async (c) => {
       <source data-src="/static/hero_video.mp4" type="video/mp4">
       <source data-src="/static/main_acer04.webm" type="video/webm">
     </video>
-    <div class="hero-placeholder" id="heroPlaceholder">
-      <div class="hp-grid">${Array(20).fill('<div class="hp-cell"></div>').join('')}</div>
-      <div class="hp-orbs">
-        <div class="hp-orb hp-orb1"></div>
-        <div class="hp-orb hp-orb2"></div>
-        <div class="hp-orb hp-orb3"></div>
-      </div>
-    </div>
+    <!-- poster画像が動画ロード前の背景として機能するため、placeholderは不要 -->
   </div>
   <div class="hero-overlay"></div>
   <canvas id="heroParticles"></canvas>
