@@ -45,7 +45,7 @@ function initLoading() {
     done();
   } else {
     window.addEventListener('load', done);
-    setTimeout(done, 3000);
+    setTimeout(done, 1500); // フォールバック：1.5秒後に強制完了
   }
 }
 
@@ -1057,6 +1057,8 @@ function initAboutSection() {
    INIT ALL
 ================================================================ */
 document.addEventListener('DOMContentLoaded', () => {
+  // JS動作確認クラスを即付与 → [data-reveal]のアニメーションを有効化
+  document.body.classList.add('js-ready');
   initLoading();
   initCursor();
   initHeader();
