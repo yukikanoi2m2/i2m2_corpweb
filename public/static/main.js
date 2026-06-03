@@ -1019,6 +1019,85 @@ function initAdminUI() {
 }
 
 /* ================================================================
+   27a. TAKEOUT KEYWORD SLIDER — dynamic auto-rotating keywords
+================================================================ */
+function initTakeoutSlider() {
+  const slider = document.getElementById('tkSlider');
+  if (!slider) return;
+
+  const slides = slider.querySelectorAll('.tk-slide');
+  const dots   = document.querySelectorAll('#tkDots .tk-dot');
+  if (!slides.length) return;
+
+  let current = 0;
+  let timer   = null;
+  let paused  = false;
+
+  /* -- スライド切替 -- */
+  function goTo(idx) {
+    const prev = current;
+    current = ((idx % slides.length) + slides.length) % slides.length;
+    if (prev === current) return;
+
+    /* 前スライドをスライドアウト */
+    slides[prev].classList.remove('active');
+    slides[prev].classList.add('exit');
+    setTimeout(() => slides[prev].classList.remove('exit'), 650);
+
+    /* CSS変数でグラデーションカラーを更新 */
+    const color = slides[current].dataset.color || '#D4AF37';
+    slider.style.setProperty('--slide-color', color);
+
+    /* 新スライドをスライドイン */
+    slides[current].classList.add('active');
+
+    /* ドット更新 */
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  function startTimer() {
+    clearInterval(timer);
+    timer = setInterval(next, 5800);
+  }
+  function stopTimer() { clearInterval(timer); }
+
+  /* ホバーで一時停止 */
+  const wrap = slider.closest('.tk-slider-wrap') || slider;
+  wrap.addEventListener('mouseenter', () => { paused = true;  stopTimer(); });
+  wrap.addEventListener('mouseleave', () => { paused = false; startTimer(); });
+
+  /* ドットクリック */
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      stopTimer();
+      goTo(i);
+      if (!paused) startTimer();
+    });
+  });
+
+  /* タッチスワイプ（モバイル） */
+  let touchStartX = 0;
+  slider.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+  slider.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) {
+      stopTimer();
+      if (dx < 0) next(); else prev();
+      if (!paused) startTimer();
+    }
+  }, { passive: true });
+
+  /* 初期カラーセット & タイマー開始 */
+  slider.style.setProperty('--slide-color', slides[0].dataset.color || '#D4AF37');
+  startTimer();
+}
+
+/* ================================================================
    27. TAKEOUT SECTION — heading entrance
 ================================================================ */
 function initTakeoutSection() {
@@ -1087,6 +1166,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHoverScale();
   initMouseTrail();
   initAdminUI();
+  initTakeoutSlider();
   initTakeoutSection();
   initAboutSection();
 

@@ -195,6 +195,45 @@ app.get('/', async (c) => {
 
 <!-- ══ § 3 TAKEOUT ══ -->
 <section class="takeout" id="takeout">
+  <!-- ── Dynamic Keyword Slider ── -->
+  <div class="tk-slider-wrap">
+    <div class="tk-label">We Provide</div>
+    <div class="tk-slider" id="tkSlider">
+      <div class="tk-slide active" data-color="#D4AF37">
+        <div class="tk-kw"><span class="tk-arrow">&rsaquo;&rsaquo;</span> <span class="tk-word">Consulting</span></div>
+        <div class="tk-desc">医療経営のコンサルティング</div>
+      </div>
+      <div class="tk-slide" data-color="#C9A961">
+        <div class="tk-kw"><span class="tk-arrow">&rsaquo;&rsaquo;</span> <span class="tk-word">Strategy Planning</span></div>
+        <div class="tk-desc">戦略的な経営ビジョン構築</div>
+      </div>
+      <div class="tk-slide" data-color="#E8C84A">
+        <div class="tk-kw"><span class="tk-arrow">&rsaquo;&rsaquo;</span> <span class="tk-word">Marketing</span></div>
+        <div class="tk-desc">医療機関のマーケティング施策</div>
+      </div>
+      <div class="tk-slide" data-color="#D4AF37">
+        <div class="tk-kw"><span class="tk-arrow">&rsaquo;&rsaquo;</span> <span class="tk-word">Produce</span></div>
+        <div class="tk-desc">事業創出・新規プロジェクト</div>
+      </div>
+      <div class="tk-slide" data-color="#C9A961">
+        <div class="tk-kw"><span class="tk-arrow">&rsaquo;&rsaquo;</span> <span class="tk-word">Training</span></div>
+        <div class="tk-desc">人材育成・組織開発</div>
+      </div>
+      <div class="tk-slide" data-color="#E5D4B8">
+        <div class="tk-kw"><span class="tk-arrow">&rsaquo;&rsaquo;</span> <span class="tk-word">System Implementation</span></div>
+        <div class="tk-desc">DX推進・システム導入支援</div>
+      </div>
+    </div>
+    <div class="tk-dots" id="tkDots">
+      <button class="tk-dot active" data-idx="0"></button>
+      <button class="tk-dot" data-idx="1"></button>
+      <button class="tk-dot" data-idx="2"></button>
+      <button class="tk-dot" data-idx="3"></button>
+      <button class="tk-dot" data-idx="4"></button>
+      <button class="tk-dot" data-idx="5"></button>
+    </div>
+  </div>
+
   <div class="takeout-head">
     <div class="takeout-concept" data-reveal>
       Takeout<span class="q">?</span>
@@ -487,6 +526,32 @@ app.get('/', async (c) => {
     </span>`).join('')}
   </div>
 </div>
+<!-- ── Moving Text Wall: Success Stories ── -->
+<div class="mv-wall mv-wall--dark">
+  <div class="mv-track mv-track--reverse">
+    <span class="mv-item">1,200+ Healthcare Institutions Supported</span>
+    <span class="mv-sep">★</span>
+    <span class="mv-item">1,200+ Healthcare Institutions Supported</span>
+    <span class="mv-sep">★</span>
+    <span class="mv-item">1,200+ Healthcare Institutions Supported</span>
+    <span class="mv-sep">★</span>
+    <span class="mv-item">1,200+ Healthcare Institutions Supported</span>
+    <span class="mv-sep">★</span>
+    <span class="mv-item">1,200+ Healthcare Institutions Supported</span>
+    <span class="mv-sep">★</span>
+    <span class="mv-item">1,200+ Healthcare Institutions Supported</span>
+    <span class="mv-sep">★</span>
+    <span class="mv-item">1,200+ Healthcare Institutions Supported</span>
+    <span class="mv-sep">★</span>
+    <span class="mv-item">1,200+ Healthcare Institutions Supported</span>
+    <span class="mv-sep">★</span>
+    <span class="mv-item">1,200+ Healthcare Institutions Supported</span>
+    <span class="mv-sep">★</span>
+    <span class="mv-item">1,200+ Healthcare Institutions Supported</span>
+    <span class="mv-sep">★</span>
+  </div>
+</div>
+
 <section class="numbers" id="insights">
   <div class="nums-wrap">
     <div class="nums-top" data-reveal>
@@ -530,9 +595,29 @@ app.get('/', async (c) => {
   </div>
   <div class="about-wrap">
     <div class="about-hello" data-reveal>こんにちは。</div>
-    <div class="about-marquee-wrap">
-      <div class="about-marquee-track">
-        ${Array(4).fill(`<span class="about-marquee-item">We always think <span>'better good'</span></span>`).join('')}
+    <div class="mv-wall mv-wall--about">
+      <div class="mv-track">
+        <span class="mv-item">We Support Healthcare Excellence</span>
+        <span class="mv-sep">✦</span>
+        <span class="mv-item">We Support Healthcare Excellence</span>
+        <span class="mv-sep">✦</span>
+        <span class="mv-item">We Support Healthcare Excellence</span>
+        <span class="mv-sep">✦</span>
+        <span class="mv-item">We Support Healthcare Excellence</span>
+        <span class="mv-sep">✦</span>
+        <span class="mv-item">We Support Healthcare Excellence</span>
+        <span class="mv-sep">✦</span>
+        <!-- duplicate for seamless loop -->
+        <span class="mv-item">We Support Healthcare Excellence</span>
+        <span class="mv-sep">✦</span>
+        <span class="mv-item">We Support Healthcare Excellence</span>
+        <span class="mv-sep">✦</span>
+        <span class="mv-item">We Support Healthcare Excellence</span>
+        <span class="mv-sep">✦</span>
+        <span class="mv-item">We Support Healthcare Excellence</span>
+        <span class="mv-sep">✦</span>
+        <span class="mv-item">We Support Healthcare Excellence</span>
+        <span class="mv-sep">✦</span>
       </div>
     </div>
     <div data-reveal>
@@ -566,6 +651,32 @@ app.get('/', async (c) => {
     </div>
   </div>
 </section>
+
+<!-- ── Moving Text Wall: Our Approach ── -->
+<div class="mv-wall mv-wall--light">
+  <div class="mv-track">
+    <span class="mv-item mv-item--outline">Strategy + Technology + Human Touch</span>
+    <span class="mv-sep">◆</span>
+    <span class="mv-item mv-item--outline">Strategy + Technology + Human Touch</span>
+    <span class="mv-sep">◆</span>
+    <span class="mv-item mv-item--outline">Strategy + Technology + Human Touch</span>
+    <span class="mv-sep">◆</span>
+    <span class="mv-item mv-item--outline">Strategy + Technology + Human Touch</span>
+    <span class="mv-sep">◆</span>
+    <span class="mv-item mv-item--outline">Strategy + Technology + Human Touch</span>
+    <span class="mv-sep">◆</span>
+    <span class="mv-item mv-item--outline">Strategy + Technology + Human Touch</span>
+    <span class="mv-sep">◆</span>
+    <span class="mv-item mv-item--outline">Strategy + Technology + Human Touch</span>
+    <span class="mv-sep">◆</span>
+    <span class="mv-item mv-item--outline">Strategy + Technology + Human Touch</span>
+    <span class="mv-sep">◆</span>
+    <span class="mv-item mv-item--outline">Strategy + Technology + Human Touch</span>
+    <span class="mv-sep">◆</span>
+    <span class="mv-item mv-item--outline">Strategy + Technology + Human Touch</span>
+    <span class="mv-sep">◆</span>
+  </div>
+</div>
 
 <!-- ══ § 8 NEWSLETTER ══ -->
 <section class="newsletter-sec" id="newsletter">
