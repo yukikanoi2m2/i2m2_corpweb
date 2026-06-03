@@ -395,7 +395,7 @@ function initGSAP() {
   $$('.gsap-fade').forEach(el => {
     gsap.from(el, {
       scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' },
-      y: 60, opacity: 0, duration: 1, ease
+      y: 0, opacity: 1, duration: 1, ease
     });
   });
 
@@ -403,7 +403,7 @@ function initGSAP() {
   $$('.gsap-fade-l').forEach(el => {
     gsap.from(el, {
       scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' },
-      x: -80, opacity: 0, duration: 1.1, ease
+      x: 0, opacity: 1, duration: 1.1, ease
     });
   });
 
@@ -411,7 +411,7 @@ function initGSAP() {
   $$('.gsap-fade-r').forEach(el => {
     gsap.from(el, {
       scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' },
-      x: 80, opacity: 0, duration: 1.1, ease
+      x: 0, opacity: 1, duration: 1.1, ease
     });
   });
 
@@ -425,7 +425,7 @@ function initGSAP() {
   Object.values(cardGroups).forEach(group => {
     gsap.from(group, {
       scrollTrigger: { trigger: group[0], start: 'top 82%', toggleActions: 'play none none none' },
-      y: 80, opacity: 0, duration: 0.9, stagger: 0.12, ease
+      y: 0, opacity: 1, duration: 0.9, stagger: 0.12, ease
     });
   });
 
@@ -526,7 +526,7 @@ function initGSAP() {
   if (svcItems.length) {
     gsap.from(svcItems, {
       scrollTrigger: { trigger: svcItems[0], start: 'top 82%', toggleActions: 'play none none none' },
-      y: 40, opacity: 0, duration: 0.75, stagger: 0.1, ease
+      y: 0, opacity: 1, duration: 0.75, stagger: 0.1, ease
     });
   }
 
@@ -535,7 +535,7 @@ function initGSAP() {
   if (pfCards.length) {
     gsap.from(pfCards, {
       scrollTrigger: { trigger: pfCards[0].parentElement, start: 'top 78%' },
-      y: 60, opacity: 0, scale: 0.95, duration: 0.85, stagger: 0.12, ease: 'power3.out'
+      y: 0, opacity: 1, scale: 1, duration: 0.85, stagger: 0.12, ease: 'power3.out'
     });
   }
 
@@ -544,7 +544,7 @@ function initGSAP() {
   if (numCells.length) {
     gsap.from(numCells, {
       scrollTrigger: { trigger: numCells[0].parentElement, start: 'top 80%' },
-      y: 50, opacity: 0, duration: 0.9, stagger: 0.15, ease
+      y: 0, opacity: 1, duration: 0.9, stagger: 0.15, ease
     });
   }
 
@@ -553,7 +553,7 @@ function initGSAP() {
   if (teamCards.length) {
     gsap.from(teamCards, {
       scrollTrigger: { trigger: teamCards[0].parentElement, start: 'top 80%' },
-      scale: 0.88, opacity: 0, duration: 0.85, stagger: 0.1, ease: 'back.out(1.4)'
+      scale: 1, opacity: 1, duration: 0.85, stagger: 0.1, ease: 'back.out(1.4)'
     });
   }
 
@@ -561,7 +561,7 @@ function initGSAP() {
   $$('.aw-item').forEach((el, i) => {
     gsap.from(el, {
       scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' },
-      x: -50, opacity: 0, duration: 0.7, delay: i * 0.05, ease
+      x: 0, opacity: 1, duration: 0.7, delay: i * 0.05, ease
     });
   });
 
@@ -570,7 +570,7 @@ function initGSAP() {
   if (betterEl) {
     gsap.from(betterEl, {
       scrollTrigger: { trigger: '.about', start: 'top 70%', toggleActions: 'play none none none' },
-      x: -100, opacity: 0, duration: 1.4, ease: 'power4.out'
+      x: 0, opacity: 1, duration: 1.4, ease: 'power4.out'
     });
   }
 
@@ -579,7 +579,7 @@ function initGSAP() {
   if (menuCards.length) {
     gsap.from(menuCards, {
       scrollTrigger: { trigger: menuCards[0].parentElement, start: 'top 78%' },
-      y: 80, opacity: 0, duration: 0.9, stagger: 0.12, ease
+      y: 0, opacity: 1, duration: 0.9, stagger: 0.12, ease
     });
   }
 
@@ -604,7 +604,7 @@ function initGSAP() {
   $$('.sec-tag, .sec-heading, .pf-label, .aw-label, .tm-label, .nl-top-label').forEach(el => {
     gsap.from(el, {
       scrollTrigger: { trigger: el, start: 'top 90%', toggleActions: 'play none none none' },
-      y: 20, opacity: 0, duration: 0.7, ease
+      y: 0, opacity: 1, duration: 0.7, ease
     });
   });
 
@@ -613,26 +613,15 @@ function initGSAP() {
   if (nlCards.length) {
     gsap.from(nlCards, {
       scrollTrigger: { trigger: nlCards[0].parentElement, start: 'top 82%' },
-      y: 50, opacity: 0, duration: 0.8, stagger: 0.1, ease
+      y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease
     });
   }
 }
 
 /* Fallback reveal without GSAP */
 function initFallbackReveal() {
-  const targets = $$('[data-reveal], .gsap-fade, .gsap-fade-l, .gsap-fade-r, .gsap-card, .gsap-num, .gsap-svc-item');
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const delay = e.target.dataset.d ? parseFloat(e.target.dataset.d) * 0.1 : 0;
-        setTimeout(() => {
-          e.target.classList.add('io-visible');
-        }, delay * 1000);
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  targets.forEach(t => { t.classList.add('io-hidden'); io.observe(t); });
+  // 無効化: io-hidden クラスを追加すると opacity:0 になり空白が発生するため使用しない
+  // 全要素はCSSおよびinjectCSSで opacity:1 !important で常時表示
 }
 
 /* ================================================================
@@ -900,6 +889,12 @@ function initCardGlow() {
 function initRevealObserver() {
   const all = $$('[data-reveal]');
   if (!all.length) return;
+
+  // フォールバック: 2秒後に未revealedの要素を全て強制表示
+  setTimeout(() => {
+    all.forEach(el => { if (!el.classList.contains('revealed')) el.classList.add('revealed'); });
+  }, 2000);
+
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -908,8 +903,19 @@ function initRevealObserver() {
         io.unobserve(e.target);
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.05, rootMargin: '0px 0px -10% 0px' });
   all.forEach(el => io.observe(el));
+
+  // 画面内に既に入っている要素を即座にreveal
+  requestAnimationFrame(() => {
+    all.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        const delay = el.dataset.d ? parseFloat(el.dataset.d) * 0.12 : 0;
+        setTimeout(() => el.classList.add('revealed'), delay * 1000);
+      }
+    });
+  });
 }
 
 /* ================================================================
@@ -1110,58 +1116,29 @@ document.addEventListener('DOMContentLoaded', () => {
     @keyframes blink {
       0%,100%{opacity:1} 50%{opacity:0}
     }
-    .io-hidden {
-      opacity:0;
-      transform:translateY(30px);
-      transition:opacity 0.8s,transform 0.8s cubic-bezier(.16,1,.3,1);
-    }
-    .io-hidden.io-visible,
-    .io-hidden[data-d="1"].io-visible,
-    .io-hidden[data-d="2"].io-visible,
-    .io-hidden[data-d="3"].io-visible,
-    .io-hidden[data-d="4"].io-visible {
-      opacity:1;
-      transform:none;
-    }
+    /* io-hidden: 使用停止（opacity:0で空白になるため） */
+    .io-hidden { opacity:1 !important; transform:none !important; }
+    .io-hidden.io-visible { opacity:1 !important; transform:none !important; }
+    /* menu-link: メニューオーバーレイ内のみ非表示→表示アニメOK */
     .menu-link {
       opacity:0;
       transform:translateY(24px);
       transition:opacity 0.5s,transform 0.5s cubic-bezier(.16,1,.3,1);
     }
-    .menu-link.visible {
-      opacity:1;
-      transform:none;
-    }
-    [data-reveal] {
-      opacity:0;
-      transform:translateY(40px);
-      transition:opacity 0.9s,transform 0.9s cubic-bezier(.16,1,.3,1);
-    }
-    [data-reveal].revealed {
-      opacity:1;
-      transform:none;
-    }
-    .about-for,
-    .about-better,
-    .about-hello {
-      opacity:0;
-      transform:translateY(40px);
-      transition:opacity 1s,transform 1s cubic-bezier(.16,1,.3,1);
-    }
-    .about-for.revealed,
-    .about-better.revealed,
-    .about-hello.revealed {
-      opacity:1;
-      transform:none;
-    }
-    .takeout-concept {
-      opacity:0;
-      transform:translateY(60px);
-      transition:opacity 1.2s,transform 1.2s cubic-bezier(.16,1,.3,1);
-    }
-    .takeout-concept.revealed {
-      opacity:1;
-      transform:none;
+    .menu-link.visible { opacity:1; transform:none; }
+    /* data-reveal: body.js-readyの影響を上書き → 常に表示 */
+    body.js-ready [data-reveal] { opacity:1 !important; transform:none !important; }
+    body.js-ready [data-reveal].revealed { opacity:1 !important; transform:none !important; }
+    [data-reveal] { opacity:1 !important; transform:none !important; }
+    [data-reveal].revealed { opacity:1 !important; transform:none !important; }
+    /* 各セクションカード・アイテムを強制表示（GSAP/IO未発火対策） */
+    .svc-item, .pf-card, .team-card, .aw-item, .nl-card,
+    .menu-card, .num-cell, .takeout-concept, .takeout-right,
+    .takeout-cta, .service-label, .svc-header,
+    .pf-head, .pf-filters, .nums-top,
+    .about-for, .about-better, .about-hello,
+    .nl-title, .nl-sub, .aw-head, .tm-head {
+      opacity:1 !important; transform:none !important;
     }
   `;
   document.head.appendChild(style);

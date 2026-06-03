@@ -1159,11 +1159,10 @@ button { border: none; background: none; cursor: none; font-family: inherit; }
 /* ============================================================
    UTILITY
 ============================================================ */
-/* 初期は表示状態（opacity:1）。JSでrevealedクラスが付く前も見える */
+/* [data-reveal]: 常に表示状態を維持（ScrollTrigger/IO未発火での空白防止） */
 [data-reveal] { opacity: 1; transform: none; transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out); }
-/* JSが動いた場合のみアニメーション付きで表示 */
-body.js-ready [data-reveal] { opacity: 0; transform: translateY(24px); }
-body.js-ready [data-reveal].revealed { opacity: 1; transform: none; }
+[data-reveal].revealed { opacity: 1; transform: none; }
+/* body.js-ready [data-reveal] の opacity:0 は廃止（空白セクション問題の原因だったため） */
 [data-reveal][data-d="1"] { transition-delay: 0.1s; }
 [data-reveal][data-d="2"] { transition-delay: 0.2s; }
 [data-reveal][data-d="3"] { transition-delay: 0.3s; }
