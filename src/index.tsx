@@ -1,11 +1,73 @@
 import { Hono } from 'hono'
 import { serveStatic } from 'hono/cloudflare-workers'
 
-const app = new Hono()
+type Env = { Bindings: { DB: D1Database } }
+const app = new Hono<Env>()
 
 app.use('/static/*', serveStatic({ root: './' }))
 
-app.get('/', (c) => {
+/* ============================================================
+   HELPERS
+   ============================================================ */
+function esc(s: any) {
+  return String(s ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+}
+function catLabel(cat: string) {
+  const map: Record<string, string> = {
+    trend: 'トレンド', staffing: '人材', management: '経営',
+    policy: '制度・政策', news: 'お知らせ', event: 'イベント'
+  }
+  return map[cat] ?? cat
+}
+function dateJP(iso: string) {
+  if (!iso) return ''
+  return iso.slice(0, 10).replace(/-/g, '.')
+}
+const HEAD = (title = 'i2m2', extra = '') => `<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>${esc(title)} — i2m2 株式会社イズムズ</title>
+<meta name="description" content="株式会社イズムズ（i2m2）は医療・ヘルスケア分野の総合サポートカンパニー。">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" rel="stylesheet">
+<link href="/static/style.css" rel="stylesheet">
+${extra}
+</head><body>`
+
+app.get('/', async (c) => {
+  // Fetch latest published articles for newsletter cards section
+  let newsRows: any[] = []
+  try {
+    const db = c.env.DB
+    const r = await db.prepare(
+      `SELECT id,slug,title,excerpt,category,cover_emoji,author,published_at,tags
+       FROM articles WHERE status='published'
+       ORDER BY published_at DESC LIMIT 4`
+    ).all()
+    newsRows = r.results ?? []
+  } catch (_) { /* DB not bound or table missing — render with placeholder */ }
+
+  const newsCards = newsRows.length
+    ? newsRows.map((a: any) => `
+        <a class="nl-card rev" href="/news/${esc(a.slug)}">
+          <div class="nl-img">${esc(a.cover_emoji)}</div>
+          <div>
+            <div class="nl-series">${esc(catLabel(a.category).toUpperCase())} · ${esc(dateJP(a.published_at))}</div>
+            <div class="nl-title">${esc(a.title)}</div>
+            <div class="nl-excerpt">${esc(a.excerpt)}</div>
+            <div class="nl-tag-row">
+              ${(() => { try { return (JSON.parse(a.tags || '[]') as string[]).slice(0, 3).map(t => `<span class="nl-tag">${esc(t)}</span>`).join('') } catch { return '' } })()}
+            </div>
+          </div>
+        </a>`).join('')
+    : `<p style="color:var(--t3);font-size:14px;opacity:.7;">記事を準備中です。</p>`
+
   return c.html(`<!DOCTYPE html>
 <html lang="ko">
 <head>
