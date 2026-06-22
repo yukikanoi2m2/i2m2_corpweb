@@ -6,9 +6,8 @@ import { servicesPage } from './pages/services'
 import { maPage } from './pages/ma'
 import { healthcarePage } from './pages/healthcare'
 import { talentPage } from './pages/talent'
-import { beautyPage } from './pages/beauty'
 import { casesPage } from './pages/cases'
-import { newsPage } from './pages/news'
+import { irPage } from './pages/ir'
 import { recruitPage } from './pages/recruit'
 import { contactPage } from './pages/contact'
 import { legalPage } from './pages/legal'
@@ -32,14 +31,13 @@ app.get('/services', servicesPage)
 app.get('/healthcare', healthcarePage)   // IHG™ Healthcare Services
 app.get('/talent', talentPage)           // DR-LINK™ Healthcare Talent
 app.get('/ma', maPage)                   // RVC Community Value
-app.get('/beauty', beautyPage)           // Beauty Salon Operations
 
 // Cases & Results
 app.get('/cases', casesPage)
 app.get('/cases/:category', casesPage)
 
-// News
-app.get('/news', newsPage)
+// IR Information
+app.get('/ir', irPage)
 
 // Recruit
 app.get('/recruit', recruitPage)

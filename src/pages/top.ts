@@ -13,7 +13,7 @@ export const topPage = (c: Context) => {
       <span class="hero-line"><span>ヘルスケアから、</span></span>
       <span class="hero-line"><span class="hero-accent">地域の未来を創る。</span></span>
     </h1>
-    <p class="hero-desc">医療機関プロデュース・人材マッチング・M&A/事業承継・美容サロン運営。<br>地域価値創造事業（RVC）として、多角的に企業と地域の成長を支援します。</p>
+    <p class="hero-desc">医療機関プロデュース・人材マッチング・M&A/事業承継。<br>地域価値創造事業（RVC）として、多角的に企業と地域の成長を支援します。</p>
     <div class="hero-actions">
       <a href="/contact" class="btn btn-primary btn-lg"><i class="fas fa-paper-plane"></i> 無料相談</a>
       <a href="/services" class="btn btn-outline btn-lg">事業内容を見る <i class="fas fa-arrow-right"></i></a>
@@ -35,7 +35,6 @@ export const topPage = (c: Context) => {
     <span class="ticker-item"><span class="ticker-dot"></span>M&A Advisory</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Business Succession</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Medical DX</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Beauty Salon</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Subsidy Consulting</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Regional Value Creation</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Healthcare Marketing</span>
@@ -50,7 +49,7 @@ export const topPage = (c: Context) => {
   <div class="container">
     ${sectionTitle('ABOUT', '私たちについて')}
     <div class="about-lead">
-      <p class="section-lead">i2m2は、ヘルスケア・医療領域を起点に<strong>地域価値創造事業（RVC＝Regional Value Creation）</strong>を展開する企業です。<br>医療、介護、福祉、美容、IT、飲食など幅広い業種に対し、M&A仲介から経営支援まで一気通貫のソリューションを提供します。</p>
+      <p class="section-lead">i2m2は、ヘルスケア・医療領域を起点に<strong>地域価値創造事業（RVC＝Regional Value Creation）</strong>を展開する企業です。<br>医療、介護、福祉、IT、飲食など幅広い業種に対し、M&A仲介から経営支援まで一気通貫のソリューションを提供します。</p>
     </div>
     <div class="why-grid">
       <div class="why-card">
@@ -92,7 +91,7 @@ export const topPage = (c: Context) => {
 <section class="section section-services" id="services">
   <div class="container">
     ${sectionTitle('SERVICES', '展開事業')}
-    <p class="section-lead">ヘルスケア・医療領域を中心に、地域価値創造（RVC）の4つの事業を展開しています。</p>
+    <p class="section-lead">ヘルスケア・医療領域を中心に、地域価値創造（RVC）の3つの事業を展開しています。</p>
     <div class="services-grid">
       <a href="/healthcare" class="service-card service-ma">
         <div class="service-card-num">01</div>
@@ -127,17 +126,7 @@ export const topPage = (c: Context) => {
         </ul>
         <span class="service-card-link">詳しく見る <i class="fas fa-arrow-right"></i></span>
       </a>
-      <a href="/beauty" class="service-card service-management">
-        <div class="service-card-num">04</div>
-        <div class="service-card-icon"><i class="fas fa-spa"></i></div>
-        <div class="service-card-brand">BEAUTY</div>
-        <h3>Salon Operations<br><small>美容サロンプロデュース</small></h3>
-        <p>メディカルサロンの企画・運営支援。韓国クリニック日本進出（4everclinic）のプロデュースも。</p>
-        <ul class="service-card-tags">
-          <li>サロン運営</li><li>メディカル美容</li><li>海外展開</li>
-        </ul>
-        <span class="service-card-link">詳しく見る <i class="fas fa-arrow-right"></i></span>
-      </a>
+
     </div>
   </div>
 </section>
@@ -174,7 +163,7 @@ export const topPage = (c: Context) => {
       <div class="domain-item"><i class="fas fa-hospital"></i><span>医療法人</span></div>
       <div class="domain-item"><i class="fas fa-stethoscope"></i><span>クリニック</span></div>
       <div class="domain-item"><i class="fas fa-hand-holding-heart"></i><span>介護・福祉</span></div>
-      <div class="domain-item"><i class="fas fa-spa"></i><span>美容サロン</span></div>
+      <div class="domain-item"><i class="fas fa-tooth"></i><span>歯科</span></div>
       <div class="domain-item"><i class="fas fa-laptop-code"></i><span>IT</span></div>
       <div class="domain-item"><i class="fas fa-utensils"></i><span>飲食</span></div>
       <div class="domain-item"><i class="fas fa-pills"></i><span>調剤薬局</span></div>
@@ -247,34 +236,34 @@ export const topPage = (c: Context) => {
   </div>
 </section>
 
-<!-- NEWS -->
+<!-- IR -->
 <section class="section section-news">
   <div class="container">
-    ${sectionTitle('NEWS', 'お知らせ')}
+    ${sectionTitle('IR', 'IR情報')}
     <ul class="news-list">
       <li class="news-item">
         <time>2025.06.01</time>
-        <span class="news-tag">お知らせ</span>
-        <a href="/news">六本木ヒルズオフィス開設のお知らせ</a>
+        <span class="news-tag">IR</span>
+        <a href="/ir">六本木ヒルズ森タワー37Fにオフィスを開設</a>
       </li>
       <li class="news-item">
         <time>2025.05.15</time>
-        <span class="news-tag">事業</span>
-        <a href="/news">医療DX（カルテ電子化）サービス開始のご案内</a>
+        <span class="news-tag">事業報告</span>
+        <a href="/ir">医療DX（カルテ電子化）サービス提供開始</a>
       </li>
       <li class="news-item">
         <time>2025.04.20</time>
         <span class="news-tag">メディア</span>
-        <a href="/news">業界専門誌に弊社記事が掲載されました</a>
+        <a href="/ir">業界専門誌に弊社記事が掲載されました</a>
       </li>
       <li class="news-item">
         <time>2025.03.10</time>
-        <span class="news-tag">事例</span>
-        <a href="/news">4everclinic日本進出プロジェクト始動</a>
+        <span class="news-tag">事業報告</span>
+        <a href="/ir">累計取扱高20億円を突破</a>
       </li>
     </ul>
     <div class="text-center mt-30">
-      <a href="/news" class="btn btn-outline btn-sm">お知らせ一覧</a>
+      <a href="/ir" class="btn btn-outline btn-sm">IR情報一覧</a>
     </div>
   </div>
 </section>

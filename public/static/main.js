@@ -345,6 +345,93 @@
   }
 
   // ============================================================
+  // OPENING ANIMATION (links-system.co.jp style)
+  // ============================================================
+  class OpeningAnimation {
+    constructor() {
+      this.opening = document.getElementById('opening');
+      if (!this.opening) return;
+      
+      // Check session: only show once per session
+      if (sessionStorage.getItem('i2m2_opened')) {
+        this.opening.remove();
+        return;
+      }
+
+      // Prevent page scroll during opening
+      document.body.style.overflow = 'hidden';
+
+      // Timeline: logo appears → hold → fade out → reveal page
+      setTimeout(() => {
+        this.opening.classList.add('done');
+        document.body.style.overflow = '';
+        sessionStorage.setItem('i2m2_opened', '1');
+        // Remove from DOM after transition
+        setTimeout(() => this.opening.remove(), 700);
+      }, 2200);
+    }
+  }
+
+  // ============================================================
+  // TEXT SPLIT ANIMATION (character-by-character reveal on scroll)
+  // ============================================================
+  class TextSplitReveal {
+    constructor() {
+      // Split hero title lines into characters
+      this.splitHeroText();
+      // Split section titles into characters
+      this.splitSectionTitles();
+      // Observe with IntersectionObserver
+      this.observe();
+    }
+
+    splitHeroText() {
+      document.querySelectorAll('.hero-line > span').forEach(el => {
+        this.splitChars(el, 'text-reveal');
+      });
+    }
+
+    splitSectionTitles() {
+      document.querySelectorAll('.section-title-ja').forEach(el => {
+        this.splitChars(el, 'text-reveal');
+      });
+      // Mission text
+      document.querySelectorAll('.mission-text').forEach(el => {
+        this.splitChars(el, 'text-reveal');
+      });
+    }
+
+    splitChars(el, className) {
+      if (el.dataset.split) return; // already split
+      const text = el.textContent;
+      el.dataset.split = 'true';
+      el.classList.add(className);
+      el.innerHTML = '';
+      for (let i = 0; i < text.length; i++) {
+        const span = document.createElement('span');
+        span.className = 'char';
+        span.textContent = text[i] === ' ' ? '\u00A0' : text[i];
+        span.style.transitionDelay = `${i * 0.03}s`;
+        el.appendChild(span);
+      }
+    }
+
+    observe() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+          }
+        });
+      }, { threshold: 0.2, rootMargin: '0px 0px -30px 0px' });
+
+      document.querySelectorAll('.text-reveal').forEach(el => {
+        observer.observe(el);
+      });
+    }
+  }
+
+  // ============================================================
   // SMOOTH PAGE TRANSITION (fade-in)
   // ============================================================
   class PageTransition {
@@ -388,10 +475,12 @@
   // INIT
   // ============================================================
   document.addEventListener('DOMContentLoaded', () => {
+    new OpeningAnimation();
     new PageTransition();
     new SmoothCursor();
     new Header();
     new MobileNav();
+    new TextSplitReveal();
     new ScrollReveal();
     new CountUp();
     new MagneticButtons();

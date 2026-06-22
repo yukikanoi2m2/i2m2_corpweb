@@ -12,10 +12,17 @@ export function layout(title: string, content: string, options?: { description?:
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28' font-weight='bold' fill='%2300d4ff'>i</text></svg>" type="image/svg+xml">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28' font-weight='bold' fill='%231a6bcc'>i</text></svg>" type="image/svg+xml">
 <link href="/static/style.css" rel="stylesheet">
 </head>
 <body>
+<!-- Opening Animation -->
+<div class="opening" id="opening">
+  <div class="opening-logo">
+    <span class="opening-mark">i2m2</span>
+    <span class="opening-tagline">Bonanza: Fortune Smiles!</span>
+  </div>
+</div>
 ${header()}
 <main id="main">
 ${content}
@@ -32,7 +39,6 @@ function header() {
   <div class="header-inner">
     <a href="/" class="logo">
       <span class="logo-mark">i2m2</span>
-      <span class="logo-sub">Bonanza</span>
     </a>
     <nav class="gnav" id="gnav">
       <ul class="gnav-list">
@@ -42,7 +48,6 @@ function header() {
             <li><a href="/company">会社概要</a></li>
             <li><a href="/company/message">代表メッセージ</a></li>
             <li><a href="/company/philosophy">ミッション</a></li>
-            <li><a href="/company/history">沿革</a></li>
           </ul>
         </li>
         <li class="gnav-item has-sub">
@@ -51,12 +56,11 @@ function header() {
             <li><a href="/healthcare">医療機関プロデュース</a></li>
             <li><a href="/talent">医療系人材マッチング</a></li>
             <li><a href="/ma">地域価値創造事業（RVC）</a></li>
-            <li><a href="/beauty">美容サロンプロデュース</a></li>
           </ul>
         </li>
         <li class="gnav-item"><a href="/cases">実績</a></li>
-        <li class="gnav-item"><a href="/news">お知らせ</a></li>
-        <li class="gnav-item"><a href="/recruit">採用情報</a></li>
+        <li class="gnav-item"><a href="/ir">IR情報</a></li>
+        <li class="gnav-item"><a href="/recruit">採用</a></li>
       </ul>
     </nav>
     <a href="/contact" class="header-cta">お問い合わせ</a>
@@ -67,17 +71,12 @@ function header() {
 </header>
 <div class="mobile-nav" id="mobileNav">
   <nav>
-    <ul>
-      <li><a href="/">トップ</a></li>
+    <ul class="mobile-nav-list">
       <li><a href="/company">会社情報</a></li>
       <li><a href="/services">事業内容</a></li>
-      <li><a href="/healthcare">医療機関プロデュース</a></li>
-      <li><a href="/talent">医療系人材マッチング</a></li>
-      <li><a href="/ma">地域価値創造事業（RVC）</a></li>
-      <li><a href="/beauty">美容サロンプロデュース</a></li>
       <li><a href="/cases">実績</a></li>
-      <li><a href="/news">お知らせ</a></li>
-      <li><a href="/recruit">採用情報</a></li>
+      <li><a href="/ir">IR情報</a></li>
+      <li><a href="/recruit">採用</a></li>
       <li><a href="/contact" class="mobile-cta">お問い合わせ</a></li>
     </ul>
   </nav>
@@ -96,30 +95,20 @@ function footer() {
       </div>
       <div class="footer-links">
         <div class="footer-col">
-          <h4>展開事業</h4>
+          <h4>事業内容</h4>
           <ul>
             <li><a href="/healthcare">医療機関プロデュース</a></li>
             <li><a href="/talent">医療系人材マッチング</a></li>
             <li><a href="/ma">地域価値創造事業（RVC）</a></li>
-            <li><a href="/beauty">美容サロンプロデュース</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>会社情報</h4>
+          <h4>企業情報</h4>
           <ul>
             <li><a href="/company">会社概要</a></li>
             <li><a href="/company/message">代表メッセージ</a></li>
-            <li><a href="/company/philosophy">ミッション</a></li>
-            <li><a href="/company/history">沿革</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>その他</h4>
-          <ul>
-            <li><a href="/cases">実績</a></li>
-            <li><a href="/news">お知らせ</a></li>
+            <li><a href="/ir">IR情報</a></li>
             <li><a href="/recruit">採用情報</a></li>
-            <li><a href="/contact">お問い合わせ</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -133,9 +122,9 @@ function footer() {
     <div class="footer-bottom">
       <div class="footer-legal">
         <a href="/legal">プライバシーポリシー</a>
-        <a href="/legal/terms">サービス利用規約</a>
+        <a href="/legal/terms">利用規約</a>
       </div>
-      <p class="footer-copy">&copy; 2025 i2m2 Co.,Ltd. All Rights Reserved.</p>
+      <p class="footer-copy">&copy; 2025 i2m2 Co.,Ltd.</p>
     </div>
   </div>
 </footer>`
@@ -149,9 +138,8 @@ export function esc(s: any): string {
     .replace(/"/g, '&quot;')
 }
 
-// Section components
 export function sectionTitle(en: string, ja: string) {
-  return `<div class="section-title"><span class="section-title-en">${esc(en)}</span><h2 class="section-title-ja">${esc(ja)}</h2></div>`
+  return `<div class="section-title" data-reveal><span class="section-title-en">${esc(en)}</span><h2 class="section-title-ja">${esc(ja)}</h2></div>`
 }
 
 export function ctaSection(options?: { title?: string; buttons?: { label: string; href: string; primary?: boolean }[] }) {
@@ -164,7 +152,7 @@ export function ctaSection(options?: { title?: string; buttons?: { label: string
 <section class="cta-section">
   <div class="container">
     <h2 class="cta-title">${esc(title)}</h2>
-    <p class="cta-desc">ヘルスケア・医療に関わるあらゆるご相談を承ります。まずはお気軽にお問い合わせください。</p>
+    <p class="cta-desc">ヘルスケア・医療に関わるあらゆるご相談を承ります。</p>
     <div class="cta-buttons">
       ${buttons.map(b => `<a href="${b.href}" class="btn ${b.primary ? 'btn-primary' : 'btn-outline'}">${esc(b.label)}</a>`).join('')}
     </div>

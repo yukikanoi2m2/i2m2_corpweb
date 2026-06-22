@@ -8,7 +8,7 @@ ${breadcrumb([{ label: '事業内容' }])}
 <section class="page-hero">
   <div class="container">
     <h1 class="page-hero-title">事業内容</h1>
-    <p class="page-hero-desc">地域価値創造事業（RVC）として、ヘルスケア・医療を起点に4つの事業を展開しています。</p>
+    <p class="page-hero-desc">地域価値創造事業（RVC）として、ヘルスケア・医療を起点に3つの事業を展開しています。</p>
   </div>
 </section>
 
@@ -39,14 +39,7 @@ ${breadcrumb([{ label: '事業内容' }])}
         <ul class="service-card-tags"><li>M&A</li><li>事業承継</li><li>事業再生</li><li>全業種</li></ul>
         <span class="service-card-link">詳しく見る <i class="fas fa-arrow-right"></i></span>
       </a>
-      <a href="/beauty" class="service-detail-card">
-        <div class="service-detail-num">04</div>
-        <div class="service-detail-brand">BEAUTY</div>
-        <h3>Salon Operations<br><span>美容サロンプロデュース</span></h3>
-        <p>メディカルサロンの企画・運営支援。韓国クリニック（4everclinic）の日本進出プロデュースも手掛けています。</p>
-        <ul class="service-card-tags"><li>メディカルサロン</li><li>海外展開</li><li>運営支援</li></ul>
-        <span class="service-card-link">詳しく見る <i class="fas fa-arrow-right"></i></span>
-      </a>
+
     </div>
   </div>
 </section>
