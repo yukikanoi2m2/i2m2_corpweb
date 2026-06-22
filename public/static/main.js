@@ -92,7 +92,7 @@
         // Draw particle
         this.ctx.beginPath();
         this.ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        this.ctx.fillStyle = `rgba(26, 107, 204, ${p.opacity * 0.6})`;
+        this.ctx.fillStyle = `rgba(184, 134, 11, ${p.opacity * 0.5})`;
         this.ctx.fill();
 
         // Connect nearby particles
@@ -106,7 +106,7 @@
             this.ctx.beginPath();
             this.ctx.moveTo(p.x, p.y);
             this.ctx.lineTo(p2.x, p2.y);
-            this.ctx.strokeStyle = `rgba(26, 107, 204, ${alpha * 0.5})`;
+            this.ctx.strokeStyle = `rgba(184, 134, 11, ${alpha * 0.4})`;
             this.ctx.lineWidth = 0.5;
             this.ctx.stroke();
           }
