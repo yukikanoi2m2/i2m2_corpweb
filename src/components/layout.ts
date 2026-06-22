@@ -1,12 +1,12 @@
-// Common layout for the corporate site
+// i2m2 Corporate Site - Layout Component
 export function layout(title: string, content: string, options?: { description?: string }) {
-  const desc = options?.description || 'M&A・広告・医療機器代理店事業を展開する法人向け総合支援企業のコーポレートサイト'
+  const desc = options?.description || 'i2m2株式会社 | ヘルスケア・医療領域の総合支援企業。M&A仲介、医療マーケティング、人材紹介、医療DXなど地域価値創造事業（RVC）を展開。'
   return `<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${esc(title)} | 株式会社サンプル</title>
+<title>${esc(title)} | i2m2株式会社</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,7 +30,7 @@ function header() {
 <header class="site-header" id="siteHeader">
   <div class="header-inner">
     <a href="/" class="logo">
-      <span class="logo-text">CORP<span class="logo-accent">.</span></span>
+      <img src="/static/logo-color.png" alt="i2m2" class="logo-img" height="36">
     </a>
     <nav class="gnav" id="gnav">
       <ul class="gnav-list">
@@ -39,21 +39,20 @@ function header() {
           <ul class="gnav-sub">
             <li><a href="/company">会社概要</a></li>
             <li><a href="/company/message">代表メッセージ</a></li>
-            <li><a href="/company/philosophy">経営理念</a></li>
+            <li><a href="/company/philosophy">ミッション</a></li>
             <li><a href="/company/history">沿革</a></li>
           </ul>
         </li>
         <li class="gnav-item has-sub">
           <a href="/services">事業内容</a>
           <ul class="gnav-sub">
-            <li><a href="/ma">M&A支援</a></li>
-            <li><a href="/marketing">広告・マーケティング支援</a></li>
-            <li><a href="/medical-equipment">医療機器代理店</a></li>
-            <li><a href="/medical-management">医療経営支援</a></li>
+            <li><a href="/healthcare">医療機関プロデュース</a></li>
+            <li><a href="/talent">医療系人材マッチング</a></li>
+            <li><a href="/ma">地域価値創造事業（RVC）</a></li>
+            <li><a href="/beauty">美容サロンプロデュース</a></li>
           </ul>
         </li>
-        <li class="gnav-item"><a href="/cases">実績・事例</a></li>
-        <li class="gnav-item"><a href="/resources">資料ダウンロード</a></li>
+        <li class="gnav-item"><a href="/cases">実績</a></li>
         <li class="gnav-item"><a href="/news">お知らせ</a></li>
         <li class="gnav-item"><a href="/recruit">採用情報</a></li>
       </ul>
@@ -70,15 +69,13 @@ function header() {
       <li><a href="/">トップ</a></li>
       <li><a href="/company">会社情報</a></li>
       <li><a href="/services">事業内容</a></li>
-      <li><a href="/ma">M&A支援</a></li>
-      <li><a href="/marketing">広告支援</a></li>
-      <li><a href="/medical-equipment">医療機器代理店</a></li>
-      <li><a href="/medical-management">医療経営支援</a></li>
-      <li><a href="/cases">実績・事例</a></li>
-      <li><a href="/resources">資料ダウンロード</a></li>
+      <li><a href="/healthcare">医療機関プロデュース</a></li>
+      <li><a href="/talent">医療系人材マッチング</a></li>
+      <li><a href="/ma">地域価値創造事業（RVC）</a></li>
+      <li><a href="/beauty">美容サロンプロデュース</a></li>
+      <li><a href="/cases">実績</a></li>
       <li><a href="/news">お知らせ</a></li>
       <li><a href="/recruit">採用情報</a></li>
-      <li><a href="/faq">よくある質問</a></li>
       <li><a href="/contact" class="mobile-cta">お問い合わせ</a></li>
     </ul>
   </nav>
@@ -91,17 +88,18 @@ function footer() {
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="/" class="footer-logo">CORP<span class="logo-accent">.</span></a>
-        <p class="footer-desc">M&A・広告・医療機器代理店事業を展開し、<br>医療・ヘルスケア領域を中心に法人の成長を総合的に支援します。</p>
+        <a href="/" class="footer-logo"><img src="/static/logo-white.png" alt="i2m2" height="32"></a>
+        <p class="footer-tagline">Bonanza: Fortune Smiles!</p>
+        <p class="footer-desc">ヘルスケア・医療領域を中心に、<br>地域価値創造（RVC）事業を通じて企業と地域社会の成長を支援します。</p>
       </div>
       <div class="footer-links">
         <div class="footer-col">
-          <h4>事業内容</h4>
+          <h4>展開事業</h4>
           <ul>
-            <li><a href="/ma">M&A支援</a></li>
-            <li><a href="/marketing">広告・マーケティング支援</a></li>
-            <li><a href="/medical-equipment">医療機器代理店</a></li>
-            <li><a href="/medical-management">医療経営支援</a></li>
+            <li><a href="/healthcare">医療機関プロデュース</a></li>
+            <li><a href="/talent">医療系人材マッチング</a></li>
+            <li><a href="/ma">地域価値創造事業（RVC）</a></li>
+            <li><a href="/beauty">美容サロンプロデュース</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -109,28 +107,23 @@ function footer() {
           <ul>
             <li><a href="/company">会社概要</a></li>
             <li><a href="/company/message">代表メッセージ</a></li>
-            <li><a href="/company/philosophy">経営理念</a></li>
+            <li><a href="/company/philosophy">ミッション</a></li>
             <li><a href="/company/history">沿革</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>その他</h4>
           <ul>
-            <li><a href="/cases">実績・事例</a></li>
-            <li><a href="/resources">資料ダウンロード</a></li>
-            <li><a href="/columns">コラム</a></li>
+            <li><a href="/cases">実績</a></li>
             <li><a href="/news">お知らせ</a></li>
             <li><a href="/recruit">採用情報</a></li>
-            <li><a href="/faq">よくある質問</a></li>
+            <li><a href="/contact">お問い合わせ</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>お問い合わせ</h4>
+          <h4>アクセス</h4>
           <ul>
-            <li><a href="/contact">総合お問い合わせ</a></li>
-            <li><a href="/contact/ma">M&A無料相談</a></li>
-            <li><a href="/contact/marketing">広告相談</a></li>
-            <li><a href="/contact/medical">医療機器相談</a></li>
+            <li class="footer-address">〒106-6137<br>東京都港区六本木6丁目10-1<br>六本木ヒルズ森タワー37F</li>
           </ul>
         </div>
       </div>
@@ -138,10 +131,9 @@ function footer() {
     <div class="footer-bottom">
       <div class="footer-legal">
         <a href="/legal">プライバシーポリシー</a>
-        <a href="/legal/antisocial">反社会的勢力排除方針</a>
-        <a href="/legal/security">情報セキュリティ方針</a>
+        <a href="/legal/terms">サービス利用規約</a>
       </div>
-      <p class="footer-copy">&copy; 2024 株式会社サンプル All Rights Reserved.</p>
+      <p class="footer-copy">&copy; 2025 i2m2 Co.,Ltd. All Rights Reserved.</p>
     </div>
   </div>
 </footer>`
@@ -164,13 +156,13 @@ export function ctaSection(options?: { title?: string; buttons?: { label: string
   const title = options?.title || 'お気軽にご相談ください'
   const buttons = options?.buttons || [
     { label: '無料相談はこちら', href: '/contact', primary: true },
-    { label: '資料ダウンロード', href: '/resources' }
+    { label: '会社概要', href: '/company' }
   ]
   return `
 <section class="cta-section">
   <div class="container">
     <h2 class="cta-title">${esc(title)}</h2>
-    <p class="cta-desc">まずはお気軽にお問い合わせください。専門スタッフが丁寧にご対応いたします。</p>
+    <p class="cta-desc">ヘルスケア・医療に関わるあらゆるご相談を承ります。まずはお気軽にお問い合わせください。</p>
     <div class="cta-buttons">
       ${buttons.map(b => `<a href="${b.href}" class="btn ${b.primary ? 'btn-primary' : 'btn-outline'}">${esc(b.label)}</a>`).join('')}
     </div>
