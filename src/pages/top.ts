@@ -43,165 +43,94 @@ export const topPage = (c: Context) => {
   </div>
 </div>
 
-<!-- VISUAL SHOWCASE (Movie / Photo placeholder) -->
-<section class="section section-showcase">
+<!-- STATEMENT -->
+<section class="section section-statement">
   <div class="container">
-    <div class="showcase-video">
-      <div class="video-placeholder">
-        <div class="video-placeholder-inner">
-          <i class="fas fa-play-circle"></i>
-          <span>CORPORATE MOVIE</span>
-          <small>coming soon</small>
-        </div>
-      </div>
-    </div>
+    <p class="statement-copy">事業領域に制限はなく、<br>ヘルスケアを起点に<br class="sp-only">さまざまな可能性を追求する</p>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="section section-why" id="about">
+<!-- SERVICES — donuts style full-width cards -->
+<section class="section section-services-full" id="services">
   <div class="container">
-    <div class="about-visual-layout">
-      <div class="about-text-side">
-        ${sectionTitle('ABOUT', '私たちについて')}
-        <p class="section-lead">ヘルスケア×地域価値創造（RVC）。<br>M&Aから経営支援まで一気通貫。</p>
-      </div>
-      <div class="about-image-side">
-        <div class="image-placeholder image-placeholder-lg">
-          <i class="fas fa-city"></i>
-          <span>Office Image</span>
+    <div class="section-header-row">
+      ${sectionTitle('SERVICES', '展開事業')}
+    </div>
+    <div class="services-card-grid">
+      <a href="/healthcare" class="svc-card svc-card-large">
+        <div class="svc-card-bg">
+          <div class="svc-card-placeholder"><i class="fas fa-hospital-user"></i></div>
         </div>
-      </div>
-    </div>
-    <div class="why-grid">
-      <div class="why-card">
-        <div class="why-icon"><i class="fas fa-hospital"></i></div>
-        <h3>ヘルスケア特化</h3>
-        <p>医療・介護・福祉に精通した専門チーム</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon"><i class="fas fa-layer-group"></i></div>
-        <h3>ワンストップRVC</h3>
-        <p>M&A・マーケ・人材・DXを一社完結</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon"><i class="fas fa-chart-line"></i></div>
-        <h3>取扱高20億円超</h3>
-        <p>グループ1000件以上の取引実績</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon"><i class="fas fa-shield-halved"></i></div>
-        <h3>IPO準備体制</h3>
-        <p>クリーン経営と高い透明性</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MISSION -->
-<section class="section section-mission">
-  <div class="container">
-    <div class="mission-block">
-      <span class="mission-label">OUR MISSION</span>
-      <h2 class="mission-text">Bonanza: Fortune Smiles!</h2>
-      <p class="mission-desc">全ての関わる人に幸運と繁栄を。</p>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section class="section section-services" id="services">
-  <div class="container">
-    ${sectionTitle('SERVICES', '展開事業')}
-    <div class="services-grid">
-      <a href="/healthcare" class="service-card service-ma">
-        <div class="service-card-visual">
-          <div class="image-placeholder image-placeholder-card">
-            <i class="fas fa-hospital-user"></i>
-          </div>
-        </div>
-        <div class="service-card-body">
-          <div class="service-card-brand">IHG™</div>
+        <div class="svc-card-overlay"></div>
+        <div class="svc-card-content">
+          <span class="svc-card-brand">IHG™</span>
           <h3>Healthcare Services</h3>
-          <p>医療機関プロデュース</p>
-          <ul class="service-card-tags">
-            <li>広告運用</li><li>コンサル</li><li>医療DX</li>
-          </ul>
+          <p>医療機関プロデュース — 広告運用・コンサル・カルテ電子化（医療DX）・補助金支援</p>
         </div>
-        <span class="service-card-link"><i class="fas fa-arrow-right"></i></span>
       </a>
-      <a href="/talent" class="service-card service-marketing">
-        <div class="service-card-visual">
-          <div class="image-placeholder image-placeholder-card">
-            <i class="fas fa-user-nurse"></i>
-          </div>
+      <a href="/talent" class="svc-card">
+        <div class="svc-card-bg">
+          <div class="svc-card-placeholder"><i class="fas fa-user-nurse"></i></div>
         </div>
-        <div class="service-card-body">
-          <div class="service-card-brand">DR-LINK™</div>
+        <div class="svc-card-overlay"></div>
+        <div class="svc-card-content">
+          <span class="svc-card-brand">DR-LINK™</span>
           <h3>Healthcare Talent</h3>
           <p>医療系人材マッチング</p>
-          <ul class="service-card-tags">
-            <li>人材紹介</li><li>医療職</li><li>マッチング</li>
-          </ul>
         </div>
-        <span class="service-card-link"><i class="fas fa-arrow-right"></i></span>
       </a>
-      <a href="/ma" class="service-card service-equipment">
-        <div class="service-card-visual">
-          <div class="image-placeholder image-placeholder-card">
-            <i class="fas fa-building-columns"></i>
-          </div>
+      <a href="/ma" class="svc-card">
+        <div class="svc-card-bg">
+          <div class="svc-card-placeholder"><i class="fas fa-building-columns"></i></div>
         </div>
-        <div class="service-card-body">
-          <div class="service-card-brand">RVC</div>
+        <div class="svc-card-overlay"></div>
+        <div class="svc-card-content">
+          <span class="svc-card-brand">RVC</span>
           <h3>Community Value</h3>
-          <p>M&A・事業承継・事業再生</p>
-          <ul class="service-card-tags">
-            <li>M&A</li><li>事業承継</li><li>事業再生</li>
-          </ul>
+          <p>M&A仲介・事業承継・事業再生</p>
         </div>
-        <span class="service-card-link"><i class="fas fa-arrow-right"></i></span>
       </a>
     </div>
   </div>
 </section>
 
-<!-- GALLERY -->
-<section class="section section-gallery">
+<!-- ADDITIONAL SERVICES — smaller tiles -->
+<section class="section section-additional-full">
   <div class="container">
-    ${sectionTitle('GALLERY', 'フォトギャラリー')}
-    <div class="gallery-grid">
-      <div class="gallery-item gallery-item-wide">
-        <div class="image-placeholder">
-          <i class="fas fa-building"></i>
-          <span>六本木ヒルズ森タワー</span>
+    <div class="additional-tile-grid">
+      <div class="add-tile">
+        <div class="add-tile-bg"><div class="svc-card-placeholder add-placeholder"><i class="fas fa-laptop-medical"></i></div></div>
+        <div class="add-tile-content">
+          <h4>カルテ電子化<br><small>医療DX</small></h4>
         </div>
       </div>
-      <div class="gallery-item">
-        <div class="image-placeholder">
-          <i class="fas fa-handshake"></i>
-          <span>M&A成約</span>
+      <div class="add-tile">
+        <div class="add-tile-bg"><div class="svc-card-placeholder add-placeholder"><i class="fas fa-ad"></i></div></div>
+        <div class="add-tile-content">
+          <h4>広告運用<br><small>5,000万円+実績</small></h4>
         </div>
       </div>
-      <div class="gallery-item">
-        <div class="image-placeholder">
-          <i class="fas fa-users"></i>
-          <span>チームミーティング</span>
+      <div class="add-tile">
+        <div class="add-tile-bg"><div class="svc-card-placeholder add-placeholder"><i class="fas fa-file-invoice-dollar"></i></div></div>
+        <div class="add-tile-content">
+          <h4>補助金コンサル<br><small>融資・申請支援</small></h4>
         </div>
       </div>
-      <div class="gallery-item">
-        <div class="image-placeholder">
-          <i class="fas fa-hospital"></i>
-          <span>医療機関支援</span>
-        </div>
-      </div>
-      <div class="gallery-item gallery-item-wide">
-        <div class="image-placeholder">
-          <i class="fas fa-chart-line"></i>
-          <span>事業成長イメージ</span>
+      <div class="add-tile">
+        <div class="add-tile-bg"><div class="svc-card-placeholder add-placeholder"><i class="fas fa-globe-asia"></i></div></div>
+        <div class="add-tile-content">
+          <h4>海外展開支援<br><small>4everclinic</small></h4>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- STATEMENT 2 -->
+<section class="section section-statement section-statement-dark">
+  <div class="container">
+    <p class="statement-copy">全ての関わる人に幸運と繁栄を。<br>地域社会の価値を高めるインフラへ。</p>
+    <span class="statement-sub">Bonanza: Fortune Smiles!</span>
   </div>
 </section>
 
@@ -227,66 +156,40 @@ export const topPage = (c: Context) => {
         <span>広告運用額</span>
       </div>
     </div>
-    <div class="results-grid">
-      <div class="result-card">
-        <div class="result-card-img">
-          <div class="image-placeholder image-placeholder-sm"><i class="fas fa-hospital"></i></div>
-        </div>
-        <div class="result-card-body">
-          <div class="result-category">M&A / RVC</div>
-          <h3>医療法人の事業承継支援</h3>
-          <p>後継者不在の医療法人に対し最適な承継先を開拓しクロージングを実現。</p>
-        </div>
-      </div>
-      <div class="result-card">
-        <div class="result-card-img">
-          <div class="image-placeholder image-placeholder-sm"><i class="fas fa-ad"></i></div>
-        </div>
-        <div class="result-card-body">
-          <div class="result-category">Healthcare Marketing</div>
-          <h3>クリニック集患数大幅改善</h3>
-          <p>Web広告+MEO対策により、新規患者数を大幅に拡大。</p>
-        </div>
-      </div>
-      <div class="result-card">
-        <div class="result-card-img">
-          <div class="image-placeholder image-placeholder-sm"><i class="fas fa-globe-asia"></i></div>
-        </div>
-        <div class="result-card-body">
-          <div class="result-category">Global</div>
-          <h3>韓国クリニック日本進出</h3>
-          <p>4everclinicの日本進出プロデュース・運営支援を一気通貫対応。</p>
-        </div>
-      </div>
-    </div>
-    <div class="text-center mt-40">
-      <a href="/cases" class="btn btn-outline">実績一覧を見る</a>
-    </div>
   </div>
 </section>
 
-<!-- MESSAGE -->
-<section class="section section-message">
+<!-- ABOUT / WHY -->
+<section class="section section-why" id="about">
   <div class="container">
-    <div class="message-wrap">
-      <div class="message-content">
-        ${sectionTitle('MESSAGE', '代表メッセージ')}
-        <p class="message-text">「Bonanza: Fortune Smiles!」をミッションに掲げ、地域価値創造事業を展開しています。</p>
-        <p class="message-author">代表取締役</p>
-        <a href="/company/message" class="btn btn-outline btn-sm">全文を読む</a>
+    ${sectionTitle('WHY i2m2', '選ばれる理由')}
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-hospital"></i></div>
+        <h3>ヘルスケア特化</h3>
+        <p>医療・介護・福祉に精通した専門チーム</p>
       </div>
-      <div class="message-visual">
-        <div class="image-placeholder image-placeholder-portrait">
-          <i class="fas fa-user-tie"></i>
-          <span>代表写真</span>
-        </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-layer-group"></i></div>
+        <h3>ワンストップRVC</h3>
+        <p>M&A・マーケ・人材・DXを一社完結</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>取扱高20億円超</h3>
+        <p>グループ1000件以上の取引実績</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fas fa-shield-halved"></i></div>
+        <h3>IPO準備体制</h3>
+        <p>クリーン経営と高い透明性</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- IR -->
-<section class="section section-news">
+<section class="section section-news section-alt">
   <div class="container">
     ${sectionTitle('IR', 'IR情報')}
     <ul class="news-list">
@@ -312,20 +215,12 @@ export const topPage = (c: Context) => {
   </div>
 </section>
 
-<!-- ACCESS -->
-<section class="section section-access">
+<!-- RECRUIT STATEMENT -->
+<section class="section section-statement">
   <div class="container">
-    ${sectionTitle('ACCESS', 'アクセス')}
-    <div class="access-grid">
-      <div class="access-card">
-        <h3><i class="fas fa-building"></i> 東京オフィス</h3>
-        <p class="access-address">〒106-6137<br>東京都港区六本木6丁目10-1<br>六本木ヒルズ森タワー37F</p>
-        <p class="access-transport"><i class="fas fa-train"></i> 六本木駅 1C出口 徒歩3分</p>
-      </div>
-      <div class="access-card">
-        <h3><i class="fas fa-home"></i> 本社</h3>
-        <p class="access-address">〒270-2224<br>千葉県松戸市大橋149-1</p>
-      </div>
+    <p class="statement-copy">価値が残り続けるものを創る、<br>世界を変える挑戦をしよう</p>
+    <div class="statement-action">
+      <a href="/recruit" class="btn btn-primary btn-lg">採用情報 <i class="fas fa-arrow-right"></i></a>
     </div>
   </div>
 </section>
