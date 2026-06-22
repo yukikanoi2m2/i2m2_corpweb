@@ -53,9 +53,8 @@ function header() {
         <li class="gnav-item has-sub">
           <a href="/services">事業内容</a>
           <ul class="gnav-sub">
-            <li><a href="/healthcare">医療機関プロデュース</a></li>
-            <li><a href="/talent">医療系人材マッチング</a></li>
-            <li><a href="/ma">地域価値創造事業（RVC）</a></li>
+            <li><a href="/services">事業一覧（RVC）</a></li>
+            <li><a href="/cases">実績</a></li>
           </ul>
         </li>
         <li class="gnav-item"><a href="/cases">実績</a></li>
@@ -97,9 +96,9 @@ function footer() {
         <div class="footer-col">
           <h4>事業内容</h4>
           <ul>
-            <li><a href="/healthcare">医療機関プロデュース</a></li>
-            <li><a href="/talent">医療系人材マッチング</a></li>
-            <li><a href="/ma">地域価値創造事業（RVC）</a></li>
+            <li><a href="/services">事業一覧（RVC）</a></li>
+            <li><a href="/cases">実績</a></li>
+            <li><a href="/ir">IR情報</a></li>
           </ul>
         </div>
         <div class="footer-col">

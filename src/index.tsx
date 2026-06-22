@@ -3,9 +3,6 @@ import { serveStatic } from 'hono/cloudflare-workers'
 import { topPage } from './pages/top'
 import { companyPage } from './pages/company'
 import { servicesPage } from './pages/services'
-import { maPage } from './pages/ma'
-import { healthcarePage } from './pages/healthcare'
-import { talentPage } from './pages/talent'
 import { casesPage } from './pages/cases'
 import { irPage } from './pages/ir'
 import { recruitPage } from './pages/recruit'
@@ -24,13 +21,13 @@ app.get('/', topPage)
 app.get('/company', companyPage)
 app.get('/company/:sub', companyPage)
 
-// Services overview
+// Services (unified — RVC overview)
 app.get('/services', servicesPage)
 
-// Service LPs (i2m2 structure)
-app.get('/healthcare', healthcarePage)   // IHG™ Healthcare Services
-app.get('/talent', talentPage)           // DR-LINK™ Healthcare Talent
-app.get('/ma', maPage)                   // RVC Community Value
+// Legacy LP routes → redirect to /services
+app.get('/healthcare', (c) => c.redirect('/services', 301))
+app.get('/talent', (c) => c.redirect('/services', 301))
+app.get('/ma', (c) => c.redirect('/services', 301))
 
 // Cases & Results
 app.get('/cases', casesPage)

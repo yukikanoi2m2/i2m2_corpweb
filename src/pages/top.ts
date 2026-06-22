@@ -149,7 +149,7 @@ export const topPage = (c: Context) => {
             <div class="c-card-slider__track js-card-track">
               <!-- Card 1 -->
               <section class="c-card">
-                <a class="c-card__inner" href="/healthcare">
+                <a class="c-card__inner" href="/services">
                   <div class="c-card__thumb">
                     <div class="c-card__thumb-placeholder"><i class="fas fa-hospital-user"></i></div>
                   </div>
@@ -159,7 +159,7 @@ export const topPage = (c: Context) => {
               </section>
               <!-- Card 2 -->
               <section class="c-card">
-                <a class="c-card__inner" href="/talent">
+                <a class="c-card__inner" href="/services">
                   <div class="c-card__thumb">
                     <div class="c-card__thumb-placeholder"><i class="fas fa-user-nurse"></i></div>
                   </div>
@@ -169,7 +169,7 @@ export const topPage = (c: Context) => {
               </section>
               <!-- Card 3 -->
               <section class="c-card">
-                <a class="c-card__inner" href="/ma">
+                <a class="c-card__inner" href="/services">
                   <div class="c-card__thumb">
                     <div class="c-card__thumb-placeholder"><i class="fas fa-building-columns"></i></div>
                   </div>
@@ -179,7 +179,7 @@ export const topPage = (c: Context) => {
               </section>
               <!-- Card 4 -->
               <section class="c-card">
-                <a class="c-card__inner" href="/healthcare">
+                <a class="c-card__inner" href="/services">
                   <div class="c-card__thumb">
                     <div class="c-card__thumb-placeholder"><i class="fas fa-laptop-medical"></i></div>
                   </div>
@@ -189,7 +189,7 @@ export const topPage = (c: Context) => {
               </section>
               <!-- Card 5 -->
               <section class="c-card">
-                <a class="c-card__inner" href="/healthcare">
+                <a class="c-card__inner" href="/services">
                   <div class="c-card__thumb">
                     <div class="c-card__thumb-placeholder"><i class="fas fa-ad"></i></div>
                   </div>
@@ -199,7 +199,7 @@ export const topPage = (c: Context) => {
               </section>
               <!-- Card 6 -->
               <section class="c-card">
-                <a class="c-card__inner" href="/healthcare">
+                <a class="c-card__inner" href="/services">
                   <div class="c-card__thumb">
                     <div class="c-card__thumb-placeholder"><i class="fas fa-file-invoice-dollar"></i></div>
                   </div>
@@ -209,7 +209,7 @@ export const topPage = (c: Context) => {
               </section>
               <!-- Card 7 -->
               <section class="c-card">
-                <a class="c-card__inner" href="/healthcare">
+                <a class="c-card__inner" href="/services">
                   <div class="c-card__thumb">
                     <div class="c-card__thumb-placeholder"><i class="fas fa-globe-asia"></i></div>
                   </div>

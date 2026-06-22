@@ -1,72 +1,163 @@
 import type { Context } from 'hono'
-import { layout, sectionTitle, ctaSection, breadcrumb } from '../components/layout'
+import { layout, breadcrumb } from '../components/layout'
 
 export const servicesPage = (c: Context) => {
   return c.html(layout('事業内容', `
 ${breadcrumb([{ label: '事業内容' }])}
 
-<section class="page-hero">
+<section class="page-hero page-hero--services">
   <div class="container">
-    <h1 class="page-hero-title">事業内容</h1>
-    <p class="page-hero-desc">地域価値創造事業（RVC）として、ヘルスケア・医療を起点に3つの事業を展開しています。</p>
+    <span class="page-hero__label">BUSINESS</span>
+    <h1 class="page-hero__title-en">Regional Value Creation</h1>
+    <p class="page-hero__title-ja">— 地域価値創造事業 —</p>
+    <p class="page-hero__lead">
+      ヘルスケアを起点に、M&A・マーケティング・人材・DXを<br class="u-pc-only">
+      ワンストップで提供し、地域社会の持続的な価値向上を実現する。
+    </p>
   </div>
 </section>
 
+<!-- RVC概念説明 -->
 <section class="section">
   <div class="container">
-    <div class="services-detail-grid">
-      <a href="/healthcare" class="service-detail-card">
-        <div class="service-detail-num">01</div>
-        <div class="service-detail-brand">IHG™</div>
-        <h3>Healthcare Services<br><span>医療機関プロデュース</span></h3>
-        <p>医療クリニックの広告運用、経営コンサルティング、財務管理、カルテ電子化（医療DX）、融資・補助金コンサルティング。</p>
-        <ul class="service-card-tags"><li>広告運用</li><li>経営コンサル</li><li>医療DX</li><li>補助金</li></ul>
-        <span class="service-card-link">詳しく見る <i class="fas fa-arrow-right"></i></span>
-      </a>
-      <a href="/talent" class="service-detail-card">
-        <div class="service-detail-num">02</div>
-        <div class="service-detail-brand">DR-LINK™</div>
-        <h3>Healthcare Talent<br><span>医療系人材マッチング</span></h3>
-        <p>医師、看護師、薬剤師、介護職など医療系専門職の人材紹介・マッチング。採用支援から定着サポートまで。</p>
-        <ul class="service-card-tags"><li>医師紹介</li><li>看護師</li><li>介護職</li><li>マッチング</li></ul>
-        <span class="service-card-link">詳しく見る <i class="fas fa-arrow-right"></i></span>
-      </a>
-      <a href="/ma" class="service-detail-card">
-        <div class="service-detail-num">03</div>
-        <div class="service-detail-brand">RVC</div>
-        <h3>Community Value<br><span>地域価値創造事業</span></h3>
-        <p>M&A仲介、事業承継、事業再生・再建、事業ファンド運営。医療・介護・福祉はもちろん、美容・IT・飲食など全業種対応。</p>
-        <ul class="service-card-tags"><li>M&A</li><li>事業承継</li><li>事業再生</li><li>全業種</li></ul>
-        <span class="service-card-link">詳しく見る <i class="fas fa-arrow-right"></i></span>
-      </a>
-
+    <div class="services-philosophy">
+      <div class="services-philosophy__visual">
+        <div class="services-orbit">
+          <div class="services-orbit__center">
+            <span class="services-orbit__label">RVC</span>
+            <span class="services-orbit__sub">地域価値創造</span>
+          </div>
+          <div class="services-orbit__ring">
+            <span class="services-orbit__node services-orbit__node--1">M&A</span>
+            <span class="services-orbit__node services-orbit__node--2">医療DX</span>
+            <span class="services-orbit__node services-orbit__node--3">人材</span>
+            <span class="services-orbit__node services-orbit__node--4">マーケ</span>
+          </div>
+        </div>
+      </div>
+      <div class="services-philosophy__text">
+        <h2 class="services-philosophy__heading">一つの軸、多角的な展開</h2>
+        <p>i2m2は「地域価値創造（Regional Value Creation）」という一つの共通理念のもと、<br>ヘルスケア・医療を起点にした多角的な事業を展開しています。</p>
+        <p>M&Aによる事業承継から、医療DXによる業務革新、人材マッチング、マーケティング支援まで——<br>それぞれが独立した事業でありながら、地域の価値を高めるという同じゴールに向かっています。</p>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- 事業領域 -->
 <section class="section section-alt">
   <div class="container">
-    ${sectionTitle('ADDITIONAL', 'その他のサービス')}
-    <div class="additional-grid">
-      <div class="additional-item">
-        <div class="additional-icon"><i class="fas fa-file-invoice-dollar"></i></div>
-        <h4>融資・補助金コンサルティング</h4>
-        <p>事業承継部門専門の融資相談、各種補助金の申請支援。採択率を高める事業計画策定を支援します。</p>
+    <div class="services-section-header">
+      <span class="services-section-header__en">DOMAINS</span>
+      <h2 class="services-section-header__ja">事業領域</h2>
+    </div>
+    <div class="services-domains">
+      <!-- Domain 1 -->
+      <div class="services-domain" data-reveal>
+        <div class="services-domain__number">01</div>
+        <div class="services-domain__content">
+          <div class="services-domain__brand">IHG™ Healthcare Services</div>
+          <h3 class="services-domain__title">医療機関プロデュース</h3>
+          <p class="services-domain__desc">
+            クリニックの広告運用（5,000万円+実績）、経営コンサルティング、カルテ電子化（医療DX）、<br class="u-pc-only">
+            補助金・融資支援まで、医療機関の成長に必要な全てを一気通貫で提供。
+          </p>
+          <ul class="services-domain__tags">
+            <li>リスティング広告</li><li>MEO対策</li><li>電子カルテ導入</li><li>経営コンサル</li><li>補助金申請</li>
+          </ul>
+        </div>
       </div>
-      <div class="additional-item">
-        <div class="additional-icon"><i class="fas fa-laptop-medical"></i></div>
-        <h4>カルテ電子化（医療DX）</h4>
-        <p>紙カルテから電子カルテへの完全移行。システム選定・データ移行・スタッフ研修までワンストップ。</p>
+      <!-- Domain 2 -->
+      <div class="services-domain" data-reveal>
+        <div class="services-domain__number">02</div>
+        <div class="services-domain__content">
+          <div class="services-domain__brand">DR-LINK™ Healthcare Talent</div>
+          <h3 class="services-domain__title">医療系人材マッチング</h3>
+          <p class="services-domain__desc">
+            医師・看護師・薬剤師・介護職など医療系専門職の転職支援。<br class="u-pc-only">
+            採用ニーズの発掘からキャリアカウンセリング、入職後の定着サポートまで。
+          </p>
+          <ul class="services-domain__tags">
+            <li>医師紹介</li><li>看護師採用</li><li>介護人材</li><li>定着支援</li>
+          </ul>
+        </div>
       </div>
-      <div class="additional-item">
-        <div class="additional-icon"><i class="fas fa-globe-asia"></i></div>
-        <h4>海外クリニック日本進出支援</h4>
-        <p>4everclinic日本進出事業のプロデュース。法務・マーケティング・運営の全面支援。</p>
+      <!-- Domain 3 -->
+      <div class="services-domain" data-reveal>
+        <div class="services-domain__number">03</div>
+        <div class="services-domain__content">
+          <div class="services-domain__brand">RVC Community Value</div>
+          <h3 class="services-domain__title">M&A仲介・事業承継</h3>
+          <p class="services-domain__desc">
+            医療・介護・福祉はもちろん、IT・飲食・美容など全業種対応。<br class="u-pc-only">
+            事業承継、事業再生、地域活性ファンドの運営を通じてコミュニティの価値を守り、高める。
+          </p>
+          <ul class="services-domain__tags">
+            <li>M&A仲介</li><li>事業承継</li><li>事業再生</li><li>全業種対応</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Domain 4 -->
+      <div class="services-domain" data-reveal>
+        <div class="services-domain__number">04</div>
+        <div class="services-domain__content">
+          <div class="services-domain__brand">4everclinic</div>
+          <h3 class="services-domain__title">海外クリニック進出支援</h3>
+          <p class="services-domain__desc">
+            アジア圏の医療機関の日本進出を全面サポート。<br class="u-pc-only">
+            法務・マーケティング・店舗開発・スタッフ採用までワンストップで対応。
+          </p>
+          <ul class="services-domain__tags">
+            <li>日本進出</li><li>法務支援</li><li>マーケティング</li><li>運営支援</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-${ctaSection({ title: '事業に関するご相談はこちら' })}
+<!-- 強み -->
+<section class="section">
+  <div class="container">
+    <div class="services-section-header">
+      <span class="services-section-header__en">STRENGTH</span>
+      <h2 class="services-section-header__ja">i2m2の強み</h2>
+    </div>
+    <div class="services-strengths">
+      <div class="services-strength" data-reveal>
+        <div class="services-strength__icon"><i class="fas fa-link"></i></div>
+        <h3>クロスセル率 40%超</h3>
+        <p>事業間シナジーにより、顧客のLTVを最大化。一つの入口から複数の課題を同時解決。</p>
+      </div>
+      <div class="services-strength" data-reveal>
+        <div class="services-strength__icon"><i class="fas fa-chart-line"></i></div>
+        <h3>累計取扱高 20億円+</h3>
+        <p>創業から急速に実績を積み上げ、グループ総取引1000件超の経験値を蓄積。</p>
+      </div>
+      <div class="services-strength" data-reveal>
+        <div class="services-strength__icon"><i class="fas fa-map-marked-alt"></i></div>
+        <h3>地域密着 × 全国展開</h3>
+        <p>六本木ヒルズを拠点に首都圏をカバーしながら、地方エリアへの拡大を推進中。</p>
+      </div>
+      <div class="services-strength" data-reveal>
+        <div class="services-strength__icon"><i class="fas fa-shield-halved"></i></div>
+        <h3>IPO準備中の信頼性</h3>
+        <p>監査法人選任済み・内部統制整備中。上場企業レベルのガバナンスで安心を提供。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section-cta">
+  <div class="container" style="text-align:center;">
+    <p class="cta-lead">各サービスの詳細は担当者よりご案内いたします。</p>
+    <h2 class="cta-title">まずはお気軽にご相談ください</h2>
+    <div class="cta-buttons">
+      <a href="/contact" class="btn btn-primary btn-lg">無料相談はこちら</a>
+      <a href="/ir" class="btn btn-outline">IR情報を見る</a>
+    </div>
+  </div>
+</section>
 `))
 }
