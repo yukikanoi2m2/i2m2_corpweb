@@ -33,7 +33,7 @@ ${breadcrumb([{ label: 'お問い合わせ' }])}
     <div class="contact-form-wrap">
       <h2>${title}</h2>
       <p class="contact-note">以下のフォームにご記入の上、送信してください。担当者より2営業日以内にご連絡いたします。<br>秘密厳守で対応いたします。</p>
-      <form class="contact-form" onsubmit="return false;">
+      <form class="contact-form" action="https://formsubmit.co/info@i2m2.com" method="POST">
         <div class="form-row">
           <div class="form-group">
             <label>会社名 / 法人名 <span class="required">必須</span></label>

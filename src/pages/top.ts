@@ -260,7 +260,6 @@ export const topPage = (c: Context) => {
             <span class="p-result-label">広告運用額</span>
           </div>
         </div>
-        <span class="c-heading-sub p-front-results__sub">Bonanza: Fortune Smiles!</span>
       </div>
     </div>
   </section>

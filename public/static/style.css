@@ -1142,3 +1142,13 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
   transition: opacity .8s var(--ease), transform .8s var(--ease);
 }
 [data-reveal].revealed { opacity: 1; transform: translateY(0); }
+
+/* ============================================================
+   COMPANY SLIDE SECTION
+   ============================================================ */
+.p-company-slide-section { margin-bottom: 64px; }
+.p-company-slide { width: 100%; max-width: 800px; margin: 24px auto 0; }
+.p-company-slide__note {
+  font-size: 0.75rem; color: #888;
+  text-align: right; margin-top: 8px;
+}

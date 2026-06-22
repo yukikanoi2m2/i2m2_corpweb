@@ -1,12 +1,12 @@
 // i2m2 Corporate Site - Layout Component
 export function layout(title: string, content: string, options?: { description?: string }) {
-  const desc = options?.description || 'i2m2株式会社 | ヘルスケア・医療領域の総合支援企業。M&A仲介、医療マーケティング、人材紹介、医療DXなど地域価値創造事業（RVC）を展開。'
+  const desc = options?.description || '株式会社イズムズ（i2m2） | ヘルスケア・医療領域の総合支援企業。M&A仲介、医療マーケティング、人材紹介、医療DXなど地域価値創造事業（RVC）を展開。'
   return `<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${esc(title)} | i2m2株式会社</title>
+<title>${esc(title)} | 株式会社イズムズ</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,7 +58,7 @@ function header() {
           </ul>
         </li>
         <li class="gnav-item"><a href="/cases">実績</a></li>
-        <li class="gnav-item"><a href="/ir">IR情報</a></li>
+        <li class="gnav-item"><a href="/ir">企業情報</a></li>
         <li class="gnav-item"><a href="/recruit">採用</a></li>
       </ul>
     </nav>
@@ -74,7 +74,7 @@ function header() {
       <li><a href="/company">会社情報</a></li>
       <li><a href="/services">事業内容</a></li>
       <li><a href="/cases">実績</a></li>
-      <li><a href="/ir">IR情報</a></li>
+      <li><a href="/ir">企業情報</a></li>
       <li><a href="/recruit">採用</a></li>
       <li><a href="/contact" class="mobile-cta">お問い合わせ</a></li>
     </ul>
@@ -91,6 +91,7 @@ function footer() {
         <a href="/" class="footer-logo"><img src="/static/logo.png" alt="i2m2" class="footer-logo-img"></a>
         <p class="footer-tagline">Bonanza: Fortune Smiles!</p>
         <p class="footer-desc">ヘルスケア・医療領域を中心に、<br>地域価値創造（RVC）事業を通じて企業と地域社会の成長を支援します。</p>
+        <p class="footer-desc" style="margin-top:8px;">Email: info@i2m2.com</p>
       </div>
       <div class="footer-links">
         <div class="footer-col">
@@ -98,7 +99,7 @@ function footer() {
           <ul>
             <li><a href="/services">事業一覧（RVC）</a></li>
             <li><a href="/cases">実績</a></li>
-            <li><a href="/ir">IR情報</a></li>
+            <li><a href="/ir">企業情報</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -106,12 +107,12 @@ function footer() {
           <ul>
             <li><a href="/company">会社概要</a></li>
             <li><a href="/company/message">代表メッセージ</a></li>
-            <li><a href="/ir">IR情報</a></li>
+            <li><a href="/ir">企業情報</a></li>
             <li><a href="/recruit">採用情報</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>アクセス</h4>
+          <h4>本社所在地</h4>
           <ul>
             <li class="footer-address">〒106-6137<br>東京都港区六本木6丁目10-1<br>六本木ヒルズ森タワー37F</li>
           </ul>
@@ -123,7 +124,7 @@ function footer() {
         <a href="/legal">プライバシーポリシー</a>
         <a href="/legal/terms">利用規約</a>
       </div>
-      <p class="footer-copy">&copy; 2025 i2m2 Co.,Ltd.</p>
+      <p class="footer-copy">&copy; 2025 i2m2 Co., Ltd.</p>
     </div>
   </div>
 </footer>`

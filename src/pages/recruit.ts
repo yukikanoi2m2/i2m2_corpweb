@@ -44,6 +44,6 @@ ${breadcrumb([{ label: '採用情報' }])}
   </div>
 </section>
 
-${ctaSection({ title: 'エントリー・ご質問はこちらから', buttons: [{ label: '応募する', href: '/contact', primary: true }] })}
+${ctaSection({ title: 'まずはお気軽にご連絡ください。書類選考はございません。', buttons: [{ label: '応募する', href: '/contact', primary: true }] })}
 `))
 }

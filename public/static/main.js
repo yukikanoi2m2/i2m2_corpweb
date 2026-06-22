@@ -219,33 +219,29 @@
   // ============================================================
   class CountUp {
     constructor() {
+      const counters = document.querySelectorAll('[data-target]');
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting && !entry.target.dataset.counted) {
-            entry.target.dataset.counted = 'true';
-            this.animate(entry.target);
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const target = +el.getAttribute('data-target');
+            const duration = 1500;
+            const step = target / (duration / 16);
+            let current = 0;
+            const timer = setInterval(() => {
+              current += step;
+              if (current >= target) {
+                el.textContent = target.toLocaleString();
+                clearInterval(timer);
+              } else {
+                el.textContent = Math.floor(current).toLocaleString();
+              }
+            }, 16);
+            observer.unobserve(el);
           }
         });
-      }, { threshold: 0.5 });
-
-      document.querySelectorAll('.p-stat-num, .p-result-num').forEach(el => {
-        observer.observe(el);
-      });
-    }
-
-    animate(el) {
-      const target = parseInt(el.dataset.target) || 0;
-      const duration = 2000;
-      const start = performance.now();
-
-      const step = (now) => {
-        const progress = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        const current = Math.floor(target * eased);
-        el.textContent = current.toLocaleString();
-        if (progress < 1) requestAnimationFrame(step);
-      };
-      requestAnimationFrame(step);
+      }, { threshold: 0.3 });
+      counters.forEach(c => observer.observe(c));
     }
   }
 
