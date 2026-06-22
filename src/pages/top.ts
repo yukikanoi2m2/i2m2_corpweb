@@ -30,10 +30,10 @@ export const topPage = (c: Context) => {
         </div>
         <div class="p-front-main__body">
           <h2 class="p-front-main__heading c-heading">
-            <span class="c-text-letters js-text-letters">REGIONAL VALUE CREATION</span>
+            <span class="c-text-letters js-text-letters">REGIONAL VALUE<br class="u-sp-only"> CREATION</span>
           </h2>
           <p class="c-heading-sub p-front-main__sub-text">
-            ヘルスケアから、<br class="u-sp-only">地域の未来を創る —i2m2—
+            ヘルスケアから、地域の未来を創る —i2m2—
           </p>
           <div class="p-front-main__scroll-icon">
             <button class="c-scroll-icon__button" aria-label="次のセクションへ">
@@ -41,7 +41,7 @@ export const topPage = (c: Context) => {
             </button>
           </div>
         </div>
-        <!-- NEWS bar -->
+        <!-- NEWS ticker -->
         <div class="p-front-main__foot">
           <div class="p-bar">
             <div class="p-bar__head">
@@ -49,22 +49,40 @@ export const topPage = (c: Context) => {
               <div class="p-bar__more"><a href="/ir" class="p-bar__more-link">view all</a></div>
             </div>
             <div class="p-bar__body">
-              <div class="p-bar__items">
-                <a class="p-bar__item" href="/ir">
-                  <span class="p-bar__date">2025.06.01</span>
-                  <span class="p-bar__label" style="background:#b8860b">IR</span>
-                  <span class="p-bar__title">六本木ヒルズ森タワー37Fにオフィスを開設</span>
-                </a>
-                <a class="p-bar__item" href="/ir">
-                  <span class="p-bar__date">2025.05.15</span>
-                  <span class="p-bar__label" style="background:#2563a8">事業</span>
-                  <span class="p-bar__title">医療DX（カルテ電子化）サービス提供開始</span>
-                </a>
-                <a class="p-bar__item" href="/ir">
-                  <span class="p-bar__date">2025.03.10</span>
-                  <span class="p-bar__label" style="background:#b8860b">IR</span>
-                  <span class="p-bar__title">累計取扱高20億円を突破</span>
-                </a>
+              <div class="p-bar__ticker">
+                <div class="p-bar__ticker-track">
+                  <a class="p-bar__item" href="/ir">
+                    <span class="p-bar__date">2025.06.01</span>
+                    <span class="p-bar__label" style="background:#b8860b">IR</span>
+                    <span class="p-bar__title">六本木ヒルズ森タワー37Fにオフィスを開設</span>
+                  </a>
+                  <a class="p-bar__item" href="/ir">
+                    <span class="p-bar__date">2025.05.15</span>
+                    <span class="p-bar__label" style="background:#2563a8">事業</span>
+                    <span class="p-bar__title">医療DX（カルテ電子化）サービス提供開始</span>
+                  </a>
+                  <a class="p-bar__item" href="/ir">
+                    <span class="p-bar__date">2025.03.10</span>
+                    <span class="p-bar__label" style="background:#b8860b">IR</span>
+                    <span class="p-bar__title">累計取扱高20億円を突破</span>
+                  </a>
+                  <!-- Duplicated for seamless loop -->
+                  <a class="p-bar__item" href="/ir">
+                    <span class="p-bar__date">2025.06.01</span>
+                    <span class="p-bar__label" style="background:#b8860b">IR</span>
+                    <span class="p-bar__title">六本木ヒルズ森タワー37Fにオフィスを開設</span>
+                  </a>
+                  <a class="p-bar__item" href="/ir">
+                    <span class="p-bar__date">2025.05.15</span>
+                    <span class="p-bar__label" style="background:#2563a8">事業</span>
+                    <span class="p-bar__title">医療DX（カルテ電子化）サービス提供開始</span>
+                  </a>
+                  <a class="p-bar__item" href="/ir">
+                    <span class="p-bar__date">2025.03.10</span>
+                    <span class="p-bar__label" style="background:#b8860b">IR</span>
+                    <span class="p-bar__title">累計取扱高20億円を突破</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
