@@ -12,6 +12,7 @@ export function layout(title: string, content: string, options?: { description?:
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28' font-weight='bold' fill='%2300d4ff'>i</text></svg>" type="image/svg+xml">
 <link href="/static/style.css" rel="stylesheet">
 </head>
 <body>
@@ -30,7 +31,8 @@ function header() {
 <header class="site-header" id="siteHeader">
   <div class="header-inner">
     <a href="/" class="logo">
-      <img src="/static/logo-color.png" alt="i2m2" class="logo-img" height="36">
+      <span class="logo-mark">i2m2</span>
+      <span class="logo-sub">Bonanza</span>
     </a>
     <nav class="gnav" id="gnav">
       <ul class="gnav-list">
@@ -88,7 +90,7 @@ function footer() {
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="/" class="footer-logo"><img src="/static/logo-white.png" alt="i2m2" height="32"></a>
+        <a href="/" class="footer-logo">i2m2</a>
         <p class="footer-tagline">Bonanza: Fortune Smiles!</p>
         <p class="footer-desc">ヘルスケア・医療領域を中心に、<br>地域価値創造（RVC）事業を通じて企業と地域社会の成長を支援します。</p>
       </div>

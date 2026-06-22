@@ -5,8 +5,8 @@ export const topPage = (c: Context) => {
   return c.html(layout('地域価値創造事業', `
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
+  <div class="hero-canvas"><canvas></canvas></div>
+  <div class="hero-gradient"></div>
   <div class="container hero-content">
     <div class="hero-tag"><span class="hero-tag-dot"></span>Regional Value Creation</div>
     <h1 class="hero-title">
