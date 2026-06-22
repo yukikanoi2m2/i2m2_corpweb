@@ -4,7 +4,7 @@
    ============================================================ */
 
 :root {
-  /* Base dark palette (like donuts.ne.jp: bg #000, text #ededed) */
+  /* Base dark palette (donuts.ne.jp exact: bg #000, text #ededed) */
   --bg-base: #000000;
   --bg-gray: #292929;
   --bg-card: #1a1a1a;
@@ -19,17 +19,17 @@
   --accent-dim: rgba(184,134,11,.3);
   --gradient-gold: linear-gradient(135deg, #b8860b, #d4a843, #e8c860);
 
-  /* Secondary */
+  /* Secondary (donuts uses #567bf6 as accent, #249ea8 as accent-second) */
   --blue: #567bf6;
   --blue-second: #249ea8;
 
-  /* Typography (matching donuts: Noto Sans JP + condensed headings) */
-  --font: "Noto Sans JP", "Avenir", "Helvetica Neue", sans-serif;
+  /* Typography — donuts uses urw-din-condensed for headings */
+  --font: "Noto Sans JP", "Avenir", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   --font-en: "Inter", "Avenir", sans-serif;
   --font-heading: "Inter", "Noto Sans JP", sans-serif;
   --font-serif: "Noto Serif JP", serif;
 
-  /* Sizing */
+  /* Sizing (donuts: header PC 110px, SP 70px) */
   --header-h: 110px;
   --header-h-sp: 70px;
 
@@ -41,6 +41,7 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 14px; -webkit-text-size-adjust: 100%; height: 100%; }
+@media (max-width: 736px) { html { font-size: 14px; } }
 body {
   font-family: var(--font);
   color: var(--color-text);
@@ -50,6 +51,7 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   min-height: 100%;
+  width: auto;
 }
 a { color: var(--color-text-sub); text-decoration: none; transition: color .2s; }
 a:hover { color: var(--color-white); }
@@ -214,13 +216,14 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
    SIDE NAVIGATION (donuts.ne.jp style — right side dots)
    ============================================================ */
 .l-nav {
-  display: flex; flex-direction: column; gap: 8px;
-  position: fixed; top: 50%; right: 0; transform: translateY(-50%);
-  z-index: 997; padding-right: 20px;
+  display: grid; grid-template: auto / 100%; gap: 25px;
+  position: fixed; top: 40px; right: 0;
+  z-index: 997;
   font-family: var(--font-heading);
+  transition: .3s;
 }
 @media (max-width: 736px) { .l-nav { display: none; } }
-.l-nav__list { display: flex; flex-direction: column; gap: 4px; }
+.l-nav__list { display: flex; flex-direction: column; position: relative; }
 .l-nav__item {
   display: flex; justify-content: flex-end; position: relative; padding-right: 35px;
 }
@@ -231,13 +234,13 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
   transition: width .3s;
 }
 .l-nav__item.active::before { width: 35px; }
-.l-nav__item.active .l-nav__link { padding: 5px 10px; color: #fff; font-size: 16px; }
+.l-nav__item.active .l-nav__link { padding: 5px 10px; color: #fff; font-size: 20px; }
 .l-nav__link {
   display: flex; width: fit-content; padding: 2px 10px;
-  align-items: center; color: #aaa; font-size: 12px;
+  align-items: center; color: #aaa; font-size: 15px;
   letter-spacing: 1.8px; line-height: 1; transition: .3s ease-in-out;
 }
-.l-nav__link:hover { padding: 5px 10px; color: #fff; font-size: 14px; }
+.l-nav__link:hover { padding: 5px 10px; color: #fff; font-size: 20px; }
 
 /* ============================================================
    BACKGROUND NOISE CANVAS (donuts.ne.jp style)
@@ -264,22 +267,22 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
 }
 .p-slide-section__body {
   position: relative; z-index: 2; width: 100%;
-  padding: 120px 40px 60px;
+  padding: 0 40px;
 }
 .p-slide-section__body--center {
   display: flex; flex-direction: column; align-items: center;
   justify-content: center; text-align: center;
-  min-height: 100vh; padding: 120px 40px;
+  min-height: 100vh; padding: 0 60px;
 }
 .p-slide-section__body--cards {
   display: flex; flex-direction: column; align-items: center;
   justify-content: center; text-align: center;
-  min-height: 100vh; padding: 80px 40px;
+  min-height: 100vh; padding: 0;
 }
 @media (max-width: 736px) {
-  .p-slide-section__body { padding: 100px 20px 40px; }
-  .p-slide-section__body--center { padding: 100px 20px; }
-  .p-slide-section__body--cards { padding: 80px 16px; }
+  .p-slide-section__body { padding: 0 20px; }
+  .p-slide-section__body--center { padding: 0 20px; min-height: 100vh; }
+  .p-slide-section__body--cards { padding: 0; }
 }
 
 /* ============================================================
@@ -289,43 +292,47 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
 .p-front-main .p-slide-section__bg {
   background: radial-gradient(ellipse at 50% 30%, rgba(184,134,11,.04) 0%, transparent 60%);
 }
-.p-front-main__logo { margin-bottom: 40px; }
+.p-front-main__logo { margin-bottom: 50px; }
 .p-front-main__logo-img {
-  height: 100px; width: auto; margin: 0 auto;
+  height: 80px; width: auto; margin: 0 auto;
   opacity: 0; animation: fadeInScale .8s var(--ease) .5s forwards;
 }
 @keyframes fadeInScale { from { opacity:0; transform:scale(.9); } to { opacity:1; transform:scale(1); } }
-@media (max-width: 736px) { .p-front-main__logo-img { height: 60px; } }
+@media (max-width: 736px) { .p-front-main__logo-img { height: 50px; } }
 .p-front-main__body { text-align: center; }
 .p-front-main__heading { margin-bottom: 20px; }
 .p-front-main__sub-text {
-  font-size: 16px; color: var(--color-text-sub); line-height: 2;
-  margin-bottom: 48px;
+  font-size: 17px; color: var(--color-text); line-height: 2;
+  letter-spacing: 3.4px;
 }
-@media (max-width: 736px) { .p-front-main__sub-text { font-size: 14px; } }
+@media (min-width: 737px) { .p-front-main__sub-text { font-size: 25px; } }
+@media (max-width: 736px) { .p-front-main__sub-text { font-size: 17px; letter-spacing: 3px; } }
 
-/* Scroll icon */
-.p-front-main__scroll-icon { margin-top: 40px; }
+/* Scroll icon (donuts style — centered at bottom) */
+.p-front-main__scroll-icon { margin-top: 60px; }
 .c-scroll-icon__button {
-  display: flex; flex-direction: column; align-items: center; gap: 8px;
-  color: var(--color-text-dim); font-size: 11px; letter-spacing: 2px;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  color: var(--color-text-dim); font-size: 12px; letter-spacing: 2px;
   font-family: var(--font-en); cursor: pointer;
-  animation: scrollBounce 2s infinite;
+  padding: 0;
+}
+.c-scroll-icon__button span {
+  animation: scrollFade 2s infinite;
 }
 .c-scroll-icon__button::after {
-  content: ''; width: 1px; height: 40px;
-  background: linear-gradient(to bottom, var(--color-text-dim), transparent);
+  content: ''; width: 1px; height: 50px;
+  background: linear-gradient(to bottom, rgba(255,255,255,.4), transparent);
   animation: scrollLine 2s infinite;
 }
-@keyframes scrollBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
-@keyframes scrollLine { 0%{opacity:1;height:40px} 100%{opacity:0;height:20px} }
+@keyframes scrollFade { 0%,100%{opacity:1} 50%{opacity:.3} }
+@keyframes scrollLine { 0%{transform:scaleY(1);opacity:1} 100%{transform:scaleY(.5);opacity:0} }
 
-/* NEWS bar */
+/* NEWS bar (donuts: fixed at bottom of first section) */
 .p-front-main__foot {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  padding: 20px 40px; z-index: 3;
+  position: absolute; bottom: 40px; left: 0; right: 0;
+  padding: 0 60px; z-index: 3;
 }
-@media (max-width: 736px) { .p-front-main__foot { padding: 16px 20px; position: relative; margin-top: 40px; } }
+@media (max-width: 736px) { .p-front-main__foot { position: relative; bottom: auto; padding: 0 20px; margin-top: 30px; } }
 .p-bar { border-top: 1px solid rgba(255,255,255,.1); padding-top: 20px; }
 .p-bar__head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
 .p-bar__heading {
@@ -360,15 +367,17 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
   background: radial-gradient(ellipse at 30% 50%, rgba(86,123,246,.05) 0%, transparent 60%);
 }
 .p-front-about__text {
-  font-size: 18px; color: var(--color-text-sub); line-height: 2.2; margin-top: 24px;
+  font-size: 17px; color: var(--color-text); line-height: 2.2;
+  letter-spacing: 3.4px;
 }
-@media (max-width: 736px) { .p-front-about__text { font-size: 15px; } }
+@media (min-width: 737px) { .p-front-about__text { font-size: 25px; margin-top: 25px; } }
+@media (max-width: 736px) { .p-front-about__text { font-size: 17px; margin-top: 15px; } }
 .p-front-about__stats {
   display: flex; gap: 60px; margin-top: 60px; flex-wrap: wrap; justify-content: center;
 }
 .p-stat-item { text-align: center; }
 .p-stat-num {
-  font-family: var(--font-en); font-size: 56px; font-weight: 800;
+  font-family: var(--font-en); font-size: 48px; font-weight: 700;
   display: block; color: var(--color-white); line-height: 1;
 }
 .p-stat-unit { font-size: 16px; color: var(--accent-light); margin-left: 2px; }
@@ -379,22 +388,30 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
 }
 
 /* ============================================================
-   HEADINGS (donuts.ne.jp style — large sans, letter-spaced)
+   HEADINGS (donuts.ne.jp exact values)
+   font: urw-din-condensed → we use Inter as fallback
+   PC: 55px, letter-spacing 6.6px | SP: 36px, letter-spacing 4.2px
    ============================================================ */
 .c-heading {
-  font-family: var(--font-heading); font-weight: 700;
-  letter-spacing: 6px; line-height: 1.2; color: var(--color-white);
+  font-family: var(--font-heading); font-weight: 500;
+  line-height: 1; text-align: center; color: var(--color-white);
+  margin-bottom: 15px;
 }
-.c-heading--1 { font-size: clamp(36px, 8vw, 72px); }
-.c-heading:not(.c-heading--1) { font-size: clamp(28px, 6vw, 56px); }
+@media (min-width: 737px) { .c-heading { font-size: 55px; letter-spacing: 6.6px; } }
+@media (max-width: 736px) { .c-heading { font-size: 36px; letter-spacing: 4.2px; } }
+.c-heading--1 {
+  /* donuts PC: 40px, SP: 35px */
+}
+@media (min-width: 737px) { .c-heading--1 { font-size: 40px; letter-spacing: 6.6px; margin-bottom: 40px; } }
+@media (max-width: 736px) { .c-heading--1 { font-size: 35px; letter-spacing: 2px; margin-bottom: 20px; } }
 .c-heading-sub {
-  font-size: 14px; color: var(--color-text-sub);
-  letter-spacing: 2px; line-height: 2;
+  text-align: center; font-size: 17px; color: var(--color-text);
 }
-.c-heading-sub--large {
-  font-size: clamp(14px, 2vw, 18px); margin-bottom: 16px;
-  font-family: var(--font-serif);
-}
+@media (min-width: 737px) { .c-heading-sub { letter-spacing: 3.4px; margin-top: 25px; } }
+@media (max-width: 736px) { .c-heading-sub { letter-spacing: 3px; margin-top: 15px; } }
+.c-heading-sub--large {}
+@media (min-width: 737px) { .c-heading-sub--large { font-size: 25px; } }
+@media (max-width: 736px) { .c-heading-sub--large { font-size: 17px; } }
 
 /* Letter animation (js-text-letters) */
 .c-text-letters { display: inline-block; }
@@ -408,86 +425,119 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
 }
 
 /* ============================================================
-   BUTTONS (donuts.ne.jp style — bordered, arrow)
+   BUTTONS (donuts.ne.jp exact: min-height 70px, border anim)
    ============================================================ */
 .c-btn {
   display: inline-flex; align-items: center; justify-content: center;
-  padding: 16px 40px; border: 1px solid rgba(255,255,255,.3);
-  color: var(--color-white); font-size: 14px; font-weight: 500;
-  letter-spacing: 2px; transition: all .3s; margin-top: 32px;
+  position: relative; min-height: 70px; padding: 0 20px;
+  border: 1px solid rgba(255,255,255,.75); outline: none;
+  background: rgba(0,0,0,.75); color: var(--color-text);
+  text-align: center; text-decoration: none;
+  transition: all .3s; margin-top: 32px;
+  width: 100%;
 }
-.c-btn:hover { border-color: var(--accent-light); color: var(--accent-light); }
+.c-btn::before, .c-btn::after {
+  position: absolute; box-sizing: content-box;
+  width: 0; height: 0; border: 1px solid transparent;
+  content: ""; transition: all .3s; visibility: hidden;
+}
+.c-btn::before { top: -1px; left: -1px; border-left-color: var(--color-text); }
+.c-btn::after { right: -1px; bottom: -1px; border-right-color: var(--color-text); }
+.c-btn:hover::before, .c-btn:hover::after { visibility: visible; height: 100%; }
+.c-btn:hover .c-btn__inner::before, .c-btn:hover .c-btn__inner::after { visibility: visible; width: 100%; }
+.c-btn__inner::before, .c-btn__inner::after {
+  position: absolute; box-sizing: content-box;
+  width: 0; height: 0; border: 1px solid transparent;
+  content: ""; transition: all .3s; visibility: hidden;
+}
+.c-btn__inner::before { left: -1px; bottom: -1px; border-bottom-color: var(--color-text); }
+.c-btn__inner::after { top: -1px; right: -1px; border-top-color: var(--color-text); }
+@media (min-width: 737px) { .c-btn { max-width: 380px; font-size: 20px; } }
+@media (max-width: 736px) { .c-btn { max-width: 310px; font-size: 15px; } }
+.c-btn:hover { color: var(--color-text); }
+.c-btn:hover .c-arrow { transform: translateX(5px); }
 .c-btn--primary {
   background: var(--gradient-gold); border-color: transparent; color: #fff;
 }
 .c-btn--primary:hover { opacity: .9; color: #fff; }
-.c-btn__inner { display: flex; align-items: center; gap: 12px; }
+.c-btn__inner { display: flex; align-items: center; justify-content: center; gap: 15px; line-height: 1; letter-spacing: 1.8px; }
 .c-arrow {
   display: inline-block; width: 8px; height: 8px;
-  border-top: 1px solid currentColor; border-right: 1px solid currentColor;
-  transform: rotate(45deg);
+  border-top: 1.5px solid currentColor; border-right: 1.5px solid currentColor;
+  transform: rotate(45deg); transition: transform .3s;
 }
 .c-arrow--prev { transform: rotate(-135deg); }
 .c-arrow--next { transform: rotate(45deg); }
 
 /* ============================================================
-   CARD SLIDER (donuts.ne.jp #front-services — horizontal scroll)
+   CARD SLIDER (donuts.ne.jp exact: gap 40px, padding 0 40px)
+   c-card__thumb: aspect-ratio 2, bg #ededed, border-radius 6px
+   c-card__title: margin-top 15px, font-size 17px, bold
+   c-card__content: margin-top 10px, font-size 15px
    ============================================================ */
 .p-front-services { background: var(--bg-base); }
 .p-front-services__bg {
   background: radial-gradient(ellipse at 60% 40%, rgba(184,134,11,.03) 0%, transparent 50%);
 }
 .c-card-slider {
-  display: flex; align-items: center; gap: 20px;
-  width: 100%; max-width: 1200px; margin-top: 40px;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; gap: 40px; width: 100%; padding: 0 40px;
 }
+.c-card-slider--wide { padding: 0; }
+@media (max-width: 736px) { .c-card-slider { padding: 0 16px; gap: 16px; flex-direction: column; } }
 .c-card-slider__inner {
-  flex: 1; overflow: hidden; position: relative;
+  width: 100%; overflow: hidden;
 }
+@media (min-width: 737px) { .c-card-slider__inner { overflow: hidden; max-width: 1100px; } }
 .c-card-slider__track {
   display: flex; gap: 20px;
   transition: transform .5s var(--ease);
   will-change: transform;
 }
 .c-card {
-  flex: 0 0 280px; max-width: 280px;
+  flex: 0 0 280px; max-width: 280px; text-align: left;
 }
-@media (max-width: 736px) { .c-card { flex: 0 0 240px; max-width: 240px; } }
+@media (max-width: 736px) { .c-card { flex: 0 0 100%; max-width: 100%; } }
 .c-card__inner {
   display: block; text-decoration: none; color: inherit;
-  transition: transform .3s var(--ease);
 }
-.c-card__inner:hover { transform: translateY(-4px); }
+.c-card__inner:hover .c-card__thumb-placeholder { transform: scale(1.05); }
 .c-card__thumb {
-  width: 100%; aspect-ratio: 2/1; border-radius: 8px;
-  overflow: hidden; margin-bottom: 16px; position: relative;
+  display: flex; overflow: hidden; align-items: center; justify-content: center;
+  position: relative; width: 100%; aspect-ratio: 2;
+  background-color: #ededed;
 }
+.c-card__thumb--radius { border-radius: 6px; }
 .c-card__thumb-placeholder {
   width: 100%; height: 100%;
   background: var(--bg-gray);
   display: flex; align-items: center; justify-content: center;
-  font-size: 36px; color: rgba(184,134,11,.25);
-  transition: transform .4s var(--ease);
+  font-size: 40px; color: rgba(184,134,11,.3);
+  transition: transform .5s;
+  object-fit: cover;
 }
-.c-card__inner:hover .c-card__thumb-placeholder { transform: scale(1.06); }
 .c-card__title {
-  font-size: 15px; font-weight: 700; color: var(--color-white);
-  margin-bottom: 8px; line-height: 1.4;
+  margin-top: 15px; color: var(--color-text); font-size: 17px;
+  font-weight: bold; line-height: 1.5;
 }
+@media (max-width: 736px) { .c-card__title { margin-top: 10px; font-size: 15px; } }
 .c-card__content {
-  font-size: 13px; color: var(--color-text-sub); line-height: 1.8;
+  margin-top: 10px; color: var(--color-text); font-size: 15px; line-height: 1.75;
 }
+@media (max-width: 736px) { .c-card__content { font-size: 13px; } }
 
-/* Pager buttons */
+/* Pager buttons (donuts uses circular arrows beside slider) */
 .c-pager-btn {
-  width: 48px; height: 48px; border-radius: 50%;
-  border: 1px solid rgba(255,255,255,.2); display: flex;
+  width: 50px; height: 50px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.3); display: flex;
   align-items: center; justify-content: center;
   color: var(--color-text-sub); cursor: pointer;
   transition: all .3s; flex-shrink: 0;
+  background: transparent; position: relative; z-index: 3;
 }
-.c-pager-btn:hover { border-color: var(--accent-light); color: var(--accent-light); }
+.c-pager-btn:hover { border-color: var(--color-white); color: var(--color-white); }
 .c-pager-btn .c-arrow { width: 10px; height: 10px; }
+@media (max-width: 736px) { .c-pager-btn { display: none; } }
 
 /* ============================================================
    SECTION: RESULTS
@@ -501,7 +551,7 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
 }
 .p-result-card { text-align: center; min-width: 140px; }
 .p-result-num {
-  font-family: var(--font-en); font-size: 64px; font-weight: 800;
+  font-family: var(--font-en); font-size: 55px; font-weight: 700;
   display: block; color: var(--color-white); line-height: 1;
 }
 .p-result-unit { font-size: 16px; color: var(--accent-light); }
