@@ -1,237 +1,276 @@
 import type { Context } from 'hono'
-import { layout, sectionTitle, ctaSection } from '../components/layout'
+import { layout } from '../components/layout'
 
 export const topPage = (c: Context) => {
   return c.html(layout('地域価値創造事業', `
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-canvas"><canvas></canvas></div>
-  <div class="hero-gradient"></div>
-  <div class="container hero-content">
-    <div class="hero-tag"><span class="hero-tag-dot"></span>Regional Value Creation</div>
-    <h1 class="hero-title">
-      <span class="hero-line"><span>ヘルスケアから、</span></span>
-      <span class="hero-line"><span class="hero-accent">地域の未来を創る。</span></span>
-    </h1>
-    <p class="hero-desc">M&A・医療マーケティング・人材・DXを<br>ワンストップで支援します。</p>
-    <div class="hero-actions">
-      <a href="/contact" class="btn btn-primary btn-lg"><i class="fas fa-paper-plane"></i> 無料相談</a>
-      <a href="/services" class="btn btn-outline btn-lg">事業内容 <i class="fas fa-arrow-right"></i></a>
-    </div>
-    <div class="hero-stats">
-      <div class="hero-stat"><strong>20<span>億円+</span></strong><span>累計取扱高</span></div>
-      <div class="hero-stat"><strong>1000<span>件+</span></strong><span>グループ総取引</span></div>
-      <div class="hero-stat"><strong>100<span>社+</span></strong><span>取引先企業</span></div>
-    </div>
-  </div>
-  <div class="hero-scroll"><span>Scroll</span><div class="hero-scroll-line"></div></div>
-</section>
+<!-- Side Navigation (donuts-style) -->
+<nav class="l-nav">
+  <ul class="l-nav__list">
+    <li class="l-nav__item active"><a class="l-nav__link" href="#front-main">TOP</a></li>
+    <li class="l-nav__item"><a class="l-nav__link" href="#front-about">ABOUT</a></li>
+    <li class="l-nav__item"><a class="l-nav__link" href="#front-services">SERVICES</a></li>
+    <li class="l-nav__item"><a class="l-nav__link" href="#front-results">RESULTS</a></li>
+    <li class="l-nav__item"><a class="l-nav__link" href="#front-recruit">RECRUIT</a></li>
+  </ul>
+</nav>
 
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-track">
-    <span class="ticker-item"><span class="ticker-dot"></span>Healthcare Marketing</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Medical Staffing</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>M&A Advisory</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Business Succession</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Medical DX</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Regional Value Creation</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Healthcare Marketing</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Medical Staffing</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>M&A Advisory</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Business Succession</span>
-  </div>
-</div>
+<!-- Noise texture background -->
+<canvas class="c-background-noise c-background-noise--fixed"></canvas>
 
-<!-- STATEMENT -->
-<section class="section section-statement">
-  <div class="container">
-    <p class="statement-copy">事業領域に制限はなく、<br>ヘルスケアを起点に<br class="sp-only">さまざまな可能性を追求する</p>
-  </div>
-</section>
-
-<!-- SERVICES — donuts style full-width cards -->
-<section class="section section-services-full" id="services">
-  <div class="container">
-    <div class="section-header-row">
-      ${sectionTitle('SERVICES', '展開事業')}
-    </div>
-    <div class="services-card-grid">
-      <a href="/healthcare" class="svc-card svc-card-large">
-        <div class="svc-card-bg">
-          <div class="svc-card-placeholder"><i class="fas fa-hospital-user"></i></div>
+<article>
+  <!-- ========================================
+       SECTION: MAIN / HERO (full viewport)
+       ======================================== -->
+  <section id="front-main" class="p-snap-section">
+    <div class="p-slide-section p-front-main">
+      <div class="p-slide-section__bg"></div>
+      <div class="p-slide-section__body p-slide-section__body--center">
+        <div class="p-front-main__logo">
+          <img src="/static/logo.png" alt="i2m2" class="p-front-main__logo-img">
         </div>
-        <div class="svc-card-overlay"></div>
-        <div class="svc-card-content">
-          <span class="svc-card-brand">IHG™</span>
-          <h3>Healthcare Services</h3>
-          <p>医療機関プロデュース — 広告運用・コンサル・カルテ電子化（医療DX）・補助金支援</p>
+        <div class="p-front-main__body">
+          <h2 class="p-front-main__heading c-heading">
+            <span class="c-text-letters js-text-letters">REGIONAL VALUE CREATION</span>
+          </h2>
+          <p class="c-heading-sub p-front-main__sub-text">
+            ヘルスケアから、<br class="u-sp-only">地域の未来を創る —i2m2—
+          </p>
+          <div class="p-front-main__scroll-icon">
+            <button class="c-scroll-icon__button" aria-label="次のセクションへ">
+              <span>Scroll</span>
+            </button>
+          </div>
         </div>
-      </a>
-      <a href="/talent" class="svc-card">
-        <div class="svc-card-bg">
-          <div class="svc-card-placeholder"><i class="fas fa-user-nurse"></i></div>
-        </div>
-        <div class="svc-card-overlay"></div>
-        <div class="svc-card-content">
-          <span class="svc-card-brand">DR-LINK™</span>
-          <h3>Healthcare Talent</h3>
-          <p>医療系人材マッチング</p>
-        </div>
-      </a>
-      <a href="/ma" class="svc-card">
-        <div class="svc-card-bg">
-          <div class="svc-card-placeholder"><i class="fas fa-building-columns"></i></div>
-        </div>
-        <div class="svc-card-overlay"></div>
-        <div class="svc-card-content">
-          <span class="svc-card-brand">RVC</span>
-          <h3>Community Value</h3>
-          <p>M&A仲介・事業承継・事業再生</p>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ADDITIONAL SERVICES — smaller tiles -->
-<section class="section section-additional-full">
-  <div class="container">
-    <div class="additional-tile-grid">
-      <div class="add-tile">
-        <div class="add-tile-bg"><div class="svc-card-placeholder add-placeholder"><i class="fas fa-laptop-medical"></i></div></div>
-        <div class="add-tile-content">
-          <h4>カルテ電子化<br><small>医療DX</small></h4>
-        </div>
-      </div>
-      <div class="add-tile">
-        <div class="add-tile-bg"><div class="svc-card-placeholder add-placeholder"><i class="fas fa-ad"></i></div></div>
-        <div class="add-tile-content">
-          <h4>広告運用<br><small>5,000万円+実績</small></h4>
-        </div>
-      </div>
-      <div class="add-tile">
-        <div class="add-tile-bg"><div class="svc-card-placeholder add-placeholder"><i class="fas fa-file-invoice-dollar"></i></div></div>
-        <div class="add-tile-content">
-          <h4>補助金コンサル<br><small>融資・申請支援</small></h4>
-        </div>
-      </div>
-      <div class="add-tile">
-        <div class="add-tile-bg"><div class="svc-card-placeholder add-placeholder"><i class="fas fa-globe-asia"></i></div></div>
-        <div class="add-tile-content">
-          <h4>海外展開支援<br><small>4everclinic</small></h4>
+        <!-- NEWS bar -->
+        <div class="p-front-main__foot">
+          <div class="p-bar">
+            <div class="p-bar__head">
+              <div class="p-bar__heading">NEWS</div>
+              <div class="p-bar__more"><a href="/ir" class="p-bar__more-link">view all</a></div>
+            </div>
+            <div class="p-bar__body">
+              <div class="p-bar__items">
+                <a class="p-bar__item" href="/ir">
+                  <span class="p-bar__date">2025.06.01</span>
+                  <span class="p-bar__label" style="background:#b8860b">IR</span>
+                  <span class="p-bar__title">六本木ヒルズ森タワー37Fにオフィスを開設</span>
+                </a>
+                <a class="p-bar__item" href="/ir">
+                  <span class="p-bar__date">2025.05.15</span>
+                  <span class="p-bar__label" style="background:#2563a8">事業</span>
+                  <span class="p-bar__title">医療DX（カルテ電子化）サービス提供開始</span>
+                </a>
+                <a class="p-bar__item" href="/ir">
+                  <span class="p-bar__date">2025.03.10</span>
+                  <span class="p-bar__label" style="background:#b8860b">IR</span>
+                  <span class="p-bar__title">累計取扱高20億円を突破</span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- STATEMENT 2 -->
-<section class="section section-statement section-statement-dark">
-  <div class="container">
-    <p class="statement-copy">全ての関わる人に幸運と繁栄を。<br>地域社会の価値を高めるインフラへ。</p>
-    <span class="statement-sub">Bonanza: Fortune Smiles!</span>
-  </div>
-</section>
-
-<!-- RESULTS -->
-<section class="section section-results">
-  <div class="container">
-    ${sectionTitle('TRACK RECORD', '実績')}
-    <div class="results-numbers">
-      <div class="result-num-item">
-        <strong>20<span>億円</span></strong>
-        <span>累計取扱高</span>
-      </div>
-      <div class="result-num-item">
-        <strong>1000<span>件+</span></strong>
-        <span>グループ総取引</span>
-      </div>
-      <div class="result-num-item">
-        <strong>100<span>社+</span></strong>
-        <span>取引先企業</span>
-      </div>
-      <div class="result-num-item">
-        <strong>5000<span>万円+</span></strong>
-        <span>広告運用額</span>
+  <!-- ========================================
+       SECTION: ABOUT
+       ======================================== -->
+  <section id="front-about" class="p-snap-section">
+    <div class="p-slide-section p-front-about">
+      <div class="p-slide-section__bg p-front-about__bg"></div>
+      <div class="p-slide-section__body p-slide-section__body--center">
+        <div>
+          <h2 class="c-heading">
+            <span class="c-text-letters js-text-letters">CHANGE THE GAME</span>
+          </h2>
+          <p class="c-heading-sub p-front-about__text">
+            事業領域に制限はなく、<br>ヘルスケアを起点にさまざまな可能性を追求する
+          </p>
+        </div>
+        <a href="/company" class="c-btn">
+          <span class="c-btn__inner">COMPANY PROFILE <span class="c-arrow"></span></span>
+        </a>
+        <div class="p-front-about__stats">
+          <div class="p-stat-item">
+            <strong class="p-stat-num" data-target="20">0</strong>
+            <span class="p-stat-unit">億円+</span>
+            <span class="p-stat-label">累計取扱高</span>
+          </div>
+          <div class="p-stat-item">
+            <strong class="p-stat-num" data-target="1000">0</strong>
+            <span class="p-stat-unit">件+</span>
+            <span class="p-stat-label">グループ総取引</span>
+          </div>
+          <div class="p-stat-item">
+            <strong class="p-stat-num" data-target="100">0</strong>
+            <span class="p-stat-unit">社+</span>
+            <span class="p-stat-label">取引先企業</span>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ABOUT / WHY -->
-<section class="section section-why" id="about">
-  <div class="container">
-    ${sectionTitle('WHY i2m2', '選ばれる理由')}
-    <div class="why-grid">
-      <div class="why-card">
-        <div class="why-icon"><i class="fas fa-hospital"></i></div>
-        <h3>ヘルスケア特化</h3>
-        <p>医療・介護・福祉に精通した専門チーム</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon"><i class="fas fa-layer-group"></i></div>
-        <h3>ワンストップRVC</h3>
-        <p>M&A・マーケ・人材・DXを一社完結</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon"><i class="fas fa-chart-line"></i></div>
-        <h3>取扱高20億円超</h3>
-        <p>グループ1000件以上の取引実績</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon"><i class="fas fa-shield-halved"></i></div>
-        <h3>IPO準備体制</h3>
-        <p>クリーン経営と高い透明性</p>
+  <!-- ========================================
+       SECTION: SERVICES (card slider — donuts style)
+       ======================================== -->
+  <section id="front-services" class="p-snap-section">
+    <div class="p-slide-section p-front-services">
+      <div class="p-slide-section__bg p-front-services__bg"></div>
+      <div class="p-slide-section__body p-slide-section__body--cards">
+        <p class="c-heading-sub c-heading-sub--large">M&A・医療マーケ・人材・DX<br class="u-sp-only">ワンストップで地域価値を創出</p>
+        <h2 class="c-heading c-heading--1">
+          <span class="c-text-letters js-text-letters">SERVICES</span>
+        </h2>
+        <div class="c-card-slider">
+          <button class="c-pager-btn c-pager-btn--prev js-slider-prev" aria-label="前へ">
+            <span class="c-arrow c-arrow--prev"></span>
+          </button>
+          <div class="c-card-slider__inner">
+            <div class="c-card-slider__track js-card-track">
+              <!-- Card 1 -->
+              <section class="c-card">
+                <a class="c-card__inner" href="/healthcare">
+                  <div class="c-card__thumb">
+                    <div class="c-card__thumb-placeholder"><i class="fas fa-hospital-user"></i></div>
+                  </div>
+                  <div class="c-card__title">IHG™ Healthcare Services</div>
+                  <div class="c-card__content">医療機関プロデュース — 広告運用・コンサル・カルテ電子化（医療DX）・補助金支援</div>
+                </a>
+              </section>
+              <!-- Card 2 -->
+              <section class="c-card">
+                <a class="c-card__inner" href="/talent">
+                  <div class="c-card__thumb">
+                    <div class="c-card__thumb-placeholder"><i class="fas fa-user-nurse"></i></div>
+                  </div>
+                  <div class="c-card__title">DR-LINK™ Healthcare Talent</div>
+                  <div class="c-card__content">医療系人材マッチング — 医師・看護師・薬剤師の転職・紹介</div>
+                </a>
+              </section>
+              <!-- Card 3 -->
+              <section class="c-card">
+                <a class="c-card__inner" href="/ma">
+                  <div class="c-card__thumb">
+                    <div class="c-card__thumb-placeholder"><i class="fas fa-building-columns"></i></div>
+                  </div>
+                  <div class="c-card__title">RVC Community Value</div>
+                  <div class="c-card__content">M&A仲介・事業承継・事業再生 — 地域価値創造ファンド</div>
+                </a>
+              </section>
+              <!-- Card 4 -->
+              <section class="c-card">
+                <a class="c-card__inner" href="/healthcare">
+                  <div class="c-card__thumb">
+                    <div class="c-card__thumb-placeholder"><i class="fas fa-laptop-medical"></i></div>
+                  </div>
+                  <div class="c-card__title">カルテ電子化（医療DX）</div>
+                  <div class="c-card__content">予約・内診・オンライン診療・経営分析まで一元化できるクラウド型電子カルテ</div>
+                </a>
+              </section>
+              <!-- Card 5 -->
+              <section class="c-card">
+                <a class="c-card__inner" href="/healthcare">
+                  <div class="c-card__thumb">
+                    <div class="c-card__thumb-placeholder"><i class="fas fa-ad"></i></div>
+                  </div>
+                  <div class="c-card__title">広告運用・マーケティング</div>
+                  <div class="c-card__content">5,000万円+の広告運用実績。医療特化のリスティング・SNS・MEO対策</div>
+                </a>
+              </section>
+              <!-- Card 6 -->
+              <section class="c-card">
+                <a class="c-card__inner" href="/healthcare">
+                  <div class="c-card__thumb">
+                    <div class="c-card__thumb-placeholder"><i class="fas fa-file-invoice-dollar"></i></div>
+                  </div>
+                  <div class="c-card__title">補助金・融資コンサルティング</div>
+                  <div class="c-card__content">補助金申請支援・融資サポート・事業計画策定</div>
+                </a>
+              </section>
+              <!-- Card 7 -->
+              <section class="c-card">
+                <a class="c-card__inner" href="/healthcare">
+                  <div class="c-card__thumb">
+                    <div class="c-card__thumb-placeholder"><i class="fas fa-globe-asia"></i></div>
+                  </div>
+                  <div class="c-card__title">海外展開支援 (4everclinic)</div>
+                  <div class="c-card__content">アジア圏への医療機関進出コンサルティング</div>
+                </a>
+              </section>
+            </div>
+          </div>
+          <button class="c-pager-btn c-pager-btn--next js-slider-next" aria-label="次へ">
+            <span class="c-arrow c-arrow--next"></span>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- IR -->
-<section class="section section-news section-alt">
-  <div class="container">
-    ${sectionTitle('IR', 'IR情報')}
-    <ul class="news-list">
-      <li class="news-item">
-        <time>2025.06.01</time>
-        <span class="news-tag">IR</span>
-        <a href="/ir">六本木ヒルズ森タワー37Fにオフィスを開設</a>
-      </li>
-      <li class="news-item">
-        <time>2025.05.15</time>
-        <span class="news-tag">事業報告</span>
-        <a href="/ir">医療DX（カルテ電子化）サービス提供開始</a>
-      </li>
-      <li class="news-item">
-        <time>2025.03.10</time>
-        <span class="news-tag">事業報告</span>
-        <a href="/ir">累計取扱高20億円を突破</a>
-      </li>
-    </ul>
-    <div class="text-center mt-30">
-      <a href="/ir" class="btn btn-outline btn-sm">IR情報一覧</a>
+  <!-- ========================================
+       SECTION: RESULTS (Track Record)
+       ======================================== -->
+  <section id="front-results" class="p-snap-section">
+    <div class="p-slide-section p-front-results">
+      <div class="p-slide-section__bg p-front-results__bg"></div>
+      <div class="p-slide-section__body p-slide-section__body--center">
+        <p class="c-heading-sub c-heading-sub--large">全ての関わる人に幸運と繁栄を。<br class="u-sp-only">地域社会の価値を高めるインフラへ。</p>
+        <h2 class="c-heading c-heading--1">
+          <span class="c-text-letters js-text-letters">TRACK RECORD</span>
+        </h2>
+        <div class="p-results-grid">
+          <div class="p-result-card">
+            <strong class="p-result-num" data-target="20">0</strong>
+            <span class="p-result-unit">億円</span>
+            <span class="p-result-label">累計取扱高</span>
+          </div>
+          <div class="p-result-card">
+            <strong class="p-result-num" data-target="1000">0</strong>
+            <span class="p-result-unit">件+</span>
+            <span class="p-result-label">グループ総取引</span>
+          </div>
+          <div class="p-result-card">
+            <strong class="p-result-num" data-target="100">0</strong>
+            <span class="p-result-unit">社+</span>
+            <span class="p-result-label">取引先企業</span>
+          </div>
+          <div class="p-result-card">
+            <strong class="p-result-num" data-target="5000">0</strong>
+            <span class="p-result-unit">万円+</span>
+            <span class="p-result-label">広告運用額</span>
+          </div>
+        </div>
+        <span class="c-heading-sub p-front-results__sub">Bonanza: Fortune Smiles!</span>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- RECRUIT STATEMENT -->
-<section class="section section-statement">
-  <div class="container">
-    <p class="statement-copy">価値が残り続けるものを創る、<br>世界を変える挑戦をしよう</p>
-    <div class="statement-action">
-      <a href="/recruit" class="btn btn-primary btn-lg">採用情報 <i class="fas fa-arrow-right"></i></a>
+  <!-- ========================================
+       SECTION: RECRUIT
+       ======================================== -->
+  <section id="front-recruit" class="p-snap-section">
+    <div class="p-slide-section p-front-recruit">
+      <div class="p-slide-section__bg p-front-recruit__bg"></div>
+      <div class="p-slide-section__body p-slide-section__body--center">
+        <h2 class="c-heading">
+          <span class="c-text-letters js-text-letters">JOIN OUR TEAM</span>
+        </h2>
+        <p class="c-heading-sub">
+          価値が残り続けるものを創る、<br>世界を変える挑戦をしよう
+        </p>
+        <div class="p-front-recruit__actions">
+          <a href="/recruit" class="c-btn c-btn--primary">
+            <span class="c-btn__inner">RECRUIT <span class="c-arrow"></span></span>
+          </a>
+          <a href="/contact" class="c-btn">
+            <span class="c-btn__inner">CONTACT <span class="c-arrow"></span></span>
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
-
-<!-- CTA -->
-${ctaSection({
-  title: 'まずはお気軽にご相談ください',
-  buttons: [
-    { label: '無料相談・お問い合わせ', href: '/contact', primary: true },
-    { label: '会社概要を見る', href: '/company' }
-  ]
-})}
+  </section>
+</article>
 `))
 }
