@@ -13,10 +13,10 @@ export const topPage = (c: Context) => {
       <span class="hero-line"><span>ヘルスケアから、</span></span>
       <span class="hero-line"><span class="hero-accent">地域の未来を創る。</span></span>
     </h1>
-    <p class="hero-desc">医療機関プロデュース・人材マッチング・M&A/事業承継。<br>地域価値創造事業（RVC）として、多角的に企業と地域の成長を支援します。</p>
+    <p class="hero-desc">M&A・医療マーケティング・人材・DXを<br>ワンストップで支援します。</p>
     <div class="hero-actions">
       <a href="/contact" class="btn btn-primary btn-lg"><i class="fas fa-paper-plane"></i> 無料相談</a>
-      <a href="/services" class="btn btn-outline btn-lg">事業内容を見る <i class="fas fa-arrow-right"></i></a>
+      <a href="/services" class="btn btn-outline btn-lg">事業内容 <i class="fas fa-arrow-right"></i></a>
     </div>
     <div class="hero-stats">
       <div class="hero-stat"><strong>20<span>億円+</span></strong><span>累計取扱高</span></div>
@@ -35,7 +35,6 @@ export const topPage = (c: Context) => {
     <span class="ticker-item"><span class="ticker-dot"></span>M&A Advisory</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Business Succession</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Medical DX</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Subsidy Consulting</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Regional Value Creation</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Healthcare Marketing</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Medical Staffing</span>
@@ -44,33 +43,56 @@ export const topPage = (c: Context) => {
   </div>
 </div>
 
+<!-- VISUAL SHOWCASE (Movie / Photo placeholder) -->
+<section class="section section-showcase">
+  <div class="container">
+    <div class="showcase-video">
+      <div class="video-placeholder">
+        <div class="video-placeholder-inner">
+          <i class="fas fa-play-circle"></i>
+          <span>CORPORATE MOVIE</span>
+          <small>coming soon</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ABOUT -->
 <section class="section section-why" id="about">
   <div class="container">
-    ${sectionTitle('ABOUT', '私たちについて')}
-    <div class="about-lead">
-      <p class="section-lead">i2m2は、ヘルスケア・医療領域を起点に<strong>地域価値創造事業（RVC＝Regional Value Creation）</strong>を展開する企業です。<br>医療、介護、福祉、IT、飲食など幅広い業種に対し、M&A仲介から経営支援まで一気通貫のソリューションを提供します。</p>
+    <div class="about-visual-layout">
+      <div class="about-text-side">
+        ${sectionTitle('ABOUT', '私たちについて')}
+        <p class="section-lead">ヘルスケア×地域価値創造（RVC）。<br>M&Aから経営支援まで一気通貫。</p>
+      </div>
+      <div class="about-image-side">
+        <div class="image-placeholder image-placeholder-lg">
+          <i class="fas fa-city"></i>
+          <span>Office Image</span>
+        </div>
+      </div>
     </div>
     <div class="why-grid">
       <div class="why-card">
         <div class="why-icon"><i class="fas fa-hospital"></i></div>
         <h3>ヘルスケア特化</h3>
-        <p>医療・介護・福祉業界に精通した専門チームが、業界固有の課題を理解し最適な支援を提供します。</p>
+        <p>医療・介護・福祉に精通した専門チーム</p>
       </div>
       <div class="why-card">
         <div class="why-icon"><i class="fas fa-layer-group"></i></div>
         <h3>ワンストップRVC</h3>
-        <p>M&A・マーケティング・人材・DXを一社で完結。地域の事業を多角的に支え、価値を創造します。</p>
+        <p>M&A・マーケ・人材・DXを一社完結</p>
       </div>
       <div class="why-card">
         <div class="why-icon"><i class="fas fa-chart-line"></i></div>
-        <h3>累計取扱高20億円超</h3>
-        <p>グループ総取引1000件以上、取引先100社超の実績。確かな経験に基づく実践的な支援です。</p>
+        <h3>取扱高20億円超</h3>
+        <p>グループ1000件以上の取引実績</p>
       </div>
       <div class="why-card">
         <div class="why-icon"><i class="fas fa-shield-halved"></i></div>
-        <h3>上場準備のガバナンス</h3>
-        <p>クリーンな経営体制と高い透明性。コンプライアンスを徹底し、信頼性の高いサービスを提供します。</p>
+        <h3>IPO準備体制</h3>
+        <p>クリーン経営と高い透明性</p>
       </div>
     </div>
   </div>
@@ -82,7 +104,7 @@ export const topPage = (c: Context) => {
     <div class="mission-block">
       <span class="mission-label">OUR MISSION</span>
       <h2 class="mission-text">Bonanza: Fortune Smiles!</h2>
-      <p class="mission-desc">全ての関わる人に幸運と繁栄を。医療・ヘルスケアを基点として地域社会の価値を高め、<br>人々の健康と豊かさを支えるインフラとなることを目指します。</p>
+      <p class="mission-desc">全ての関わる人に幸運と繁栄を。</p>
     </div>
   </div>
 </section>
@@ -91,85 +113,95 @@ export const topPage = (c: Context) => {
 <section class="section section-services" id="services">
   <div class="container">
     ${sectionTitle('SERVICES', '展開事業')}
-    <p class="section-lead">ヘルスケア・医療領域を中心に、地域価値創造（RVC）の3つの事業を展開しています。</p>
     <div class="services-grid">
       <a href="/healthcare" class="service-card service-ma">
-        <div class="service-card-num">01</div>
-        <div class="service-card-icon"><i class="fas fa-hospital-user"></i></div>
-        <div class="service-card-brand">IHG™</div>
-        <h3>Healthcare Services<br><small>医療機関プロデュース</small></h3>
-        <p>医療クリニックのマーケ支援（広告運用）、コンサルティング、財務管理、カルテ電子化（医療DX）。</p>
-        <ul class="service-card-tags">
-          <li>広告運用</li><li>コンサル</li><li>医療DX</li>
-        </ul>
-        <span class="service-card-link">詳しく見る <i class="fas fa-arrow-right"></i></span>
+        <div class="service-card-visual">
+          <div class="image-placeholder image-placeholder-card">
+            <i class="fas fa-hospital-user"></i>
+          </div>
+        </div>
+        <div class="service-card-body">
+          <div class="service-card-brand">IHG™</div>
+          <h3>Healthcare Services</h3>
+          <p>医療機関プロデュース</p>
+          <ul class="service-card-tags">
+            <li>広告運用</li><li>コンサル</li><li>医療DX</li>
+          </ul>
+        </div>
+        <span class="service-card-link"><i class="fas fa-arrow-right"></i></span>
       </a>
       <a href="/talent" class="service-card service-marketing">
-        <div class="service-card-num">02</div>
-        <div class="service-card-icon"><i class="fas fa-user-nurse"></i></div>
-        <div class="service-card-brand">DR-LINK™</div>
-        <h3>Healthcare Talent<br><small>医療系人材マッチング</small></h3>
-        <p>医療職の人材紹介・マッチング。医師、看護師、薬剤師、介護職など幅広い職種に対応。</p>
-        <ul class="service-card-tags">
-          <li>人材紹介</li><li>医療職</li><li>マッチング</li>
-        </ul>
-        <span class="service-card-link">詳しく見る <i class="fas fa-arrow-right"></i></span>
+        <div class="service-card-visual">
+          <div class="image-placeholder image-placeholder-card">
+            <i class="fas fa-user-nurse"></i>
+          </div>
+        </div>
+        <div class="service-card-body">
+          <div class="service-card-brand">DR-LINK™</div>
+          <h3>Healthcare Talent</h3>
+          <p>医療系人材マッチング</p>
+          <ul class="service-card-tags">
+            <li>人材紹介</li><li>医療職</li><li>マッチング</li>
+          </ul>
+        </div>
+        <span class="service-card-link"><i class="fas fa-arrow-right"></i></span>
       </a>
       <a href="/ma" class="service-card service-equipment">
-        <div class="service-card-num">03</div>
-        <div class="service-card-icon"><i class="fas fa-building-columns"></i></div>
-        <div class="service-card-brand">RVC</div>
-        <h3>Community Value<br><small>地域価値創造事業</small></h3>
-        <p>M&A仲介、事業承継、事業再生・再建。医療・介護・福祉のほか美容、IT、飲食など他業種にも対応。</p>
-        <ul class="service-card-tags">
-          <li>M&A</li><li>事業承継</li><li>事業再生</li>
-        </ul>
-        <span class="service-card-link">詳しく見る <i class="fas fa-arrow-right"></i></span>
+        <div class="service-card-visual">
+          <div class="image-placeholder image-placeholder-card">
+            <i class="fas fa-building-columns"></i>
+          </div>
+        </div>
+        <div class="service-card-body">
+          <div class="service-card-brand">RVC</div>
+          <h3>Community Value</h3>
+          <p>M&A・事業承継・事業再生</p>
+          <ul class="service-card-tags">
+            <li>M&A</li><li>事業承継</li><li>事業再生</li>
+          </ul>
+        </div>
+        <span class="service-card-link"><i class="fas fa-arrow-right"></i></span>
       </a>
-
     </div>
   </div>
 </section>
 
-<!-- ADDITIONAL SERVICES -->
-<section class="section section-additional">
+<!-- GALLERY -->
+<section class="section section-gallery">
   <div class="container">
-    ${sectionTitle('ADDITIONAL', 'その他の事業')}
-    <div class="additional-grid">
-      <div class="additional-item">
-        <div class="additional-icon"><i class="fas fa-file-invoice-dollar"></i></div>
-        <h4>融資・補助金コンサル</h4>
-        <p>事業承継部門専門で融資相談や各種補助金の申請支援を行います。</p>
+    ${sectionTitle('GALLERY', 'フォトギャラリー')}
+    <div class="gallery-grid">
+      <div class="gallery-item gallery-item-wide">
+        <div class="image-placeholder">
+          <i class="fas fa-building"></i>
+          <span>六本木ヒルズ森タワー</span>
+        </div>
       </div>
-      <div class="additional-item">
-        <div class="additional-icon"><i class="fas fa-laptop-medical"></i></div>
-        <h4>カルテ電子化（医療DX）</h4>
-        <p>紙カルテからの移行支援、電子カルテシステム導入・運用をトータルサポート。</p>
+      <div class="gallery-item">
+        <div class="image-placeholder">
+          <i class="fas fa-handshake"></i>
+          <span>M&A成約</span>
+        </div>
       </div>
-      <div class="additional-item">
-        <div class="additional-icon"><i class="fas fa-ad"></i></div>
-        <h4>広告運用</h4>
-        <p>医療機関向けのWeb広告運用。累計運用額5,000万円以上の実績。</p>
+      <div class="gallery-item">
+        <div class="image-placeholder">
+          <i class="fas fa-users"></i>
+          <span>チームミーティング</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="image-placeholder">
+          <i class="fas fa-hospital"></i>
+          <span>医療機関支援</span>
+        </div>
+      </div>
+      <div class="gallery-item gallery-item-wide">
+        <div class="image-placeholder">
+          <i class="fas fa-chart-line"></i>
+          <span>事業成長イメージ</span>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- DOMAIN -->
-<section class="section section-domain">
-  <div class="container">
-    ${sectionTitle('DOMAIN', '対応領域')}
-    <div class="domain-grid">
-      <div class="domain-item"><i class="fas fa-hospital"></i><span>医療法人</span></div>
-      <div class="domain-item"><i class="fas fa-stethoscope"></i><span>クリニック</span></div>
-      <div class="domain-item"><i class="fas fa-hand-holding-heart"></i><span>介護・福祉</span></div>
-      <div class="domain-item"><i class="fas fa-tooth"></i><span>歯科</span></div>
-      <div class="domain-item"><i class="fas fa-laptop-code"></i><span>IT</span></div>
-      <div class="domain-item"><i class="fas fa-utensils"></i><span>飲食</span></div>
-      <div class="domain-item"><i class="fas fa-pills"></i><span>調剤薬局</span></div>
-      <div class="domain-item"><i class="fas fa-building"></i><span>中小企業</span></div>
-    </div>
-    <p class="domain-note">※ M&A・事業承継に関しては業種を問わず対応可能です。</p>
   </div>
 </section>
 
@@ -197,19 +229,34 @@ export const topPage = (c: Context) => {
     </div>
     <div class="results-grid">
       <div class="result-card">
-        <div class="result-category">M&A / RVC</div>
-        <h3>医療法人の事業承継支援</h3>
-        <p>後継者不在の医療法人に対し最適な承継先を開拓。事業再生フェーズからの支援も含めクロージングを実現。</p>
+        <div class="result-card-img">
+          <div class="image-placeholder image-placeholder-sm"><i class="fas fa-hospital"></i></div>
+        </div>
+        <div class="result-card-body">
+          <div class="result-category">M&A / RVC</div>
+          <h3>医療法人の事業承継支援</h3>
+          <p>後継者不在の医療法人に対し最適な承継先を開拓しクロージングを実現。</p>
+        </div>
       </div>
       <div class="result-card">
-        <div class="result-category">Healthcare Marketing</div>
-        <h3>クリニック集患数大幅改善</h3>
-        <p>Web広告+MEO対策により、新規患者数を大幅に拡大。ROASの最適化も実現。</p>
+        <div class="result-card-img">
+          <div class="image-placeholder image-placeholder-sm"><i class="fas fa-ad"></i></div>
+        </div>
+        <div class="result-card-body">
+          <div class="result-category">Healthcare Marketing</div>
+          <h3>クリニック集患数大幅改善</h3>
+          <p>Web広告+MEO対策により、新規患者数を大幅に拡大。</p>
+        </div>
       </div>
       <div class="result-card">
-        <div class="result-category">Global Expansion</div>
-        <h3>韓国クリニック日本進出支援</h3>
-        <p>4everclinicの日本進出事業プロデュース・運営支援。マーケティングから法務まで一気通貫対応。</p>
+        <div class="result-card-img">
+          <div class="image-placeholder image-placeholder-sm"><i class="fas fa-globe-asia"></i></div>
+        </div>
+        <div class="result-card-body">
+          <div class="result-category">Global</div>
+          <h3>韓国クリニック日本進出</h3>
+          <p>4everclinicの日本進出プロデュース・運営支援を一気通貫対応。</p>
+        </div>
       </div>
     </div>
     <div class="text-center mt-40">
@@ -224,13 +271,15 @@ export const topPage = (c: Context) => {
     <div class="message-wrap">
       <div class="message-content">
         ${sectionTitle('MESSAGE', '代表メッセージ')}
-        <p class="message-text">i2m2は「Bonanza: Fortune Smiles!」をミッションに掲げ、ヘルスケア・医療領域を起点とした地域価値創造事業（RVC）を展開しています。</p>
-        <p class="message-text">M&A・事業承継から医療マーケティング、人材マッチング、医療DXまで——地域に根差した企業の成長を多角的に支援し、全てのステークホルダーに幸運と繁栄をもたらすことが私たちの使命です。</p>
+        <p class="message-text">「Bonanza: Fortune Smiles!」をミッションに掲げ、地域価値創造事業を展開しています。</p>
         <p class="message-author">代表取締役</p>
-        <a href="/company/message" class="btn btn-outline btn-sm">メッセージ全文を読む</a>
+        <a href="/company/message" class="btn btn-outline btn-sm">全文を読む</a>
       </div>
       <div class="message-visual">
-        <div class="message-photo-placeholder"><i class="fas fa-user-tie"></i></div>
+        <div class="image-placeholder image-placeholder-portrait">
+          <i class="fas fa-user-tie"></i>
+          <span>代表写真</span>
+        </div>
       </div>
     </div>
   </div>
@@ -252,11 +301,6 @@ export const topPage = (c: Context) => {
         <a href="/ir">医療DX（カルテ電子化）サービス提供開始</a>
       </li>
       <li class="news-item">
-        <time>2025.04.20</time>
-        <span class="news-tag">メディア</span>
-        <a href="/ir">業界専門誌に弊社記事が掲載されました</a>
-      </li>
-      <li class="news-item">
         <time>2025.03.10</time>
         <span class="news-tag">事業報告</span>
         <a href="/ir">累計取扱高20億円を突破</a>
@@ -276,12 +320,11 @@ export const topPage = (c: Context) => {
       <div class="access-card">
         <h3><i class="fas fa-building"></i> 東京オフィス</h3>
         <p class="access-address">〒106-6137<br>東京都港区六本木6丁目10-1<br>六本木ヒルズ森タワー37F</p>
-        <p class="access-transport"><i class="fas fa-train"></i> 東京メトロ日比谷線「六本木駅」1C出口 徒歩3分<br><i class="fas fa-train"></i> 都営大江戸線「六本木駅」3番出口 徒歩6分</p>
+        <p class="access-transport"><i class="fas fa-train"></i> 六本木駅 1C出口 徒歩3分</p>
       </div>
       <div class="access-card">
         <h3><i class="fas fa-home"></i> 本社</h3>
         <p class="access-address">〒270-2224<br>千葉県松戸市大橋149-1</p>
-        <p class="access-transport"><i class="fas fa-train"></i> JR常磐線・新京成線「松戸駅」よりバス15分</p>
       </div>
     </div>
   </div>

@@ -19,7 +19,7 @@ export function layout(title: string, content: string, options?: { description?:
 <!-- Opening Animation -->
 <div class="opening" id="opening">
   <div class="opening-logo">
-    <span class="opening-mark">i2m2</span>
+    <img src="/static/logo.png" alt="i2m2" class="opening-logo-img">
     <span class="opening-tagline">Bonanza: Fortune Smiles!</span>
   </div>
 </div>
@@ -38,7 +38,7 @@ function header() {
 <header class="site-header" id="siteHeader">
   <div class="header-inner">
     <a href="/" class="logo">
-      <span class="logo-mark">i2m2</span>
+      <img src="/static/logo.png" alt="i2m2" class="logo-img">
     </a>
     <nav class="gnav" id="gnav">
       <ul class="gnav-list">
@@ -89,7 +89,7 @@ function footer() {
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="/" class="footer-logo">i2m2</a>
+        <a href="/" class="footer-logo"><img src="/static/logo.png" alt="i2m2" class="footer-logo-img"></a>
         <p class="footer-tagline">Bonanza: Fortune Smiles!</p>
         <p class="footer-desc">ヘルスケア・医療領域を中心に、<br>地域価値創造（RVC）事業を通じて企業と地域社会の成長を支援します。</p>
       </div>
