@@ -141,8 +141,8 @@ ${breadcrumb([{ label: '事業内容' }])}
       </div>
       <div class="services-strength" data-reveal>
         <div class="services-strength__icon"><i class="fas fa-shield-halved"></i></div>
-        <h3>IPO準備中の信頼性</h3>
-        <p>監査法人選任済み・内部統制整備中。上場企業レベルのガバナンスで安心を提供。</p>
+        <h3>誠実・透明な事業運営</h3>
+        <p>法令遵守と情報管理を徹底し、お取引先の皆様に安心いただける体制を構築しています。</p>
       </div>
     </div>
   </div>
