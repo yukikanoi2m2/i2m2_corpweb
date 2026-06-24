@@ -23,10 +23,10 @@
   --blue: #567bf6;
   --blue-second: #249ea8;
 
-  /* Typography — premium corporate feel */
+  /* Typography — clean modern corporate */
   --font: "Noto Sans JP", "Helvetica Neue", "Arial", sans-serif;
-  --font-en: "Cormorant Garamond", "Times New Roman", serif;
-  --font-heading: "Cormorant Garamond", "Times New Roman", serif;
+  --font-en: "Montserrat", "Inter", "Helvetica Neue", sans-serif;
+  --font-heading: "Montserrat", "Inter", "Helvetica Neue", sans-serif;
   --font-serif: "Noto Serif JP", serif;
 
   /* Sizing (donuts: header PC 110px, SP 70px) */
@@ -217,31 +217,32 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
    SIDE NAVIGATION (donuts.ne.jp style — right side dots)
    ============================================================ */
 .l-nav {
-  display: grid; grid-template: auto / 100%; gap: 25px;
-  position: fixed; top: 40px; right: 0;
+  display: flex; flex-direction: column; align-items: flex-end;
+  position: fixed; top: 50%; right: 0; transform: translateY(-50%);
   z-index: 997;
   font-family: var(--font-heading);
   transition: .3s;
 }
 @media (max-width: 736px) { .l-nav { display: none; } }
-.l-nav__list { display: flex; flex-direction: column; position: relative; }
+.l-nav__list { display: flex; flex-direction: column; gap: 6px; position: relative; }
 .l-nav__item {
-  display: flex; justify-content: flex-end; position: relative; padding-right: 35px;
+  display: flex; justify-content: flex-end; position: relative; padding-right: 28px;
 }
 .l-nav__item::before {
   position: absolute; top: 0; right: 0; bottom: 0;
   width: 0; height: 1px; margin: auto;
-  border-radius: 50px; background: #aaa; content: "";
+  border-radius: 50px; background: var(--accent-light); content: "";
   transition: width .3s;
 }
-.l-nav__item.active::before { width: 35px; }
-.l-nav__item.active .l-nav__link { padding: 5px 10px; color: #fff; font-size: 20px; }
+.l-nav__item.active::before { width: 24px; }
+.l-nav__item.active .l-nav__link { color: #fff; font-weight: 600; }
 .l-nav__link {
-  display: flex; width: fit-content; padding: 2px 10px;
-  align-items: center; color: #aaa; font-size: 15px;
-  letter-spacing: 1.8px; line-height: 1; transition: .3s ease-in-out;
+  display: flex; width: fit-content; padding: 5px 10px;
+  align-items: center; color: #666; font-size: 10px; font-weight: 400;
+  letter-spacing: 2.5px; line-height: 1; transition: .3s ease-in-out;
+  text-transform: uppercase;
 }
-.l-nav__link:hover { padding: 5px 10px; color: #fff; font-size: 20px; }
+.l-nav__link:hover { color: #fff; }
 
 /* ============================================================
    BACKGROUND NOISE CANVAS (donuts.ne.jp style)
@@ -405,22 +406,20 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
 }
 
 /* ============================================================
-   HEADINGS (donuts.ne.jp exact values)
-   font: urw-din-condensed → we use Inter as fallback
-   PC: 55px, letter-spacing 6.6px | SP: 36px, letter-spacing 4.2px
+   HEADINGS — Montserrat ultralight for modern corporate
    ============================================================ */
 .c-heading {
-  font-family: var(--font-heading); font-weight: 300;
-  line-height: 1.1; text-align: center; color: var(--color-white);
-  margin-bottom: 15px; text-transform: uppercase;
+  font-family: var(--font-heading); font-weight: 200;
+  line-height: 1.15; text-align: center; color: var(--color-white);
+  margin-bottom: 15px; text-transform: uppercase; letter-spacing: .18em;
 }
-@media (min-width: 737px) { .c-heading { font-size: 52px; letter-spacing: .1em; } }
-@media (max-width: 736px) { .c-heading { font-size: clamp(22px, 7vw, 32px); letter-spacing: .04em; word-break: keep-all; overflow-wrap: normal; } }
+@media (min-width: 737px) { .c-heading { font-size: 46px; } }
+@media (max-width: 736px) { .c-heading { font-size: clamp(22px, 7vw, 30px); letter-spacing: .08em; word-break: keep-all; overflow-wrap: normal; } }
 .c-heading--1 {
-  /* donuts PC: 40px, SP: 35px */
+  font-weight: 300;
 }
-@media (min-width: 737px) { .c-heading--1 { font-size: 40px; letter-spacing: 6.6px; margin-bottom: 40px; } }
-@media (max-width: 736px) { .c-heading--1 { font-size: 35px; letter-spacing: 2px; margin-bottom: 20px; } }
+@media (min-width: 737px) { .c-heading--1 { font-size: 34px; letter-spacing: .14em; margin-bottom: 40px; } }
+@media (max-width: 736px) { .c-heading--1 { font-size: 26px; letter-spacing: .06em; margin-bottom: 20px; } }
 .c-heading-sub {
   text-align: center; font-size: 17px; color: var(--color-text);
 }
@@ -664,9 +663,9 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
   margin-bottom: 16px; font-weight: 500;
 }
 .page-hero__title-en {
-  font-family: var(--font-heading); font-size: clamp(32px, 6vw, 56px);
-  font-weight: 300; color: var(--color-white); line-height: 1.2;
-  letter-spacing: .04em; margin-bottom: 12px;
+  font-family: var(--font-heading); font-size: clamp(32px, 6vw, 52px);
+  font-weight: 200; color: var(--color-white); line-height: 1.2;
+  letter-spacing: .12em; margin-bottom: 12px;
 }
 .page-hero__title-ja {
   font-size: 15px; color: var(--color-text-sub); letter-spacing: .2em;
@@ -682,9 +681,9 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
 }
 /* Legacy page-hero (h1 direct) */
 .page-hero h1, .page-hero-title {
-  font-family: var(--font-heading); font-size: clamp(28px, 5vw, 48px);
-  font-weight: 300; color: var(--color-white); margin-bottom: 12px;
-  letter-spacing: .06em;
+  font-family: var(--font-heading); font-size: clamp(28px, 5vw, 44px);
+  font-weight: 200; color: var(--color-white); margin-bottom: 12px;
+  letter-spacing: .12em;
 }
 .page-hero p, .page-hero-desc {
   font-family: var(--font-en); font-size: 14px; color: var(--color-text-dim);
