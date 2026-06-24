@@ -11,8 +11,8 @@ ${breadcrumb([{ label: '事業内容' }])}
     <h1 class="page-hero__title-en">Regional Value Creation</h1>
     <p class="page-hero__title-ja">— 地域価値創造事業 —</p>
     <p class="page-hero__lead">
-      ヘルスケアを起点に、M&A・マーケティング・人材・DXを<br class="u-pc-only">
-      ワンストップで提供し、地域社会の持続的な価値向上を実現する。
+      ヘルスケアを起点に、<br class="u-pc-only">
+      地域社会の価値を高める。
     </p>
   </div>
 </section>
@@ -125,19 +125,14 @@ ${breadcrumb([{ label: '事業内容' }])}
     </div>
     <div class="services-strengths">
       <div class="services-strength" data-reveal>
-        <div class="services-strength__icon"><i class="fas fa-link"></i></div>
-        <h3>クロスセル率 40%超</h3>
-        <p>事業間シナジーにより、顧客のLTVを最大化。一つの入口から複数の課題を同時解決。</p>
-      </div>
-      <div class="services-strength" data-reveal>
         <div class="services-strength__icon"><i class="fas fa-chart-line"></i></div>
         <h3>累計取扱高 20億円+</h3>
         <p>創業から急速に実績を積み上げ、グループ総取引1000件超の経験値を蓄積。</p>
       </div>
       <div class="services-strength" data-reveal>
         <div class="services-strength__icon"><i class="fas fa-map-marked-alt"></i></div>
-        <h3>地域密着 × 全国展開</h3>
-        <p>六本木ヒルズを拠点に首都圏をカバーしながら、地方エリアへの拡大を推進中。</p>
+        <h3>首都圏起点、全国へ。</h3>
+        <p>六本木ヒルズを拠点に、全国の医療機関・事業者への支援を展開しています。</p>
       </div>
       <div class="services-strength" data-reveal>
         <div class="services-strength__icon"><i class="fas fa-shield-halved"></i></div>
@@ -151,7 +146,7 @@ ${breadcrumb([{ label: '事業内容' }])}
 <!-- CTA -->
 <section class="section section-cta">
   <div class="container" style="text-align:center;">
-    <p class="cta-lead">各サービスの詳細は担当者よりご案内いたします。</p>
+    <p class="cta-lead">各サービスの詳細・料金は担当者より<br class="u-sp-only">丁寧にご案内いたします。</p>
     <h2 class="cta-title">まずはお気軽にご相談ください</h2>
     <div class="cta-buttons">
       <a href="/contact" class="btn btn-primary btn-lg">無料相談はこちら</a>
@@ -159,5 +154,5 @@ ${breadcrumb([{ label: '事業内容' }])}
     </div>
   </div>
 </section>
-`))
+`, { description: '医療機関プロデュース（IHG™）・医療系人材マッチング（DR-LINK™）・M&A仲介（RVC）・医療DXをワンストップで提供。ヘルスケア特化の総合支援会社。' }))
 }

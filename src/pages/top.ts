@@ -33,7 +33,7 @@ export const topPage = (c: Context) => {
             <span class="c-text-letters js-text-letters">REGIONAL VALUE<br class="u-sp-only"> CREATION</span>
           </h2>
           <p class="c-heading-sub p-front-main__sub-text">
-            ヘルスケアから、地域の未来を創る —i2m2—
+            地域の価値を、医療から。
           </p>
           <div class="p-front-main__scroll-icon">
             <button class="c-scroll-icon__button" aria-label="次のセクションへ">
@@ -100,10 +100,10 @@ export const topPage = (c: Context) => {
       <div class="p-slide-section__body p-slide-section__body--center">
         <div>
           <h2 class="c-heading">
-            <span class="c-text-letters js-text-letters">CHANGE THE GAME</span>
+            <span class="c-text-letters js-text-letters">CREATE LOCAL VALUE</span>
           </h2>
           <p class="c-heading-sub p-front-about__text">
-            事業領域に制限はなく、<br>ヘルスケアを起点にさまざまな可能性を追求する
+            医療を起点に、<br>地域の未来をつくる。
           </p>
         </div>
         <a href="/company" class="c-btn">
@@ -137,7 +137,7 @@ export const topPage = (c: Context) => {
     <div class="p-slide-section p-front-services">
       <div class="p-slide-section__bg p-front-services__bg"></div>
       <div class="p-slide-section__body p-slide-section__body--cards">
-        <p class="c-heading-sub c-heading-sub--large">M&A・医療マーケ・人材・DX<br class="u-sp-only">ワンストップで地域価値を創出</p>
+        <p class="c-heading-sub c-heading-sub--large">M&A・マーケ・人材・DX<br class="u-sp-only">ひとつの窓口で、地域へ。</p>
         <h2 class="c-heading c-heading--1">
           <span class="c-text-letters js-text-letters">SERVICES</span>
         </h2>
@@ -234,7 +234,7 @@ export const topPage = (c: Context) => {
     <div class="p-slide-section p-front-results">
       <div class="p-slide-section__bg p-front-results__bg" style="background:url('/static/images/business-negotiation.jpg') center/cover no-repeat;opacity:.15;"></div>
       <div class="p-slide-section__body p-slide-section__body--center">
-        <p class="c-heading-sub c-heading-sub--large">全ての関わる人に幸運と繁栄を。<br class="u-sp-only">地域社会の価値を高めるインフラへ。</p>
+        <p class="c-heading-sub c-heading-sub--large">数字が証明する、<br class="u-sp-only">i2m2の地域への貢献。</p>
         <h2 class="c-heading c-heading--1">
           <span class="c-text-letters js-text-letters">TRACK RECORD</span>
         </h2>
@@ -275,7 +275,7 @@ export const topPage = (c: Context) => {
           <span class="c-text-letters js-text-letters">JOIN OUR TEAM</span>
         </h2>
         <p class="c-heading-sub">
-          価値が残り続けるものを創る、<br>世界を変える挑戦をしよう
+          地域医療の未来を、<br>一緒につくりませんか。
         </p>
         <div class="p-front-recruit__actions">
           <a href="/recruit" class="c-btn c-btn--primary">
@@ -285,9 +285,10 @@ export const topPage = (c: Context) => {
             <span class="c-btn__inner">CONTACT <span class="c-arrow"></span></span>
           </a>
         </div>
+        <p class="c-heading-sub" style="font-size:.85rem;opacity:.7;margin-top:24px;">まずはお気軽にご相談ください。<br>秘密厳守・2営業日以内にご返答します。</p>
       </div>
     </div>
   </section>
 </article>
-`))
+`, { description: '株式会社イズムズ（i2m2）はヘルスケアを起点にM&A・医療マーケティング・人材・DXをワンストップで提供する地域価値創造企業です。六本木ヒルズ拠点。累計取扱高20億円以上。' }))
 }

@@ -1,13 +1,23 @@
 // i2m2 Corporate Site - Layout Component
-export function layout(title: string, content: string, options?: { description?: string }) {
+export function layout(title: string, content: string, options?: { description?: string; fullTitle?: string }) {
   const desc = options?.description || '株式会社イズムズ（i2m2） | ヘルスケア・医療領域の総合支援企業。M&A仲介、医療マーケティング、人材紹介、医療DXなど地域価値創造事業（RVC）を展開。'
+  const pageTitle = options?.fullTitle || `${title} | 株式会社イズムズ（i2m2）`
   return `<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${esc(title)} | 株式会社イズムズ</title>
+<title>${esc(pageTitle)}</title>
 <meta name="description" content="${esc(desc)}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="株式会社イズムズ（i2m2）">
+<meta property="og:title" content="${esc(pageTitle)}">
+<meta property="og:description" content="${esc(desc)}">
+<meta property="og:image" content="/static/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${esc(pageTitle)}">
+<meta name="twitter:description" content="${esc(desc)}">
+<meta name="twitter:image" content="/static/ogp.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;500;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -123,6 +133,7 @@ function footer() {
       <div class="footer-legal">
         <a href="/legal">プライバシーポリシー</a>
         <a href="/legal/terms">利用規約</a>
+        <a href="/legal/tokutei">特定商取引法に基づく表記</a>
       </div>
       <p class="footer-copy">&copy; 2025 i2m2 Co., Ltd.</p>
     </div>

@@ -8,7 +8,7 @@ ${breadcrumb([{ label: '採用情報' }])}
 <section class="page-hero" style="background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.85)),url('/static/images/sealed-letter.jpg') center/cover no-repeat;">
   <div class="container">
     <h1 class="page-hero-title">採用情報</h1>
-    <p class="page-hero-desc">Recruit</p>
+    <p class="page-hero-desc">地域の未来を共につくる仲間を募集。</p>
   </div>
 </section>
 
@@ -16,7 +16,7 @@ ${breadcrumb([{ label: '採用情報' }])}
   <div class="container">
     <div class="recruit-message">
       <h2>共に地域の未来を創る仲間を募集しています</h2>
-      <p>i2m2は「Bonanza: Fortune Smiles!」をミッションに、ヘルスケア・医療領域を起点とした地域価値創造事業を展開しています。急成長フェーズにある当社で、あなたの経験を活かしてみませんか。</p>
+      <p>i2m2は『全ての関わる人に幸運と繁栄を』をミッションに掲げ、ヘルスケアを起点とした地域価値創造事業を展開しています。創業2年で累計取扱高20億円を超えた当社で、あなたの経験を活かしてみませんか。</p>
     </div>
   </div>
 </section>
@@ -44,6 +44,6 @@ ${breadcrumb([{ label: '採用情報' }])}
   </div>
 </section>
 
-${ctaSection({ title: 'まずはお気軽にご連絡ください。書類選考はございません。', buttons: [{ label: '応募する', href: '/contact', primary: true }] })}
-`))
+${ctaSection({ title: 'まずはカジュアルにお話ししましょう。書類選考はございません。', buttons: [{ label: '応募する', href: '/contact', primary: true }] })}
+`, { description: '創業2年で累計取扱高20億円超のヘルスケア×地域価値創造企業で働きませんか。M&Aアドバイザー・医療マーケ・人材アドバイザー募集中。' }))
 }

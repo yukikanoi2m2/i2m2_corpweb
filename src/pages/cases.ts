@@ -42,7 +42,7 @@ ${breadcrumb([{ label: '実績' }])}
       <div class="result-card">
         <div class="result-category">RVC / M&A</div>
         <h3>医療法人の事業承継支援</h3>
-        <p>後継者不在の医療法人に対し最適な承継先を開拓。財務改善フェーズからの伴走支援を経てクロージングを実現。</p>
+        <p>後継者不在の医療法人に対し最適な承継先を開拓。財務改善の段階から伴走し、クロージングまで一気通貫で支援しました。</p>
       </div>
       <div class="result-card">
         <div class="result-category">IHG™ / マーケティング</div>
@@ -50,7 +50,7 @@ ${breadcrumb([{ label: '実績' }])}
         <p>Google広告＋MEO対策により新規患者数を大幅に拡大。月次レポートとPDCA運用で持続的な成長を実現。</p>
       </div>
       <div class="result-card">
-        <div class="result-category">BEAUTY / 海外展開</div>
+        <div class="result-category">海外展開 / 4everclinic</div>
         <h3>韓国クリニック日本進出支援</h3>
         <p>4everclinicの日本進出事業プロデュース。法務・マーケティング・店舗開発まで一気通貫で対応。</p>
       </div>
@@ -67,12 +67,12 @@ ${breadcrumb([{ label: '実績' }])}
       <div class="result-card">
         <div class="result-category">IHG™ / 医療DX</div>
         <h3>カルテ電子化プロジェクト</h3>
-        <p>紙カルテ運用からの完全移行を実現。スタッフ研修含め3ヶ月で本稼働開始、業務効率30%向上。</p>
+        <p>紙カルテ運用からの完全移行を実現。スタッフ研修含め3ヶ月で本稼働開始、業務効率の大幅な改善を実現しました。</p>
       </div>
     </div>
   </div>
 </section>
 
-${ctaSection({ title: 'お客様の課題解決に最適なソリューションを' })}
-`))
+${ctaSection({ title: '地域医療の課題、まずご相談ください。' })}
+`, { description: '累計取扱高20億円以上・グループ総取引1,000件以上。医療M&A・クリニックマーケ・人材マッチング・医療DXの支援実績。' }))
 }

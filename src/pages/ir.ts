@@ -29,7 +29,7 @@ ${breadcrumb([{ label: '企業情報' }])}
         <tr><th>商号</th><td>株式会社イズムズ（i2m2 Co., Ltd.）</td></tr>
         <tr><th>設立</th><td>2023年</td></tr>
         <tr><th>資本金</th><td>非公開</td></tr>
-        <tr><th>代表者</th><td>代表取締役（氏名は後日追記）</td></tr>
+        <tr><th>代表者</th><td>代表取締役（非公開）</td></tr>
         <tr><th>本社所在地</th><td>〒106-6137 東京都港区六本木6丁目10-1<br>六本木ヒルズ森タワー37F</td></tr>
         <tr><th>事業内容</th><td>
           医療機関プロデュース（IHG™）<br>
@@ -60,7 +60,7 @@ ${breadcrumb([{ label: '企業情報' }])}
       </div>
       <div class="additional-item">
         <div class="additional-icon"><i class="fas fa-chart-bar"></i></div>
-        <h4>豊富な実績と取引実績</h4>
+        <h4>豊富な支援実績</h4>
         <p>グループ総取引1,000件以上・累計取扱高20億円以上の実績を持ちます。医療・介護・美容など幅広い業種のお客様とお取引しています。</p>
       </div>
       <div class="additional-item">
@@ -117,11 +117,11 @@ ${breadcrumb([{ label: '企業情報' }])}
 <!-- CTA -->
 <section class="cta-section">
   <div class="container">
-    <p class="cta-desc">事業内容・お取引に関するご相談はお気軽にどうぞ。</p>
+    <p class="cta-desc">お取引・事業連携に関するご相談は<br class="u-sp-only">こちらからお気軽にどうぞ。</p>
     <div class="cta-buttons">
       <a href="/contact" class="btn btn-primary btn-lg">お問い合わせはこちら</a>
     </div>
   </div>
 </section>
-`))
+`, { description: '株式会社イズムズの企業情報・会社概要・コンプライアンスへの取り組みをご紹介します。' }))
 }
