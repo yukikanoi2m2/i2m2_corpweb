@@ -655,8 +655,9 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
 .page-hero::before {
   content: ''; position: absolute; inset: 0;
   background: radial-gradient(ellipse at 50% 80%, rgba(184,134,11,.06) 0%, transparent 60%);
-  pointer-events: none;
+  pointer-events: none; z-index: 0;
 }
+.page-hero > .container { position: relative; z-index: 1; }
 .page-hero__label {
   display: inline-block; font-family: var(--font-en); font-size: 11px;
   letter-spacing: 4px; text-transform: uppercase; color: var(--accent-light);

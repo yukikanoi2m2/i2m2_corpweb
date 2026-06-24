@@ -5,7 +5,7 @@ export const irPage = (c: Context) => {
   return c.html(layout('企業情報', `
 ${breadcrumb([{ label: '企業情報' }])}
 
-<section class="page-hero">
+<section class="page-hero" style="background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.85)),url('/static/images/city-arc.jpg') center/cover no-repeat;">
   <div class="container">
     <span class="page-hero__label">COMPANY INFORMATION</span>
     <h1 class="page-hero__title-en">企業情報</h1>

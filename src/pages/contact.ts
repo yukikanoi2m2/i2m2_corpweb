@@ -15,7 +15,7 @@ export const contactPage = (c: Context) => {
   return c.html(layout(title, `
 ${breadcrumb([{ label: 'お問い合わせ' }])}
 
-<section class="page-hero">
+<section class="page-hero" style="background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.85)),url('/static/images/contract-signing.jpg') center/cover no-repeat;">
   <div class="container">
     <h1 class="page-hero-title">お問い合わせ</h1>
     <p class="page-hero-desc">Contact</p>

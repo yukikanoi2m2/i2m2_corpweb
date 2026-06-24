@@ -5,7 +5,7 @@ export const servicesPage = (c: Context) => {
   return c.html(layout('事業内容', `
 ${breadcrumb([{ label: '事業内容' }])}
 
-<section class="page-hero page-hero--services">
+<section class="page-hero page-hero--services" style="background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),url('/static/images/city-connection.jpg') center/cover no-repeat;">
   <div class="container">
     <span class="page-hero__label">BUSINESS</span>
     <h1 class="page-hero__title-en">Regional Value Creation</h1>

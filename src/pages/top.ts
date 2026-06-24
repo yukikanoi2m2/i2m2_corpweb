@@ -23,7 +23,7 @@ export const topPage = (c: Context) => {
        ======================================== -->
   <section id="front-main" class="p-snap-section">
     <div class="p-slide-section p-front-main">
-      <div class="p-slide-section__bg"></div>
+      <div class="p-slide-section__bg" style="background:url('/static/images/tokyo-night.jpg') center/cover no-repeat;opacity:.3;"></div>
       <div class="p-slide-section__body p-slide-section__body--center">
         <div class="p-front-main__logo">
           <img src="/static/logo.png" alt="i2m2" class="p-front-main__logo-img">
@@ -150,8 +150,8 @@ export const topPage = (c: Context) => {
               <!-- Card 1 -->
               <section class="c-card">
                 <a class="c-card__inner" href="/services">
-                  <div class="c-card__thumb">
-                    <div class="c-card__thumb-placeholder"><i class="fas fa-hospital-user"></i></div>
+                  <div class="c-card__thumb c-card__thumb--radius">
+                    <img src="/static/images/healthcare-dashboard.jpg" alt="Healthcare Marketing" class="c-card__thumb-placeholder">
                   </div>
                   <div class="c-card__title">IHG™ Healthcare Services</div>
                   <div class="c-card__content">医療機関プロデュース — 広告運用・コンサル・カルテ電子化（医療DX）・補助金支援</div>
@@ -160,8 +160,8 @@ export const topPage = (c: Context) => {
               <!-- Card 2 -->
               <section class="c-card">
                 <a class="c-card__inner" href="/services">
-                  <div class="c-card__thumb">
-                    <div class="c-card__thumb-placeholder"><i class="fas fa-user-nurse"></i></div>
+                  <div class="c-card__thumb c-card__thumb--radius">
+                    <img src="/static/images/hero-meeting.jpg" alt="Healthcare Talent" class="c-card__thumb-placeholder">
                   </div>
                   <div class="c-card__title">DR-LINK™ Healthcare Talent</div>
                   <div class="c-card__content">医療系人材マッチング — 医師・看護師・薬剤師の転職・紹介</div>
@@ -170,18 +170,18 @@ export const topPage = (c: Context) => {
               <!-- Card 3 -->
               <section class="c-card">
                 <a class="c-card__inner" href="/services">
-                  <div class="c-card__thumb">
-                    <div class="c-card__thumb-placeholder"><i class="fas fa-building-columns"></i></div>
+                  <div class="c-card__thumb c-card__thumb--radius">
+                    <img src="/static/images/contract-signing.jpg" alt="M&A" class="c-card__thumb-placeholder">
                   </div>
                   <div class="c-card__title">RVC Community Value</div>
-                  <div class="c-card__content">M&A仲介・事業承継・事業再生 — 地域価値創造ファンド</div>
+                  <div class="c-card__content">M&amp;A仲介・事業承継・事業再生 — 地域価値創造ファンド</div>
                 </a>
               </section>
               <!-- Card 4 -->
               <section class="c-card">
                 <a class="c-card__inner" href="/services">
-                  <div class="c-card__thumb">
-                    <div class="c-card__thumb-placeholder"><i class="fas fa-laptop-medical"></i></div>
+                  <div class="c-card__thumb c-card__thumb--radius">
+                    <img src="/static/images/dx-dashboard.jpg" alt="Medical DX" class="c-card__thumb-placeholder">
                   </div>
                   <div class="c-card__title">カルテ電子化（医療DX）</div>
                   <div class="c-card__content">予約・内診・オンライン診療・経営分析まで一元化できるクラウド型電子カルテ</div>
@@ -190,8 +190,8 @@ export const topPage = (c: Context) => {
               <!-- Card 5 -->
               <section class="c-card">
                 <a class="c-card__inner" href="/services">
-                  <div class="c-card__thumb">
-                    <div class="c-card__thumb-placeholder"><i class="fas fa-ad"></i></div>
+                  <div class="c-card__thumb c-card__thumb--radius">
+                    <img src="/static/images/city-connection.jpg" alt="Marketing" class="c-card__thumb-placeholder">
                   </div>
                   <div class="c-card__title">広告運用・マーケティング</div>
                   <div class="c-card__content">5,000万円+の広告運用実績。医療特化のリスティング・SNS・MEO対策</div>
@@ -200,8 +200,8 @@ export const topPage = (c: Context) => {
               <!-- Card 6 -->
               <section class="c-card">
                 <a class="c-card__inner" href="/services">
-                  <div class="c-card__thumb">
-                    <div class="c-card__thumb-placeholder"><i class="fas fa-file-invoice-dollar"></i></div>
+                  <div class="c-card__thumb c-card__thumb--radius">
+                    <img src="/static/images/business-negotiation.jpg" alt="Consulting" class="c-card__thumb-placeholder">
                   </div>
                   <div class="c-card__title">補助金・融資コンサルティング</div>
                   <div class="c-card__content">補助金申請支援・融資サポート・事業計画策定</div>
@@ -210,8 +210,8 @@ export const topPage = (c: Context) => {
               <!-- Card 7 -->
               <section class="c-card">
                 <a class="c-card__inner" href="/services">
-                  <div class="c-card__thumb">
-                    <div class="c-card__thumb-placeholder"><i class="fas fa-globe-asia"></i></div>
+                  <div class="c-card__thumb c-card__thumb--radius">
+                    <img src="/static/images/city-arc.jpg" alt="Global Expansion" class="c-card__thumb-placeholder">
                   </div>
                   <div class="c-card__title">海外展開支援 (4everclinic)</div>
                   <div class="c-card__content">アジア圏への医療機関進出コンサルティング</div>
@@ -232,7 +232,7 @@ export const topPage = (c: Context) => {
        ======================================== -->
   <section id="front-results" class="p-snap-section">
     <div class="p-slide-section p-front-results">
-      <div class="p-slide-section__bg p-front-results__bg"></div>
+      <div class="p-slide-section__bg p-front-results__bg" style="background:url('/static/images/business-negotiation.jpg') center/cover no-repeat;opacity:.15;"></div>
       <div class="p-slide-section__body p-slide-section__body--center">
         <p class="c-heading-sub c-heading-sub--large">全ての関わる人に幸運と繁栄を。<br class="u-sp-only">地域社会の価値を高めるインフラへ。</p>
         <h2 class="c-heading c-heading--1">

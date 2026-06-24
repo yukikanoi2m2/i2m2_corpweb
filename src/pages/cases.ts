@@ -5,7 +5,7 @@ export const casesPage = (c: Context) => {
   return c.html(layout('実績', `
 ${breadcrumb([{ label: '実績' }])}
 
-<section class="page-hero">
+<section class="page-hero" style="background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.85)),url('/static/images/business-negotiation.jpg') center/cover no-repeat;">
   <div class="container">
     <h1 class="page-hero-title">実績</h1>
     <p class="page-hero-desc">Track Record</p>
