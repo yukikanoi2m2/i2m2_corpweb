@@ -98,7 +98,7 @@ function footer() {
         <div class="footer-col">
           <h4>事業内容</h4>
           <ul>
-            <li><a href="/services">事業一覧（RVC）</a></li>
+            <li><a href="/services">事業一覧</a></li>
             <li><a href="/cases">実績</a></li>
             <li><a href="/ir">企業情報</a></li>
           </ul>
