@@ -52,20 +52,11 @@ function header() {
     </a>
     <nav class="gnav" id="gnav">
       <ul class="gnav-list">
-        <li class="gnav-item has-sub">
+        <li class="gnav-item">
           <a href="/company">会社情報</a>
-          <ul class="gnav-sub">
-            <li><a href="/company">会社概要</a></li>
-            <li><a href="/company/message">代表メッセージ</a></li>
-            <li><a href="/company/philosophy">ミッション</a></li>
-          </ul>
         </li>
-        <li class="gnav-item has-sub">
+        <li class="gnav-item">
           <a href="/services">事業内容</a>
-          <ul class="gnav-sub">
-            <li><a href="/services">事業一覧（RVC）</a></li>
-            <li><a href="/cases">実績</a></li>
-          </ul>
         </li>
         <li class="gnav-item"><a href="/cases">実績</a></li>
         <li class="gnav-item"><a href="/ir">企業情報</a></li>
@@ -174,12 +165,14 @@ export function ctaSection(options?: { title?: string; buttons?: { label: string
 export function breadcrumb(items: { label: string; href?: string }[]) {
   return `
 <nav class="breadcrumb" aria-label="パンくず">
-  <ol>
-    <li><a href="/">ホーム</a></li>
-    ${items.map((item, i) => i === items.length - 1
-      ? `<li aria-current="page">${esc(item.label)}</li>`
-      : `<li><a href="${item.href}">${esc(item.label)}</a></li>`
-    ).join('')}
-  </ol>
+  <div class="container">
+    <ol>
+      <li><a href="/">ホーム</a></li>
+      ${items.map((item, i) => i === items.length - 1
+        ? `<li aria-current="page">${esc(item.label)}</li>`
+        : `<li><a href="${item.href}">${esc(item.label)}</a></li>`
+      ).join('')}
+    </ol>
+  </div>
 </nav>`
 }

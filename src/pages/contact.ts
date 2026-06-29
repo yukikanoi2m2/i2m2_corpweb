@@ -20,6 +20,8 @@ ${breadcrumb([{ label: 'お問い合わせ' }])}
       <form class="contact-form" action="https://formsubmit.co/info@i2m2.com" method="POST">
         <input type="hidden" name="_subject" value="【i2m2】お問い合わせ">
         <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_autoresponse" value="お問い合わせいただきありがとうございます。2営業日以内に担当者よりご連絡いたします。- 株式会社イズムズ">
         <div class="form-group">
           <label>お問い合わせ種別 <span class="required">必須</span></label>
           <select name="category" required style="width:100%;padding:14px 16px;background:var(--bg-gray);border:1px solid rgba(255,255,255,.1);border-radius:8px;color:var(--color-text);font-size:14px;font-family:var(--font);">
