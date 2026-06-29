@@ -126,8 +126,8 @@ ${breadcrumb([{ label: '事業内容' }])}
     <div class="services-strengths">
       <div class="services-strength" data-reveal>
         <div class="services-strength__icon"><i class="fas fa-chart-line"></i></div>
-        <h3>累計取扱高 20億円+</h3>
-        <p>創業から急速に実績を積み上げ、グループ総取引1000件超の経験値を蓄積。</p>
+        <h3>総売上 20億円+</h3>
+        <p>創業1年2ヶ月でグループ社員200名以上、総売上20億円を突破。急成長を続けています。</p>
       </div>
       <div class="services-strength" data-reveal>
         <div class="services-strength__icon"><i class="fas fa-map-marked-alt"></i></div>

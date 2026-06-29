@@ -27,7 +27,7 @@ ${breadcrumb([{ label: '企業情報' }])}
     <div class="ir-card" style="max-width:800px; margin:0 auto;">
       <table class="ir-table">
         <tr><th>商号</th><td>株式会社イズムズ（i2m2 Co., Ltd.）</td></tr>
-        <tr><th>設立</th><td>2023年</td></tr>
+        <tr><th>設立</th><td>2025年4月</td></tr>
         <tr><th>資本金</th><td>非公開</td></tr>
         <tr><th>代表者</th><td>代表取締役 中村美華</td></tr>
         <tr><th>本社所在地</th><td>〒106-6137 東京都港区六本木6丁目10-1<br>六本木ヒルズ森タワー37F</td></tr>
@@ -38,9 +38,9 @@ ${breadcrumb([{ label: '企業情報' }])}
           医療DX（カルテ電子化）
         </td></tr>
         <tr><th>主な取引実績</th><td>
-          累計取扱高 20億円以上<br>
-          グループ総取引 1,000件以上<br>
-          取引先企業 100社以上<br>
+          グループ総売上 20億円突破（2026年6月時点）<br>
+          グループ社員 200名以上<br>
+          複数クリニック・美容サロン経営<br>
           広告運用額 5,000万円以上
         </td></tr>
       </table>
@@ -96,19 +96,19 @@ ${breadcrumb([{ label: '企業情報' }])}
     ${sectionTitle('NEWS', 'お知らせ')}
     <ul class="news-list">
       <li class="news-item">
-        <time>2025.06.01</time>
-        <span class="news-tag">お知らせ</span>
-        <a href="#">六本木ヒルズ森タワー37Fにオフィスを開設いたしました</a>
+        <time>2026.06</time>
+        <span class="news-tag">IR</span>
+        <a href="#">グループ社員200名突破・総売上20億円を達成いたしました</a>
       </li>
       <li class="news-item">
-        <time>2025.05.15</time>
+        <time>2026.04</time>
         <span class="news-tag">事業報告</span>
-        <a href="#">医療DX（カルテ電子化）サービスを開始いたしました</a>
+        <a href="#">補助金コンサルティングサービスを開始いたしました</a>
       </li>
       <li class="news-item">
-        <time>2025.03.10</time>
+        <time>2025.12</time>
         <span class="news-tag">事業報告</span>
-        <a href="#">累計取扱高20億円を突破いたしました</a>
+        <a href="#">M&amp;A仲介・事業承継支援サービスを正式リリースいたしました</a>
       </li>
     </ul>
   </div>

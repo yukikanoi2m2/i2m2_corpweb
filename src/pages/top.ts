@@ -52,35 +52,35 @@ export const topPage = (c: Context) => {
               <div class="p-bar__ticker">
                 <div class="p-bar__ticker-track">
                   <a class="p-bar__item" href="/ir">
-                    <span class="p-bar__date">2025.06.01</span>
+                    <span class="p-bar__date">2026.06</span>
                     <span class="p-bar__label" style="background:#b8860b">IR</span>
-                    <span class="p-bar__title">六本木ヒルズ森タワー37Fにオフィスを開設</span>
+                    <span class="p-bar__title">グループ社員200名突破・総売上20億円達成</span>
                   </a>
                   <a class="p-bar__item" href="/ir">
-                    <span class="p-bar__date">2025.05.15</span>
+                    <span class="p-bar__date">2026.04</span>
                     <span class="p-bar__label" style="background:#2563a8">事業</span>
-                    <span class="p-bar__title">医療DX（カルテ電子化）サービス提供開始</span>
+                    <span class="p-bar__title">補助金コンサルティングサービス提供開始</span>
                   </a>
                   <a class="p-bar__item" href="/ir">
-                    <span class="p-bar__date">2025.03.10</span>
-                    <span class="p-bar__label" style="background:#b8860b">IR</span>
-                    <span class="p-bar__title">累計取扱高20億円を突破</span>
+                    <span class="p-bar__date">2025.12</span>
+                    <span class="p-bar__label" style="background:#2563a8">事業</span>
+                    <span class="p-bar__title">M&amp;A仲介・事業承継支援サービスリリース</span>
                   </a>
                   <!-- Duplicated for seamless loop -->
                   <a class="p-bar__item" href="/ir">
-                    <span class="p-bar__date">2025.06.01</span>
+                    <span class="p-bar__date">2026.06</span>
                     <span class="p-bar__label" style="background:#b8860b">IR</span>
-                    <span class="p-bar__title">六本木ヒルズ森タワー37Fにオフィスを開設</span>
+                    <span class="p-bar__title">グループ社員200名突破・総売上20億円達成</span>
                   </a>
                   <a class="p-bar__item" href="/ir">
-                    <span class="p-bar__date">2025.05.15</span>
+                    <span class="p-bar__date">2026.04</span>
                     <span class="p-bar__label" style="background:#2563a8">事業</span>
-                    <span class="p-bar__title">医療DX（カルテ電子化）サービス提供開始</span>
+                    <span class="p-bar__title">補助金コンサルティングサービス提供開始</span>
                   </a>
                   <a class="p-bar__item" href="/ir">
-                    <span class="p-bar__date">2025.03.10</span>
-                    <span class="p-bar__label" style="background:#b8860b">IR</span>
-                    <span class="p-bar__title">累計取扱高20億円を突破</span>
+                    <span class="p-bar__date">2025.12</span>
+                    <span class="p-bar__label" style="background:#2563a8">事業</span>
+                    <span class="p-bar__title">M&amp;A仲介・事業承継支援サービスリリース</span>
                   </a>
                 </div>
               </div>
@@ -113,17 +113,17 @@ export const topPage = (c: Context) => {
           <div class="p-stat-item">
             <strong class="p-stat-num" data-target="20">0</strong>
             <span class="p-stat-unit">億円+</span>
-            <span class="p-stat-label">累計取扱高</span>
+            <span class="p-stat-label">総売上</span>
           </div>
           <div class="p-stat-item">
-            <strong class="p-stat-num" data-target="1000">0</strong>
-            <span class="p-stat-unit">件+</span>
-            <span class="p-stat-label">グループ総取引</span>
+            <strong class="p-stat-num" data-target="200">0</strong>
+            <span class="p-stat-unit">名+</span>
+            <span class="p-stat-label">グループ社員</span>
           </div>
           <div class="p-stat-item">
-            <strong class="p-stat-num" data-target="100">0</strong>
-            <span class="p-stat-unit">社+</span>
-            <span class="p-stat-label">取引先企業</span>
+            <strong class="p-stat-num" data-target="14">0</strong>
+            <span class="p-stat-unit">ヶ月</span>
+            <span class="p-stat-label">創業から</span>
           </div>
         </div>
       </div>
@@ -242,17 +242,12 @@ export const topPage = (c: Context) => {
           <div class="p-result-card">
             <strong class="p-result-num" data-target="20">0</strong>
             <span class="p-result-unit">億円</span>
-            <span class="p-result-label">累計取扱高</span>
+            <span class="p-result-label">総売上</span>
           </div>
           <div class="p-result-card">
-            <strong class="p-result-num" data-target="1000">0</strong>
-            <span class="p-result-unit">件+</span>
-            <span class="p-result-label">グループ総取引</span>
-          </div>
-          <div class="p-result-card">
-            <strong class="p-result-num" data-target="100">0</strong>
-            <span class="p-result-unit">社+</span>
-            <span class="p-result-label">取引先企業</span>
+            <strong class="p-result-num" data-target="200">0</strong>
+            <span class="p-result-unit">名+</span>
+            <span class="p-result-label">グループ社員</span>
           </div>
           <div class="p-result-card">
             <strong class="p-result-num" data-target="5000">0</strong>
