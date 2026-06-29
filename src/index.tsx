@@ -20,6 +20,7 @@ app.get('/', topPage)
 
 // News
 app.get('/news', newsPage)
+app.get('/news/:id', newsPage)
 
 // Company
 app.get('/company', companyPage)
