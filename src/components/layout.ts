@@ -1,7 +1,7 @@
 // i2m2 Corporate Site - Layout Component
 export function layout(title: string, content: string, options?: { description?: string; fullTitle?: string }) {
-  const desc = options?.description || '株式会社イズムズ（i2m2） | ヘルスケア・医療領域の総合支援企業。M&A仲介、医療マーケティング、人材紹介、医療DXなど地域価値創造事業（RVC）を展開。'
-  const pageTitle = options?.fullTitle || `${title} | 株式会社イズムズ（i2m2）`
+  const desc = options?.description || '株式会社イズムズ（i2m2）のコーポレートサイトです。ヘルスケア・医療領域を中心にM&A仲介、医療マーケティング、人材紹介、医療DXなどを展開。'
+  const pageTitle = options?.fullTitle || `${title} | 株式会社イズムズ｜コーポレートサイト`
   return `<!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -10,7 +10,7 @@ export function layout(title: string, content: string, options?: { description?:
 <title>${esc(pageTitle)}</title>
 <meta name="description" content="${esc(desc)}">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="株式会社イズムズ（i2m2）">
+<meta property="og:site_name" content="株式会社イズムズ｜コーポレートサイト">
 <meta property="og:title" content="${esc(pageTitle)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:image" content="/static/ogp.png">
@@ -91,7 +91,7 @@ function footer() {
       <div class="footer-brand">
         <a href="/" class="footer-logo"><img src="/static/logo.png" alt="i2m2" class="footer-logo-img"></a>
         <p class="footer-tagline">Bonanza: Fortune Smiles!</p>
-        <p class="footer-desc">ヘルスケア・医療領域を中心に、<br>地域価値創造（RVC）事業を通じて企業と地域社会の成長を支援します。</p>
+        <p class="footer-desc">ヘルスケア・医療領域を中心に、<br>企業と地域社会の成長を支援します。</p>
         <p class="footer-desc" style="margin-top:8px;">Email: info@i2m2.com</p>
       </div>
       <div class="footer-links">

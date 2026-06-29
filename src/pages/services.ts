@@ -9,7 +9,7 @@ ${breadcrumb([{ label: '事業内容' }])}
   <div class="container">
     <span class="page-hero__label">BUSINESS</span>
     <h1 class="page-hero__title-en">Regional Value Creation</h1>
-    <p class="page-hero__title-ja">— 地域価値創造事業 —</p>
+    <p class="page-hero__title-ja">— 事業内容 —</p>
     <p class="page-hero__lead">
       ヘルスケアを起点に、<br class="u-pc-only">
       地域社会の価値を高める。
@@ -25,7 +25,7 @@ ${breadcrumb([{ label: '事業内容' }])}
         <div class="services-orbit">
           <div class="services-orbit__center">
             <span class="services-orbit__label">RVC</span>
-            <span class="services-orbit__sub">地域価値創造</span>
+            <span class="services-orbit__sub">i2m2</span>
           </div>
           <div class="services-orbit__ring">
             <span class="services-orbit__node services-orbit__node--1">M&A</span>
@@ -37,7 +37,7 @@ ${breadcrumb([{ label: '事業内容' }])}
       </div>
       <div class="services-philosophy__text">
         <h2 class="services-philosophy__heading">一つの軸、多角的な展開</h2>
-        <p>i2m2は「地域価値創造（Regional Value Creation）」という一つの共通理念のもと、<br>ヘルスケア・医療を起点にした多角的な事業を展開しています。</p>
+        <p>i2m2はヘルスケア・医療を起点にした多角的な事業を展開しています。</p>
         <p>M&Aによる事業承継から、医療DXによる業務革新、人材マッチング、マーケティング支援まで——<br>それぞれが独立した事業でありながら、地域の価値を高めるという同じゴールに向かっています。</p>
       </div>
     </div>

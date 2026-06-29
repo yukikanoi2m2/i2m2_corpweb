@@ -2,7 +2,7 @@ import type { Context } from 'hono'
 import { layout } from '../components/layout'
 
 export const topPage = (c: Context) => {
-  return c.html(layout('地域価値創造事業', `
+  return c.html(layout('TOP', `
 <!-- Side Navigation (donuts-style) -->
 <nav class="l-nav">
   <ul class="l-nav__list">
@@ -174,7 +174,7 @@ export const topPage = (c: Context) => {
                     <img src="/static/images/contract-signing.jpg" alt="M&A" class="c-card__thumb-placeholder">
                   </div>
                   <div class="c-card__title">つむぎパートナーズ</div>
-                  <div class="c-card__content">ヘルスケアM&amp;A・事業承継・事業再生 — 地域価値創造</div>
+                  <div class="c-card__content">ヘルスケアM&amp;A・事業承継・事業再生</div>
                 </a>
               </section>
               <!-- Card 4 -->
@@ -285,5 +285,5 @@ export const topPage = (c: Context) => {
     </div>
   </section>
 </article>
-`, { description: '株式会社イズムズ（i2m2）はヘルスケアを起点にM&A・医療マーケティング・人材・DXをワンストップで提供する地域価値創造企業です。六本木ヒルズ拠点。累計取扱高20億円以上。' }))
+`, { description: '株式会社イズムズ（i2m2）はヘルスケアを起点にM&A・医療マーケティング・人材・DXをワンストップで提供。六本木ヒルズ拠点。累計取扱高20億円以上。', fullTitle: '株式会社イズムズ｜コーポレートサイト' }))
 }

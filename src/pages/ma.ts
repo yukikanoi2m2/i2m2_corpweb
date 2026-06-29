@@ -2,14 +2,14 @@ import type { Context } from 'hono'
 import { layout, sectionTitle, ctaSection, breadcrumb } from '../components/layout'
 
 export const maPage = (c: Context) => {
-  return c.html(layout('地域価値創造事業（RVC）| M&A・事業承継', `
-${breadcrumb([{ label: '事業内容', href: '/services' }, { label: '地域価値創造事業（RVC）' }])}
+  return c.html(layout('M&A・事業承継', `
+${breadcrumb([{ label: '事業内容', href: '/services' }, { label: 'M&A・事業承継' }])}
 
 <section class="lp-hero lp-hero-ma">
   <div class="container">
     <div class="lp-hero-content">
       <span class="lp-hero-brand">RVC — Community Value Creation</span>
-      <h1 class="lp-hero-title">地域価値創造事業</h1>
+      <h1 class="lp-hero-title">M&A・事業承継</h1>
       <p class="lp-hero-desc">M&A仲介・事業承継・事業再生/再建・事業ファンド。<br>医療・介護・福祉はもちろん、美容、IT、飲食など業種を問わず対応します。</p>
       <div class="lp-hero-stats">
         <div class="lp-stat"><strong>20億円+</strong><span>累計取扱高</span></div>
