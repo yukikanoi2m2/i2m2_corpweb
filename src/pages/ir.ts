@@ -29,7 +29,7 @@ ${breadcrumb([{ label: '企業情報' }])}
         <tr><th>商号</th><td>株式会社イズムズ（i2m2 Co., Ltd.）</td></tr>
         <tr><th>設立</th><td>2023年</td></tr>
         <tr><th>資本金</th><td>非公開</td></tr>
-        <tr><th>代表者</th><td>代表取締役（非公開）</td></tr>
+        <tr><th>代表者</th><td>代表取締役 中村美華</td></tr>
         <tr><th>本社所在地</th><td>〒106-6137 東京都港区六本木6丁目10-1<br>六本木ヒルズ森タワー37F</td></tr>
         <tr><th>事業内容</th><td>
           医療機関プロデュース（IHG™）<br>
