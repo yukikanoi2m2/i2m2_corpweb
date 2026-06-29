@@ -11,7 +11,7 @@ import { legalPage } from './pages/legal'
 import { newsPage } from './pages/news'
 import { contactSubmit, adminContacts, adminContactDetail } from './api/contact'
 
-type Env = { Bindings: { DB: D1Database } }
+type Env = { Bindings: { DB: D1Database; RESEND_API_KEY: string } }
 const app = new Hono<Env>()
 
 app.use('/static/*', serveStatic({ root: './' }))

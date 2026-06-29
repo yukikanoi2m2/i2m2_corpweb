@@ -1,6 +1,6 @@
 import type { Context } from 'hono'
 
-type Env = { Bindings: { DB: D1Database } }
+type Env = { Bindings: { DB: D1Database; RESEND_API_KEY: string } }
 
 // お問い合わせ受付API
 export const contactSubmit = async (c: Context<Env>) => {
@@ -19,11 +19,71 @@ export const contactSubmit = async (c: Context<Env>) => {
       VALUES (?, ?, ?, ?, ?, ?, ?)
     `).bind(category, company, name, position || '', email, phone || '', message).run()
 
+    // Resendでメール通知（非同期、エラーでもリダイレクトは行う）
+    try {
+      if (c.env.RESEND_API_KEY) {
+        await sendNotificationEmail(c.env.RESEND_API_KEY, {
+          category, company, name, position: position || '未記入', email, phone: phone || '未記入', message
+        })
+      }
+    } catch (emailErr) {
+      console.error('Email notification failed:', emailErr)
+    }
+
     // 完了ページにリダイレクト
     return c.redirect('/contact/thanks')
   } catch (e: any) {
     console.error('Contact submit error:', e)
     return c.json({ error: '送信に失敗しました。時間をおいて再度お試しください。' }, 500)
+  }
+}
+
+// Resendでメール通知送信
+async function sendNotificationEmail(apiKey: string, data: {
+  category: string; company: string; name: string; position: string;
+  email: string; phone: string; message: string
+}) {
+  const now = new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' })
+
+  const htmlBody = `
+<div style="font-family: 'Noto Sans JP', sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+  <div style="background: #1a1a1a; color: #fff; padding: 20px 24px; border-radius: 8px 8px 0 0;">
+    <h2 style="margin: 0; font-size: 16px; color: #b8860b;">📩 新しいお問い合わせ</h2>
+    <p style="margin: 4px 0 0; font-size: 12px; color: #999;">${now}</p>
+  </div>
+  <div style="background: #fff; border: 1px solid #eee; border-top: none; padding: 24px; border-radius: 0 0 8px 8px;">
+    <table style="width: 100%; border-collapse: collapse;">
+      <tr><td style="padding: 8px 12px; font-weight: bold; color: #666; width: 120px; border-bottom: 1px solid #f0f0f0;">種別</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">${data.category}</td></tr>
+      <tr><td style="padding: 8px 12px; font-weight: bold; color: #666; border-bottom: 1px solid #f0f0f0;">会社名</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">${data.company}</td></tr>
+      <tr><td style="padding: 8px 12px; font-weight: bold; color: #666; border-bottom: 1px solid #f0f0f0;">担当者名</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">${data.name}</td></tr>
+      <tr><td style="padding: 8px 12px; font-weight: bold; color: #666; border-bottom: 1px solid #f0f0f0;">役職</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">${data.position}</td></tr>
+      <tr><td style="padding: 8px 12px; font-weight: bold; color: #666; border-bottom: 1px solid #f0f0f0;">メール</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;"><a href="mailto:${data.email}">${data.email}</a></td></tr>
+      <tr><td style="padding: 8px 12px; font-weight: bold; color: #666; border-bottom: 1px solid #f0f0f0;">電話</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">${data.phone}</td></tr>
+      <tr><td style="padding: 8px 12px; font-weight: bold; color: #666; vertical-align: top;">内容</td><td style="padding: 8px 12px; white-space: pre-wrap;">${data.message}</td></tr>
+    </table>
+    <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid #eee; font-size: 12px; color: #999;">
+      <p>管理画面で確認: <a href="https://i2m2corpweb.pages.dev/admin/contacts">お問い合わせ管理</a></p>
+    </div>
+  </div>
+</div>`
+
+  const res = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${apiKey}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      from: 'i2m2 お問い合わせ <noreply@i2m2.com>',
+      to: ['info@i2m2.com'],
+      subject: `【お問い合わせ】${data.company} ${data.name}様 - ${data.category}`,
+      html: htmlBody
+    })
+  })
+
+  if (!res.ok) {
+    const errText = await res.text()
+    throw new Error(`Resend API error: ${res.status} ${errText}`)
   }
 }
 
