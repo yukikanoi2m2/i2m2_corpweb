@@ -74,8 +74,8 @@ async function sendNotificationEmail(apiKey: string, data: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      from: 'i2m2 お問い合わせ <noreply@i2m2.com>',
-      to: ['info@i2m2.com'],
+      from: 'i2m2 お問い合わせ <zimu@i2m2.com>',
+      to: ['zimu@i2m2.com'],
       subject: `【お問い合わせ】${data.company} ${data.name}様 - ${data.category}`,
       html: htmlBody
     })
