@@ -169,12 +169,12 @@ export const topPage = (c: Context) => {
               </section>
               <!-- Card 3 -->
               <section class="c-card">
-                <a class="c-card__inner" href="/services">
+                <a class="c-card__inner" href="https://tsumugi-partners.i2m2.com/lp/healthcare/" target="_blank" rel="noopener">
                   <div class="c-card__thumb c-card__thumb--radius">
                     <img src="/static/images/contract-signing.jpg" alt="M&A" class="c-card__thumb-placeholder">
                   </div>
-                  <div class="c-card__title">RVC Community Value</div>
-                  <div class="c-card__content">M&amp;A仲介・事業承継・事業再生 — 地域価値創造ファンド</div>
+                  <div class="c-card__title">つむぎパートナーズ</div>
+                  <div class="c-card__content">ヘルスケアM&amp;A・事業承継・事業再生 — 地域価値創造</div>
                 </a>
               </section>
               <!-- Card 4 -->

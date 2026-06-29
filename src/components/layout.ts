@@ -99,6 +99,7 @@ function footer() {
           <h4>事業内容</h4>
           <ul>
             <li><a href="/services">事業一覧</a></li>
+            <li><a href="https://tsumugi-partners.i2m2.com/lp/healthcare/" target="_blank" rel="noopener">つむぎパートナーズ</a></li>
             <li><a href="/cases">実績</a></li>
             <li><a href="/ir">企業情報</a></li>
           </ul>

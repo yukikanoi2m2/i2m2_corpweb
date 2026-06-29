@@ -86,8 +86,8 @@ ${breadcrumb([{ label: '事業内容' }])}
       <div class="services-domain" data-reveal>
         <div class="services-domain__number">03</div>
         <div class="services-domain__content">
-          <div class="services-domain__brand">RVC Community Value</div>
-          <h3 class="services-domain__title">M&A仲介・事業承継</h3>
+          <div class="services-domain__brand">つむぎパートナーズ — Tsumugi Partners</div>
+          <h3 class="services-domain__title">ヘルスケアM&A・事業承継</h3>
           <p class="services-domain__desc">
             医療・介護・福祉はもちろん、IT・飲食・美容など全業種対応。<br class="u-pc-only">
             事業承継、事業再生、地域活性ファンドの運営を通じてコミュニティの価値を守り、高める。
@@ -95,6 +95,7 @@ ${breadcrumb([{ label: '事業内容' }])}
           <ul class="services-domain__tags">
             <li>M&A仲介</li><li>事業承継</li><li>事業再生</li><li>全業種対応</li>
           </ul>
+          <a href="https://tsumugi-partners.i2m2.com/lp/healthcare/" target="_blank" rel="noopener" class="btn btn-outline btn-sm" style="margin-top:16px;">つむぎパートナーズ 詳細サイト <i class="fas fa-external-link-alt" style="font-size:11px;margin-left:4px;"></i></a>
         </div>
       </div>
       <!-- Domain 4 -->

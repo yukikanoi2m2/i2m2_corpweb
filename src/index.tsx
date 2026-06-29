@@ -9,8 +9,10 @@ import { recruitPage } from './pages/recruit'
 import { contactPage } from './pages/contact'
 import { legalPage } from './pages/legal'
 import { newsPage } from './pages/news'
+import { contactSubmit, adminContacts, adminContactDetail } from './api/contact'
 
-const app = new Hono()
+type Env = { Bindings: { DB: D1Database } }
+const app = new Hono<Env>()
 
 app.use('/static/*', serveStatic({ root: './' }))
 
@@ -47,6 +49,11 @@ app.get('/recruit', recruitPage)
 // Contact
 app.get('/contact', contactPage)
 app.get('/contact/:sub', contactPage)
+app.post('/api/contact', contactSubmit)
+
+// Admin
+app.get('/admin/contacts', adminContacts)
+app.get('/admin/contacts/:id', adminContactDetail)
 
 // Legal
 app.get('/legal', legalPage)
