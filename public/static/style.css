@@ -1153,3 +1153,29 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
   font-size: 0.75rem; color: #888;
   text-align: right; margin-top: 8px;
 }
+
+/* ============================================================
+   NEWS PAGE
+   ============================================================ */
+.news-page-list { max-width: 800px; margin: 0 auto; }
+.news-page-item {
+  padding: 32px 0; border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.news-page-item:last-child { border-bottom: none; }
+.news-page-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.news-page-date { font-family: var(--font-en); font-size: 13px; color: var(--color-text-dim); letter-spacing: .5px; }
+.news-page-tag {
+  font-size: 11px; padding: 3px 10px; border-radius: 3px;
+  color: #fff; font-weight: 500; letter-spacing: .5px;
+}
+.news-page-title {
+  font-size: 18px; font-weight: 700; color: var(--color-white);
+  margin-bottom: 12px; line-height: 1.6;
+}
+.news-page-body {
+  font-size: 14px; color: var(--color-text-sub); line-height: 2;
+}
+@media (max-width: 736px) {
+  .news-page-title { font-size: 16px; }
+  .news-page-item { padding: 24px 0; }
+}

@@ -8,6 +8,7 @@ import { irPage } from './pages/ir'
 import { recruitPage } from './pages/recruit'
 import { contactPage } from './pages/contact'
 import { legalPage } from './pages/legal'
+import { newsPage } from './pages/news'
 
 const app = new Hono()
 
@@ -16,6 +17,9 @@ app.use('/static/*', serveStatic({ root: './' }))
 // ======== PAGES ========
 // Top
 app.get('/', topPage)
+
+// News
+app.get('/news', newsPage)
 
 // Company
 app.get('/company', companyPage)

@@ -98,17 +98,17 @@ ${breadcrumb([{ label: '企業情報' }])}
       <li class="news-item">
         <time>2026.06</time>
         <span class="news-tag">IR</span>
-        <a href="#">グループ社員200名突破・総売上20億円を達成いたしました</a>
+        <a href="/news">グループ社員200名突破・総売上20億円を達成いたしました</a>
       </li>
       <li class="news-item">
         <time>2026.04</time>
         <span class="news-tag">事業報告</span>
-        <a href="#">補助金コンサルティングサービスを開始いたしました</a>
+        <a href="/news">補助金コンサルティングサービスを開始いたしました</a>
       </li>
       <li class="news-item">
         <time>2025.12</time>
         <span class="news-tag">事業報告</span>
-        <a href="#">M&amp;A仲介・事業承継支援サービスを正式リリースいたしました</a>
+        <a href="/news">M&amp;A仲介・事業承継支援サービスを正式リリースいたしました</a>
       </li>
     </ul>
   </div>

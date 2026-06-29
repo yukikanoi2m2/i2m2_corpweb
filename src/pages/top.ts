@@ -46,38 +46,38 @@ export const topPage = (c: Context) => {
           <div class="p-bar">
             <div class="p-bar__head">
               <div class="p-bar__heading">NEWS</div>
-              <div class="p-bar__more"><a href="/ir" class="p-bar__more-link">view all</a></div>
+              <div class="p-bar__more"><a href="/news" class="p-bar__more-link">view all</a></div>
             </div>
             <div class="p-bar__body">
               <div class="p-bar__ticker">
                 <div class="p-bar__ticker-track">
-                  <a class="p-bar__item" href="/ir">
+                  <a class="p-bar__item" href="/news">
                     <span class="p-bar__date">2026.06</span>
                     <span class="p-bar__label" style="background:#b8860b">IR</span>
                     <span class="p-bar__title">グループ社員200名突破・総売上20億円達成</span>
                   </a>
-                  <a class="p-bar__item" href="/ir">
+                  <a class="p-bar__item" href="/news">
                     <span class="p-bar__date">2026.04</span>
                     <span class="p-bar__label" style="background:#2563a8">事業</span>
                     <span class="p-bar__title">補助金コンサルティングサービス提供開始</span>
                   </a>
-                  <a class="p-bar__item" href="/ir">
+                  <a class="p-bar__item" href="/news">
                     <span class="p-bar__date">2025.12</span>
                     <span class="p-bar__label" style="background:#2563a8">事業</span>
                     <span class="p-bar__title">M&amp;A仲介・事業承継支援サービスリリース</span>
                   </a>
                   <!-- Duplicated for seamless loop -->
-                  <a class="p-bar__item" href="/ir">
+                  <a class="p-bar__item" href="/news">
                     <span class="p-bar__date">2026.06</span>
                     <span class="p-bar__label" style="background:#b8860b">IR</span>
                     <span class="p-bar__title">グループ社員200名突破・総売上20億円達成</span>
                   </a>
-                  <a class="p-bar__item" href="/ir">
+                  <a class="p-bar__item" href="/news">
                     <span class="p-bar__date">2026.04</span>
                     <span class="p-bar__label" style="background:#2563a8">事業</span>
                     <span class="p-bar__title">補助金コンサルティングサービス提供開始</span>
                   </a>
-                  <a class="p-bar__item" href="/ir">
+                  <a class="p-bar__item" href="/news">
                     <span class="p-bar__date">2025.12</span>
                     <span class="p-bar__label" style="background:#2563a8">事業</span>
                     <span class="p-bar__title">M&amp;A仲介・事業承継支援サービスリリース</span>
