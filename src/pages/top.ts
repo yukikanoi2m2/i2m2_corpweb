@@ -137,7 +137,7 @@ export const topPage = (c: Context) => {
     <div class="p-slide-section p-front-services">
       <div class="p-slide-section__bg p-front-services__bg"></div>
       <div class="p-slide-section__body p-slide-section__body--cards">
-        <p class="c-heading-sub c-heading-sub--large">M&A・マーケ・人材・DX<br class="u-sp-only">ひとつの窓口で、地域へ。</p>
+        <p class="c-heading-sub c-heading-sub--large">M&A・マーケ・人材・DX<br class="u-sp-only">ひとつの窓口で。</p>
         <h2 class="c-heading c-heading--1">
           <span class="c-text-letters js-text-letters">SERVICES</span>
         </h2>
@@ -147,44 +147,54 @@ export const topPage = (c: Context) => {
           </button>
           <div class="c-card-slider__inner">
             <div class="c-card-slider__track js-card-track">
-              <!-- Card 1 -->
+              <!-- Card 1: MedReach -->
               <section class="c-card">
-                <a class="c-card__inner" href="/services">
+                <a class="c-card__inner" href="https://medreach.i2m2.com" target="_blank" rel="noopener">
                   <div class="c-card__thumb c-card__thumb--radius">
-                    <img src="/static/images/healthcare-dashboard.jpg" alt="Healthcare Marketing" class="c-card__thumb-placeholder">
+                    <img src="/static/images/healthcare-dashboard.jpg" alt="MedReach" class="c-card__thumb-placeholder">
                   </div>
-                  <div class="c-card__title">IHG™ Healthcare Services</div>
-                  <div class="c-card__content">医療機関プロデュース — 広告運用・コンサル・カルテ電子化（医療DX）・補助金支援</div>
+                  <div class="c-card__title">MedReach™</div>
+                  <div class="c-card__content">医療マーケティング・広告運用</div>
                 </a>
               </section>
-              <!-- Card 2 -->
+              <!-- Card 2: CliniCore -->
               <section class="c-card">
-                <a class="c-card__inner" href="/services">
+                <a class="c-card__inner" href="https://clinicore.i2m2.com" target="_blank" rel="noopener">
                   <div class="c-card__thumb c-card__thumb--radius">
-                    <img src="/static/images/hero-meeting.jpg" alt="Healthcare Talent" class="c-card__thumb-placeholder">
+                    <img src="/static/images/dx-dashboard.jpg" alt="CliniCore" class="c-card__thumb-placeholder">
                   </div>
-                  <div class="c-card__title">DR-LINK™ Healthcare Talent</div>
-                  <div class="c-card__content">医療系人材マッチング — 医師・看護師・薬剤師の転職・紹介</div>
+                  <div class="c-card__title">CliniCore™</div>
+                  <div class="c-card__content">紙カルテ・スキャン・OCR電子保存</div>
                 </a>
               </section>
-              <!-- Card 3 -->
+              <!-- Card 3: GrowFund -->
               <section class="c-card">
-                <a class="c-card__inner" href="https://tsumugi-partners.i2m2.com/lp/healthcare/" target="_blank" rel="noopener">
+                <a class="c-card__inner" href="https://growfund.i2m2.com" target="_blank" rel="noopener">
                   <div class="c-card__thumb c-card__thumb--radius">
-                    <img src="/static/images/contract-signing.jpg" alt="M&A" class="c-card__thumb-placeholder">
+                    <img src="/static/images/contract-signing.jpg" alt="GrowFund" class="c-card__thumb-placeholder">
+                  </div>
+                  <div class="c-card__title">GrowFund™</div>
+                  <div class="c-card__content">補助金・融資活用コンサルティング</div>
+                </a>
+              </section>
+              <!-- Card 4: DR-LINK -->
+              <section class="c-card">
+                <a class="c-card__inner" href="https://drlink.i2m2.com" target="_blank" rel="noopener">
+                  <div class="c-card__thumb c-card__thumb--radius">
+                    <img src="/static/images/hero-meeting.jpg" alt="DR-LINK" class="c-card__thumb-placeholder">
+                  </div>
+                  <div class="c-card__title">DR-LINK™</div>
+                  <div class="c-card__content">医療系人材マッチング</div>
+                </a>
+              </section>
+              <!-- Card 5: つむぎパートナーズ -->
+              <section class="c-card">
+                <a class="c-card__inner" href="https://tsumugi.i2m2.com" target="_blank" rel="noopener">
+                  <div class="c-card__thumb c-card__thumb--radius">
+                    <img src="/static/images/city-arc.jpg" alt="つむぎパートナーズ" class="c-card__thumb-placeholder">
                   </div>
                   <div class="c-card__title">つむぎパートナーズ</div>
-                  <div class="c-card__content">ヘルスケアM&amp;A・事業承継・事業再生</div>
-                </a>
-              </section>
-              <!-- Card 4 -->
-              <section class="c-card">
-                <a class="c-card__inner" href="/services">
-                  <div class="c-card__thumb c-card__thumb--radius">
-                    <img src="/static/images/dx-dashboard.jpg" alt="Medical DX" class="c-card__thumb-placeholder">
-                  </div>
-                  <div class="c-card__title">カルテ電子化（医療DX）</div>
-                  <div class="c-card__content">予約・内診・オンライン診療・経営分析まで一元化できるクラウド型電子カルテ</div>
+                  <div class="c-card__content">M&amp;A・事業承継・事業再生</div>
                 </a>
               </section>
               <!-- Card 5 -->

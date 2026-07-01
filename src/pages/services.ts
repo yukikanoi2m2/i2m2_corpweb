@@ -1,5 +1,5 @@
 import type { Context } from 'hono'
-import { layout, breadcrumb } from '../components/layout'
+import { layout, breadcrumb, ctaSection } from '../components/layout'
 
 export const servicesPage = (c: Context) => {
   return c.html(layout('事業内容', `
@@ -8,117 +8,120 @@ ${breadcrumb([{ label: '事業内容' }])}
 <section class="page-hero page-hero--services" style="background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.8)),url('/static/images/city-connection.jpg') center/cover no-repeat;">
   <div class="container">
     <span class="page-hero__label">BUSINESS</span>
-    <h1 class="page-hero__title-en">Regional Value Creation</h1>
+    <h1 class="page-hero__title-en">Services</h1>
     <p class="page-hero__title-ja">— 事業内容 —</p>
     <p class="page-hero__lead">
       ヘルスケアを起点に、<br class="u-pc-only">
-      地域社会の価値を高める。
+      医療機関の成長を多角的に支援します。
     </p>
   </div>
 </section>
 
-<!-- RVC概念説明 -->
+<!-- ブランド一覧 -->
 <section class="section">
   <div class="container">
-    <div class="services-philosophy">
-      <div class="services-philosophy__visual">
-        <div class="services-orbit">
-          <div class="services-orbit__center">
-            <span class="services-orbit__label">RVC</span>
-            <span class="services-orbit__sub">i2m2</span>
-          </div>
-          <div class="services-orbit__ring">
-            <span class="services-orbit__node services-orbit__node--1">M&A</span>
-            <span class="services-orbit__node services-orbit__node--2">医療DX</span>
-            <span class="services-orbit__node services-orbit__node--3">人材</span>
-            <span class="services-orbit__node services-orbit__node--4">マーケ</span>
-          </div>
-        </div>
-      </div>
-      <div class="services-philosophy__text">
-        <h2 class="services-philosophy__heading">一つの軸、多角的な展開</h2>
-        <p>i2m2はヘルスケア・医療を起点にした多角的な事業を展開しています。</p>
-        <p>M&Aによる事業承継から、医療DXによる業務革新、人材マッチング、マーケティング支援まで——<br>それぞれが独立した事業でありながら、地域の価値を高めるという同じゴールに向かっています。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 事業領域 -->
-<section class="section section-alt">
-  <div class="container">
     <div class="services-section-header">
-      <span class="services-section-header__en">DOMAINS</span>
-      <h2 class="services-section-header__ja">事業領域</h2>
+      <span class="services-section-header__en">BRANDS</span>
+      <h2 class="services-section-header__ja">グループブランド</h2>
     </div>
-    <div class="services-domains">
-      <!-- Domain 1 -->
-      <div class="services-domain" data-reveal>
-        <div class="services-domain__number">01</div>
-        <div class="services-domain__content">
-          <div class="services-domain__brand">IHG™ Healthcare Services</div>
-          <h3 class="services-domain__title">医療機関プロデュース</h3>
-          <p class="services-domain__desc">
-            クリニックの広告運用（5,000万円+実績）、経営コンサルティング、カルテ電子化（医療DX）、<br class="u-pc-only">
-            補助金・融資支援まで、医療機関の成長に必要な全てを一気通貫で提供。
+    <div class="services-brands">
+
+      <!-- Brand 01: MedReach -->
+      <div class="services-brand-card" data-reveal>
+        <div class="services-brand-card__number">01</div>
+        <div class="services-brand-card__body">
+          <div class="services-brand-card__logo">MedReach™ <span>by i2m2</span></div>
+          <h3 class="services-brand-card__title">医療マーケティング・広告運用</h3>
+          <p class="services-brand-card__desc">
+            クリニック・病院の集患を最大化するデジタルマーケティング。リスティング広告、MEO対策、SNS運用、LP制作まで一気通貫で支援します。累計広告運用額5,000万円+の実績。
           </p>
-          <ul class="services-domain__tags">
-            <li>リスティング広告</li><li>MEO対策</li><li>電子カルテ導入</li><li>経営コンサル</li><li>補助金申請</li>
+          <ul class="services-brand-card__tags">
+            <li>リスティング広告</li><li>MEO対策</li><li>SNS運用</li><li>LP制作</li><li>SEO</li>
           </ul>
+          <a href="https://medreach.i2m2.com" target="_blank" rel="noopener" class="services-brand-card__link">
+            <span>詳細を見る</span><i class="fas fa-external-link-alt"></i>
+          </a>
         </div>
       </div>
-      <!-- Domain 2 -->
-      <div class="services-domain" data-reveal>
-        <div class="services-domain__number">02</div>
-        <div class="services-domain__content">
-          <div class="services-domain__brand">DR-LINK™ Healthcare Talent</div>
-          <h3 class="services-domain__title">医療系人材マッチング</h3>
-          <p class="services-domain__desc">
-            医師・看護師・薬剤師・介護職など医療系専門職の転職支援。<br class="u-pc-only">
-            採用ニーズの発掘からキャリアカウンセリング、入職後の定着サポートまで。
+
+      <!-- Brand 02: CliniCore -->
+      <div class="services-brand-card" data-reveal>
+        <div class="services-brand-card__number">02</div>
+        <div class="services-brand-card__body">
+          <div class="services-brand-card__logo">CliniCore™ <span>by i2m2</span></div>
+          <h3 class="services-brand-card__title">紙カルテ・スキャン・OCR電子保存</h3>
+          <p class="services-brand-card__desc">
+            紙カルテのスキャン・OCR読み取り・電子保存をワンストップで提供。診療録の電子化により、検索性向上・スペース削減・BCP対策を実現します。
           </p>
-          <ul class="services-domain__tags">
-            <li>医師紹介</li><li>看護師採用</li><li>介護人材</li><li>定着支援</li>
+          <ul class="services-brand-card__tags">
+            <li>紙カルテ電子化</li><li>OCR</li><li>スキャン代行</li><li>電子保存</li><li>BCP対策</li>
           </ul>
+          <a href="https://clinicore.i2m2.com" target="_blank" rel="noopener" class="services-brand-card__link">
+            <span>詳細を見る</span><i class="fas fa-external-link-alt"></i>
+          </a>
         </div>
       </div>
-      <!-- Domain 3 -->
-      <div class="services-domain" data-reveal>
-        <div class="services-domain__number">03</div>
-        <div class="services-domain__content">
-          <div class="services-domain__brand">つむぎパートナーズ — Tsumugi Partners</div>
-          <h3 class="services-domain__title">ヘルスケアM&A・事業承継</h3>
-          <p class="services-domain__desc">
-            医療・介護・福祉はもちろん、IT・飲食・美容など全業種対応。<br class="u-pc-only">
-            事業承継、事業再生、地域活性ファンドの運営を通じてコミュニティの価値を守り、高める。
+
+      <!-- Brand 03: GrowFund -->
+      <div class="services-brand-card" data-reveal>
+        <div class="services-brand-card__number">03</div>
+        <div class="services-brand-card__body">
+          <div class="services-brand-card__logo">GrowFund™ <span>by i2m2</span></div>
+          <h3 class="services-brand-card__title">補助金・融資活用コンサルティング</h3>
+          <p class="services-brand-card__desc">
+            医療機関向けの補助金・融資申請を完全サポート。IT導入補助金、事業再構築補助金、ものづくり補助金など、選定から採択後の実績報告まで一気通貫で対応します。
           </p>
-          <ul class="services-domain__tags">
-            <li>M&A仲介</li><li>事業承継</li><li>事業再生</li><li>全業種対応</li>
+          <ul class="services-brand-card__tags">
+            <li>IT導入補助金</li><li>事業再構築</li><li>ものづくり補助金</li><li>融資支援</li><li>実績報告</li>
           </ul>
-          <a href="https://tsumugi-partners.i2m2.com/lp/healthcare/" target="_blank" rel="noopener" class="btn btn-outline btn-sm" style="margin-top:16px;">つむぎパートナーズ 詳細サイト <i class="fas fa-external-link-alt" style="font-size:11px;margin-left:4px;"></i></a>
+          <a href="https://growfund.i2m2.com" target="_blank" rel="noopener" class="services-brand-card__link">
+            <span>詳細を見る</span><i class="fas fa-external-link-alt"></i>
+          </a>
         </div>
       </div>
-      <!-- Domain 4 -->
-      <div class="services-domain" data-reveal>
-        <div class="services-domain__number">04</div>
-        <div class="services-domain__content">
-          <div class="services-domain__brand">4everclinic</div>
-          <h3 class="services-domain__title">海外クリニック進出支援</h3>
-          <p class="services-domain__desc">
-            アジア圏の医療機関の日本進出を全面サポート。<br class="u-pc-only">
-            法務・マーケティング・店舗開発・スタッフ採用までワンストップで対応。
+
+      <!-- Brand 04: DR-LINK -->
+      <div class="services-brand-card" data-reveal>
+        <div class="services-brand-card__number">04</div>
+        <div class="services-brand-card__body">
+          <div class="services-brand-card__logo">DR-LINK™ <span>by i2m2</span></div>
+          <h3 class="services-brand-card__title">医療系人材マッチング</h3>
+          <p class="services-brand-card__desc">
+            医師・看護師・薬剤師・介護職など医療系専門職の転職支援。採用ニーズの発掘からキャリアカウンセリング、入職後の定着サポートまで対応します。
           </p>
-          <ul class="services-domain__tags">
-            <li>日本進出</li><li>法務支援</li><li>マーケティング</li><li>運営支援</li>
+          <ul class="services-brand-card__tags">
+            <li>医師紹介</li><li>看護師採用</li><li>薬剤師</li><li>介護人材</li><li>定着支援</li>
           </ul>
+          <a href="https://drlink.i2m2.com" target="_blank" rel="noopener" class="services-brand-card__link">
+            <span>詳細を見る</span><i class="fas fa-external-link-alt"></i>
+          </a>
         </div>
       </div>
+
+      <!-- Brand 05: つむぎパートナーズ -->
+      <div class="services-brand-card" data-reveal>
+        <div class="services-brand-card__number">05</div>
+        <div class="services-brand-card__body">
+          <div class="services-brand-card__logo">つむぎパートナーズ <span>by i2m2</span></div>
+          <h3 class="services-brand-card__title">M&A・事業承継・事業再生</h3>
+          <p class="services-brand-card__desc">
+            医療・介護・福祉を中心に全業種対応のM&A仲介。後継者不在問題の解決から事業再生・PMIまで、完全成功報酬型・秘密厳守で対応します。
+          </p>
+          <ul class="services-brand-card__tags">
+            <li>M&A仲介</li><li>事業承継</li><li>事業再生</li><li>PMI</li><li>全業種対応</li>
+          </ul>
+          <a href="https://tsumugi.i2m2.com" target="_blank" rel="noopener" class="services-brand-card__link">
+            <span>詳細を見る</span><i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
 <!-- 強み -->
-<section class="section">
+<section class="section section-alt">
   <div class="container">
     <div class="services-section-header">
       <span class="services-section-header__en">STRENGTH</span>
@@ -131,9 +134,9 @@ ${breadcrumb([{ label: '事業内容' }])}
         <p>創業1年2ヶ月でグループ社員200名以上、総売上20億円を突破。急成長を続けています。</p>
       </div>
       <div class="services-strength" data-reveal>
-        <div class="services-strength__icon"><i class="fas fa-map-marked-alt"></i></div>
-        <h3>首都圏起点、全国へ。</h3>
-        <p>六本木ヒルズを拠点に、全国の医療機関・事業者への支援を展開しています。</p>
+        <div class="services-strength__icon"><i class="fas fa-layer-group"></i></div>
+        <h3>ワンストップ支援</h3>
+        <p>集患・人材・資金調達・M&A・DXまで、医療機関の課題をひとつの窓口で解決します。</p>
       </div>
       <div class="services-strength" data-reveal>
         <div class="services-strength__icon"><i class="fas fa-shield-halved"></i></div>
@@ -151,9 +154,9 @@ ${breadcrumb([{ label: '事業内容' }])}
     <h2 class="cta-title">まずはお気軽にご相談ください</h2>
     <div class="cta-buttons">
       <a href="/contact" class="btn btn-primary btn-lg">無料相談はこちら</a>
-      <a href="/ir" class="btn btn-outline">IR情報を見る</a>
+      <a href="/ir" class="btn btn-outline">企業情報を見る</a>
     </div>
   </div>
 </section>
-`, { description: '医療機関プロデュース（IHG™）・医療系人材マッチング（DR-LINK™）・M&A仲介（RVC）・医療DXをワンストップで提供。ヘルスケア特化の総合支援会社。' }))
+`, { description: '株式会社イズムズの事業内容。MedReach™（医療マーケティング）、CliniCore™（カルテ電子化）、GrowFund™（補助金）、DR-LINK™（人材）、つむぎパートナーズ（M&A）の5ブランドを展開。' }))
 }

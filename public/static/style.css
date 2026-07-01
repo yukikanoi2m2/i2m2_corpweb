@@ -814,6 +814,57 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
 @media (max-width: 768px) { .services-strengths { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 480px) { .services-strengths { grid-template-columns: 1fr; } }
 
+/* Brand cards */
+.services-brands { display: flex; flex-direction: column; gap: 0; }
+.services-brand-card {
+  display: flex; gap: 32px; padding: 48px 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  transition: background .3s;
+}
+.services-brand-card:hover { background: rgba(255,255,255,.02); }
+.services-brand-card:last-child { border-bottom: none; }
+.services-brand-card__number {
+  font-family: var(--font-en); font-size: 48px; font-weight: 200;
+  color: rgba(184,134,11,.4); line-height: 1; flex-shrink: 0; width: 60px;
+}
+.services-brand-card__body { flex: 1; }
+.services-brand-card__logo {
+  font-family: var(--font-en); font-size: 18px; font-weight: 700;
+  color: var(--accent-light); margin-bottom: 8px; letter-spacing: .5px;
+}
+.services-brand-card__logo span {
+  font-size: 12px; font-weight: 400; color: var(--color-text-dim); margin-left: 8px;
+}
+.services-brand-card__title {
+  font-size: 22px; font-weight: 700; color: var(--color-white); margin-bottom: 12px;
+}
+.services-brand-card__desc {
+  font-size: 14px; color: var(--color-text-sub); line-height: 1.9; margin-bottom: 16px;
+}
+.services-brand-card__tags {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;
+}
+.services-brand-card__tags li {
+  font-size: 11px; padding: 4px 12px; border-radius: 20px;
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+  color: var(--color-text-sub); letter-spacing: .5px;
+}
+.services-brand-card__link {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 600; color: var(--accent-light);
+  padding: 10px 20px; border: 1px solid rgba(184,134,11,.3); border-radius: 6px;
+  transition: all .3s var(--ease); text-decoration: none;
+}
+.services-brand-card__link:hover {
+  background: rgba(184,134,11,.1); border-color: var(--accent-light); color: var(--accent-light);
+}
+.services-brand-card__link i { font-size: 11px; }
+@media (max-width: 736px) {
+  .services-brand-card { flex-direction: column; gap: 12px; padding: 32px 0; }
+  .services-brand-card__number { font-size: 36px; width: auto; }
+  .services-brand-card__title { font-size: 18px; }
+}
+
 /* CTA lead */
 .cta-lead { font-size: 14px; color: var(--color-text-dim); margin-bottom: 12px; letter-spacing: .5px; }
 
