@@ -110,7 +110,7 @@ ${breadcrumb([{ label: '事業内容' }])}
           <ul class="services-brand-card__tags">
             <li>M&A仲介</li><li>事業承継</li><li>事業再生</li><li>PMI</li><li>全業種対応</li>
           </ul>
-          <a href="https://tsumugi.i2m2.com" target="_blank" rel="noopener" class="services-brand-card__link">
+          <a href="https://tsumugi-partners.i2m2.com" target="_blank" rel="noopener" class="services-brand-card__link">
             <span>詳細を見る</span><i class="fas fa-external-link-alt"></i>
           </a>
         </div>

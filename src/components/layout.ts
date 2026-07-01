@@ -103,7 +103,7 @@ function footer() {
             <li><a href="https://clinicore.i2m2.com" target="_blank" rel="noopener">CliniCore™</a></li>
             <li><a href="https://growfund.i2m2.com" target="_blank" rel="noopener">GrowFund™</a></li>
             <li><a href="https://drlink.i2m2.com" target="_blank" rel="noopener">DR-LINK™</a></li>
-            <li><a href="https://tsumugi.i2m2.com" target="_blank" rel="noopener">つむぎパートナーズ</a></li>
+            <li><a href="https://tsumugi-partners.i2m2.com" target="_blank" rel="noopener">つむぎパートナーズ</a></li>
           </ul>
         </div>
         <div class="footer-col">

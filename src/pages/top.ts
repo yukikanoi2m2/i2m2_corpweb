@@ -189,7 +189,7 @@ export const topPage = (c: Context) => {
               </section>
               <!-- Card 5: つむぎパートナーズ -->
               <section class="c-card">
-                <a class="c-card__inner" href="https://tsumugi.i2m2.com" target="_blank" rel="noopener">
+                <a class="c-card__inner" href="https://tsumugi-partners.i2m2.com" target="_blank" rel="noopener">
                   <div class="c-card__thumb c-card__thumb--radius">
                     <img src="/static/images/city-arc.jpg" alt="つむぎパートナーズ" class="c-card__thumb-placeholder">
                   </div>
@@ -197,36 +197,7 @@ export const topPage = (c: Context) => {
                   <div class="c-card__content">M&amp;A・事業承継・事業再生</div>
                 </a>
               </section>
-              <!-- Card 5 -->
-              <section class="c-card">
-                <a class="c-card__inner" href="/services">
-                  <div class="c-card__thumb c-card__thumb--radius">
-                    <img src="/static/images/city-connection.jpg" alt="Marketing" class="c-card__thumb-placeholder">
-                  </div>
-                  <div class="c-card__title">広告運用・マーケティング</div>
-                  <div class="c-card__content">5,000万円+の広告運用実績。医療特化のリスティング・SNS・MEO対策</div>
-                </a>
-              </section>
-              <!-- Card 6 -->
-              <section class="c-card">
-                <a class="c-card__inner" href="/services">
-                  <div class="c-card__thumb c-card__thumb--radius">
-                    <img src="/static/images/business-negotiation.jpg" alt="Consulting" class="c-card__thumb-placeholder">
-                  </div>
-                  <div class="c-card__title">補助金・融資コンサルティング</div>
-                  <div class="c-card__content">補助金申請支援・融資サポート・事業計画策定</div>
-                </a>
-              </section>
-              <!-- Card 7 -->
-              <section class="c-card">
-                <a class="c-card__inner" href="/services">
-                  <div class="c-card__thumb c-card__thumb--radius">
-                    <img src="/static/images/city-arc.jpg" alt="Global Expansion" class="c-card__thumb-placeholder">
-                  </div>
-                  <div class="c-card__title">海外展開支援 (4everclinic)</div>
-                  <div class="c-card__content">アジア圏への医療機関進出コンサルティング</div>
-                </a>
-              </section>
+
             </div>
           </div>
           <button class="c-pager-btn c-pager-btn--next js-slider-next" aria-label="次へ">
