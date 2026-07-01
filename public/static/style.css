@@ -263,7 +263,7 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
 .p-slide-section {
   position: relative; width: 100%; min-height: auto;
   display: flex; align-items: center; justify-content: center;
-  padding: 80px 0;
+  padding: 0;
 }
 .p-slide-section__bg {
   position: absolute; inset: 0; z-index: 0;
@@ -275,16 +275,16 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
 .p-slide-section__body--center {
   display: flex; flex-direction: column; align-items: center;
   justify-content: center; text-align: center;
-  min-height: auto; padding: 60px 40px;
+  min-height: auto; padding: 40px 40px;
 }
 .p-slide-section__body--cards {
   display: flex; flex-direction: column; align-items: center;
   justify-content: center; text-align: center;
-  min-height: auto; padding: 60px 0;
+  min-height: auto; padding: 40px 0;
 }
 @media (max-width: 736px) {
   .p-slide-section__body { padding: 0 16px; }
-  .p-slide-section__body--center { padding: 40px 16px; min-height: auto; }
+  .p-slide-section__body--center { padding: 24px 16px; min-height: auto; }
   .p-slide-section__body--cards { padding: 0; }
 }
 
@@ -382,8 +382,8 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
    SECTION: ABOUT
    ============================================================ */
 .p-front-about { background: var(--bg-base); }
-.p-front-about .p-slide-section__body--center { padding: 40px 40px; }
-@media (max-width: 736px) { .p-front-about .p-slide-section__body--center { padding: 30px 16px; } }
+.p-front-about .p-slide-section__body--center { padding: 20px 40px; }
+@media (max-width: 736px) { .p-front-about .p-slide-section__body--center { padding: 16px 16px; } }
 .p-front-about__bg {
   background: radial-gradient(ellipse at 30% 50%, rgba(86,123,246,.05) 0%, transparent 60%);
 }
