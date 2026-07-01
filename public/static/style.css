@@ -257,12 +257,13 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
    SNAP SECTIONS — Full viewport (donuts.ne.jp architecture)
    ============================================================ */
 .p-snap-section {
-  position: relative; min-height: 100vh; width: 100%;
+  position: relative; min-height: auto; width: 100%;
   display: flex; align-items: stretch;
 }
 .p-slide-section {
-  position: relative; width: 100%; min-height: 100vh;
+  position: relative; width: 100%; min-height: auto;
   display: flex; align-items: center; justify-content: center;
+  padding: 80px 0;
 }
 .p-slide-section__bg {
   position: absolute; inset: 0; z-index: 0;
@@ -274,23 +275,23 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
 .p-slide-section__body--center {
   display: flex; flex-direction: column; align-items: center;
   justify-content: center; text-align: center;
-  min-height: 100vh; padding: 0 40px;
+  min-height: auto; padding: 60px 40px;
 }
 .p-slide-section__body--cards {
   display: flex; flex-direction: column; align-items: center;
   justify-content: center; text-align: center;
-  min-height: 100vh; padding: 0;
+  min-height: auto; padding: 60px 0;
 }
 @media (max-width: 736px) {
   .p-slide-section__body { padding: 0 16px; }
-  .p-slide-section__body--center { padding: 0 16px; min-height: 100vh; }
+  .p-slide-section__body--center { padding: 40px 16px; min-height: auto; }
   .p-slide-section__body--cards { padding: 0; }
 }
 
 /* ============================================================
    SECTION: MAIN / HERO
    ============================================================ */
-.p-front-main { background: var(--bg-base); }
+.p-front-main { background: var(--bg-base); min-height: 100vh; }
 .p-front-main .p-slide-section__bg {
   background: radial-gradient(ellipse at 50% 30%, rgba(184,134,11,.04) 0%, transparent 60%);
 }
