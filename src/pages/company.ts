@@ -74,7 +74,7 @@ ${breadcrumb([{ label: '会社概要' }])}
           <tr><th>会社名</th><td>株式会社イズムズ（i2m2 Co., Ltd.）</td></tr>
           <tr><th>設立</th><td>2025年4月</td></tr>
           <tr><th>所在地</th><td>
-            〒106-6137 東京都港区六本木6丁目10-1 六本木ヒルズ森タワー37F
+            〒271-0068 千葉県松戸市大橋149-1
           </td></tr>
           <tr><th>事業内容</th><td>
             ヘルスケアマーケティング事業<br>
@@ -135,7 +135,7 @@ ${breadcrumb([{ label: '会社概要' }])}
         <div class="history-year">2026.06</div>
         <div class="history-content">
           <h4>グループ社員200名突破・総売上20億円達成</h4>
-          <p>創業1年2ヶ月でグループ社員200名以上、総売上20億円を突破。六本木ヒルズ森タワー37Fにオフィスを構える。</p>
+          <p>創業1年2ヶ月でグループ社員200名以上、総売上20億円を突破。千葉県松戸市に本社を移転。</p>
         </div>
       </div>
     </div>
@@ -149,10 +149,10 @@ ${breadcrumb([{ label: '会社概要' }])}
     <div class="access-grid" style="grid-template-columns:1fr;">
       <div class="access-card">
         <h3><i class="fas fa-building"></i> 本社</h3>
-        <p class="access-address">〒106-6137<br>東京都港区六本木6丁目10-1<br>六本木ヒルズ森タワー37F</p>
-        <p class="access-transport"><i class="fas fa-train"></i> 東京メトロ日比谷線「六本木駅」1C出口 徒歩3分<br><i class="fas fa-train"></i> 都営大江戸線「六本木駅」3番出口 徒歩6分</p>
+        <p class="access-address">〒271-0068<br>千葉県松戸市大橋149-1</p>
+        <p class="access-transport"><i class="fas fa-train"></i> JR常磐線・新京成線「松戸駅」よりアクセス</p>
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.7479863805396!2d139.72935491524772!3d35.66027198019437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b770dce4f4b%3A0x4d7e4e4b13b59e3!2z5YWt5pys5pyo5qCh5aOr5aSn5a2m!5e0!3m2!1sja!2sjp!4v1680000000000!5m2!1sja!2sjp"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3233.0!2d139.9!3d35.79!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z5Y2D6JGJ55yM5p2-5oi45biC5aSn5qmL!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp"
           width="100%"
           height="400"
           style="border:0; border-radius:6px; margin-top:16px;"
@@ -166,7 +166,7 @@ ${breadcrumb([{ label: '会社概要' }])}
 </section>
 
 ${ctaSection({ title: '事業内容・お取引についてのご質問もお気軽にどうぞ。' })}
-`, { description: '株式会社イズムズ（i2m2 Co., Ltd.）の会社概要。2025年設立。六本木ヒルズ森タワー37F。ヘルスケア領域を中心に事業を展開。' }))
+`, { description: '株式会社イズムズ（i2m2 Co., Ltd.）の会社概要。2025年設立。千葉県松戸市。ヘルスケア領域を中心に事業を展開。' }))
 }
 
 function messagePage(c: Context) {
@@ -316,7 +316,7 @@ ${breadcrumb([{ label: '会社情報', href: '/company' }, { label: '沿革' }])
         <div class="history-year">2026.06</div>
         <div class="history-content">
           <h4>グループ社員200名突破・総売上20億円達成</h4>
-          <p>創業1年2ヶ月でグループ社員200名以上、総売上20億円を突破。六本木ヒルズ森タワー37Fにオフィスを構える。</p>
+          <p>創業1年2ヶ月でグループ社員200名以上、総売上20億円を突破。千葉県松戸市に本社を移転。</p>
         </div>
       </div>
     </div>
