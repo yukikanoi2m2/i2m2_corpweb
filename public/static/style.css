@@ -382,6 +382,8 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
    SECTION: ABOUT
    ============================================================ */
 .p-front-about { background: var(--bg-base); }
+.p-front-about .p-slide-section__body--center { padding: 40px 40px; }
+@media (max-width: 736px) { .p-front-about .p-slide-section__body--center { padding: 30px 16px; } }
 .p-front-about__bg {
   background: radial-gradient(ellipse at 30% 50%, rgba(86,123,246,.05) 0%, transparent 60%);
 }
@@ -426,9 +428,9 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
 }
 @media (min-width: 737px) { .c-heading-sub { letter-spacing: 3.4px; margin-top: 25px; } }
 @media (max-width: 736px) { .c-heading-sub { letter-spacing: 3px; margin-top: 15px; } }
-.c-heading-sub--large {}
-@media (min-width: 737px) { .c-heading-sub--large { font-size: 25px; } }
-@media (max-width: 736px) { .c-heading-sub--large { font-size: 17px; } }
+.c-heading-sub--large { margin-bottom: 24px; }
+@media (min-width: 737px) { .c-heading-sub--large { font-size: 25px; margin-bottom: 32px; } }
+@media (max-width: 736px) { .c-heading-sub--large { font-size: 17px; margin-bottom: 20px; } }
 
 /* Letter animation (js-text-letters) */
 .c-text-letters { display: inline-block; }
