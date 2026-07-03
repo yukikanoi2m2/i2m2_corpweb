@@ -44,11 +44,11 @@ ${breadcrumb([{ label: '事業内容' }])}
         </div>
       </div>
 
-      <!-- Brand 02: CliniCore -->
+      <!-- Brand 02: karteo -->
       <div class="services-brand-card" data-reveal>
         <div class="services-brand-card__number">02</div>
         <div class="services-brand-card__body">
-          <div class="services-brand-card__logo">CliniCore™ <span>by i2m2</span></div>
+          <div class="services-brand-card__logo">karteo™ <span>by i2m2</span></div>
           <h3 class="services-brand-card__title">紙カルテ・スキャン・OCR電子保存</h3>
           <p class="services-brand-card__desc">
             紙カルテのスキャン・OCR読み取り・電子保存をワンストップで提供。診療録の電子化により、検索性向上・スペース削減・BCP対策を実現します。
@@ -56,7 +56,7 @@ ${breadcrumb([{ label: '事業内容' }])}
           <ul class="services-brand-card__tags">
             <li>紙カルテ電子化</li><li>OCR</li><li>スキャン代行</li><li>電子保存</li><li>BCP対策</li>
           </ul>
-          <a href="https://clinicore.i2m2.com" target="_blank" rel="noopener" class="services-brand-card__link">
+          <a href="https://karteo.i2m2.com" target="_blank" rel="noopener" class="services-brand-card__link">
             <span>詳細を見る</span><i class="fas fa-external-link-alt"></i>
           </a>
         </div>
@@ -158,5 +158,5 @@ ${breadcrumb([{ label: '事業内容' }])}
     </div>
   </div>
 </section>
-`, { description: '株式会社イズムズの事業内容。MedReach™（医療マーケティング）、CliniCore™（カルテ電子化）、GrowFund™（補助金）、DR-LINK™（人材）、つむぎパートナーズ（M&A）の5ブランドを展開。' }))
+`, { description: '株式会社イズムズの事業内容。MedReach™（医療マーケティング）、karteo™（カルテ電子化）、GrowFund™（補助金）、DR-LINK™（人材）、つむぎパートナーズ（M&A）の5ブランドを展開。' }))
 }

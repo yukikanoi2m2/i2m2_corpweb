@@ -100,7 +100,7 @@ function footer() {
           <ul>
             <li><a href="/services">事業一覧</a></li>
             <li><a href="https://medreach.i2m2.com" target="_blank" rel="noopener">MedReach™</a></li>
-            <li><a href="https://clinicore.i2m2.com" target="_blank" rel="noopener">CliniCore™</a></li>
+            <li><a href="https://karteo.i2m2.com" target="_blank" rel="noopener">karteo™</a></li>
             <li><a href="https://growfund.i2m2.com" target="_blank" rel="noopener">GrowFund™</a></li>
             <li><a href="https://drlink.i2m2.com" target="_blank" rel="noopener">DR-LINK™</a></li>
             <li><a href="https://tsumugi-partners.i2m2.com" target="_blank" rel="noopener">つむぎパートナーズ</a></li>

@@ -157,13 +157,13 @@ export const topPage = (c: Context) => {
                   <div class="c-card__content">医療マーケティング・広告運用</div>
                 </a>
               </section>
-              <!-- Card 2: CliniCore -->
+              <!-- Card 2: karteo -->
               <section class="c-card">
-                <a class="c-card__inner" href="https://clinicore.i2m2.com" target="_blank" rel="noopener">
+                <a class="c-card__inner" href="https://karteo.i2m2.com" target="_blank" rel="noopener">
                   <div class="c-card__thumb c-card__thumb--radius">
-                    <img src="/static/images/dx-dashboard.jpg" alt="CliniCore" class="c-card__thumb-placeholder">
+                    <img src="/static/images/dx-dashboard.jpg" alt="karteo" class="c-card__thumb-placeholder">
                   </div>
-                  <div class="c-card__title">CliniCore™</div>
+                  <div class="c-card__title">karteo™</div>
                   <div class="c-card__content">紙カルテ・スキャン・OCR電子保存</div>
                 </a>
               </section>
