@@ -167,7 +167,7 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
   padding: 10px 24px; border-radius: 6px; font-size: 12px; font-weight: 600;
   background: var(--gradient-gold); color: #fff; letter-spacing: .5px;
   transition: all .3s var(--ease); box-shadow: 0 4px 16px rgba(184,134,11,.2);
-  margin-right: 10px;
+  margin-right: 20px;
 }
 .header-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(184,134,11,.3); }
 
