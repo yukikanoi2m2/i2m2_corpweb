@@ -304,23 +304,23 @@ export const topPage = (c: Context) => {
               </div>
             </div>
             <div class="p-network-stat">
-              <span class="p-network-stat__icon"><i class="fas fa-hospital"></i></span>
+              <span class="p-network-stat__icon"><i class="fas fa-briefcase"></i></span>
               <div class="p-network-stat__body">
-                <strong class="p-network-stat__num">200+</strong><span class="p-network-stat__unit">件</span>
-                <span class="p-network-stat__label">支援医療機関</span>
+                <strong class="p-network-stat__num">5</strong><span class="p-network-stat__unit">ブランド</span>
+                <span class="p-network-stat__label">展開サービス</span>
               </div>
             </div>
             <div class="p-network-stat">
-              <span class="p-network-stat__icon"><i class="fas fa-handshake"></i></span>
+              <span class="p-network-stat__icon"><i class="fas fa-rocket"></i></span>
               <div class="p-network-stat__body">
-                <strong class="p-network-stat__num">100+</strong><span class="p-network-stat__unit">社</span>
-                <span class="p-network-stat__label">パートナー企業</span>
+                <strong class="p-network-stat__num">14</strong><span class="p-network-stat__unit">ヶ月</span>
+                <span class="p-network-stat__label">創業からの期間</span>
               </div>
             </div>
             <div class="p-network-stat">
               <span class="p-network-stat__icon"><i class="fas fa-users"></i></span>
               <div class="p-network-stat__body">
-                <strong class="p-network-stat__num">200+</strong><span class="p-network-stat__unit">名</span>
+                <strong class="p-network-stat__num">200</strong><span class="p-network-stat__unit">名+</span>
                 <span class="p-network-stat__label">グループ社員数</span>
               </div>
             </div>
@@ -397,5 +397,5 @@ export const topPage = (c: Context) => {
     </div>
   </section>
 </article>
-`, { description: '株式会社イズムズ（i2m2）はヘルスケアを起点にM&A・医療マーケティング・人材・DXをワンストップで提供。累計取扱高20億円以上。', fullTitle: '株式会社イズムズ｜コーポレートサイト' }))
+`, { description: '株式会社イズムズ（i2m2）は医療マーケティング・人材・M&A・DXをワンストップで提供するヘルスケア特化の総合支援会社。創業1年3ヶ月でグループ社員200名・総売上20億円突破。', fullTitle: '株式会社イズムズ｜コーポレートサイト' }))
 }
