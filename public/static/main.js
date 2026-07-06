@@ -108,7 +108,7 @@
   }
 
   // ============================================================
-  // CARD SLIDER (donuts.ne.jp style — horizontal scroll with arrows)
+  // CARD SLIDER (auto-play + smooth drag + arrows)
   // ============================================================
   class CardSlider {
     constructor() {
@@ -122,15 +122,26 @@
       this.cardWidth = 0;
       this.gap = 20;
       this.visibleCards = 3;
+      this.autoPlayInterval = null;
+      this.autoPlayDelay = 4000;
+      this.isDragging = false;
 
       this.calculate();
       window.addEventListener('resize', () => this.calculate());
 
-      if (this.prevBtn) this.prevBtn.addEventListener('click', () => this.prev());
-      if (this.nextBtn) this.nextBtn.addEventListener('click', () => this.next());
+      if (this.prevBtn) this.prevBtn.addEventListener('click', () => { this.prev(); this.resetAutoPlay(); });
+      if (this.nextBtn) this.nextBtn.addEventListener('click', () => { this.next(); this.resetAutoPlay(); });
 
-      // Touch/swipe support
+      // Touch/swipe + drag support
       this.setupTouch();
+      this.setupDrag();
+
+      // Auto-play
+      this.startAutoPlay();
+
+      // Pause on hover
+      this.track.parentElement.addEventListener('mouseenter', () => this.stopAutoPlay());
+      this.track.parentElement.addEventListener('mouseleave', () => this.startAutoPlay());
     }
 
     calculate() {
@@ -138,25 +149,51 @@
       const card = this.cards[0];
       this.cardWidth = card.offsetWidth;
       const container = this.track.parentElement;
-      this.visibleCards = Math.floor(container.offsetWidth / (this.cardWidth + this.gap));
+      this.visibleCards = Math.max(1, Math.floor(container.offsetWidth / (this.cardWidth + this.gap)));
       this.maxIndex = Math.max(0, this.cards.length - this.visibleCards);
       this.currentIndex = Math.min(this.currentIndex, this.maxIndex);
       this.updatePosition();
     }
 
     prev() {
-      this.currentIndex = Math.max(0, this.currentIndex - 1);
+      if (this.currentIndex <= 0) {
+        this.currentIndex = this.maxIndex;
+      } else {
+        this.currentIndex--;
+      }
       this.updatePosition();
     }
 
     next() {
-      this.currentIndex = Math.min(this.maxIndex, this.currentIndex + 1);
+      if (this.currentIndex >= this.maxIndex) {
+        this.currentIndex = 0;
+      } else {
+        this.currentIndex++;
+      }
       this.updatePosition();
     }
 
     updatePosition() {
       const offset = this.currentIndex * (this.cardWidth + this.gap);
+      this.track.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
       this.track.style.transform = `translateX(-${offset}px)`;
+    }
+
+    startAutoPlay() {
+      this.stopAutoPlay();
+      this.autoPlayInterval = setInterval(() => this.next(), this.autoPlayDelay);
+    }
+
+    stopAutoPlay() {
+      if (this.autoPlayInterval) {
+        clearInterval(this.autoPlayInterval);
+        this.autoPlayInterval = null;
+      }
+    }
+
+    resetAutoPlay() {
+      this.stopAutoPlay();
+      this.startAutoPlay();
     }
 
     setupTouch() {
@@ -165,17 +202,51 @@
         startX = e.touches[0].clientX;
         startY = e.touches[0].clientY;
         moved = false;
+        this.stopAutoPlay();
       }, { passive: true });
       this.track.addEventListener('touchmove', (e) => {
         const dx = e.touches[0].clientX - startX;
         const dy = e.touches[0].clientY - startY;
-        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 20) moved = true;
+        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 15) moved = true;
       }, { passive: true });
       this.track.addEventListener('touchend', (e) => {
-        if (!moved) return;
+        if (!moved) { this.startAutoPlay(); return; }
         const dx = e.changedTouches[0].clientX - startX;
-        if (dx < -40) this.next();
-        else if (dx > 40) this.prev();
+        if (dx < -30) this.next();
+        else if (dx > 30) this.prev();
+        this.startAutoPlay();
+      });
+    }
+
+    setupDrag() {
+      let startX = 0, dragOffset = 0, baseOffset = 0;
+      
+      this.track.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        this.isDragging = true;
+        startX = e.clientX;
+        baseOffset = this.currentIndex * (this.cardWidth + this.gap);
+        this.track.style.transition = 'none';
+        this.track.style.cursor = 'grabbing';
+        this.stopAutoPlay();
+      });
+
+      document.addEventListener('mousemove', (e) => {
+        if (!this.isDragging) return;
+        dragOffset = e.clientX - startX;
+        this.track.style.transform = `translateX(-${baseOffset - dragOffset}px)`;
+      });
+
+      document.addEventListener('mouseup', (e) => {
+        if (!this.isDragging) return;
+        this.isDragging = false;
+        this.track.style.cursor = '';
+        const threshold = this.cardWidth * 0.25;
+        if (dragOffset < -threshold) this.next();
+        else if (dragOffset > threshold) this.prev();
+        else this.updatePosition();
+        dragOffset = 0;
+        this.startAutoPlay();
       });
     }
   }

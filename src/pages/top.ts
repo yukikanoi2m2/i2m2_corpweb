@@ -260,38 +260,37 @@ export const topPage = (c: Context) => {
         <div class="p-network-container">
           <!-- Japan Map SVG -->
           <div class="p-network-map">
-            <svg viewBox="0 0 560 700" class="p-japan-map" aria-label="日本地図 グループ展開エリア">
-              <!-- Simplified Japan outline paths -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" class="p-japan-map" aria-label="日本地図 グループ展開エリア">
               <!-- Hokkaido -->
-              <path class="p-map-region" d="M380,80 Q420,60 450,70 Q480,80 490,110 Q500,140 480,160 Q460,170 440,160 Q420,150 400,140 Q380,130 370,110 Q360,90 380,80Z" data-region="hokkaido"/>
+              <path class="p-map-region" d="M570,120 C590,100 630,90 660,100 C690,110 710,130 720,160 C730,190 720,220 700,240 C680,255 650,260 620,250 C590,240 570,220 560,195 C550,170 555,140 570,120Z"/>
               <!-- Tohoku -->
-              <path class="p-map-region p-map-region--active" d="M390,175 Q410,170 420,180 Q435,190 440,210 Q445,230 440,250 Q435,270 420,280 Q405,285 395,275 Q385,265 380,245 Q375,225 378,205 Q380,185 390,175Z" data-region="tohoku"/>
+              <path class="p-map-region p-map-region--active" d="M580,280 C600,270 620,275 635,290 C650,305 660,325 660,350 C660,375 655,400 640,420 C625,435 605,440 585,430 C565,420 555,400 550,375 C545,350 550,320 560,300 C565,288 572,282 580,280Z"/>
               <!-- Kanto -->
-              <path class="p-map-region p-map-region--active" d="M370,285 Q395,280 415,290 Q430,300 435,315 Q438,330 425,340 Q410,348 390,345 Q370,342 360,330 Q352,318 355,305 Q358,292 370,285Z" data-region="kanto"/>
+              <path class="p-map-region p-map-region--active" d="M540,435 C565,425 590,430 610,445 C630,460 640,480 635,500 C630,520 615,535 595,540 C575,545 555,540 540,525 C525,510 520,490 525,470 C530,452 535,442 540,435Z"/>
               <!-- Chubu -->
-              <path class="p-map-region" d="M330,270 Q355,265 370,280 Q380,290 375,305 Q370,320 355,330 Q340,338 320,335 Q300,330 295,315 Q290,300 300,285 Q310,272 330,270Z" data-region="chubu"/>
+              <path class="p-map-region" d="M470,400 C500,390 530,395 550,410 C565,425 570,445 560,465 C550,485 530,495 505,495 C480,495 460,485 450,465 C440,445 445,420 460,405 C463,402 467,400 470,400Z"/>
               <!-- Kansai -->
-              <path class="p-map-region p-map-region--active" d="M295,330 Q315,325 330,335 Q345,345 345,360 Q345,375 330,382 Q315,388 300,385 Q285,380 278,368 Q272,355 278,342 Q284,332 295,330Z" data-region="kansai"/>
+              <path class="p-map-region p-map-region--active" d="M430,500 C455,492 480,498 498,515 C515,530 520,550 515,570 C510,590 495,600 475,605 C455,608 435,600 420,585 C405,570 402,550 408,530 C414,512 422,504 430,500Z"/>
               <!-- Chugoku -->
-              <path class="p-map-region" d="M235,345 Q260,340 278,350 Q290,358 288,372 Q285,385 270,390 Q255,394 240,390 Q225,385 220,372 Q215,360 222,350 Q228,342 235,345Z" data-region="chugoku"/>
+              <path class="p-map-region" d="M340,520 C370,512 400,518 420,535 C435,548 438,565 430,582 C420,598 400,608 378,608 C355,608 335,598 325,580 C315,562 318,540 330,525 C333,522 337,520 340,520Z"/>
               <!-- Shikoku -->
-              <path class="p-map-region" d="M260,395 Q280,392 295,400 Q305,408 302,418 Q298,428 283,430 Q268,432 255,425 Q245,418 248,408 Q252,398 260,395Z" data-region="shikoku"/>
+              <path class="p-map-region" d="M380,615 C405,608 430,615 448,630 C462,642 465,658 458,672 C450,686 432,692 412,690 C392,688 375,678 368,662 C360,645 365,625 375,618 C377,616 378,615 380,615Z"/>
               <!-- Kyushu -->
-              <path class="p-map-region p-map-region--active" d="M200,390 Q220,385 235,395 Q248,405 248,420 Q248,438 238,450 Q228,462 212,465 Q196,465 185,455 Q175,442 178,425 Q180,408 188,398 Q194,392 200,390Z" data-region="kyushu"/>
+              <path class="p-map-region p-map-region--active" d="M280,590 C310,580 340,588 358,608 C375,625 378,648 370,670 C362,692 345,710 322,718 C300,725 278,720 262,705 C245,690 240,668 245,648 C250,625 260,605 272,595 C275,592 278,590 280,590Z"/>
               <!-- Okinawa -->
-              <path class="p-map-region p-map-region--active" d="M160,560 Q170,555 178,560 Q185,565 183,575 Q180,585 172,588 Q164,590 158,585 Q152,578 155,570 Q157,563 160,560Z" data-region="okinawa"/>
+              <path class="p-map-region p-map-region--active" d="M220,850 C235,842 252,845 265,855 C275,865 278,878 272,892 C265,905 252,912 238,910 C224,908 212,898 208,885 C204,870 210,855 220,850Z"/>
               
               <!-- Gold dots for active locations -->
-              <circle class="p-map-dot p-map-dot--pulse" cx="400" cy="310" r="6"/><!-- Kanto HQ -->
-              <circle class="p-map-dot" cx="410" cy="220" r="5"/><!-- Tohoku -->
-              <circle class="p-map-dot" cx="310" cy="355" r="5"/><!-- Kansai -->
-              <circle class="p-map-dot" cx="170" cy="575" r="5"/><!-- Okinawa -->
+              <circle class="p-map-dot p-map-dot--pulse" cx="580" cy="480" r="10"/><!-- Kanto -->
+              <circle class="p-map-dot" cx="600" cy="350" r="8"/><!-- Tohoku -->
+              <circle class="p-map-dot" cx="470" cy="550" r="8"/><!-- Kansai -->
+              <circle class="p-map-dot" cx="245" cy="875" r="8"/><!-- Okinawa -->
               
               <!-- Connection lines -->
-              <line class="p-map-line" x1="400" y1="310" x2="410" y2="220"/>
-              <line class="p-map-line" x1="400" y1="310" x2="310" y2="355"/>
-              <line class="p-map-line" x1="310" y1="355" x2="220" y2="430"/>
-              <line class="p-map-line" x1="220" y1="430" x2="170" y2="575"/>
+              <line class="p-map-line" x1="580" y1="480" x2="600" y2="350"/>
+              <line class="p-map-line" x1="580" y1="480" x2="470" y2="550"/>
+              <line class="p-map-line" x1="470" y1="550" x2="320" y2="650"/>
+              <line class="p-map-line" x1="320" y1="650" x2="245" y2="875"/>
             </svg>
           </div>
           <!-- Network Stats -->
