@@ -356,6 +356,10 @@ export const topPage = (c: Context) => {
                   <span class="p-network-regions__dot"></span>
                   <span class="p-network-regions__name">有限会社福寿</span>
                 </li>
+                <li class="p-network-regions__item p-network-regions__item--etc">
+                  <span class="p-network-regions__dot"></span>
+                  <span class="p-network-regions__name">ほか複数社</span>
+                </li>
               </ul>
             </div>
           </div>

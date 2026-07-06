@@ -1539,6 +1539,15 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
   box-shadow: 0 0 8px rgba(184,134,11,.5);
 }
 
+.p-network-regions__item--etc .p-network-regions__name {
+  font-style: italic;
+  opacity: .6;
+}
+
+.p-network-regions__item--etc .p-network-regions__dot {
+  background: var(--color-text-dim);
+}
+
 /* Mobile responsive */
 @media (max-width: 768px) {
   .p-network-container {
