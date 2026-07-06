@@ -10,6 +10,7 @@ export const topPage = (c: Context) => {
     <li class="l-nav__item"><a class="l-nav__link" href="#front-about">ABOUT</a></li>
     <li class="l-nav__item"><a class="l-nav__link" href="#front-services">SERVICES</a></li>
     <li class="l-nav__item"><a class="l-nav__link" href="#front-results">RESULTS</a></li>
+    <li class="l-nav__item"><a class="l-nav__link" href="#front-network">NETWORK</a></li>
     <li class="l-nav__item"><a class="l-nav__link" href="#front-recruit">RECRUIT</a></li>
   </ul>
 </nav>
@@ -241,6 +242,119 @@ export const topPage = (c: Context) => {
             <span class="p-result-label">取引先企業</span>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       SECTION: GROUP NETWORK (Japan Map)
+       ======================================== -->
+  <section id="front-network" class="p-snap-section">
+    <div class="p-slide-section p-front-network">
+      <div class="p-slide-section__bg" style="opacity:.05;"></div>
+      <div class="p-slide-section__body p-slide-section__body--network">
+        <p class="c-heading-sub c-heading-sub--large">全国の医療機関・企業を支援。</p>
+        <h2 class="c-heading c-heading--1">
+          <span class="c-text-letters js-text-letters">GROUP NETWORK</span>
+        </h2>
+        <div class="p-network-container">
+          <!-- Japan Map SVG -->
+          <div class="p-network-map">
+            <svg viewBox="0 0 560 700" class="p-japan-map" aria-label="日本地図 グループ展開エリア">
+              <!-- Simplified Japan outline paths -->
+              <!-- Hokkaido -->
+              <path class="p-map-region" d="M380,80 Q420,60 450,70 Q480,80 490,110 Q500,140 480,160 Q460,170 440,160 Q420,150 400,140 Q380,130 370,110 Q360,90 380,80Z" data-region="hokkaido"/>
+              <!-- Tohoku -->
+              <path class="p-map-region" d="M390,175 Q410,170 420,180 Q435,190 440,210 Q445,230 440,250 Q435,270 420,280 Q405,285 395,275 Q385,265 380,245 Q375,225 378,205 Q380,185 390,175Z" data-region="tohoku"/>
+              <!-- Kanto -->
+              <path class="p-map-region p-map-region--active" d="M370,285 Q395,280 415,290 Q430,300 435,315 Q438,330 425,340 Q410,348 390,345 Q370,342 360,330 Q352,318 355,305 Q358,292 370,285Z" data-region="kanto"/>
+              <!-- Chubu -->
+              <path class="p-map-region" d="M330,270 Q355,265 370,280 Q380,290 375,305 Q370,320 355,330 Q340,338 320,335 Q300,330 295,315 Q290,300 300,285 Q310,272 330,270Z" data-region="chubu"/>
+              <!-- Kansai -->
+              <path class="p-map-region p-map-region--active" d="M295,330 Q315,325 330,335 Q345,345 345,360 Q345,375 330,382 Q315,388 300,385 Q285,380 278,368 Q272,355 278,342 Q284,332 295,330Z" data-region="kansai"/>
+              <!-- Chugoku -->
+              <path class="p-map-region" d="M235,345 Q260,340 278,350 Q290,358 288,372 Q285,385 270,390 Q255,394 240,390 Q225,385 220,372 Q215,360 222,350 Q228,342 235,345Z" data-region="chugoku"/>
+              <!-- Shikoku -->
+              <path class="p-map-region" d="M260,395 Q280,392 295,400 Q305,408 302,418 Q298,428 283,430 Q268,432 255,425 Q245,418 248,408 Q252,398 260,395Z" data-region="shikoku"/>
+              <!-- Kyushu -->
+              <path class="p-map-region p-map-region--active" d="M200,390 Q220,385 235,395 Q248,405 248,420 Q248,438 238,450 Q228,462 212,465 Q196,465 185,455 Q175,442 178,425 Q180,408 188,398 Q194,392 200,390Z" data-region="kyushu"/>
+              <!-- Okinawa -->
+              <path class="p-map-region" d="M160,560 Q170,555 178,560 Q185,565 183,575 Q180,585 172,588 Q164,590 158,585 Q152,578 155,570 Q157,563 160,560Z" data-region="okinawa"/>
+              
+              <!-- Gold dots for active locations -->
+              <circle class="p-map-dot p-map-dot--pulse" cx="400" cy="310" r="6"/><!-- Kanto/Chiba HQ -->
+              <circle class="p-map-dot" cx="310" cy="355" r="5"/><!-- Kansai -->
+              <circle class="p-map-dot" cx="220" cy="430" r="5"/><!-- Kyushu -->
+              <circle class="p-map-dot" cx="345" cy="300" r="4"/><!-- Chubu -->
+              <circle class="p-map-dot" cx="410" cy="220" r="4"/><!-- Tohoku -->
+              
+              <!-- Connection lines -->
+              <line class="p-map-line" x1="400" y1="310" x2="310" y2="355"/>
+              <line class="p-map-line" x1="400" y1="310" x2="345" y2="300"/>
+              <line class="p-map-line" x1="310" y1="355" x2="220" y2="430"/>
+              <line class="p-map-line" x1="400" y1="310" x2="410" y2="220"/>
+            </svg>
+          </div>
+          <!-- Network Stats -->
+          <div class="p-network-stats">
+            <div class="p-network-stat">
+              <span class="p-network-stat__icon"><i class="fas fa-map-marker-alt"></i></span>
+              <div class="p-network-stat__body">
+                <strong class="p-network-stat__num">5</strong><span class="p-network-stat__unit">エリア</span>
+                <span class="p-network-stat__label">展開地域</span>
+              </div>
+            </div>
+            <div class="p-network-stat">
+              <span class="p-network-stat__icon"><i class="fas fa-hospital"></i></span>
+              <div class="p-network-stat__body">
+                <strong class="p-network-stat__num">200+</strong><span class="p-network-stat__unit">件</span>
+                <span class="p-network-stat__label">支援医療機関</span>
+              </div>
+            </div>
+            <div class="p-network-stat">
+              <span class="p-network-stat__icon"><i class="fas fa-handshake"></i></span>
+              <div class="p-network-stat__body">
+                <strong class="p-network-stat__num">100+</strong><span class="p-network-stat__unit">社</span>
+                <span class="p-network-stat__label">パートナー企業</span>
+              </div>
+            </div>
+            <div class="p-network-stat">
+              <span class="p-network-stat__icon"><i class="fas fa-users"></i></span>
+              <div class="p-network-stat__body">
+                <strong class="p-network-stat__num">200+</strong><span class="p-network-stat__unit">名</span>
+                <span class="p-network-stat__label">グループ社員数</span>
+              </div>
+            </div>
+            <div class="p-network-regions">
+              <h3 class="p-network-regions__title">主要展開エリア</h3>
+              <ul class="p-network-regions__list">
+                <li class="p-network-regions__item p-network-regions__item--hq">
+                  <span class="p-network-regions__dot"></span>
+                  <span class="p-network-regions__name">関東（本社：千葉県松戸市）</span>
+                </li>
+                <li class="p-network-regions__item">
+                  <span class="p-network-regions__dot"></span>
+                  <span class="p-network-regions__name">関西（大阪・兵庫）</span>
+                </li>
+                <li class="p-network-regions__item">
+                  <span class="p-network-regions__dot"></span>
+                  <span class="p-network-regions__name">九州（福岡）</span>
+                </li>
+                <li class="p-network-regions__item">
+                  <span class="p-network-regions__dot"></span>
+                  <span class="p-network-regions__name">中部（愛知・静岡）</span>
+                </li>
+                <li class="p-network-regions__item">
+                  <span class="p-network-regions__dot"></span>
+                  <span class="p-network-regions__name">東北（宮城）</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <a href="/cases" class="c-btn" style="margin-top:32px;">
+          <span class="c-btn__inner">VIEW ALL CASES <span class="c-arrow"></span></span>
+        </a>
       </div>
     </div>
   </section>
