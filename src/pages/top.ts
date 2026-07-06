@@ -251,121 +251,94 @@ export const topPage = (c: Context) => {
        ======================================== -->
   <section id="front-network" class="p-snap-section">
     <div class="p-slide-section p-front-network">
-      <div class="p-slide-section__bg" style="opacity:.05;"></div>
-      <div class="p-slide-section__body p-slide-section__body--network">
-        <p class="c-heading-sub c-heading-sub--large">全国の医療機関・企業を支援。</p>
-        <h2 class="c-heading c-heading--1">
-          <span class="c-text-letters js-text-letters">GROUP NETWORK</span>
-        </h2>
-        <div class="p-network-container">
-          <!-- Japan Map SVG -->
-          <div class="p-network-map">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" class="p-japan-map" aria-label="日本地図 グループ展開エリア">
-              <!-- Hokkaido -->
-              <path class="p-map-region" d="M570,120 C590,100 630,90 660,100 C690,110 710,130 720,160 C730,190 720,220 700,240 C680,255 650,260 620,250 C590,240 570,220 560,195 C550,170 555,140 570,120Z"/>
-              <!-- Tohoku -->
-              <path class="p-map-region p-map-region--active" d="M580,280 C600,270 620,275 635,290 C650,305 660,325 660,350 C660,375 655,400 640,420 C625,435 605,440 585,430 C565,420 555,400 550,375 C545,350 550,320 560,300 C565,288 572,282 580,280Z"/>
-              <!-- Kanto -->
-              <path class="p-map-region p-map-region--active" d="M540,435 C565,425 590,430 610,445 C630,460 640,480 635,500 C630,520 615,535 595,540 C575,545 555,540 540,525 C525,510 520,490 525,470 C530,452 535,442 540,435Z"/>
-              <!-- Chubu -->
-              <path class="p-map-region" d="M470,400 C500,390 530,395 550,410 C565,425 570,445 560,465 C550,485 530,495 505,495 C480,495 460,485 450,465 C440,445 445,420 460,405 C463,402 467,400 470,400Z"/>
-              <!-- Kansai -->
-              <path class="p-map-region p-map-region--active" d="M430,500 C455,492 480,498 498,515 C515,530 520,550 515,570 C510,590 495,600 475,605 C455,608 435,600 420,585 C405,570 402,550 408,530 C414,512 422,504 430,500Z"/>
-              <!-- Chugoku -->
-              <path class="p-map-region" d="M340,520 C370,512 400,518 420,535 C435,548 438,565 430,582 C420,598 400,608 378,608 C355,608 335,598 325,580 C315,562 318,540 330,525 C333,522 337,520 340,520Z"/>
-              <!-- Shikoku -->
-              <path class="p-map-region" d="M380,615 C405,608 430,615 448,630 C462,642 465,658 458,672 C450,686 432,692 412,690 C392,688 375,678 368,662 C360,645 365,625 375,618 C377,616 378,615 380,615Z"/>
-              <!-- Kyushu -->
-              <path class="p-map-region p-map-region--active" d="M280,590 C310,580 340,588 358,608 C375,625 378,648 370,670 C362,692 345,710 322,718 C300,725 278,720 262,705 C245,690 240,668 245,648 C250,625 260,605 272,595 C275,592 278,590 280,590Z"/>
-              <!-- Okinawa -->
-              <path class="p-map-region p-map-region--active" d="M220,850 C235,842 252,845 265,855 C275,865 278,878 272,892 C265,905 252,912 238,910 C224,908 212,898 208,885 C204,870 210,855 220,850Z"/>
-              
-              <!-- Gold dots for active locations -->
-              <circle class="p-map-dot p-map-dot--pulse" cx="580" cy="480" r="10"/><!-- Kanto -->
-              <circle class="p-map-dot" cx="600" cy="350" r="8"/><!-- Tohoku -->
-              <circle class="p-map-dot" cx="470" cy="550" r="8"/><!-- Kansai -->
-              <circle class="p-map-dot" cx="245" cy="875" r="8"/><!-- Okinawa -->
-              
-              <!-- Connection lines -->
-              <line class="p-map-line" x1="580" y1="480" x2="600" y2="350"/>
-              <line class="p-map-line" x1="580" y1="480" x2="470" y2="550"/>
-              <line class="p-map-line" x1="470" y1="550" x2="320" y2="650"/>
-              <line class="p-map-line" x1="320" y1="650" x2="245" y2="875"/>
-            </svg>
-          </div>
-          <!-- Network Stats -->
+      <div class="p-front-network__bg"></div>
+      <div class="p-slide-section__body p-network-body">
+
+        <!-- 左：テキスト＆数値 -->
+        <div class="p-network-left">
+          <p class="c-heading-sub c-heading-sub--large">全国の医療機関・企業を支援。</p>
+          <h2 class="c-heading c-heading--1">
+            <span class="c-text-letters js-text-letters">GROUP NETWORK</span>
+          </h2>
+
           <div class="p-network-stats">
             <div class="p-network-stat">
-              <span class="p-network-stat__icon"><i class="fas fa-map-marker-alt"></i></span>
-              <div class="p-network-stat__body">
-                <strong class="p-network-stat__num">4</strong><span class="p-network-stat__unit">エリア</span>
-                <span class="p-network-stat__label">展開地域</span>
-              </div>
+              <strong class="p-result-num" data-target="47">0</strong>
+              <span class="p-result-unit">都道府県</span>
+              <span class="p-result-label">全国対応</span>
             </div>
             <div class="p-network-stat">
-              <span class="p-network-stat__icon"><i class="fas fa-briefcase"></i></span>
-              <div class="p-network-stat__body">
-                <strong class="p-network-stat__num">5</strong><span class="p-network-stat__unit">ブランド</span>
-                <span class="p-network-stat__label">展開サービス</span>
-              </div>
+              <strong class="p-result-num" data-target="200">0</strong>
+              <span class="p-result-unit">名+</span>
+              <span class="p-result-label">グループ社員</span>
             </div>
             <div class="p-network-stat">
-              <span class="p-network-stat__icon"><i class="fas fa-rocket"></i></span>
-              <div class="p-network-stat__body">
-                <strong class="p-network-stat__num">14</strong><span class="p-network-stat__unit">ヶ月</span>
-                <span class="p-network-stat__label">創業からの期間</span>
-              </div>
-            </div>
-            <div class="p-network-stat">
-              <span class="p-network-stat__icon"><i class="fas fa-users"></i></span>
-              <div class="p-network-stat__body">
-                <strong class="p-network-stat__num">200</strong><span class="p-network-stat__unit">名+</span>
-                <span class="p-network-stat__label">グループ社員数</span>
-              </div>
-            </div>
-            <div class="p-network-regions">
-              <h3 class="p-network-regions__title">主要展開エリア</h3>
-              <ul class="p-network-regions__list">
-                <li class="p-network-regions__item p-network-regions__item--hq">
-                  <span class="p-network-regions__dot"></span>
-                  <span class="p-network-regions__name">関東（東京・神奈川）</span>
-                </li>
-                <li class="p-network-regions__item">
-                  <span class="p-network-regions__dot"></span>
-                  <span class="p-network-regions__name">東北（宮城・青森）</span>
-                </li>
-                <li class="p-network-regions__item">
-                  <span class="p-network-regions__dot"></span>
-                  <span class="p-network-regions__name">関西（大阪・兵庫）</span>
-                </li>
-                <li class="p-network-regions__item">
-                  <span class="p-network-regions__dot"></span>
-                  <span class="p-network-regions__name">九州（沖縄）</span>
-                </li>
-              </ul>
-            </div>
-            <div class="p-network-regions">
-              <h3 class="p-network-regions__title">グループ企業</h3>
-              <ul class="p-network-regions__list">
-                <li class="p-network-regions__item p-network-regions__item--hq">
-                  <span class="p-network-regions__dot"></span>
-                  <span class="p-network-regions__name">医療法人白生会</span>
-                </li>
-                <li class="p-network-regions__item">
-                  <span class="p-network-regions__dot"></span>
-                  <span class="p-network-regions__name">有限会社福寿</span>
-                </li>
-                <li class="p-network-regions__item p-network-regions__item--etc">
-                  <span class="p-network-regions__dot"></span>
-                  <span class="p-network-regions__name">ほか複数社</span>
-                </li>
-              </ul>
+              <strong class="p-result-num" data-target="5">0</strong>
+              <span class="p-result-unit">ブランド</span>
+              <span class="p-result-label">展開サービス</span>
             </div>
           </div>
+
+          <div class="p-network-offices">
+            <h3 class="p-network-offices__title">グループ会社 所在地</h3>
+            <ul class="p-network-offices__list">
+              <li><span class="p-network-dot"></span>青森県</li>
+              <li><span class="p-network-dot"></span>宮城県</li>
+              <li><span class="p-network-dot"></span>埼玉県</li>
+              <li><span class="p-network-dot"></span>千葉県（本社）</li>
+              <li><span class="p-network-dot"></span>東京都</li>
+              <li><span class="p-network-dot"></span>神奈川県</li>
+            </ul>
+          </div>
+
+          <a href="/cases" class="c-btn c-btn--primary p-network-cta">
+            <span class="c-btn__inner">VIEW ALL CASES <span class="c-arrow"></span></span>
+          </a>
         </div>
-        <a href="/cases" class="c-btn" style="margin-top:32px;">
-          <span class="c-btn__inner">VIEW ALL CASES <span class="c-arrow"></span></span>
-        </a>
+
+        <!-- 右：日本地図SVG -->
+        <div class="p-network-right">
+          <div class="p-japan-map" aria-label="グループ会社所在地マップ">
+            <svg viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg" class="p-japan-svg">
+              <!-- 日本列島シルエット -->
+              <!-- 北海道 -->
+              <path class="jp-land" d="M310,30 L340,25 L370,35 L390,50 L385,70 L370,85 L355,90 L335,85 L315,75 L300,60 L305,40 Z"/>
+              <!-- 本州 -->
+              <path class="jp-land" d="M295,95 L315,88 L330,100 L340,120 L335,145 L325,165 L310,180 L300,200 L290,215 L285,235 L275,255 L265,270 L255,285 L245,295 L235,305 L225,310 L215,315 L205,320 L195,318 L185,310 L178,300 L175,285 L180,270 L190,260 L200,250 L205,240 L210,228 L215,215 L220,200 L225,185 L230,170 L235,158 L240,145 L245,132 L250,118 L258,106 L270,98 L282,94 Z"/>
+              <!-- 四国 -->
+              <path class="jp-land" d="M205,335 L225,325 L245,330 L255,345 L250,360 L235,368 L218,365 L205,355 Z"/>
+              <!-- 九州 -->
+              <path class="jp-land" d="M175,330 L195,320 L205,332 L205,355 L200,370 L190,385 L178,395 L165,400 L152,395 L145,380 L148,365 L158,352 L168,340 Z"/>
+              <!-- 沖縄 -->
+              <ellipse class="jp-land jp-okinawa" cx="160" cy="445" rx="18" ry="9"/>
+
+              <!-- グループ会社所在地ピン -->
+              <!-- 青森 -->
+              <circle class="jp-pin" cx="330" cy="118" r="7"/>
+              <circle class="jp-pin-pulse" cx="330" cy="118" r="7"/>
+              <!-- 宮城 -->
+              <circle class="jp-pin" cx="325" cy="155" r="7"/>
+              <circle class="jp-pin-pulse" cx="325" cy="155" r="7"/>
+              <!-- 埼玉 -->
+              <circle class="jp-pin" cx="298" cy="210" r="7"/>
+              <circle class="jp-pin-pulse" cx="298" cy="210" r="7"/>
+              <!-- 千葉（本社） -->
+              <circle class="jp-pin jp-pin--hq" cx="308" cy="218" r="9"/>
+              <circle class="jp-pin-pulse jp-pin-pulse--hq" cx="308" cy="218" r="9"/>
+              <!-- 東京 -->
+              <circle class="jp-pin" cx="295" cy="215" r="7"/>
+              <circle class="jp-pin-pulse" cx="295" cy="215" r="7"/>
+              <!-- 神奈川 -->
+              <circle class="jp-pin" cx="290" cy="225" r="7"/>
+              <circle class="jp-pin-pulse" cx="290" cy="225" r="7"/>
+
+              <!-- 本社ラベル -->
+              <text class="jp-label" x="320" y="214">本社</text>
+            </svg>
+            <p class="p-japan-map__note">● 本社（千葉）&nbsp;&nbsp;● グループ会社所在地</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -391,7 +364,7 @@ export const topPage = (c: Context) => {
             <span class="c-btn__inner">CONTACT <span class="c-arrow"></span></span>
           </a>
         </div>
-        <p class="c-heading-sub" style="font-size:.85rem;opacity:.7;margin-top:24px;">まずはお気軽にご相談ください。<br>秘密厳守・2営業日以内にご返答します。</p>
+        <p class="c-heading-sub" style="font-size:.85rem;opacity:.7;margin-top:24px;">お気軽にお問い合わせください。<br>秘密厳守・2営業日以内にご返答します。</p>
       </div>
     </div>
   </section>

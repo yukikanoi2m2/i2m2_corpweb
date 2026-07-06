@@ -1352,229 +1352,206 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
 }
 
 /* ============================================================
-   GROUP NETWORK Section (Japan Map)
+   GROUP NETWORK SECTION
    ============================================================ */
 .p-front-network {
-  background: radial-gradient(ellipse at 30% 50%, rgba(184,134,11,.06) 0%, transparent 60%);
-}
-
-.p-slide-section__body--network {
+  position: relative;
+  width: 100%;
+  min-height: auto;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 80px 40px;
+  overflow: hidden;
+}
+.p-front-network__bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 65% 50%, rgba(184,134,11,.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* ボディ：左右2カラム */
+.p-network-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5vw;
+  width: 100%;
   max-width: 1100px;
-  margin: 0 auto;
-  width: 100%;
-  text-align: center;
+  padding: 100px 40px 60px;
+  flex-wrap: wrap;
 }
 
-.p-network-container {
-  display: grid;
-  grid-template-columns: 380px 1fr;
-  gap: 48px;
-  align-items: start;
-  width: 100%;
-  margin-top: 40px;
-  text-align: left;
+/* 左カラム */
+.p-network-left {
+  flex: 1 1 320px;
+  max-width: 440px;
 }
 
-/* Japan Map */
-.p-network-map {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.p-japan-map {
-  width: 100%;
-  max-width: 320px;
-  height: auto;
-  min-height: 400px;
-}
-
-.p-map-region {
-  fill: rgba(184,134,11,.12);
-  stroke: rgba(212,168,67,.4);
-  stroke-width: 1.2;
-  transition: fill .3s, stroke .3s;
-}
-
-.p-map-region--active {
-  fill: rgba(184,134,11,.3);
-  stroke: var(--accent-light);
-  stroke-width: 2;
-  filter: drop-shadow(0 0 4px rgba(184,134,11,.3));
-}
-
-.p-map-dot {
-  fill: var(--accent-light);
-  filter: drop-shadow(0 0 6px rgba(212,168,67,.6));
-}
-
-.p-map-dot--pulse {
-  fill: var(--accent-light);
-  animation: dotPulse 2s ease-in-out infinite;
-}
-
-@keyframes dotPulse {
-  0%, 100% { r: 6; opacity: 1; }
-  50% { r: 9; opacity: .7; }
-}
-
-.p-map-line {
-  stroke: rgba(184,134,11,.25);
-  stroke-width: 1;
-  stroke-dasharray: 4 4;
-}
-
-/* Network Stats */
+/* 数値グリッド */
 .p-network-stats {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  gap: 1.8rem;
+  flex-wrap: wrap;
+  margin: 2rem 0 2rem;
 }
-
 .p-network-stat {
   display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 16px 20px;
-  background: rgba(255,255,255,.03);
-  border: 1px solid rgba(184,134,11,.15);
-  border-radius: 12px;
-  transition: border-color .3s, background .3s;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 90px;
 }
-
-.p-network-stat:hover {
-  border-color: var(--accent);
-  background: rgba(184,134,11,.05);
-}
-
-.p-network-stat__icon {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--gradient-gold);
-  border-radius: 10px;
-  color: #000;
-  font-size: 16px;
-  flex-shrink: 0;
-}
-
-.p-network-stat__body {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 4px;
-}
-
-.p-network-stat__num {
+.p-network-stat .p-result-num {
   font-family: var(--font-num);
-  font-size: 28px;
+  font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 700;
   color: var(--accent-light);
   line-height: 1;
-  letter-spacing: -0.02em;
 }
-
-.p-network-stat__unit {
-  font-size: 13px;
+.p-network-stat .p-result-unit {
+  font-size: 0.8rem;
   color: var(--color-text-sub);
-  margin-left: 2px;
+  margin-top: 3px;
 }
-
-.p-network-stat__label {
-  width: 100%;
-  font-size: 12px;
+.p-network-stat .p-result-label {
+  font-size: 0.68rem;
   color: var(--color-text-dim);
-  margin-top: 2px;
+  margin-top: 5px;
+  letter-spacing: 1px;
 }
 
-/* Regions List */
-.p-network-regions {
-  margin-top: 12px;
-  padding: 20px;
-  background: rgba(255,255,255,.02);
-  border: 1px solid rgba(184,134,11,.1);
-  border-radius: 12px;
+/* 所在地リスト */
+.p-network-offices {
+  margin-bottom: 2rem;
 }
-
-.p-network-regions__title {
-  font-family: var(--font-en);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .15em;
+.p-network-offices__title {
+  font-size: 0.68rem;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 12px;
+  color: var(--accent-light);
+  font-family: var(--font-en);
+  margin-bottom: 0.8rem;
 }
-
-.p-network-regions__list {
+.p-network-offices__list {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1.5rem;
 }
-
-.p-network-regions__item {
+.p-network-offices__list li {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 13px;
+  gap: 8px;
+  font-size: 0.82rem;
   color: var(--color-text-sub);
 }
-
-.p-network-regions__item--hq .p-network-regions__name {
-  color: var(--accent-light);
-  font-weight: 500;
-}
-
-.p-network-regions__dot {
-  width: 8px;
-  height: 8px;
+.p-network-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: var(--accent);
   flex-shrink: 0;
 }
+.p-network-cta { margin-top: 0.5rem; }
 
-.p-network-regions__item--hq .p-network-regions__dot {
-  width: 10px;
-  height: 10px;
-  box-shadow: 0 0 8px rgba(184,134,11,.5);
+/* 右カラム：地図 */
+.p-network-right {
+  flex: 1 1 260px;
+  max-width: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.p-japan-map {
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+}
+.p-japan-svg {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-.p-network-regions__item--etc .p-network-regions__name {
-  font-style: italic;
-  opacity: .6;
+/* 日本地図：陸地 */
+.jp-land {
+  fill: #1e2d1e;
+  stroke: #3a5a3a;
+  stroke-width: 1.2;
+  transition: fill 0.3s;
+}
+.jp-okinawa {
+  fill: #1e2d1e;
+  stroke: #3a5a3a;
+  stroke-width: 1;
 }
 
-.p-network-regions__item--etc .p-network-regions__dot {
-  background: var(--color-text-dim);
+/* ピン（通常） */
+.jp-pin {
+  fill: var(--accent);
+  opacity: 0.9;
+}
+/* ピン（本社） */
+.jp-pin--hq {
+  fill: #fff;
+}
+/* パルスアニメーション */
+.jp-pin-pulse {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  opacity: 0;
+  animation: pinPulse 2s ease-out infinite;
+}
+.jp-pin-pulse--hq {
+  stroke: #fff;
+  animation: pinPulse 1.8s ease-out infinite;
+}
+@keyframes pinPulse {
+  0%   { r: 7;  opacity: 0.7; }
+  100% { r: 18; opacity: 0; }
 }
 
-/* Mobile responsive */
-@media (max-width: 768px) {
-  .p-network-container {
-    grid-template-columns: 1fr;
-    gap: 32px;
+/* ラベル */
+.jp-label {
+  font-size: 10px;
+  fill: var(--color-text-sub);
+  font-family: var(--font);
+}
+
+/* 凡例 */
+.p-japan-map__note {
+  font-size: 0.7rem;
+  color: var(--color-text-dim);
+  margin-top: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================================
+   GROUP NETWORK スマホ対応
+   ============================================================ */
+@media (max-width: 736px) {
+  .p-network-body {
+    flex-direction: column;
+    padding: 90px 20px 50px;
+    gap: 2rem;
   }
-  .p-japan-map {
-    max-width: 250px;
-    min-height: 300px;
+  .p-network-left {
+    max-width: 100%;
+    order: 2;
   }
-  .p-network-stat__num {
-    font-size: 24px;
+  .p-network-right {
+    max-width: 220px;
+    order: 1;
+    margin: 0 auto;
   }
-  .p-slide-section__body--network {
-    padding: 40px 16px;
+  .p-network-stats {
+    gap: 1.2rem;
   }
-  .p-network-map {
-    order: -1;
+  .p-network-offices__list {
+    grid-template-columns: 1fr 1fr;
   }
 }

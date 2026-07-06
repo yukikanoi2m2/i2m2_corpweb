@@ -44,6 +44,6 @@ ${breadcrumb([{ label: '採用情報' }])}
   </div>
 </section>
 
-${ctaSection({ title: 'まずはカジュアルにお話ししましょう。書類選考はございません。', buttons: [{ label: '応募する', href: '/contact', primary: true }] })}
+${ctaSection({ title: 'お気軽にお問い合わせください。書類選考はございません。', buttons: [{ label: '応募する', href: '/contact', primary: true }] })}
 `, { description: '創業1年3ヶ月で累計取扱高20億円超のヘルスケア企業で働きませんか。M&Aアドバイザー・医療マーケ・人材アドバイザー募集中。' }))
 }
