@@ -30,7 +30,7 @@ export function layout(title: string, content: string, options?: { description?:
 <div class="opening" id="opening">
   <div class="opening-logo">
     <img src="/static/logo.png" alt="i2m2" class="opening-logo-img">
-    <span class="opening-tagline">Bonanza: Fortune Smiles!</span>
+    <span class="opening-tagline">地域の価値を、医療から。</span>
   </div>
 </div>
 ${header()}
@@ -59,7 +59,6 @@ function header() {
           <a href="/services">事業内容</a>
         </li>
         <li class="gnav-item"><a href="/cases">実績</a></li>
-        <li class="gnav-item"><a href="/company">企業情報</a></li>
         <li class="gnav-item"><a href="/recruit">採用</a></li>
       </ul>
     </nav>
@@ -75,7 +74,6 @@ function header() {
       <li><a href="/company">会社情報</a></li>
       <li><a href="/services">事業内容</a></li>
       <li><a href="/cases">実績</a></li>
-      <li><a href="/company">企業情報</a></li>
       <li><a href="/recruit">採用</a></li>
       <li><a href="/contact" class="mobile-cta">お問い合わせ</a></li>
     </ul>
@@ -90,7 +88,7 @@ function footer() {
     <div class="footer-top">
       <div class="footer-brand">
         <a href="/" class="footer-logo"><img src="/static/logo.png" alt="i2m2" class="footer-logo-img"></a>
-        <p class="footer-tagline">Bonanza: Fortune Smiles!</p>
+        <p class="footer-tagline">地域の価値を、医療から。</p>
         <p class="footer-desc">ヘルスケア・医療領域を中心に、<br>企業と地域社会の成長を支援します。</p>
         <p class="footer-desc" style="margin-top:8px;">Email: info@i2m2.com</p>
       </div>
@@ -111,7 +109,6 @@ function footer() {
           <ul>
             <li><a href="/company">会社概要</a></li>
             <li><a href="/company/message">代表メッセージ</a></li>
-            <li><a href="/company">企業情報</a></li>
             <li><a href="/recruit">採用情報</a></li>
           </ul>
         </div>
