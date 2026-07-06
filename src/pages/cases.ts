@@ -45,7 +45,7 @@ ${breadcrumb([{ label: '実績' }])}
         <p>後継者不在の医療法人に対し最適な承継先を開拓。財務改善の段階から伴走し、クロージングまで一気通貫で支援しました。</p>
       </div>
       <div class="result-card">
-        <div class="result-category">IHG™ / マーケティング</div>
+        <div class="result-category">マーケティング</div>
         <h3>クリニック集患数大幅改善</h3>
         <p>Google広告＋MEO対策により新規患者数を大幅に拡大。月次レポートとPDCA運用で持続的な成長を実現。</p>
       </div>
@@ -65,7 +65,7 @@ ${breadcrumb([{ label: '実績' }])}
         <p>経営難に陥った介護施設の財務改善・オペレーション改革を支援し、黒字転換を達成。</p>
       </div>
       <div class="result-card">
-        <div class="result-category">IHG™ / 医療DX</div>
+        <div class="result-category">医療DX</div>
         <h3>カルテ電子化プロジェクト</h3>
         <p>紙カルテ運用からの完全移行を実現。スタッフ研修含め3ヶ月で本稼働開始、業務効率の大幅な改善を実現しました。</p>
       </div>

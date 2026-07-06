@@ -109,7 +109,7 @@ const newsData = [
 <p>「Bonanza: Fortune Smiles!」を企業理念に掲げ、医療・介護・福祉に関わるすべての方に幸運と繁栄をお届けいたします。</p>
 <h3>事業内容</h3>
 <ul>
-<li>医療機関プロデュース（IHG™ Healthcare Services）</li>
+<li>医療機関プロデュース</li>
 <li>医療系人材マッチング（DR-LINK™）</li>
 <li>M&A仲介・事業承継（RVC）</li>
 <li>医療DX（カルテ電子化）</li>

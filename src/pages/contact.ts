@@ -55,7 +55,7 @@ ${breadcrumb([{ label: 'お問い合わせ' }])}
           <label>お問い合わせ種別 <span class="required">必須</span></label>
           <select name="category" required style="width:100%;padding:14px 16px;background:var(--bg-gray);border:1px solid rgba(255,255,255,.1);border-radius:8px;color:var(--color-text);font-size:14px;font-family:var(--font);">
             <option value="">選択してください</option>
-            <option value="医療機関プロデュース（IHG™）">医療機関プロデュース（IHG™）について</option>
+            <option value="医療機関プロデュース">医療機関プロデュースについて</option>
             <option value="医療系人材マッチング（DR-LINK™）">医療系人材マッチング（DR-LINK™）について</option>
             <option value="ヘルスケアM&A（つむぎパートナーズ）">ヘルスケアM&A（つむぎパートナーズ）について</option>
             <option value="医療DX（カルテ電子化）">医療DX（カルテ電子化）について</option>

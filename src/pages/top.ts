@@ -272,11 +272,7 @@ export const topPage = (c: Context) => {
               <span class="p-result-unit">名+</span>
               <span class="p-result-label">グループ社員</span>
             </div>
-            <div class="p-network-stat">
-              <strong class="p-result-num" data-target="5">0</strong>
-              <span class="p-result-unit">ブランド</span>
-              <span class="p-result-label">展開サービス</span>
-            </div>
+
           </div>
 
           <div class="p-network-offices">

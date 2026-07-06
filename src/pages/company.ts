@@ -50,21 +50,15 @@ ${breadcrumb([{ label: '会社概要' }])}
       <table class="company-table">
         <tbody>
           <tr><th>商号</th><td>株式会社イズムズ（i2m2 Co., Ltd.）</td></tr>
-          <tr><th>設立</th><td>2025年4月</td></tr>
-          <tr><th>資本金</th><td>非公開</td></tr>
+          <tr><th>設立</th><td>2025年4月2日</td></tr>
           <tr><th>代表者</th><td>代表取締役 中村美華</td></tr>
           <tr><th>本社所在地</th><td>〒270-2224 千葉県松戸市大橋149-1</td></tr>
           <tr><th>事業内容</th><td>
-            医療機関プロデュース（IHG™）<br>
+            医療機関プロデュース<br>
             医療系人材マッチング（DR-LINK™）<br>
             M&amp;A仲介・事業承継・事業再生（RVC）<br>
             医療DX（カルテ電子化）<br>
             融資・補助金コンサルティング
-          </td></tr>
-          <tr><th>展開ブランド</th><td>
-            IHG™（Healthcare Services / 医療機関プロデュース）<br>
-            DR-LINK™（Healthcare Talent / 医療系人材マッチング）<br>
-            RVC（Community Value / M&amp;A・事業承継）
           </td></tr>
           <tr><th>グループ実績</th><td>
             グループ総売上 20億円突破（2026年6月時点）<br>

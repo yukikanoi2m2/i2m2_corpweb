@@ -33,7 +33,7 @@ ${breadcrumb([{ label: '採用情報' }])}
       <div class="recruit-card">
         <h3>医療マーケティングコンサルタント</h3>
         <p>クリニック向けのデジタルマーケティング戦略策定・広告運用を担当。</p>
-        <ul class="service-card-tags"><li>正社員</li><li>東京</li><li>IHG事業部</li></ul>
+        <ul class="service-card-tags"><li>正社員</li><li>東京</li><li>医療プロデュース事業部</li></ul>
       </div>
       <div class="recruit-card">
         <h3>医療系キャリアアドバイザー</h3>

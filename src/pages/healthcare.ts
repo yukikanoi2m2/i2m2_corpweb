@@ -2,13 +2,13 @@ import type { Context } from 'hono'
 import { layout, sectionTitle, ctaSection, breadcrumb } from '../components/layout'
 
 export const healthcarePage = (c: Context) => {
-  return c.html(layout('医療機関プロデュース | IHG™', `
+  return c.html(layout('医療機関プロデュース', `
 ${breadcrumb([{ label: '事業内容', href: '/services' }, { label: '医療機関プロデュース' }])}
 
 <section class="lp-hero lp-hero-healthcare">
   <div class="container">
     <div class="lp-hero-content">
-      <span class="lp-hero-brand">IHG™ — Healthcare Services</span>
+      <span class="lp-hero-brand">Healthcare Services</span>
       <h1 class="lp-hero-title">医療機関プロデュース</h1>
       <p class="lp-hero-desc">クリニック・医療機関の広告運用、経営コンサルティング、財務管理、<br>カルテ電子化（医療DX）まで一気通貫で支援します。</p>
       <a href="/contact" class="btn btn-primary btn-lg">無料相談はこちら</a>
