@@ -369,14 +369,13 @@ export const topPage = (c: Context) => {
               <!-- 和歌山 -->
               <circle class="jp-pin jp-pin--active" cx="196" cy="455" r="6"/>
 
-              <!-- 東京・千葉エリア集中パルス -->
-              <circle class="jp-pin-pulse jp-pin-pulse--area" cx="300" cy="388" r="8"/>
-              <circle class="jp-pin-pulse jp-pin-pulse--area jp-pin-pulse--delay1" cx="310" cy="392" r="10"/>
-              <circle class="jp-pin-pulse jp-pin-pulse--area jp-pin-pulse--delay2" cx="295" cy="395" r="7"/>
-              <circle class="jp-pin-pulse jp-pin-pulse--area jp-pin-pulse--delay3" cx="315" cy="385" r="9"/>
+              <!-- 東京・千葉から全国へ波及するリップル -->
+              <circle class="jp-ripple jp-ripple--1" cx="305" cy="390" r="10"/>
+              <circle class="jp-ripple jp-ripple--2" cx="305" cy="390" r="10"/>
+              <circle class="jp-ripple jp-ripple--3" cx="305" cy="390" r="10"/>
+              <circle class="jp-ripple jp-ripple--4" cx="305" cy="390" r="10"/>
+              <circle class="jp-ripple jp-ripple--5" cx="305" cy="390" r="10"/>
 
-              <!-- ラベル -->
-              <text class="jp-label jp-label--hq" x="332" y="386">HQ</text>
 
               <!-- 韓国インセット（左下） -->
               <g class="jp-korea" transform="translate(10, 280)">

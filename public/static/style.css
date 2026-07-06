@@ -1508,39 +1508,24 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
 .jp-pin--active {
   fill: var(--accent-light);
 }
-/* パルスアニメーション（東京・千葉エリア集中） */
-.jp-pin-pulse--area {
+/* 東京・千葉から全国へ波及するリップルアニメーション */
+.jp-ripple {
   fill: none;
   stroke: var(--accent-light);
-  stroke-width: 2;
+  stroke-width: 1.5;
   opacity: 0;
-  animation: pinPulse 2.5s ease-out infinite;
 }
-.jp-pin-pulse--delay1 {
-  animation-delay: 0.6s;
-}
-.jp-pin-pulse--delay2 {
-  animation-delay: 1.2s;
-}
-.jp-pin-pulse--delay3 {
-  animation-delay: 1.8s;
-}
-@keyframes pinPulse {
-  0%   { r: 8;  opacity: 0.8; }
-  50%  { opacity: 0.3; }
-  100% { r: 28; opacity: 0; }
-}
+.jp-ripple--1 { animation: rippleOut 4s ease-out infinite; }
+.jp-ripple--2 { animation: rippleOut 4s ease-out infinite 0.8s; }
+.jp-ripple--3 { animation: rippleOut 4s ease-out infinite 1.6s; }
+.jp-ripple--4 { animation: rippleOut 4s ease-out infinite 2.4s; }
+.jp-ripple--5 { animation: rippleOut 4s ease-out infinite 3.2s; }
 
-/* ラベル */
-.jp-label {
-  font-size: 9px;
-  fill: var(--color-text-sub);
-  font-family: var(--font-en);
-  font-weight: 600;
-}
-.jp-label--hq {
-  fill: #fff;
-  font-size: 10px;
+@keyframes rippleOut {
+  0%   { r: 10;  stroke-width: 2;   opacity: 0.7; }
+  30%  { stroke-width: 1.5; opacity: 0.5; }
+  60%  { stroke-width: 1;   opacity: 0.25; }
+  100% { r: 250; stroke-width: 0.5; opacity: 0; }
 }
 
 /* 韓国インセットボックス */
