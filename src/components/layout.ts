@@ -59,7 +59,7 @@ function header() {
           <a href="/services">事業内容</a>
         </li>
         <li class="gnav-item"><a href="/cases">実績</a></li>
-        <li class="gnav-item"><a href="/ir">企業情報</a></li>
+        <li class="gnav-item"><a href="/company">企業情報</a></li>
         <li class="gnav-item"><a href="/recruit">採用</a></li>
       </ul>
     </nav>
@@ -75,7 +75,7 @@ function header() {
       <li><a href="/company">会社情報</a></li>
       <li><a href="/services">事業内容</a></li>
       <li><a href="/cases">実績</a></li>
-      <li><a href="/ir">企業情報</a></li>
+      <li><a href="/company">企業情報</a></li>
       <li><a href="/recruit">採用</a></li>
       <li><a href="/contact" class="mobile-cta">お問い合わせ</a></li>
     </ul>
@@ -102,7 +102,7 @@ function footer() {
             <li><a href="https://medreach.i2m2.com" target="_blank" rel="noopener">MedReach™</a></li>
             <li><a href="https://karteo.i2m2.com" target="_blank" rel="noopener">karteo™</a></li>
             <li><a href="https://growfund.i2m2.com" target="_blank" rel="noopener">GrowFund™</a></li>
-            <li><a href="https://drlink.i2m2.com" target="_blank" rel="noopener">DR-LINK™</a></li>
+            <li><a href="https://dr-link.i2m2.com" target="_blank" rel="noopener">DR-LINK™</a></li>
             <li><a href="https://tsumugi-partners.i2m2.com" target="_blank" rel="noopener">つむぎパートナーズ</a></li>
           </ul>
         </div>
@@ -111,14 +111,14 @@ function footer() {
           <ul>
             <li><a href="/company">会社概要</a></li>
             <li><a href="/company/message">代表メッセージ</a></li>
-            <li><a href="/ir">企業情報</a></li>
+            <li><a href="/company">企業情報</a></li>
             <li><a href="/recruit">採用情報</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>本社所在地</h4>
           <ul>
-            <li class="footer-address">〒271-0068<br>千葉県松戸市大橋149-1</li>
+            <li class="footer-address">〒270-2224<br>千葉県松戸市大橋149-1</li>
           </ul>
         </div>
       </div>
@@ -129,7 +129,7 @@ function footer() {
         <a href="/legal/terms">利用規約</a>
         <a href="/legal/tokutei">特定商取引法に基づく表記</a>
       </div>
-      <p class="footer-copy">&copy; 2025 i2m2 Co., Ltd.</p>
+      <p class="footer-copy">&copy; 2025–2026 i2m2 Co., Ltd.</p>
     </div>
   </div>
 </footer>`

@@ -92,7 +92,7 @@ ${breadcrumb([{ label: '事業内容' }])}
           <ul class="services-brand-card__tags">
             <li>医師紹介</li><li>看護師採用</li><li>薬剤師</li><li>介護人材</li><li>定着支援</li>
           </ul>
-          <a href="https://drlink.i2m2.com" target="_blank" rel="noopener" class="services-brand-card__link">
+          <a href="https://dr-link.i2m2.com" target="_blank" rel="noopener" class="services-brand-card__link">
             <span>詳細を見る</span><i class="fas fa-external-link-alt"></i>
           </a>
         </div>

@@ -20,7 +20,7 @@ ${breadcrumb([{ label: 'プライバシーポリシー' }])}
 <section class="section">
   <div class="container">
     <div class="legal-content">
-      <p class="legal-date">制定日：2025年1月1日<br>最終改訂：2025年6月<br>株式会社イズムズ</p>
+      <p class="legal-date">制定日：2025年4月1日<br>最終改訂：2026年7月<br>株式会社イズムズ</p>
 
       <h3>第1条（個人情報の収集）</h3>
       <p>当社は、お問い合わせやサービスのご利用に際して必要な範囲で、適法かつ公正な手段により個人情報を収集いたします。</p>
@@ -72,7 +72,7 @@ ${breadcrumb([{ label: 'サービス利用規約' }])}
 <section class="section">
   <div class="container">
     <div class="legal-content">
-      <p class="legal-date">制定日：2025年1月1日<br>最終改訂：2025年6月<br>株式会社イズムズ</p>
+      <p class="legal-date">制定日：2025年4月1日<br>最終改訂：2026年7月<br>株式会社イズムズ</p>
 
       <h3>第1条（適用範囲）</h3>
       <p>本規約は、株式会社イズムズ（以下「当社」）が提供するすべてのサービスの利用に関わる一切の関係に適用されます。</p>
@@ -133,8 +133,8 @@ ${breadcrumb([{ label: '特定商取引法に基づく表記' }])}
       <table class="company-table">
         <tbody>
           <tr><th>販売業者</th><td>株式会社イズムズ</td></tr>
-          <tr><th>代表責任者</th><td>代表取締役（非公開）</td></tr>
-          <tr><th>所在地</th><td>〒271-0068 千葉県松戸市大橋149-1<br><small>（所在地は請求があり次第、遅滞なく開示します）</small></td></tr>
+          <tr><th>代表責任者</th><td>代表取締役 中村美華</td></tr>
+          <tr><th>所在地</th><td>〒270-2224 千葉県松戸市大橋149-1<br><small>（所在地は請求があり次第、遅滞なく開示します）</small></td></tr>
           <tr><th>電話番号</th><td>お問い合わせフォームよりご連絡ください。<br><small>ご請求があった場合は遅滞なく開示いたします。</small></td></tr>
           <tr><th>メールアドレス</th><td>info@i2m2.com</td></tr>
           <tr><th>サービス内容</th><td>医療機関プロデュース、医療系人材マッチング、M&A仲介・事業承継支援、医療DX支援、および付帯するコンサルティング業務</td></tr>

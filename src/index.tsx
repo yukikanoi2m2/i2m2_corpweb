@@ -4,7 +4,6 @@ import { topPage } from './pages/top'
 import { companyPage } from './pages/company'
 import { servicesPage } from './pages/services'
 import { casesPage } from './pages/cases'
-import { irPage } from './pages/ir'
 import { recruitPage } from './pages/recruit'
 import { contactPage } from './pages/contact'
 import { legalPage } from './pages/legal'
@@ -41,7 +40,7 @@ app.get('/cases', casesPage)
 app.get('/cases/:category', casesPage)
 
 // IR Information
-app.get('/ir', irPage)
+app.get('/ir', (c) => c.redirect('/company', 301))
 
 // Recruit
 app.get('/recruit', recruitPage)

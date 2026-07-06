@@ -16,53 +16,31 @@ ${breadcrumb([{ label: '会社概要' }])}
     <span class="page-hero__label">COMPANY</span>
     <h1 class="page-hero__title-en">Company Overview</h1>
     <p class="page-hero__title-ja">— 会社概要 —</p>
+    <p class="page-hero__lead">
+      株式会社イズムズは、ヘルスケア領域を中心に<br class="u-pc-only">
+      医療機関・地域社会への貢献を目指す会社です。
+    </p>
   </div>
 </section>
 
-<!-- 会社説明スライド -->
-<!-- =====================================================
-     会社説明スライド 差し替え手順
-     SpeakerDeck の場合：
-       src を "https://speakerdeck.com/player/【スライドID】" に変更
-     Google スライドの場合：
-       src を "https://docs.google.com/presentation/d/【ID】/embed" に変更
-     PLACEHOLDERを実際のURLに差し替えると自動で表示されます
-     ===================================================== -->
-<section id="company-slide" class="p-company-slide-section">
+<!-- 会社説明資料スライド -->
+<section class="p-company-slide">
   <div class="container">
-    <div class="p-company-slide">
+    <p class="p-company-slide__label">会社説明資料</p>
+    <div class="p-company-slide__wrapper">
       <iframe
-        id="company-slide-iframe"
+        src="https://docs.google.com/presentation/d/1Cyd2vjLRZzRFSHZwbAz4d89l5AJlu0km41qj0lGEYPk/embed?start=false&loop=false&delayms=3000"
         frameborder="0"
-        src="https://speakerdeck.com/player/PLACEHOLDER"
-        title="i2m2 Co., Ltd. 会社説明資料"
+        width="960"
+        height="569"
         allowfullscreen="true"
-        style="
-          border: 0px;
-          background: rgba(0,0,0,0.1);
-          border-radius: 6px;
-          box-shadow: rgba(0,0,0,0.2) 0px 5px 40px;
-          width: 100%;
-          height: auto;
-          aspect-ratio: 560 / 315;
-        "
-        data-ratio="1.7777">
-      </iframe>
-      <p class="p-company-slide__note">
-        ※ 会社説明資料をご覧いただけます。
-      </p>
+        mozallowfullscreen="true"
+        webkitallowfullscreen="true"
+        title="株式会社イズムズ 会社説明資料"
+      ></iframe>
     </div>
   </div>
 </section>
-<script>
-  (function() {
-    var iframe = document.getElementById('company-slide-iframe');
-    if (iframe && iframe.src.includes('PLACEHOLDER')) {
-      var section = iframe.closest('.p-company-slide-section');
-      if (section) section.style.display = 'none';
-    }
-  })();
-</script>
 
 <!-- 会社概要テーブル -->
 <section class="section">
@@ -71,29 +49,74 @@ ${breadcrumb([{ label: '会社概要' }])}
     <div class="company-table-wrap">
       <table class="company-table">
         <tbody>
-          <tr><th>会社名</th><td>株式会社イズムズ（i2m2 Co., Ltd.）</td></tr>
+          <tr><th>商号</th><td>株式会社イズムズ（i2m2 Co., Ltd.）</td></tr>
           <tr><th>設立</th><td>2025年4月</td></tr>
-          <tr><th>所在地</th><td>
-            〒271-0068 千葉県松戸市大橋149-1
-          </td></tr>
+          <tr><th>資本金</th><td>非公開</td></tr>
+          <tr><th>代表者</th><td>代表取締役 中村美華</td></tr>
+          <tr><th>本社所在地</th><td>〒270-2224 千葉県松戸市大橋149-1</td></tr>
           <tr><th>事業内容</th><td>
-            ヘルスケアマーケティング事業<br>
-            M&amp;A仲介事業<br>
-            人材紹介事業<br>
-            医療クリニック等の経営支援<br>
-            融資・補助金コンサルティング<br>
-            カルテ電子化（医療DX）<br>
-            その他事業再生支援
+            医療機関プロデュース（IHG™）<br>
+            医療系人材マッチング（DR-LINK™）<br>
+            M&amp;A仲介・事業承継・事業再生（RVC）<br>
+            医療DX（カルテ電子化）<br>
+            融資・補助金コンサルティング
           </td></tr>
           <tr><th>展開ブランド</th><td>
             IHG™（Healthcare Services / 医療機関プロデュース）<br>
             DR-LINK™（Healthcare Talent / 医療系人材マッチング）<br>
-            RVC（Community Value / M&A・事業承継）
+            RVC（Community Value / M&amp;A・事業承継）
           </td></tr>
-          <tr><th>グループ実績</th><td>グループ社員200名以上 / 総売上20億円突破 / 複数クリニック・美容サロン経営</td></tr>
-          <tr><th>連絡先</th><td>info@i2m2.com</td></tr>
+          <tr><th>グループ実績</th><td>
+            グループ総売上 20億円突破（2026年6月時点）<br>
+            グループ社員 200名以上<br>
+            複数クリニック・美容サロン経営<br>
+            広告運用額 5,000万円以上
+          </td></tr>
+          <tr><th>連絡先</th><td><a href="/contact" style="color:var(--accent-light);text-decoration:underline;">お問い合わせフォーム</a></td></tr>
         </tbody>
       </table>
+    </div>
+  </div>
+</section>
+
+<!-- 私たちの強み -->
+<section class="section section-alt">
+  <div class="container">
+    ${sectionTitle('OUR STRENGTHS', '私たちの強み')}
+    <div class="additional-grid">
+      <div class="additional-item">
+        <div class="additional-icon"><i class="fas fa-heartbeat"></i></div>
+        <h4>ヘルスケア領域への深い専門性</h4>
+        <p>医療マーケティング・人材・M&A・DXを一気通貫で提供できるヘルスケア特化の総合支援会社です。クリニックの集患支援から医療法人の事業承継まで、幅広い経営課題に対応します。</p>
+      </div>
+      <div class="additional-item">
+        <div class="additional-icon"><i class="fas fa-chart-bar"></i></div>
+        <h4>豊富な支援実績</h4>
+        <p>グループ総取引1,000件以上・累計取扱高20億円以上の実績を持ちます。医療・介護・美容など幅広い業種のお客様とお取引しています。</p>
+      </div>
+      <div class="additional-item">
+        <div class="additional-icon"><i class="fas fa-handshake"></i></div>
+        <h4>誠実・透明な事業運営</h4>
+        <p>医療情報・個人情報の適切な管理を徹底し、関連法令・各種ガイドラインを遵守した事業運営を行っています。お取引先の皆様との長期的な信頼関係を最優先に考えています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- コンプライアンス -->
+<section class="section">
+  <div class="container">
+    ${sectionTitle('COMPLIANCE', 'コンプライアンス')}
+    <div class="ir-card" style="max-width:800px; margin:0 auto;">
+      <p style="font-size:14px; color:var(--color-text); line-height:2.2;">
+        株式会社イズムズは、医療・個人情報等の機密情報を適切に管理し、医療広告ガイドライン・職業安定法・個人情報保護法をはじめとする関連法令および各種ガイドラインを遵守した事業運営を行っています。
+      </p>
+      <p style="font-size:14px; color:var(--color-text); line-height:2.2; margin-top:16px;">
+        お客様・金融機関・取引先の皆様に安心してご利用・お取引いただけるよう、情報管理体制の継続的な改善に努めてまいります。
+      </p>
+      <p style="font-size:14px; color:var(--color-text); line-height:2.2; margin-top:16px;">
+        個人情報の取り扱いについては、<a href="/legal" style="color:var(--accent-light); text-decoration:underline;">プライバシーポリシー</a>をご参照ください。
+      </p>
     </div>
   </div>
 </section>
@@ -149,7 +172,7 @@ ${breadcrumb([{ label: '会社概要' }])}
     <div class="access-grid" style="grid-template-columns:1fr;">
       <div class="access-card">
         <h3><i class="fas fa-building"></i> 本社</h3>
-        <p class="access-address">〒271-0068<br>千葉県松戸市大橋149-1</p>
+        <p class="access-address">〒270-2224<br>千葉県松戸市大橋149-1</p>
         <p class="access-transport"><i class="fas fa-train"></i> JR常磐線・新京成線「松戸駅」よりアクセス</p>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3233.0!2d139.9!3d35.79!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z5Y2D6JGJ55yM5p2-5oi45biC5aSn5qmL!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp"
@@ -165,8 +188,32 @@ ${breadcrumb([{ label: '会社概要' }])}
   </div>
 </section>
 
-${ctaSection({ title: '事業内容・お取引についてのご質問もお気軽にどうぞ。' })}
-`, { description: '株式会社イズムズ（i2m2 Co., Ltd.）の会社概要。2025年設立。千葉県松戸市。ヘルスケア領域を中心に事業を展開。' }))
+<!-- お知らせ -->
+<section class="section section-alt">
+  <div class="container">
+    ${sectionTitle('NEWS', 'お知らせ')}
+    <ul class="news-list">
+      <li class="news-item">
+        <time>2026.06</time>
+        <span class="news-tag">IR</span>
+        <a href="/news">グループ社員200名突破・総売上20億円を達成いたしました</a>
+      </li>
+      <li class="news-item">
+        <time>2026.04</time>
+        <span class="news-tag">事業報告</span>
+        <a href="/news">補助金コンサルティングサービスを開始いたしました</a>
+      </li>
+      <li class="news-item">
+        <time>2025.12</time>
+        <span class="news-tag">事業報告</span>
+        <a href="/news">M&amp;A仲介・事業承継支援サービスを正式リリースいたしました</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+${ctaSection({ title: 'お取引・事業連携に関するご相談はお気軽にどうぞ。' })}
+`, { description: '株式会社イズムズ（i2m2 Co., Ltd.）の会社概要・企業情報。2025年設立。千葉県松戸市。ヘルスケア領域を中心に事業を展開。' }))
 }
 
 function messagePage(c: Context) {

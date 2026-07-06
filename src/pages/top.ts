@@ -109,22 +109,27 @@ export const topPage = (c: Context) => {
         <a href="/company" class="c-btn">
           <span class="c-btn__inner">COMPANY PROFILE <span class="c-arrow"></span></span>
         </a>
-        <div class="p-front-about__stats">
-          <div class="p-stat-item">
-            <strong class="p-stat-num" data-target="20">0</strong>
-            <span class="p-stat-unit">億円+</span>
-            <span class="p-stat-label">総売上</span>
-          </div>
-          <div class="p-stat-item">
-            <strong class="p-stat-num" data-target="200">0</strong>
-            <span class="p-stat-unit">名+</span>
-            <span class="p-stat-label">グループ社員</span>
-          </div>
-          <div class="p-stat-item">
-            <strong class="p-stat-num" data-target="14">0</strong>
-            <span class="p-stat-unit">ヶ月</span>
-            <span class="p-stat-label">創業から</span>
-          </div>
+        <div class="p-front-about__brands">
+          <a href="https://medreach.i2m2.com/" class="p-brand-item" target="_blank" rel="noopener">
+            <span class="p-brand-item__name">MedReach&trade;</span>
+            <span class="p-brand-item__desc">医療マーケティング</span>
+          </a>
+          <a href="https://karteo.i2m2.com/" class="p-brand-item" target="_blank" rel="noopener">
+            <span class="p-brand-item__name">karteo&trade;</span>
+            <span class="p-brand-item__desc">カルテDX</span>
+          </a>
+          <a href="https://growfund.i2m2.com/" class="p-brand-item" target="_blank" rel="noopener">
+            <span class="p-brand-item__name">GrowFund&trade;</span>
+            <span class="p-brand-item__desc">補助金・融資</span>
+          </a>
+          <a href="https://dr-link.i2m2.com/" class="p-brand-item" target="_blank" rel="noopener">
+            <span class="p-brand-item__name">DR-LINK&trade;</span>
+            <span class="p-brand-item__desc">医療人材</span>
+          </a>
+          <a href="https://tsumugi-partners.i2m2.com/" class="p-brand-item" target="_blank" rel="noopener">
+            <span class="p-brand-item__name">つむぎパートナーズ</span>
+            <span class="p-brand-item__desc">M&amp;A・事業承継</span>
+          </a>
         </div>
       </div>
     </div>
@@ -179,7 +184,7 @@ export const topPage = (c: Context) => {
               </section>
               <!-- Card 4: DR-LINK -->
               <section class="c-card">
-                <a class="c-card__inner" href="https://drlink.i2m2.com" target="_blank" rel="noopener">
+                <a class="c-card__inner" href="https://dr-link.i2m2.com" target="_blank" rel="noopener">
                   <div class="c-card__thumb c-card__thumb--radius">
                     <img src="/static/images/hero-meeting.jpg" alt="DR-LINK" class="c-card__thumb-placeholder">
                   </div>
@@ -222,18 +227,18 @@ export const topPage = (c: Context) => {
         <div class="p-results-grid">
           <div class="p-result-card">
             <strong class="p-result-num" data-target="20">0</strong>
-            <span class="p-result-unit">億円</span>
+            <span class="p-result-unit">億円+</span>
             <span class="p-result-label">総売上</span>
           </div>
           <div class="p-result-card">
-            <strong class="p-result-num" data-target="200">0</strong>
-            <span class="p-result-unit">名+</span>
-            <span class="p-result-label">グループ社員</span>
+            <strong class="p-result-num" data-target="1000">0</strong>
+            <span class="p-result-unit">件+</span>
+            <span class="p-result-label">グループ総取引</span>
           </div>
           <div class="p-result-card">
-            <strong class="p-result-num" data-target="5000">0</strong>
-            <span class="p-result-unit">万円+</span>
-            <span class="p-result-label">広告運用額</span>
+            <strong class="p-result-num" data-target="100">0</strong>
+            <span class="p-result-unit">社+</span>
+            <span class="p-result-label">取引先企業</span>
           </div>
         </div>
       </div>
