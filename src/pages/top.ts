@@ -265,7 +265,7 @@ export const topPage = (c: Context) => {
               <!-- Hokkaido -->
               <path class="p-map-region" d="M380,80 Q420,60 450,70 Q480,80 490,110 Q500,140 480,160 Q460,170 440,160 Q420,150 400,140 Q380,130 370,110 Q360,90 380,80Z" data-region="hokkaido"/>
               <!-- Tohoku -->
-              <path class="p-map-region" d="M390,175 Q410,170 420,180 Q435,190 440,210 Q445,230 440,250 Q435,270 420,280 Q405,285 395,275 Q385,265 380,245 Q375,225 378,205 Q380,185 390,175Z" data-region="tohoku"/>
+              <path class="p-map-region p-map-region--active" d="M390,175 Q410,170 420,180 Q435,190 440,210 Q445,230 440,250 Q435,270 420,280 Q405,285 395,275 Q385,265 380,245 Q375,225 378,205 Q380,185 390,175Z" data-region="tohoku"/>
               <!-- Kanto -->
               <path class="p-map-region p-map-region--active" d="M370,285 Q395,280 415,290 Q430,300 435,315 Q438,330 425,340 Q410,348 390,345 Q370,342 360,330 Q352,318 355,305 Q358,292 370,285Z" data-region="kanto"/>
               <!-- Chubu -->
@@ -279,20 +279,19 @@ export const topPage = (c: Context) => {
               <!-- Kyushu -->
               <path class="p-map-region p-map-region--active" d="M200,390 Q220,385 235,395 Q248,405 248,420 Q248,438 238,450 Q228,462 212,465 Q196,465 185,455 Q175,442 178,425 Q180,408 188,398 Q194,392 200,390Z" data-region="kyushu"/>
               <!-- Okinawa -->
-              <path class="p-map-region" d="M160,560 Q170,555 178,560 Q185,565 183,575 Q180,585 172,588 Q164,590 158,585 Q152,578 155,570 Q157,563 160,560Z" data-region="okinawa"/>
+              <path class="p-map-region p-map-region--active" d="M160,560 Q170,555 178,560 Q185,565 183,575 Q180,585 172,588 Q164,590 158,585 Q152,578 155,570 Q157,563 160,560Z" data-region="okinawa"/>
               
               <!-- Gold dots for active locations -->
-              <circle class="p-map-dot p-map-dot--pulse" cx="400" cy="310" r="6"/><!-- Kanto/Chiba HQ -->
+              <circle class="p-map-dot p-map-dot--pulse" cx="400" cy="310" r="6"/><!-- Kanto HQ -->
+              <circle class="p-map-dot" cx="410" cy="220" r="5"/><!-- Tohoku -->
               <circle class="p-map-dot" cx="310" cy="355" r="5"/><!-- Kansai -->
-              <circle class="p-map-dot" cx="220" cy="430" r="5"/><!-- Kyushu -->
-              <circle class="p-map-dot" cx="345" cy="300" r="4"/><!-- Chubu -->
-              <circle class="p-map-dot" cx="410" cy="220" r="4"/><!-- Tohoku -->
+              <circle class="p-map-dot" cx="170" cy="575" r="5"/><!-- Okinawa -->
               
               <!-- Connection lines -->
-              <line class="p-map-line" x1="400" y1="310" x2="310" y2="355"/>
-              <line class="p-map-line" x1="400" y1="310" x2="345" y2="300"/>
-              <line class="p-map-line" x1="310" y1="355" x2="220" y2="430"/>
               <line class="p-map-line" x1="400" y1="310" x2="410" y2="220"/>
+              <line class="p-map-line" x1="400" y1="310" x2="310" y2="355"/>
+              <line class="p-map-line" x1="310" y1="355" x2="220" y2="430"/>
+              <line class="p-map-line" x1="220" y1="430" x2="170" y2="575"/>
             </svg>
           </div>
           <!-- Network Stats -->
@@ -300,7 +299,7 @@ export const topPage = (c: Context) => {
             <div class="p-network-stat">
               <span class="p-network-stat__icon"><i class="fas fa-map-marker-alt"></i></span>
               <div class="p-network-stat__body">
-                <strong class="p-network-stat__num">5</strong><span class="p-network-stat__unit">エリア</span>
+                <strong class="p-network-stat__num">4</strong><span class="p-network-stat__unit">エリア</span>
                 <span class="p-network-stat__label">展開地域</span>
               </div>
             </div>
@@ -330,7 +329,11 @@ export const topPage = (c: Context) => {
               <ul class="p-network-regions__list">
                 <li class="p-network-regions__item p-network-regions__item--hq">
                   <span class="p-network-regions__dot"></span>
-                  <span class="p-network-regions__name">関東（本社：千葉県松戸市）</span>
+                  <span class="p-network-regions__name">関東（東京・神奈川）</span>
+                </li>
+                <li class="p-network-regions__item">
+                  <span class="p-network-regions__dot"></span>
+                  <span class="p-network-regions__name">東北（宮城・青森）</span>
                 </li>
                 <li class="p-network-regions__item">
                   <span class="p-network-regions__dot"></span>
@@ -338,15 +341,20 @@ export const topPage = (c: Context) => {
                 </li>
                 <li class="p-network-regions__item">
                   <span class="p-network-regions__dot"></span>
-                  <span class="p-network-regions__name">九州（福岡）</span>
+                  <span class="p-network-regions__name">九州（沖縄）</span>
+                </li>
+              </ul>
+            </div>
+            <div class="p-network-regions">
+              <h3 class="p-network-regions__title">グループ企業</h3>
+              <ul class="p-network-regions__list">
+                <li class="p-network-regions__item p-network-regions__item--hq">
+                  <span class="p-network-regions__dot"></span>
+                  <span class="p-network-regions__name">医療法人白生会</span>
                 </li>
                 <li class="p-network-regions__item">
                   <span class="p-network-regions__dot"></span>
-                  <span class="p-network-regions__name">中部（愛知・静岡）</span>
-                </li>
-                <li class="p-network-regions__item">
-                  <span class="p-network-regions__dot"></span>
-                  <span class="p-network-regions__name">東北（宮城）</span>
+                  <span class="p-network-regions__name">有限会社福寿</span>
                 </li>
               </ul>
             </div>
