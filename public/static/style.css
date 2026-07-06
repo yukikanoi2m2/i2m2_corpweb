@@ -1452,18 +1452,11 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--color-text-dim);
+  background: var(--accent);
   flex-shrink: 0;
 }
 .p-network-dot--active {
   background: var(--accent);
-}
-.p-network-dot--hq {
-  background: #fff;
-  box-shadow: 0 0 4px rgba(255,255,255,.5);
-}
-.p-network-dot--overseas {
-  background: #5ba4cf;
 }
 .p-network-cta { margin-top: 0.5rem; }
 
@@ -1500,20 +1493,13 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
   stroke-width: 0.8;
   filter: drop-shadow(0 0 4px rgba(184,134,11,.4));
 }
-/* 本社（白＋グロー） */
+/* 本社（ゴールド＋強調グロー） */
 .jp-land--hq {
-  fill: #fff;
-  stroke: #ddd;
+  fill: var(--accent);
+  stroke: var(--accent-light);
   stroke-width: 0.8;
-  filter: drop-shadow(0 0 6px rgba(255,255,255,.4));
+  filter: drop-shadow(0 0 6px rgba(184,134,11,.5));
 }
-/* 海外（ブルー） */
-.jp-land--overseas {
-  fill: #5ba4cf;
-  stroke: #7ec0e0;
-  stroke-width: 0.6;
-}
-
 /* ピン（取引実績） */
 .jp-pin {
   fill: var(--accent);
@@ -1522,34 +1508,27 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
 .jp-pin--active {
   fill: var(--accent-light);
 }
-/* ピン（本社） */
-.jp-pin--hq {
-  fill: #fff;
-  filter: drop-shadow(0 0 3px rgba(255,255,255,.6));
-}
-/* ピン（海外） */
-.jp-pin--overseas {
-  fill: #5ba4cf;
-}
-/* パルスアニメーション */
-.jp-pin-pulse {
+/* パルスアニメーション（東京・千葉エリア集中） */
+.jp-pin-pulse--area {
   fill: none;
-  stroke: var(--accent);
-  stroke-width: 1.5;
+  stroke: var(--accent-light);
+  stroke-width: 2;
   opacity: 0;
-  animation: pinPulse 2.2s ease-out infinite;
-}
-.jp-pin-pulse--hq {
-  stroke: #fff;
-  animation: pinPulse 1.8s ease-out infinite;
-}
-.jp-pin-pulse--overseas {
-  stroke: #5ba4cf;
   animation: pinPulse 2.5s ease-out infinite;
 }
+.jp-pin-pulse--delay1 {
+  animation-delay: 0.6s;
+}
+.jp-pin-pulse--delay2 {
+  animation-delay: 1.2s;
+}
+.jp-pin-pulse--delay3 {
+  animation-delay: 1.8s;
+}
 @keyframes pinPulse {
-  0%   { r: 6;  opacity: 0.7; }
-  100% { r: 16; opacity: 0; }
+  0%   { r: 8;  opacity: 0.8; }
+  50%  { opacity: 0.3; }
+  100% { r: 28; opacity: 0; }
 }
 
 /* ラベル */
@@ -1566,14 +1545,14 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
 
 /* 韓国インセットボックス */
 .jp-korea-box {
-  fill: rgba(255,255,255,.03);
-  stroke: rgba(255,255,255,.1);
+  fill: rgba(184,134,11,.05);
+  stroke: rgba(184,134,11,.3);
   stroke-width: 0.5;
   stroke-dasharray: 3 2;
 }
 .jp-korea-label {
   font-size: 9px;
-  fill: var(--color-text-dim);
+  fill: var(--accent-light);
   font-family: var(--font-en);
   font-weight: 600;
   letter-spacing: 1px;
@@ -1602,15 +1581,8 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
   height: 8px;
   border-radius: 50%;
 }
-.p-note-dot--hq {
-  background: #fff;
-  box-shadow: 0 0 3px rgba(255,255,255,.4);
-}
 .p-note-dot--active {
   background: var(--accent);
-}
-.p-note-dot--overseas {
-  background: #5ba4cf;
 }
 
 /* ============================================================

@@ -284,14 +284,10 @@ export const topPage = (c: Context) => {
             <ul class="p-network-offices__list">
               <li><span class="p-network-dot p-network-dot--active"></span>青森県</li>
               <li><span class="p-network-dot p-network-dot--active"></span>宮城県</li>
-              <li><span class="p-network-dot p-network-dot--active"></span>埼玉県</li>
-              <li><span class="p-network-dot p-network-dot--hq"></span>千葉県（本社）</li>
+              <li><span class="p-network-dot p-network-dot--active"></span>千葉県（本社）</li>
               <li><span class="p-network-dot p-network-dot--active"></span>東京都</li>
               <li><span class="p-network-dot p-network-dot--active"></span>神奈川県</li>
-              <li><span class="p-network-dot p-network-dot--active"></span>石川県（金沢）</li>
-              <li><span class="p-network-dot p-network-dot--active"></span>大阪府</li>
-              <li><span class="p-network-dot p-network-dot--active"></span>和歌山県</li>
-              <li><span class="p-network-dot p-network-dot--overseas"></span>韓国</li>
+              <li><span class="p-network-dot p-network-dot--active"></span>韓国</li>
             </ul>
           </div>
 
@@ -333,7 +329,7 @@ export const topPage = (c: Context) => {
               <path class="jp-land" d="M124.4,408.5L135.0,409.1L136.9,411.8L136.2,415.6L138.5,419.3L139.9,433.5L137.6,435.7L134.8,434.7L135.2,432.8L130.5,434.6L130.2,436.5L122.7,437.7L118.5,441.8L115.7,442.1L115.2,435.7L110.4,436.1L107.8,441.5L105.1,440.5L102.1,430.6L104.6,427.6L104.7,422.9L107.7,419.2L120.0,417.9L118.3,415.6L124.4,408.5Z M134.0,436.0L132.9,434.7L134.6,434.2L134.0,436.0Z M136.4,436.5L137.5,435.5L136.4,436.5Z M131.3,437.5L131.4,435.9L131.3,437.5Z M133.4,439.1L132.3,436.0L133.4,439.1Z M130.5,439.8L132.0,437.6L130.5,439.8Z M108.6,440.7L110.2,437.7L108.6,440.7Z M112.8,444.5L113.5,442.8L111.2,439.7L114.0,441.6L112.9,439.9L114.1,438.3L114.4,444.0L112.8,444.5Z M125.0,441.7L123.8,440.3L126.7,439.0L125.0,441.7Z M121.1,443.4L119.7,442.0L121.1,443.4Z M116.1,446.4L113.3,445.8L115.4,441.9L115.8,445.3L117.2,445.0L116.1,446.4Z M123.4,443.7L124.6,442.6L123.4,443.7Z" data-pref="広島県"/>
               <path class="jp-land" d="M543.4,27.8L551.9,18.5L558.3,19.5L556.6,21.7L556.9,26.0L551.1,26.2L542.4,30.6L531.6,40.1L525.0,38.8L522.9,44.5L516.2,49.3L512.6,54.8L509.3,55.1L505.8,60.1L503.4,59.3L505.7,52.3L507.0,54.4L507.3,51.3L512.0,50.3L512.5,47.9L510.1,45.2L513.5,45.9L521.1,38.7L520.6,34.5L524.8,35.6L527.1,31.4L530.6,30.2L530.1,25.0L531.7,22.6L535.2,28.7L543.4,27.8Z M360.4,32.1L362.2,21.8L366.2,23.4L370.2,19.2L398.7,55.2L414.0,66.5L432.6,71.8L434.0,76.6L436.9,78.0L447.4,78.5L462.0,63.1L462.9,66.3L455.5,80.0L454.8,85.2L456.9,89.2L462.2,91.4L460.8,92.7L462.1,91.6L458.3,90.0L463.4,102.4L466.3,103.4L470.5,98.7L474.9,99.5L468.4,102.7L467.1,107.1L456.9,107.9L452.2,114.0L447.5,111.1L445.4,114.1L446.8,115.8L433.2,113.2L423.7,118.0L409.4,135.1L405.6,153.4L397.9,146.2L384.9,140.5L368.3,128.6L361.8,127.2L363.5,126.1L354.2,130.4L344.7,139.4L336.8,128.9L330.3,128.8L326.2,135.0L325.4,141.2L332.4,146.4L338.2,146.3L343.6,153.7L349.7,158.0L343.8,161.5L338.6,159.1L336.6,160.3L337.1,157.9L335.0,157.5L329.7,162.4L328.7,168.7L324.7,170.0L323.0,173.1L320.1,172.4L317.2,165.4L320.9,157.3L321.2,151.6L318.4,146.4L311.6,141.0L313.7,133.4L312.9,127.8L318.9,124.7L322.7,119.8L325.9,121.6L328.2,116.2L331.8,113.6L326.5,105.1L327.0,100.8L331.1,99.4L339.1,106.0L345.2,104.4L345.0,106.2L349.1,107.9L356.2,101.1L353.6,86.3L362.2,78.1L362.3,64.2L364.9,59.8L366.1,52.0L360.4,32.1Z M345.6,28.4L343.8,21.3L346.5,22.8L345.6,28.4Z M348.8,30.2L352.1,29.9L353.6,33.0L350.9,34.9L348.8,30.2Z M473.2,73.6L483.5,57.0L489.0,60.4L495.6,59.0L493.3,62.8L483.1,66.1L478.0,70.9L474.1,78.5L469.0,80.8L467.7,88.8L467.7,86.0L464.7,86.5L464.0,81.9L473.2,73.6Z M356.2,60.0L355.0,59.8L356.2,60.0Z M352.7,60.6L353.8,59.9L352.7,60.6Z M497.5,87.1L495.9,83.2L500.3,82.8L502.3,80.1L504.9,82.0L497.5,87.1Z M489.7,90.2L487.3,89.9L489.7,90.2Z M483.1,96.2L481.6,93.8L485.6,93.4L483.1,96.2Z M477.2,97.8L476.2,96.3L478.6,96.3L477.2,97.8Z M481.2,98.3L483.0,97.0L481.2,98.3Z M456.4,110.8L457.6,110.5L456.4,110.8Z M302.8,148.7L301.6,143.9L305.7,141.2L302.8,148.7Z M299.8,169.5L301.0,169.0L299.8,169.5Z" data-pref="北海道"/>
               <path class="jp-land" d="M178.8,387.4L180.4,392.9L183.6,393.0L183.7,396.8L180.6,396.8L180.3,400.4L192.9,407.2L191.7,413.3L195.0,414.8L193.7,415.4L194.8,422.0L193.0,423.9L191.1,422.2L184.0,426.0L173.0,419.9L168.1,421.1L167.9,419.2L166.4,422.2L164.0,422.4L162.4,418.5L162.5,411.2L166.3,406.5L165.7,403.7L169.2,401.6L165.3,389.1L169.8,387.0L178.8,387.4Z M176.6,433.4L182.9,427.3L179.5,433.7L181.1,439.4L175.0,442.3L173.0,438.3L176.6,433.4Z" data-pref="兵庫県"/>
-              <path class="jp-land jp-land--hq" d="M311.6,371.3L321.8,380.5L331.3,378.2L331.5,376.2L341.2,385.2L331.9,389.5L328.8,394.8L328.0,405.0L320.9,407.7L314.6,415.8L311.0,413.2L313.8,411.9L312.7,405.4L314.1,403.2L311.7,400.2L321.1,390.8L317.2,386.2L314.2,388.6L314.9,379.7L311.6,371.3Z" data-pref="千葉県"/>
+              <path class="jp-land jp-land--active" d="M311.6,371.3L321.8,380.5L331.3,378.2L331.5,376.2L341.2,385.2L331.9,389.5L328.8,394.8L328.0,405.0L320.9,407.7L314.6,415.8L311.0,413.2L313.8,411.9L312.7,405.4L314.1,403.2L311.7,400.2L321.1,390.8L317.2,386.2L314.2,388.6L314.9,379.7L311.6,371.3Z" data-pref="千葉県"/>
               <path class="jp-land" d="M253.7,338.1L255.9,340.1L257.1,349.8L252.5,360.1L240.8,357.6L235.8,364.4L233.0,360.9L230.8,363.5L230.8,347.8L233.6,340.1L237.5,338.6L236.0,342.1L239.0,345.9L245.0,346.3L248.2,339.9L253.7,338.1Z" data-pref="富山県"/>
               <path class="jp-land jp-land--active" d="M289.1,380.1L291.2,378.5L301.2,383.5L305.2,381.9L305.4,383.9L312.8,381.6L315.4,385.9L314.2,388.2L311.2,387.6L312.0,392.3L303.1,388.7L304.3,390.5L303.2,393.3L301.4,390.2L291.3,385.1L289.1,380.1Z M302.5,424.0L300.3,423.1L300.3,419.5L302.3,420.6L302.5,424.0Z M298.0,437.0L298.1,433.2L298.0,437.0Z M294.1,442.4L295.2,440.7L294.1,442.4Z M304.2,447.6L303.9,445.0L305.7,445.2L304.2,447.6Z M307.4,454.9L306.6,453.2L307.4,454.9Z M313.1,484.9L310.8,480.8L313.5,482.3L313.1,484.9Z M376.9,705.3L376.9,703.6L376.9,705.3Z M377.7,706.6L376.9,705.3L377.7,706.6Z M377.7,709.4L376.8,706.8L377.7,709.4Z M376.6,725.3L375.1,721.4L376.6,725.3Z M352.5,794.8L353.6,792.4L352.5,794.8Z" data-pref="東京都"/>
               <path class="jp-land jp-land--active" d="M294.1,364.1L303.0,367.6L309.2,367.1L314.6,378.5L314.8,382.8L301.2,383.5L291.2,378.5L287.7,380.6L283.3,378.1L284.0,373.4L291.7,369.8L294.1,364.1Z" data-pref="埼玉県"/>
@@ -356,31 +352,28 @@ export const topPage = (c: Context) => {
               <!-- 取引実績ピン -->
               <!-- 青森 -->
               <circle class="jp-pin jp-pin--active" cx="340" cy="195" r="6"/>
-              <circle class="jp-pin-pulse" cx="340" cy="195" r="6"/>
               <!-- 宮城 -->
               <circle class="jp-pin jp-pin--active" cx="350" cy="282" r="6"/>
-              <circle class="jp-pin-pulse" cx="350" cy="282" r="6"/>
               <!-- 埼玉 -->
               <circle class="jp-pin jp-pin--active" cx="300" cy="376" r="6"/>
-              <circle class="jp-pin-pulse" cx="300" cy="376" r="6"/>
               <!-- 千葉（本社） -->
-              <circle class="jp-pin jp-pin--hq" cx="320" cy="390" r="8"/>
-              <circle class="jp-pin-pulse jp-pin-pulse--hq" cx="320" cy="390" r="8"/>
+              <circle class="jp-pin jp-pin--active" cx="320" cy="390" r="8"/>
               <!-- 東京 -->
               <circle class="jp-pin jp-pin--active" cx="290" cy="388" r="6"/>
-              <circle class="jp-pin-pulse" cx="290" cy="388" r="6"/>
               <!-- 神奈川 -->
               <circle class="jp-pin jp-pin--active" cx="295" cy="398" r="6"/>
-              <circle class="jp-pin-pulse" cx="295" cy="398" r="6"/>
               <!-- 石川（金沢） -->
               <circle class="jp-pin jp-pin--active" cx="233" cy="338" r="6"/>
-              <circle class="jp-pin-pulse" cx="233" cy="338" r="6"/>
               <!-- 大阪 -->
               <circle class="jp-pin jp-pin--active" cx="194" cy="427" r="6"/>
-              <circle class="jp-pin-pulse" cx="194" cy="427" r="6"/>
               <!-- 和歌山 -->
               <circle class="jp-pin jp-pin--active" cx="196" cy="455" r="6"/>
-              <circle class="jp-pin-pulse" cx="196" cy="455" r="6"/>
+
+              <!-- 東京・千葉エリア集中パルス -->
+              <circle class="jp-pin-pulse jp-pin-pulse--area" cx="300" cy="388" r="8"/>
+              <circle class="jp-pin-pulse jp-pin-pulse--area jp-pin-pulse--delay1" cx="310" cy="392" r="10"/>
+              <circle class="jp-pin-pulse jp-pin-pulse--area jp-pin-pulse--delay2" cx="295" cy="395" r="7"/>
+              <circle class="jp-pin-pulse jp-pin-pulse--area jp-pin-pulse--delay3" cx="315" cy="385" r="9"/>
 
               <!-- ラベル -->
               <text class="jp-label jp-label--hq" x="332" y="386">HQ</text>
@@ -390,15 +383,12 @@ export const topPage = (c: Context) => {
                 <rect x="0" y="0" width="80" height="65" rx="4" class="jp-korea-box"/>
                 <text class="jp-korea-label" x="40" y="14">KOREA</text>
                 <!-- 韓国シルエット（簡略） -->
-                <path class="jp-land jp-land--overseas" d="M35,20 L42,22 L48,28 L50,35 L48,42 L44,48 L40,52 L36,55 L32,52 L28,46 L26,40 L27,34 L30,28 L33,23 Z"/>
-                <circle class="jp-pin jp-pin--overseas" cx="38" cy="38" r="4"/>
-                <circle class="jp-pin-pulse jp-pin-pulse--overseas" cx="38" cy="38" r="4"/>
+                <path class="jp-land jp-land--active" d="M35,20 L42,22 L48,28 L50,35 L48,42 L44,48 L40,52 L36,55 L32,52 L28,46 L26,40 L27,34 L30,28 L33,23 Z"/>
+                <circle class="jp-pin jp-pin--active" cx="38" cy="38" r="4"/>
               </g>
             </svg>
             <p class="p-japan-map__note">
-              <span class="p-note-item"><span class="p-note-dot p-note-dot--hq"></span>本社（千葉）</span>
               <span class="p-note-item"><span class="p-note-dot p-note-dot--active"></span>取引実績エリア</span>
-              <span class="p-note-item"><span class="p-note-dot p-note-dot--overseas"></span>海外</span>
             </p>
           </div>
         </div>
