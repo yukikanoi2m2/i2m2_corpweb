@@ -27,6 +27,7 @@
   --font: "Noto Sans JP", "Helvetica Neue", "Arial", sans-serif;
   --font-en: "Montserrat", "Inter", "Helvetica Neue", sans-serif;
   --font-heading: "Montserrat", "Inter", "Helvetica Neue", sans-serif;
+  --font-num: "Space Grotesk", "Montserrat", "Inter", sans-serif;
   --font-serif: "Noto Serif JP", serif;
 
   /* Sizing (donuts: header PC 110px, SP 70px) */
@@ -590,8 +591,9 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
 }
 .p-result-card { text-align: center; min-width: 140px; }
 .p-result-num {
-  font-family: var(--font-en); font-size: 55px; font-weight: 700;
+  font-family: var(--font-num); font-size: 55px; font-weight: 700;
   display: block; color: var(--color-white); line-height: 1;
+  letter-spacing: -0.02em;
 }
 .p-result-unit { font-size: 16px; color: var(--accent-light); }
 .p-result-label {
@@ -1464,11 +1466,12 @@ h1,h2,h3,h4,h5,h6 { margin: 0; font-size: 100%; }
 }
 
 .p-network-stat__num {
-  font-family: var(--font-en);
+  font-family: var(--font-num);
   font-size: 28px;
   font-weight: 700;
   color: var(--accent-light);
   line-height: 1;
+  letter-spacing: -0.02em;
 }
 
 .p-network-stat__unit {
