@@ -29,7 +29,7 @@ ${breadcrumb([{ label: '会社概要' }])}
     <p class="p-company-slide__label">会社説明資料</p>
     <div class="p-company-slide__wrapper">
       <iframe
-        src="https://docs.google.com/presentation/d/1Cyd2vjLRZzRFSHZwbAz4d89l5AJlu0km41qj0lGEYPk/embed?start=false&loop=false&delayms=3000"
+        src="https://docs.google.com/presentation/d/1dvFFGTMeE8gJMrUEZObYi-ibxQqzE7qrch_1h61SJS8/embed?start=false&loop=false&delayms=3000"
         frameborder="0"
         width="960"
         height="569"
