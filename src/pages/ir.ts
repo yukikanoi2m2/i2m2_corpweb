@@ -29,7 +29,7 @@ ${breadcrumb([{ label: '企業情報' }])}
         <tr><th>商号</th><td>株式会社イズムズ（i2m2 Co., Ltd.）</td></tr>
         <tr><th>設立</th><td>2025年4月2日</td></tr>
         <tr><th>代表者</th><td>代表取締役 中村美華</td></tr>
-        <tr><th>本社所在地</th><td>〒270-2224 千葉県松戸市大橋149-1</td></tr>
+        <tr><th>本社所在地</th><td>〒106-6137 東京都港区六本木6-10-1 六本木ヒルズ森タワー37F</td></tr>
         <tr><th>事業内容</th><td>
           医療機関プロデュース<br>
           医療系人材マッチング（DR-LINK™）<br>
@@ -37,8 +37,8 @@ ${breadcrumb([{ label: '企業情報' }])}
           医療DX（カルテ電子化）
         </td></tr>
         <tr><th>主な取引実績</th><td>
-          グループ総売上 20億円突破（2026年6月時点）<br>
-          グループ社員 200名以上<br>
+          グループ総売上 36億円突破（2026年6月時点）<br>
+          グループ社員 641名<br>
           複数クリニック・美容サロン経営<br>
           広告運用額 5,000万円以上
         </td></tr>
@@ -60,7 +60,7 @@ ${breadcrumb([{ label: '企業情報' }])}
       <div class="additional-item">
         <div class="additional-icon"><i class="fas fa-chart-bar"></i></div>
         <h4>豊富な支援実績</h4>
-        <p>グループ総取引1,000件以上・累計取扱高20億円以上の実績を持ちます。医療・介護・美容など幅広い業種のお客様とお取引しています。</p>
+        <p>グループ総取引889件・累計取扱高36億円以上の実績を持ちます。医療・介護・美容など幅広い業種のお客様とお取引しています。</p>
       </div>
       <div class="additional-item">
         <div class="additional-icon"><i class="fas fa-handshake"></i></div>
@@ -97,12 +97,12 @@ ${breadcrumb([{ label: '企業情報' }])}
       <li class="news-item">
         <time>2026.06</time>
         <span class="news-tag">IR</span>
-        <a href="/news">グループ社員200名突破・総売上20億円を達成いたしました</a>
+        <a href="/news">グループ社員641名突破・総売上36億円を達成いたしました</a>
       </li>
       <li class="news-item">
         <time>2026.04</time>
         <span class="news-tag">事業報告</span>
-        <a href="/news">補助金コンサルティングサービスを開始いたしました</a>
+        <a href="/news">経営改善支援サービスを開始いたしました</a>
       </li>
       <li class="news-item">
         <time>2025.12</time>

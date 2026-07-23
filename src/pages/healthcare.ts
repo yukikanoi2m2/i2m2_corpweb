@@ -38,7 +38,7 @@ ${breadcrumb([{ label: '事業内容', href: '/services' }, { label: '医療機�
       <div class="lp-feature">
         <div class="lp-feature-icon"><i class="fas fa-calculator"></i></div>
         <h3>財務管理・資金調達支援</h3>
-        <p>融資・補助金コンサルティング、事業計画策定、資金繰り改善。医療機関の財務基盤を強化します。</p>
+        <p>経営改善支援、事業計画策定、資金繰り改善。医療機関の財務基盤を強化します。</p>
       </div>
     </div>
   </div>

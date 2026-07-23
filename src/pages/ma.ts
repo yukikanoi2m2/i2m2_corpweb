@@ -12,7 +12,7 @@ ${breadcrumb([{ label: '事業内容', href: '/services' }, { label: 'M&A・事�
       <h1 class="lp-hero-title">M&A・事業承継</h1>
       <p class="lp-hero-desc">M&A仲介・事業承継・事業再生/再建・事業ファンド。<br>医療・介護・福祉はもちろん、美容、IT、飲食など業種を問わず対応します。</p>
       <div class="lp-hero-stats">
-        <div class="lp-stat"><strong>20億円+</strong><span>累計取扱高</span></div>
+        <div class="lp-stat"><strong>36億円+</strong><span>累計取扱高</span></div>
         <div class="lp-stat"><strong>1000件+</strong><span>グループ総取引</span></div>
         <div class="lp-stat"><strong>全業種</strong><span>対応範囲</span></div>
       </div>
@@ -33,7 +33,7 @@ ${breadcrumb([{ label: '事業内容', href: '/services' }, { label: 'M&A・事�
       <div class="lp-feature">
         <div class="lp-feature-icon"><i class="fas fa-arrow-right-arrow-left"></i></div>
         <h3>事業承継支援</h3>
-        <p>後継者不在問題の解決。親族承継・従業員承継・第三者承継（M&A）など最適な手法を提案。事業承継部門専門の融資・補助金コンサルも対応。</p>
+        <p>後継者不在問題の解決。親族承継・従業員承継・第三者承継（M&A）など最適な手法を提案。事業承継部門専門の経営改善支援も対応。</p>
       </div>
       <div class="lp-feature">
         <div class="lp-feature-icon"><i class="fas fa-rotate"></i></div>
@@ -96,7 +96,7 @@ ${breadcrumb([{ label: '事業内容', href: '/services' }, { label: 'M&A・事�
 
 <section class="section section-alt">
   <div class="container">
-    ${sectionTitle('SUBSIDY', '融資・補助金サポート')}
+    ${sectionTitle('SUBSIDY', '経営改善支援')}
     <div class="concept-block">
       <p class="section-lead">事業承継に関連する融資相談、各種補助金（事業承継補助金、経営革新計画等）の申請支援も専門部門で対応しています。採択率を高める事業計画策定から申請書作成までトータルでサポートします。</p>
     </div>

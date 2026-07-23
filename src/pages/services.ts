@@ -130,8 +130,8 @@ ${breadcrumb([{ label: '事業内容' }])}
     <div class="services-strengths">
       <div class="services-strength" data-reveal>
         <div class="services-strength__icon"><i class="fas fa-chart-line"></i></div>
-        <h3>総売上 20億円+</h3>
-        <p>創業1年2ヶ月でグループ社員200名以上、総売上20億円を突破。急成長を続けています。</p>
+        <h3>総売上 36億円+</h3>
+        <p>創業1年2ヶ月でグループ社員641名以上、総売上36億円を突破。急成長を続けています。</p>
       </div>
       <div class="services-strength" data-reveal>
         <div class="services-strength__icon"><i class="fas fa-layer-group"></i></div>
@@ -158,5 +158,5 @@ ${breadcrumb([{ label: '事業内容' }])}
     </div>
   </div>
 </section>
-`, { description: '株式会社イズムズの事業内容。MedReach™（医療マーケティング）、karteo™（カルテ電子化）、GrowFund™（補助金）、DR-LINK™（人材）、つむぎパートナーズ（M&A）の5ブランドを展開。' }))
+`, { description: '株式会社イズムズの事業内容。MedReach™（医療マーケティング）、karteo™（カルテ電子化）、GrowFund™（経営改善支援）、DR-LINK™（人材）、つむぎパートナーズ（M&A）の5ブランドを展開。' }))
 }

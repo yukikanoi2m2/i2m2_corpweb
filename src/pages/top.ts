@@ -55,12 +55,12 @@ export const topPage = (c: Context) => {
                   <a class="p-bar__item" href="/news">
                     <span class="p-bar__date">2026.06</span>
                     <span class="p-bar__label" style="background:#b8860b">IR</span>
-                    <span class="p-bar__title">グループ社員200名突破・総売上20億円達成</span>
+                    <span class="p-bar__title">グループ社員641名突破・総売上36億円達成</span>
                   </a>
                   <a class="p-bar__item" href="/news">
                     <span class="p-bar__date">2026.04</span>
                     <span class="p-bar__label" style="background:#2563a8">事業</span>
-                    <span class="p-bar__title">補助金コンサルティングサービス提供開始</span>
+                    <span class="p-bar__title">経営改善支援サービス提供開始</span>
                   </a>
                   <a class="p-bar__item" href="/news">
                     <span class="p-bar__date">2025.12</span>
@@ -71,12 +71,12 @@ export const topPage = (c: Context) => {
                   <a class="p-bar__item" href="/news">
                     <span class="p-bar__date">2026.06</span>
                     <span class="p-bar__label" style="background:#b8860b">IR</span>
-                    <span class="p-bar__title">グループ社員200名突破・総売上20億円達成</span>
+                    <span class="p-bar__title">グループ社員641名突破・総売上36億円達成</span>
                   </a>
                   <a class="p-bar__item" href="/news">
                     <span class="p-bar__date">2026.04</span>
                     <span class="p-bar__label" style="background:#2563a8">事業</span>
-                    <span class="p-bar__title">補助金コンサルティングサービス提供開始</span>
+                    <span class="p-bar__title">経営改善支援サービス提供開始</span>
                   </a>
                   <a class="p-bar__item" href="/news">
                     <span class="p-bar__date">2025.12</span>
@@ -227,17 +227,17 @@ export const topPage = (c: Context) => {
         </h2>
         <div class="p-results-grid">
           <div class="p-result-card">
-            <strong class="p-result-num" data-target="20">0</strong>
-            <span class="p-result-unit">億円+</span>
+            <strong class="p-result-num" data-target="36">0</strong>
+            <span class="p-result-unit">億円</span>
             <span class="p-result-label">総売上</span>
           </div>
           <div class="p-result-card">
-            <strong class="p-result-num" data-target="1000">0</strong>
+            <strong class="p-result-num" data-target="889">0</strong>
             <span class="p-result-unit">件+</span>
             <span class="p-result-label">グループ総取引</span>
           </div>
           <div class="p-result-card">
-            <strong class="p-result-num" data-target="100">0</strong>
+            <strong class="p-result-num" data-target="286">0</strong>
             <span class="p-result-unit">社+</span>
             <span class="p-result-label">取引先企業</span>
           </div>
@@ -268,7 +268,7 @@ export const topPage = (c: Context) => {
               <span class="p-result-label">取引実績</span>
             </div>
             <div class="p-network-stat">
-              <strong class="p-result-num" data-target="200">0</strong>
+              <strong class="p-result-num" data-target="641">0</strong>
               <span class="p-result-unit">名+</span>
               <span class="p-result-label">グループ社員</span>
             </div>
@@ -280,7 +280,7 @@ export const topPage = (c: Context) => {
             <ul class="p-network-offices__list">
               <li><span class="p-network-dot p-network-dot--active"></span>青森県</li>
               <li><span class="p-network-dot p-network-dot--active"></span>宮城県</li>
-              <li><span class="p-network-dot p-network-dot--active"></span>千葉県（本社）</li>
+              <li><span class="p-network-dot p-network-dot--active"></span>千葉県</li>
               <li><span class="p-network-dot p-network-dot--active"></span>東京都</li>
               <li><span class="p-network-dot p-network-dot--active"></span>神奈川県</li>
               <li><span class="p-network-dot p-network-dot--active"></span>韓国</li>
@@ -418,5 +418,5 @@ export const topPage = (c: Context) => {
     </div>
   </section>
 </article>
-`, { description: '株式会社イズムズ（i2m2）は医療マーケティング・人材・M&A・DXをワンストップで提供するヘルスケア特化の総合支援会社。創業1年3ヶ月でグループ社員200名・総売上20億円突破。', fullTitle: '株式会社イズムズ｜コーポレートサイト' }))
+`, { description: '株式会社イズムズ（i2m2）は医療マーケティング・人材・M&A・DXをワンストップで提供するヘルスケア特化の総合支援会社。創業1年3ヶ月でグループ社員641名・総売上36億円突破。', fullTitle: '株式会社イズムズ｜コーポレートサイト' }))
 }

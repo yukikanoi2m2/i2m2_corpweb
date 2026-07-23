@@ -115,7 +115,7 @@ function footer() {
         <div class="footer-col">
           <h4>本社所在地</h4>
           <ul>
-            <li class="footer-address">〒270-2224<br>千葉県松戸市大橋149-1</li>
+            <li class="footer-address">〒106-6137<br>東京都港区六本木6-10-1<br>六本木ヒルズ森タワー37F</li>
           </ul>
         </div>
       </div>
