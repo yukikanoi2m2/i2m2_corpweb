@@ -16,20 +16,20 @@ ${breadcrumb([{ label: '実績' }])}
   <div class="container">
     <div class="results-numbers">
       <div class="result-num-item">
-        <strong>20<span>億円+</span></strong>
-        <span>累計取扱高</span>
+        <strong>36<span>億円+</span></strong>
+        <span>総売上</span>
       </div>
       <div class="result-num-item">
-        <strong>1000<span>件+</span></strong>
+        <strong>889<span>件+</span></strong>
         <span>グループ総取引</span>
       </div>
       <div class="result-num-item">
-        <strong>100<span>社+</span></strong>
+        <strong>286<span>社+</span></strong>
         <span>取引先企業</span>
       </div>
       <div class="result-num-item">
-        <strong>5000<span>万円+</span></strong>
-        <span>広告運用額</span>
+        <strong>641<span>名+</span></strong>
+        <span>グループ社員</span>
       </div>
     </div>
   </div>

@@ -23,7 +23,7 @@ ${breadcrumb([{ label: '事業内容', href: '/services' }, { label: '医療機�
       <div class="lp-feature">
         <div class="lp-feature-icon"><i class="fas fa-bullhorn"></i></div>
         <h3>広告運用・集患マーケティング</h3>
-        <p>Google広告、SNS広告、MEO対策など医療機関に特化したデジタルマーケティング。累計広告運用額5,000万円以上の実績で、新規患者獲得を支援します。</p>
+        <p>Google広告、SNS広告、MEO対策など医療機関に特化したデジタルマーケティング。累計広告運用額36億円以上の実績で、新規患者獲得を支援します。</p>
       </div>
       <div class="lp-feature">
         <div class="lp-feature-icon"><i class="fas fa-chart-pie"></i></div>

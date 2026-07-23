@@ -33,7 +33,7 @@ ${breadcrumb([{ label: '事業内容' }])}
           <div class="services-brand-card__logo">MedReach™ <span>by i2m2</span></div>
           <h3 class="services-brand-card__title">医療マーケティング・広告運用</h3>
           <p class="services-brand-card__desc">
-            クリニック・病院の集患を最大化するデジタルマーケティング。リスティング広告、MEO対策、SNS運用、LP制作まで一気通貫で支援します。累計広告運用額5,000万円+の実績。
+            クリニック・病院の集患を最大化するデジタルマーケティング。リスティング広告、MEO対策、SNS運用、LP制作まで一気通貫で支援します。累計広告運用額36億円+の実績。
           </p>
           <ul class="services-brand-card__tags">
             <li>リスティング広告</li><li>MEO対策</li><li>SNS運用</li><li>LP制作</li><li>SEO</li>
@@ -67,12 +67,12 @@ ${breadcrumb([{ label: '事業内容' }])}
         <div class="services-brand-card__number">03</div>
         <div class="services-brand-card__body">
           <div class="services-brand-card__logo">GrowFund™ <span>by i2m2</span></div>
-          <h3 class="services-brand-card__title">補助金・融資活用コンサルティング</h3>
+          <h3 class="services-brand-card__title">経営改善支援</h3>
           <p class="services-brand-card__desc">
-            医療機関向けの補助金・融資申請を完全サポート。IT導入補助金、事業再構築補助金、ものづくり補助金など、選定から採択後の実績報告まで一気通貫で対応します。
+            医療機関の経営課題を包括的にサポート。資金繰り改善、事業計画策定、財務分析、経営戦略立案など、選定から実行支援まで一気通貫で対応します。
           </p>
           <ul class="services-brand-card__tags">
-            <li>IT導入補助金</li><li>事業再構築</li><li>ものづくり補助金</li><li>融資支援</li><li>実績報告</li>
+            <li>経営計画策定</li><li>財務改善</li><li>資金調達支援</li><li>事業再構築</li><li>経営分析</li>
           </ul>
           <a href="https://growfund.i2m2.com" target="_blank" rel="noopener" class="services-brand-card__link">
             <span>詳細を見る</span><i class="fas fa-external-link-alt"></i>

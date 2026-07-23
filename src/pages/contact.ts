@@ -59,7 +59,7 @@ ${breadcrumb([{ label: 'お問い合わせ' }])}
             <option value="医療系人材マッチング（DR-LINK™）">医療系人材マッチング（DR-LINK™）について</option>
             <option value="ヘルスケアM&A（つむぎパートナーズ）">ヘルスケアM&A（つむぎパートナーズ）について</option>
             <option value="医療DX（カルテ電子化）">医療DX（カルテ電子化）について</option>
-            <option value="補助金・融資支援">補助金・融資支援について</option>
+            <option value="経営改善支援">経営改善支援について</option>
             <option value="採用">採用について</option>
             <option value="その他">その他</option>
           </select>

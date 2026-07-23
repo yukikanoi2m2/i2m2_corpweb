@@ -121,7 +121,7 @@ export const topPage = (c: Context) => {
           </a>
           <a href="https://growfund.i2m2.com/" class="p-brand-item" target="_blank" rel="noopener">
             <span class="p-brand-item__name">GrowFund&trade;</span>
-            <span class="p-brand-item__desc">補助金・融資</span>
+            <span class="p-brand-item__desc">経営改善支援</span>
           </a>
           <a href="https://dr-link.i2m2.com/" class="p-brand-item" target="_blank" rel="noopener">
             <span class="p-brand-item__name">DR-LINK&trade;</span>
@@ -180,7 +180,7 @@ export const topPage = (c: Context) => {
                     <img src="/static/images/contract-signing.jpg" alt="GrowFund" class="c-card__thumb-placeholder">
                   </div>
                   <div class="c-card__title">GrowFund™</div>
-                  <div class="c-card__content">補助金・融資活用コンサルティング</div>
+                  <div class="c-card__content">経営改善支援</div>
                 </a>
               </section>
               <!-- Card 4: DR-LINK -->

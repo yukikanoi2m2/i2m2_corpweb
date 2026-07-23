@@ -13,7 +13,7 @@ ${breadcrumb([{ label: '事業内容', href: '/services' }, { label: 'M&A・事�
       <p class="lp-hero-desc">M&A仲介・事業承継・事業再生/再建・事業ファンド。<br>医療・介護・福祉はもちろん、美容、IT、飲食など業種を問わず対応します。</p>
       <div class="lp-hero-stats">
         <div class="lp-stat"><strong>36億円+</strong><span>累計取扱高</span></div>
-        <div class="lp-stat"><strong>1000件+</strong><span>グループ総取引</span></div>
+        <div class="lp-stat"><strong>889件+</strong><span>グループ総取引</span></div>
         <div class="lp-stat"><strong>全業種</strong><span>対応範囲</span></div>
       </div>
       <a href="/contact" class="btn btn-primary btn-lg">M&A無料相談</a>
@@ -98,7 +98,7 @@ ${breadcrumb([{ label: '事業内容', href: '/services' }, { label: 'M&A・事�
   <div class="container">
     ${sectionTitle('SUBSIDY', '経営改善支援')}
     <div class="concept-block">
-      <p class="section-lead">事業承継に関連する融資相談、各種補助金（事業承継補助金、経営革新計画等）の申請支援も専門部門で対応しています。採択率を高める事業計画策定から申請書作成までトータルでサポートします。</p>
+      <p class="section-lead">事業承継に関連する経営改善支援・資金繰り改善・事業計画策定を専門部門で対応しています。財務分析から経営戦略立案までトータルでサポートします。</p>
     </div>
   </div>
 </section>
