@@ -19,6 +19,13 @@ export const topPage = (c: Context) => {
 <canvas class="c-background-noise c-background-noise--fixed"></canvas>
 
 <article>
+  <!-- Summer Holiday Banner -->
+  <div class="summer-holiday-banner" style="background:#116DC9;color:#FFFFFF;text-align:center;padding:14px 20px;font-size:14px;line-height:1.6;position:relative;z-index:100;">
+    <strong style="font-size:15px;">夏季休暇のお知らせ</strong><br>
+    <span>誠に勝手ながら、2025年8月13日（水）〜 8月17日（日）まで夏季休暇とさせていただきます。</span><br>
+    <span style="font-size:12px;opacity:.85;">休暇期間中のお問い合わせは、8月18日（月）以降に順次ご対応いたします。</span>
+  </div>
+
   <!-- ========================================
        SECTION: MAIN / HERO (full viewport)
        ======================================== -->
@@ -232,12 +239,12 @@ export const topPage = (c: Context) => {
             <span class="p-result-label">総売上</span>
           </div>
           <div class="p-result-card">
-            <strong class="p-result-num" data-target="889">0</strong>
+            <strong class="p-result-num" data-target="289">0</strong>
             <span class="p-result-unit">件+</span>
             <span class="p-result-label">グループ総取引</span>
           </div>
           <div class="p-result-card">
-            <strong class="p-result-num" data-target="286">0</strong>
+            <strong class="p-result-num" data-target="86">0</strong>
             <span class="p-result-unit">社+</span>
             <span class="p-result-label">取引先企業</span>
           </div>

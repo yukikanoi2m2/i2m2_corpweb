@@ -13,7 +13,7 @@ ${breadcrumb([{ label: '事業内容', href: '/services' }, { label: 'M&A・事�
       <p class="lp-hero-desc">M&A仲介・事業承継・事業再生/再建・事業ファンド。<br>医療・介護・福祉はもちろん、美容、IT、飲食など業種を問わず対応します。</p>
       <div class="lp-hero-stats">
         <div class="lp-stat"><strong>36億円+</strong><span>累計取扱高</span></div>
-        <div class="lp-stat"><strong>889件+</strong><span>グループ総取引</span></div>
+        <div class="lp-stat"><strong>289件+</strong><span>グループ総取引</span></div>
         <div class="lp-stat"><strong>全業種</strong><span>対応範囲</span></div>
       </div>
       <a href="/contact" class="btn btn-primary btn-lg">M&A無料相談</a>

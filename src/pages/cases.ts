@@ -20,11 +20,11 @@ ${breadcrumb([{ label: '実績' }])}
         <span>総売上</span>
       </div>
       <div class="result-num-item">
-        <strong>889<span>件+</span></strong>
+        <strong>289<span>件+</span></strong>
         <span>グループ総取引</span>
       </div>
       <div class="result-num-item">
-        <strong>286<span>社+</span></strong>
+        <strong>86<span>社+</span></strong>
         <span>取引先企業</span>
       </div>
       <div class="result-num-item">
@@ -74,5 +74,5 @@ ${breadcrumb([{ label: '実績' }])}
 </section>
 
 ${ctaSection({ title: '地域医療の課題、まずご相談ください。' })}
-`, { description: '累計取扱高36億円以上・グループ総取引889件。医療M&A・クリニックマーケ・人材マッチング・医療DXの支援実績。' }))
+`, { description: '累計取扱高36億円以上・グループ総取引289件。医療M&A・クリニックマーケ・人材マッチング・医療DXの支援実績。' }))
 }

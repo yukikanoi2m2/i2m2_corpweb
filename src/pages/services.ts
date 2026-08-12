@@ -33,7 +33,7 @@ ${breadcrumb([{ label: '事業内容' }])}
           <div class="services-brand-card__logo">MedReach™ <span>by i2m2</span></div>
           <h3 class="services-brand-card__title">医療マーケティング・広告運用</h3>
           <p class="services-brand-card__desc">
-            クリニック・病院の集患を最大化するデジタルマーケティング。リスティング広告、MEO対策、SNS運用、LP制作まで一気通貫で支援します。累計広告運用額36億円+の実績。
+            クリニック・病院の集患を最大化するデジタルマーケティング。リスティング広告、MEO対策、SNS運用、LP制作まで一気通貫で支援します。累計広告運用額3億円+の実績。
           </p>
           <ul class="services-brand-card__tags">
             <li>リスティング広告</li><li>MEO対策</li><li>SNS運用</li><li>LP制作</li><li>SEO</li>

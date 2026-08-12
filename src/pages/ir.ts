@@ -40,7 +40,7 @@ ${breadcrumb([{ label: '企業情報' }])}
           グループ総売上 36億円突破（2026年6月時点）<br>
           グループ社員 641名<br>
           複数クリニック・美容サロン経営<br>
-          広告運用額 36億円以上
+          広告運用額 3億円以上
         </td></tr>
       </table>
     </div>
@@ -60,7 +60,7 @@ ${breadcrumb([{ label: '企業情報' }])}
       <div class="additional-item">
         <div class="additional-icon"><i class="fas fa-chart-bar"></i></div>
         <h4>豊富な支援実績</h4>
-        <p>グループ総取引889件・累計取扱高36億円以上の実績を持ちます。医療・介護・美容など幅広い業種のお客様とお取引しています。</p>
+        <p>グループ総取引289件・累計取扱高36億円以上の実績を持ちます。医療・介護・美容など幅広い業種のお客様とお取引しています。</p>
       </div>
       <div class="additional-item">
         <div class="additional-icon"><i class="fas fa-handshake"></i></div>
