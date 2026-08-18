@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Static-export build artifacts (`out/` copied to `dist/` for Cloudflare
+    // Pages) — bundled output, never linted.
+    "dist/**",
   ]),
   {
     rules: {

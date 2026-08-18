@@ -1,0 +1,11 @@
+{
+  // Cloudflare Pages config for the i2m2 corporate site.
+  //
+  // The site is a Next.js **static export** (`output: "export"`), so there is
+  // no server runtime, no adapter and no D1/KV binding to wire up — Pages just
+  // serves the pre-rendered files. `npm run build` writes them to `dist`.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "i2m2corpweb",
+  "compatibility_date": "2026-08-18",
+  "pages_build_output_dir": "./dist"
+}

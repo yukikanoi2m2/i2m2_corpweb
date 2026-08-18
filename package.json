@@ -1,11 +1,11 @@
 {
-  "name": "next16-claude-starter",
+  "name": "i2m2-corpweb",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "next build && rm -rf dist && cp -r out dist",
+    "preview": "npx serve dist -l 3000",
     "lint": "eslint"
   },
   "dependencies": {
