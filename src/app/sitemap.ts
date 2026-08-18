@@ -2,17 +2,30 @@ import type { MetadataRoute } from "next";
 
 import { siteConfig } from "@/lib/site";
 
+/** Public routes, in navigation order. `""` is the home route. */
+const ROUTES = [
+  "",
+  "/services",
+  "/company",
+  "/careers",
+  "/contact",
+  "/privacy-policy",
+] as const;
+
 /**
- * Generates `/sitemap.xml`. Currently lists only the home route — add an entry
- * per public route as the site grows (ideally derived from a routes manifest).
+ * Generates `/sitemap.xml` — one entry per public route. The home page carries
+ * the highest priority; the rest sit just below it.
  */
+// Emitted as a static file at build time (required by `output: "export"`).
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: siteConfig.url,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 1,
-    },
-  ];
+  const lastModified = new Date();
+
+  return ROUTES.map((route) => ({
+    url: `${siteConfig.url}${route}`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: route === "" ? 1 : 0.8,
+  }));
 }
