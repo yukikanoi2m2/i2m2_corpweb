@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { animated, useSpring, useTransition } from "@react-spring/web";
+import { animated, easings, useSpring, useTransition } from "@react-spring/web";
 
 import { useScroll } from "@/hooks/smooth-scroll/use-scroll";
 
@@ -87,18 +87,34 @@ export const CookiePreferencesModal = () => {
   const handleSave = () => savePreferences({ analytics, marketing });
 
   // Spring-driven mount/unmount for backdrop + panel.
+  //
+  // `leave` is duration-based for the same reason as the banner: react-spring
+  // only unmounts once the animation rests, and a tension/friction spring needs
+  // several frames to do so. With the canvas starving the shared rAF loop that
+  // became seconds during which the dialog — and its full-screen backdrop,
+  // which swallows taps — was still in the DOM. See CookieBanner.
   const transitions = useTransition(open, {
     from: { opacity: 0, scale: 0.94 },
     enter: { opacity: 1, scale: 1 },
     leave: { opacity: 0, scale: 0.94 },
-    config: { tension: 320, friction: 32 },
+    config: (_item, _index, phase) =>
+      phase === "leave"
+        ? { duration: 64, easing: easings.easeOutQuad, clamp: true }
+        : { tension: 320, friction: 32 },
   });
 
   return transitions((style, isOpen) =>
     isOpen ? (
       <animated.div
         className="fixed inset-0 z-[100] font-sans"
-        style={{ opacity: style.opacity }}
+        style={{
+          opacity: style.opacity,
+          // This is a full-screen overlay and react-spring keeps it mounted
+          // until the leave animation rests, which on a starved rAF loop trails
+          // the fade. Without this, a faded-out dialog still swallowed every tap
+          // on the page. See CookieBanner.
+          pointerEvents: style.opacity.to((v) => (v < 0.99 ? "none" : "auto")),
+        }}
       >
         <div
           aria-hidden
