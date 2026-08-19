@@ -6,7 +6,7 @@ import { StatCard } from "@/components/ui/stat-card";
 import type { StatCardContent } from "@/data/mocks/home";
 import { useLoop } from "@/hooks/animation/use-render-loop";
 
-import { experienceProgress } from "./experience";
+import { experienceProgress, PHASE } from "./experience";
 
 /**
  * The three statistic cards that orbit the DNA helix between scroll 0.15–0.38.
@@ -38,15 +38,22 @@ export const DnaCards = ({ cards }: DnaCardsProps) => {
 
       const cs = experienceProgress.current;
 
+      // Read the windows from PHASE rather than repeating literals — these used
+      // to be hard-coded and silently drifted out of sync with the store, which
+      // is how the cards ended up invisible during part of their own phase.
+      const { in: dnaIn, full, fadeStart, out } = PHASE.dna;
+
       let dnaOpacity = 0;
-      if (cs > 0.15 && cs < 0.38) {
-        dnaOpacity = Math.min((cs - 0.15) / 0.03, 1);
-        if (cs > 0.35) dnaOpacity = Math.max(1 - (cs - 0.35) / 0.03, 0);
+      if (cs > dnaIn && cs < out) {
+        dnaOpacity = Math.min((cs - dnaIn) / (full - dnaIn), 1);
+        if (cs > fadeStart) {
+          dnaOpacity = Math.max(1 - (cs - fadeStart) / (out - fadeStart), 0);
+        }
       }
       container.style.opacity = `${dnaOpacity}`;
       if (dnaOpacity <= 0) return;
 
-      const dnaProgress = (cs - 0.15) / 0.23;
+      const dnaProgress = (cs - dnaIn) / (out - dnaIn);
       const globalYOffset = 600 - dnaProgress * 1200;
       const baseAngle = dnaProgress * Math.PI * 2;
       const cx = window.innerWidth / 2;

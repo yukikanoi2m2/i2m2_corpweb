@@ -18,11 +18,28 @@ export const experienceProgress = { current: 0 };
 
 export type SectionState = "before" | "visible" | "after";
 
-/** Scroll-progress windows for each overlay, ported from script.js. */
+/**
+ * Scroll-progress windows for each overlay.
+ *
+ * Ported from script.js, then widened so no stretch of the scroll is blank.
+ * The source windows left long gaps between overlays (hero ended at 0.02, the
+ * cards only arrived at 0.15) which read as a **black screen** on phones: the
+ * page scrolls ~11,000px, so 0.02 is only ~220px — less than one swipe — and
+ * the next 1,400px had no content at all. Each overlay now hands over to the
+ * next, so there is always something on screen.
+ *
+ * `leave`/`in` boundaries are intentionally adjacent (hero.leave === dna.in)
+ * because `Reveal` cross-fades over 1.2s, so the outgoing and incoming
+ * overlays overlap rather than cut.
+ */
 export const PHASE = {
-  hero: { leave: 0.02 },
-  dna: { in: 0.15, full: 0.18, fadeStart: 0.35, out: 0.38, spanEnd: 0.38 },
-  wave: { in: 0.48, out: 0.62 },
+  hero: { leave: 0.1 },
+  dna: { in: 0.1, full: 0.16, fadeStart: 0.34, out: 0.4, spanEnd: 0.4 },
+  // Held until the big-bang flash (0.90) so the fly-through never plays over an
+  // empty screen — this was the longest blank stretch in the source windows.
+  wave: { in: 0.4, out: 0.89 },
+  // Matches the camera's galaxy pull-back in particle-canvas (0.93), so the
+  // caption arrives with the wide shot rather than over the fly-through.
   galaxy: { in: 0.93 },
 } as const;
 

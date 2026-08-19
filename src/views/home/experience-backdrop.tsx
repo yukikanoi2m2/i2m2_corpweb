@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { CanvasErrorBoundary } from "./canvas-error-boundary";
 import { ParticleCanvas } from "./particle-canvas";
@@ -8,31 +8,67 @@ import { StaticBackdrop } from "./static-backdrop";
 
 /**
  * Chooses the page backdrop: the WebGL particle scene when the device can run
- * it, the static gradient when it cannot.
+ * it, the static gradient when it cannot (or not yet).
  *
- * Two independent failure paths converge here, because a decorative backdrop
- * must never be able to take the route down:
+ * Three independent paths converge here, because a decorative backdrop must
+ * never be able to hide the page's content:
  *  1. `onFailure` — no WebGL2 context, a throwing setup, or a lost context.
  *     Reported by the canvas itself from inside its effect.
  *  2. `CanvasErrorBoundary` — anything thrown during render, which an effect's
  *     `try/catch` cannot see.
+ *  3. Deferred mount on phones — see below.
  *
- * `ParticleCanvas` renders on the first client pass regardless, so capable
- * devices get the full experience with no probe-then-mount delay; the swap only
- * happens on the devices that actually fail.
+ * Either way `StaticBackdrop` is on screen, so the backdrop is never a bare
+ * black rectangle while we wait.
  */
+
+/** Phone-sized viewport; matches the canvas's own render-budget breakpoint. */
+const isMobileViewport = () => window.innerWidth < 640;
+
+/**
+ * How long the phone backdrop waits before building the WebGL scene.
+ *
+ * Compiling the shaders and uploading the point cloud is a single long,
+ * synchronous block of main-thread work, and it lands in exactly the window
+ * where the hero's entrance springs need frames. When it won that race the
+ * result was the reported bug: a black page with only the static header logo
+ * visible, because every animated element was still near opacity 0 — measured
+ * at 0.054 six seconds after load, with the page managing 1 animation frame per
+ * second. Waiting until the reveal has finished (`Reveal` runs for 1.2s) means
+ * the text is painted and readable *before* the GPU work starts. Desktop mounts
+ * immediately — it has the headroom, and this preserves the original timing.
+ */
+const CANVAS_DEFER_MS = 1500;
+
 export const ExperienceBackdrop = () => {
   const [failed, setFailed] = useState(false);
+  // Rendered on the server and on the first client pass, so the markup is
+  // identical either way; the effect below decides when the canvas may mount.
+  const [canMount, setCanMount] = useState(false);
 
   // Stable identity — `ParticleCanvas` keeps it in a ref, but this also avoids
   // handing it a new function on every re-render.
   const handleFailure = useCallback(() => setFailed(true), []);
 
-  if (failed) return <StaticBackdrop />;
+  useEffect(() => {
+    if (!isMobileViewport()) {
+      setCanMount(true);
+      return;
+    }
+    const id = window.setTimeout(() => setCanMount(true), CANVAS_DEFER_MS);
+    return () => window.clearTimeout(id);
+  }, []);
+
+  if (failed || !canMount) return <StaticBackdrop />;
 
   return (
-    <CanvasErrorBoundary fallback={<StaticBackdrop />}>
-      <ParticleCanvas onFailure={handleFailure} />
-    </CanvasErrorBoundary>
+    <>
+      {/* Stays underneath the canvas: the gradient covers the first frames
+          while the scene warms up, and the canvas paints black over it. */}
+      <StaticBackdrop />
+      <CanvasErrorBoundary fallback={null}>
+        <ParticleCanvas onFailure={handleFailure} />
+      </CanvasErrorBoundary>
+    </>
   );
 };
