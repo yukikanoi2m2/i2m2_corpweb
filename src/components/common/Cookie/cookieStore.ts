@@ -58,7 +58,10 @@ export const useCookieStore = create<CookieStore>((set) => ({
   modalOpen: false,
   hydrate: () => set({ consent: loadConsent(), hydrated: true }),
   acceptAll: () => {
-    const next: CookieConsent = { necessary: true, analytics: false, marketing: false };
+    // "すべて許可" must opt the user *in* to every optional category. It
+    // previously saved `false/false`, making it behave identically to
+    // `rejectAll` — the banner dismissed, but no consent was ever granted.
+    const next: CookieConsent = { necessary: true, analytics: true, marketing: true };
     saveConsent(next);
     set({ consent: next, modalOpen: false });
   },
