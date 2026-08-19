@@ -47,3 +47,6 @@ next-env.d.ts
 # local verification artifacts
 /.shots
 /.upload
+
+# Crash dumps
+core

@@ -1,10 +1,29 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useCallback, useEffect, useState } from "react";
 
 import { CanvasErrorBoundary } from "./canvas-error-boundary";
-import { ParticleCanvas } from "./particle-canvas";
 import { StaticBackdrop } from "./static-backdrop";
+
+/**
+ * Loaded on demand so `three` is not part of the initial bundle.
+ *
+ * This is the fix for the reported black screen, and it is why deferring the
+ * *mount* alone was not enough: a static `import` put three's 556 KB into a
+ * `<script>` tag in the document head, so the phone had to download, parse and
+ * execute all of it **before** React could hydrate — and the hero text is
+ * invisible until hydration runs its entrance springs. The delay was therefore
+ * unavoidable no matter when the component mounted. As a separate chunk it is
+ * fetched after hydration instead, so the text paints first.
+ *
+ * `ssr: false` because the canvas is client-only anyway (it touches `window`
+ * and WebGL), matching how the Cookie banner is loaded.
+ */
+const ParticleCanvas = dynamic(
+  () => import("./particle-canvas").then((m) => m.ParticleCanvas),
+  { ssr: false },
+);
 
 /**
  * Chooses the page backdrop: the WebGL particle scene when the device can run
