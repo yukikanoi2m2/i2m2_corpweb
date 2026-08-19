@@ -32,9 +32,15 @@ export const HomeView = () => {
       <WaveSection content={homeContent.wave} />
       <GalaxySection content={homeContent.galaxy} />
 
-      {/* Scroll driver — 14 screens of height produce the 0→1 progress that
-          morphs the particles and reveals each overlay (source body 1400vh). */}
-      <div aria-hidden="true" className="h-[1400vh]" />
+      {/* Scroll driver — screens of height produce the 0→1 progress that morphs
+          the particles and reveals each overlay.
+
+          Desktop keeps the source's 1400vh. Phones use 800vh: `vh` is already
+          relative to the viewport, but a phone's is ~840px tall and scrolls with
+          the thumb, so 1400vh meant ~11,000px and roughly 14 full swipes to
+          reach the end — every phase felt endless and empty. 800vh keeps the
+          same choreography at a length that reads as deliberate on a phone. */}
+      <div aria-hidden="true" className="h-[800vh] sm:h-[1400vh]" />
     </main>
   );
 };

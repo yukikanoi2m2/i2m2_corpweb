@@ -35,6 +35,33 @@ const isWebGL2Available = () => {
 const isMobileViewport = () => window.innerWidth < 640;
 
 /**
+ * Per-device render budget.
+ *
+ * The desktop numbers are the source's. The phone numbers exist because the
+ * full-fat scene starves the main thread: measured on iOS Safari (390×844,
+ * DPR 3) the page ran at **1.2 rAF/s**, so react-spring — which shares that
+ * same rAF — needed ~18s to finish a 1.2s fade. The visible result was a black
+ * page with only the static header logo, i.e. every animated overlay still at
+ * opacity ~0.05. Cutting fill rate and vertex count is therefore not a
+ * cosmetic optimisation, it is what makes the *text* appear at all.
+ *
+ * What each knob costs on a phone:
+ *  - `dpr`: pixels are quadratic. DPR 3 on a 390×844 CSS viewport is 1170×2532
+ *    = 3.0M pixels, and bloom resamples that 5 times over. DPR 1.25 → 0.51M.
+ *  - `segments`: `SphereGeometry(4.2, 200, 600)` is 120,801 vertices, each
+ *    running the morph vertex shader every frame. 64×96 keeps the moiré-ring
+ *    look (the rings come from latitude banding, which survives the reduction)
+ *    at 6,305 vertices.
+ *  - `bloom`: `UnrealBloomPass` is 5 downsample + 5 upsample full-screen
+ *    passes. Dropping it is the single largest saving; the particle shader is
+ *    additive so the glow is only softened, not lost.
+ */
+const BUDGET = {
+  desktop: { dpr: 2, antialias: true, segments: [200, 600], bloom: true },
+  mobile: { dpr: 1.25, antialias: false, segments: [64, 96], bloom: false },
+} as const;
+
+/**
  * The fixed WebGL backdrop: an aurora shader + the scroll-driven particle morph
  * + UnrealBloom, ported from script.js.
  *
@@ -97,14 +124,20 @@ export const ParticleCanvas = ({ onFailure }: ParticleCanvasProps) => {
     );
     camera.position.z = 8;
 
-    // Phones render the same scene, but a 120k-point cloud through a
-    // full-screen bloom at DPR 2 is a lot of fill for a mobile GPU. MSAA off
-    // and DPR capped at 1.5 cuts that cost with no change to the composition
-    // (additive points + bloom hide the aliasing anyway).
-    const mobile = isMobileViewport();
-    renderer = new THREE.WebGLRenderer({ antialias: !mobile, alpha: true });
+    // Same scene and same choreography on every device; only the render budget
+    // differs (see BUDGET — the phone settings are what keep the main thread
+    // free enough for the overlay springs to run).
+    const budget = isMobileViewport() ? BUDGET.mobile : BUDGET.desktop;
+    renderer = new THREE.WebGLRenderer({
+      antialias: budget.antialias,
+      alpha: true,
+      // The scene is drawn every frame and never read back, so the browser
+      // doesn't need to keep the last frame around.
+      preserveDrawingBuffer: false,
+      powerPreference: "high-performance",
+    });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, mobile ? 1.5 : 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, budget.dpr));
     renderer.autoClear = false;
     container.appendChild(renderer.domElement);
 
@@ -138,7 +171,13 @@ export const ParticleCanvas = ({ onFailure }: ParticleCanvasProps) => {
     bgScene.add(bgQuad);
 
     // Dense SphereGeometry rendered as Points — the moiré rings come for free.
-    const geometry = new THREE.SphereGeometry(4.2, 200, 600);
+    // Segment counts come from the render budget: the rings are produced by
+    // latitude banding, so a coarser sphere keeps the look on phones.
+    const geometry = new THREE.SphereGeometry(
+      4.2,
+      budget.segments[0],
+      budget.segments[1],
+    );
     const material = new THREE.ShaderMaterial({
       uniforms: {
         uTime: { value: 0 },
@@ -158,23 +197,33 @@ export const ParticleCanvas = ({ onFailure }: ParticleCanvasProps) => {
     scene.add(particles);
 
     // --- POST-PROCESSING (BLOOM) ---
-    composer = new EffectComposer(renderer);
+    // Bloom means 10 extra full-screen passes plus two half-float render
+    // targets, which is the single largest cost in a phone frame. When the
+    // budget disables it we skip `EffectComposer` altogether rather than
+    // running a composer with no effect pass: a composer would still allocate
+    // its ping-pong targets, and its `RenderPass`es write to an offscreen
+    // buffer that nothing then copies to the canvas (it reassigns
+    // `renderToScreen` itself every frame, so that can't be overridden). The
+    // two scenes are instead drawn straight to the default framebuffer below.
+    if (budget.bloom) {
+      composer = new EffectComposer(renderer);
 
-    const renderBg = new RenderPass(bgScene, bgCamera);
-    composer.addPass(renderBg);
+      const renderBg = new RenderPass(bgScene, bgCamera);
+      composer.addPass(renderBg);
 
-    const renderFg = new RenderPass(scene, camera);
-    renderFg.clear = false;
-    renderFg.clearDepth = true;
-    composer.addPass(renderFg);
+      const renderFg = new RenderPass(scene, camera);
+      renderFg.clear = false;
+      renderFg.clearDepth = true;
+      composer.addPass(renderFg);
 
-    bloomPass = new UnrealBloomPass(
-      new THREE.Vector2(window.innerWidth, window.innerHeight),
-      1.5, // strength
-      0.5, // radius
-      0.05, // threshold
-    );
-    composer.addPass(bloomPass);
+      bloomPass = new UnrealBloomPass(
+        new THREE.Vector2(window.innerWidth, window.innerHeight),
+        1.5, // strength
+        0.5, // radius
+        0.05, // threshold
+      );
+      composer.addPass(bloomPass);
+    }
 
     let time = 0;
 
@@ -194,6 +243,7 @@ export const ParticleCanvas = ({ onFailure }: ParticleCanvasProps) => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer?.setSize(window.innerWidth, window.innerHeight);
+      // Only present on the bloom path; the direct-draw path has no targets.
       composer?.setSize(window.innerWidth, window.innerHeight);
       bgMaterial.uniforms.uResolution.value.set(
         window.innerWidth,
@@ -297,10 +347,28 @@ export const ParticleCanvas = ({ onFailure }: ParticleCanvasProps) => {
       glow.style.transform = `translate(-50%, -50%) scale(${glowScale})`;
       glow.style.opacity = `${1.0 - hideGlow}`;
 
-      composer?.render();
+      if (composer) {
+        composer.render();
+      } else {
+        // No-bloom path: same two-scene composite the RenderPasses would do
+        // (aurora first, particles additively on top with a cleared depth
+        // buffer), drawn straight to the canvas. `autoClear` is off, so the
+        // colour clear is explicit.
+        renderer?.setRenderTarget(null);
+        renderer?.clear();
+        renderer?.render(bgScene, bgCamera);
+        renderer?.clearDepth();
+        renderer?.render(scene, camera);
+      }
     };
 
-    const unsubscribe = subscribeToTicker(render, () => 0);
+    // Phones cap the canvas at ~30fps. The ticker's framerate value is a
+    // minimum interval in ms, and it throttles *this subscriber only* — so the
+    // overlay springs keep every frame the display offers while the expensive
+    // WebGL draw runs half as often. The intro and camera are wall-clock and
+    // scroll driven, so nothing plays at half speed; it just renders at 30fps.
+    const frameInterval = budget.bloom ? 0 : 33;
+    const unsubscribe = subscribeToTicker(render, () => frameInterval);
 
     return () => {
       unsubscribe();
