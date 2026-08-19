@@ -16,27 +16,76 @@ import {
   particleFragmentShader,
   particleVertexShader,
 } from "./shaders/particles";
-import { experienceProgress, useExperiencePhase } from "./experience";
+
+/**
+ * `three` r169 dropped WebGL1 (removed in r163), so a WebGL2 context is a hard
+ * requirement. Probing with a throwaway canvas lets the caller pick a fallback
+ * before any renderer is constructed.
+ */
+const isWebGL2Available = () => {
+  try {
+    const canvas = document.createElement("canvas");
+    return !!canvas.getContext("webgl2");
+  } catch {
+    return false;
+  }
+};
+
+/** Phone-sized viewport — the breakpoint the mobile render budget keys off. */
+const isMobileViewport = () => window.innerWidth < 640;
 
 /**
  * The fixed WebGL backdrop: an aurora shader + the scroll-driven particle morph
  * + UnrealBloom, ported from script.js.
  *
  * Smoothing lives in Lenis (the shared scroll layer), so reading `scrollY` each
- * frame already yields a smoothed value — this is the single source of scroll
- * progress that also feeds the overlay phases, keeping morph and UI locked
- * together. The render loop runs on the shared ticker (the supported extension
- * point for loop-based animation; see animation-system.md).
+ * frame already yields a smoothed value. The render loop runs on the shared
+ * ticker (the supported extension point for loop-based animation; see
+ * animation-system.md).
+ *
+ * Scroll progress for the overlays is published by `ExperienceController`, not
+ * here — the page's text must stay readable even if this canvas never starts.
+ *
+ * Rendering is best-effort: `three` r169 is WebGL2-only, so contexts fail on
+ * older devices, some in-app browsers and GPU-blocked environments. Setup runs
+ * inside a `try/catch` and reports failure through `onFailure` so the caller
+ * can swap in a static backdrop instead of taking the whole route down.
  */
-export const ParticleCanvas = () => {
+export interface ParticleCanvasProps {
+  /** Called if the WebGL2 context or scene setup fails. */
+  onFailure?: () => void;
+}
+
+export const ParticleCanvas = ({ onFailure }: ParticleCanvasProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const glowRef = useRef<HTMLDivElement>(null);
+
+  // Kept in a ref so the setup effect below never re-runs (and never rebuilds
+  // the whole scene) just because the parent re-rendered with a new callback.
+  const onFailureRef = useRef(onFailure);
+  useEffect(() => {
+    onFailureRef.current = onFailure;
+  }, [onFailure]);
 
   useEffect(() => {
     const container = containerRef.current;
     const glow = glowRef.current;
     if (!container || !glow) return;
 
+    // Probe before touching three: a failed `WebGLRenderer` constructor throws,
+    // and on some drivers also emits a lost-context warning we can avoid.
+    if (!isWebGL2Available()) {
+      onFailureRef.current?.();
+      return;
+    }
+
+    // Recorded as they are created so both the catch block and the unmount
+    // cleanup can release the same set.
+    let renderer: THREE.WebGLRenderer | undefined;
+    let composer: EffectComposer | undefined;
+    let bloomPass: UnrealBloomPass | undefined;
+
+    try {
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x000000);
 
@@ -48,11 +97,24 @@ export const ParticleCanvas = () => {
     );
     camera.position.z = 8;
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    // Phones render the same scene, but a 120k-point cloud through a
+    // full-screen bloom at DPR 2 is a lot of fill for a mobile GPU. MSAA off
+    // and DPR capped at 1.5 cuts that cost with no change to the composition
+    // (additive points + bloom hide the aliasing anyway).
+    const mobile = isMobileViewport();
+    renderer = new THREE.WebGLRenderer({ antialias: !mobile, alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, mobile ? 1.5 : 2));
     renderer.autoClear = false;
     container.appendChild(renderer.domElement);
+
+    // Release the frozen canvas and fall back to the static backdrop if the
+    // driver drops the context (backgrounded tab, GPU memory pressure).
+    const handleContextLost = (event: Event) => {
+      event.preventDefault();
+      onFailureRef.current?.();
+    };
+    renderer.domElement.addEventListener("webglcontextlost", handleContextLost);
 
     // --- AURORA BACKGROUND SETUP ---
     const bgScene = new THREE.Scene();
@@ -96,7 +158,7 @@ export const ParticleCanvas = () => {
     scene.add(particles);
 
     // --- POST-PROCESSING (BLOOM) ---
-    const composer = new EffectComposer(renderer);
+    composer = new EffectComposer(renderer);
 
     const renderBg = new RenderPass(bgScene, bgCamera);
     composer.addPass(renderBg);
@@ -106,7 +168,7 @@ export const ParticleCanvas = () => {
     renderFg.clearDepth = true;
     composer.addPass(renderFg);
 
-    const bloomPass = new UnrealBloomPass(
+    bloomPass = new UnrealBloomPass(
       new THREE.Vector2(window.innerWidth, window.innerHeight),
       1.5, // strength
       0.5, // radius
@@ -122,15 +184,25 @@ export const ParticleCanvas = () => {
     const INTRO_MS = 2600;
     let introStart = 0;
 
-    const handleResize = () => {
+    // Mobile browsers fire `resize` on every URL-bar collapse and on each frame
+    // of an orientation change; rebuilding the composer's render targets
+    // synchronously each time is what makes those moments stutter. Coalesce to
+    // one rebuild per frame.
+    let resizeRaf = 0;
+    const applyResize = () => {
+      resizeRaf = 0;
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      composer.setSize(window.innerWidth, window.innerHeight);
+      renderer?.setSize(window.innerWidth, window.innerHeight);
+      composer?.setSize(window.innerWidth, window.innerHeight);
       bgMaterial.uniforms.uResolution.value.set(
         window.innerWidth,
         window.innerHeight,
       );
+    };
+    const handleResize = () => {
+      if (resizeRaf) return;
+      resizeRaf = requestAnimationFrame(applyResize);
     };
     window.addEventListener("resize", handleResize);
 
@@ -225,12 +297,7 @@ export const ParticleCanvas = () => {
       glow.style.transform = `translate(-50%, -50%) scale(${glowScale})`;
       glow.style.opacity = `${1.0 - hideGlow}`;
 
-      // Publish progress for overlays (module value for per-frame card motion,
-      // store for phase-boundary re-renders).
-      experienceProgress.current = currentScroll;
-      useExperiencePhase.getState().sync(currentScroll);
-
-      composer.render();
+      composer?.render();
     };
 
     const unsubscribe = subscribeToTicker(render, () => 0);
@@ -238,15 +305,31 @@ export const ParticleCanvas = () => {
     return () => {
       unsubscribe();
       window.removeEventListener("resize", handleResize);
-      renderer.domElement.remove();
+      if (resizeRaf) cancelAnimationFrame(resizeRaf);
+      renderer?.domElement.removeEventListener(
+        "webglcontextlost",
+        handleContextLost,
+      );
+      renderer?.domElement.remove();
       geometry.dispose();
       material.dispose();
       bgGeometry.dispose();
       bgMaterial.dispose();
-      bloomPass.dispose();
-      composer.dispose();
-      renderer.dispose();
+      bloomPass?.dispose();
+      composer?.dispose();
+      renderer?.dispose();
     };
+    } catch (error) {
+      // Shader compile failures, OOM on the dense geometry, driver quirks —
+      // none of them should escalate into a route-level error boundary.
+      console.error("ParticleCanvas: WebGL setup failed", error);
+      bloomPass?.dispose();
+      composer?.dispose();
+      renderer?.domElement.remove();
+      renderer?.dispose();
+      onFailureRef.current?.();
+      return;
+    }
   }, []);
 
   return (
