@@ -36,13 +36,19 @@ export const CookieBanner = () => {
           opacity: style.opacity,
           transform: style.y.to((v) => `translateY(${v}px)`),
         }}
-        className="fixed bottom-4 left-4 right-4 z-50 flex flex-col gap-3 rounded-xl border border-foreground/10 bg-background/95 p-5 font-sans text-foreground shadow-2xl backdrop-blur-xl sm:bottom-12 sm:left-auto sm:right-12 sm:w-[420px] sm:p-6"
+        className="fixed bottom-4 left-4 right-4 z-50 flex flex-col gap-2 rounded-xl border border-foreground/10 bg-background/95 p-4 font-sans text-foreground shadow-2xl backdrop-blur-xl sm:bottom-12 sm:left-auto sm:right-12 sm:w-[420px] sm:gap-3 sm:p-6"
       >
         <h2 className="text-base font-medium leading-snug sm:text-lg">
           このウェブサイトはCookieを使用しています
         </h2>
         <p className="text-sm leading-relaxed text-foreground/70">
-          サイトの正常な動作、利用状況の把握、今後の改善のためにCookieを使用しています。すべて許可、不要なものを拒否、またはカテゴリごとに選択できます。{" "}
+          サイトの正常な動作、利用状況の把握、今後の改善のためにCookieを使用しています。
+          {/* The category explainer is redundant next to the three buttons and
+              costs ~2 lines — a large share of a phone viewport. Shown from
+              `sm` up, where the banner is a fixed 420px card with room. */}
+          <span className="hidden sm:inline">
+            すべて許可、不要なものを拒否、またはカテゴリごとに選択できます。
+          </span>{" "}
           <Link
             href="/privacy-policy"
             target="_blank"
