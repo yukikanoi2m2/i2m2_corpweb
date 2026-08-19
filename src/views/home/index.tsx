@@ -1,9 +1,10 @@
 import { homeContent } from "@/data/mocks/home";
 
 import { DnaCards } from "./dna-cards";
+import { ExperienceBackdrop } from "./experience-backdrop";
+import { ExperienceController } from "./experience-controller";
 import { GalaxySection } from "./galaxy-section";
 import { HeroSection } from "./hero-section";
-import { ParticleCanvas } from "./particle-canvas";
 import { WaveSection } from "./wave-section";
 
 /**
@@ -14,11 +15,17 @@ import { WaveSection } from "./wave-section";
  * One single experience for every device — no desktop/mobile split. Phones get
  * exactly the same WebGL particle morph, overlays and scroll choreography as
  * desktop (source index.html had no separate mobile page either).
+ *
+ * The backdrop and the scroll state are deliberately separate components: the
+ * overlays reveal off scroll progress, so `ExperienceController` must keep
+ * publishing it even on devices where the WebGL backdrop falls back to a static
+ * gradient — otherwise the copy would stay stuck at `opacity: 0`.
  */
 export const HomeView = () => {
   return (
     <main>
-      <ParticleCanvas />
+      <ExperienceController />
+      <ExperienceBackdrop />
 
       <HeroSection content={homeContent.hero} />
       <DnaCards cards={homeContent.cards} />
