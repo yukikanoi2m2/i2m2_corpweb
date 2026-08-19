@@ -1,7 +1,7 @@
 "use client";
 
 import { animated, easings, useSpring } from "@react-spring/web";
-import type { ElementType } from "react";
+import { useEffect, useState, type ElementType } from "react";
 
 import type { Tags } from "@/types/springs";
 import type { SectionState } from "./experience";
@@ -38,6 +38,11 @@ export const Reveal = ({
   enterAnimated = true,
   children,
 }: RevealProps) => {
+  // Whether hydration has happened. Starts false so the server markup and the
+  // first client render agree, then flips in an effect.
+  const [hydrated, setHydrated] = useState(false);
+  useEffect(() => setHydrated(true), []);
+
   const target =
     state === "visible"
       ? VISIBLE
@@ -46,7 +51,18 @@ export const Reveal = ({
         : HIDDEN_BELOW;
 
   const styles = useSpring({
-    from: enterAnimated ? HIDDEN_BELOW : VISIBLE,
+    // Before hydration the entrance spring's `from` (opacity 0) is what gets
+    // serialised into the HTML, which meant the hero text was invisible until
+    // React had downloaded, parsed and hydrated — on a phone that read as a
+    // black page with only the static header logo showing.
+    //
+    // Falling back to `target` (not a fixed "visible") is what makes that safe:
+    // every overlay is `fixed inset-0`, so they are all stacked on top of each
+    // other. Starting them all visible would paint the hero, wave and galaxy
+    // copy over one another until hydration. `target` is each overlay's own
+    // resting state for the current phase, so the server HTML shows exactly
+    // what this scroll position should show — the hero, and nothing else.
+    from: enterAnimated && hydrated ? HIDDEN_BELOW : target,
     to: target,
     delay,
     config: REVEAL_CONFIG,
