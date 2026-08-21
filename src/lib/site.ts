@@ -7,8 +7,15 @@
 import { publicEnv } from "@/env";
 
 export const siteConfig = {
-  name: "株式会社イズムズ｜コーポレートサイト",
-  description: "株式会社イズムズ（i2m2）は医療マーケティング・人材・M&A・DXをワンストップで提供するヘルスケア特化の総合支援会社。創業1年2ヶ月でグループ社員641名・総売上36億円を達成。",
+  /**
+   * Legal entity name. Used as the OG `siteName` and as the JSON-LD
+   * Organization name — so it stays the plain company name, without the
+   * marketing suffix that belongs in `title`.
+   */
+  name: "株式会社イズムズ（i2m2）",
+  /** Default `<title>` — leads with the two core businesses. */
+  title: "株式会社イズムズ（i2m2）｜カルテ電子化・医療M&A",
+  description: "株式会社イズムズ（i2m2）は、医療機関の紙カルテ電子化・医療DXと、医療M&A・事業承継を中核とする事業会社です。医療の「情報」と「事業」を、次の世代へつなぎます。",
   /**
    * Public origin, no trailing slash. Drives canonical URLs, OG tags, the
    * sitemap, and JSON-LD. Set `NEXT_PUBLIC_SITE_URL` in production.

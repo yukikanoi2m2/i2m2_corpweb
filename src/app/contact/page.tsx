@@ -33,11 +33,17 @@ export default function ContactPage() {
         className="max-w-2xl text-center"
       >
         <Eyebrow>CONTACT</Eyebrow>
-        <h1 className="mt-10 font-display text-display-sm font-light leading-title tracking-title text-foreground">
+        {/* Kept to a noun, matching the other page headers (事業内容 / 会社概要 /
+            採用情報). The two-purpose framing lives in the lead below: at
+            `text-display-sm` a full sentence wrapped to four lines and left the
+            closing 。 orphaned on its own line. */}
+        <h1 className="mt-10 text-balance-ja font-display text-display-sm font-light leading-title tracking-title text-foreground">
           お問い合わせ
         </h1>
-        <p className="mt-5 text-lead font-light leading-[1.8] tracking-wide text-muted">
-          事業に関するご相談・お見積もり・取材など、お気軽にお問い合わせください。
+        <p className="mt-6 text-lead font-light leading-[1.8] tracking-wide text-muted">
+          カルテ電子化・医療DXのご相談、医療M&A・事業承継のご相談は、
+          <br className="max-sm:hidden" />
+          いずれも下記のフォームから承ります。
         </p>
       </animated.section>
 

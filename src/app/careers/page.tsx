@@ -6,34 +6,28 @@ import { useEffect, useState } from "react";
 import { AnimatedGradientBorder } from "@/components/ui/animated-gradient-border";
 import { Eyebrow } from "@/components/ui/eyebrow";
 
+/** Roles for the two core businesses only. */
 const POSITIONS = [
   {
-    title: "マーケティングコンサルタント",
-    department: "マーケティング事業部",
+    title: "M&Aアドバイザー",
+    department: "医療M&A・事業承継事業部",
     type: "正社員",
     description:
-      "医療機関向けデジタルマーケティングの企画・運用。広告運用経験者歓迎。",
+      "医療法人・クリニック・介護事業者の承継案件を担当。金融業界経験者歓迎。",
   },
   {
-    title: "M&Aアドバイザー",
-    department: "M&A事業部",
+    title: "医療DXコンサルタント",
+    department: "カルテ電子化・医療DX事業部",
     type: "正社員",
     description:
-      "医療・介護領域のM&A案件を担当。金融業界経験者歓迎。",
+      "医療機関の紙カルテ電子化の提案から導入まで。医療機関向け提案経験者歓迎。",
   },
   {
     title: "DXエンジニア",
-    department: "DX事業部",
+    department: "カルテ電子化・医療DX事業部",
     type: "正社員 / 業務委託",
     description:
-      "医療系システムの開発。Python/TypeScript経験者歓迎。",
-  },
-  {
-    title: "キャリアアドバイザー",
-    department: "人材事業部",
-    type: "正社員",
-    description:
-      "医療系人材のキャリアカウンセリング・マッチング業務。",
+      "カルテ電子化を支える基盤・AI-OCR周辺の開発。Python/TypeScript経験者歓迎。",
   },
 ];
 
@@ -47,8 +41,8 @@ const VALUES = [
     description: "創業1年2ヶ月で641名を超える組織に。変化を恐れず、素早く実行します。",
   },
   {
-    title: "地域への貢献",
-    description: "医療を起点に地域社会の価値を高める。ひとりひとりの仕事が社会に繋がります。",
+    title: "医療を次の世代へ",
+    description: "医療の情報と事業を引き継ぐ。ひとりひとりの仕事が医療の継続に繋がります。",
   },
 ];
 
@@ -88,11 +82,11 @@ export default function CareersPage() {
         className="mx-auto max-w-4xl px-5 text-center sm:px-6"
       >
         <Eyebrow>CAREERS</Eyebrow>
-        <h1 className="mt-10 font-display text-display-sm font-light leading-title tracking-title text-foreground">
+        <h1 className="mt-10 text-balance-ja font-display text-display-sm font-light leading-title tracking-title text-foreground">
           採用情報
         </h1>
         <p className="mt-5 text-lead font-light leading-[1.8] tracking-wide text-muted">
-          医療を起点に、地域の未来をつくる仲間を募集しています。
+          医療の情報と事業を、次の世代へつなぐ仲間を募集しています。
         </p>
       </animated.section>
 
@@ -124,7 +118,7 @@ export default function CareersPage() {
 
       {/* Open positions */}
       <section className="mx-auto mt-20 max-w-5xl px-5 sm:mt-28 sm:px-6">
-        <h2 className="mb-10 text-center font-display text-display-sm font-light leading-title tracking-title text-foreground">
+        <h2 className="mb-10 text-center text-balance-ja font-display text-display-sm font-light leading-title tracking-title text-foreground">
           募集職種
         </h2>
         <div className="flex flex-col gap-5 sm:gap-6">
@@ -165,8 +159,13 @@ export default function CareersPage() {
 
       {/* CTA */}
       <section className="mx-auto mt-20 max-w-3xl px-5 text-center sm:mt-28 sm:px-6">
-        <h2 className="font-display text-display-sm font-light leading-title tracking-title text-foreground">
-          一緒に、地域の未来をつくりませんか。
+        <h2 className="text-balance-ja font-display text-display-sm font-light leading-title tracking-title text-foreground">
+          {/* Kept short on purpose: at `text-display-sm` the longer
+              「…つくりませんか。」 wrapped so that only the closing 「んか。」 fell
+              to a third line, on both PC and mobile widths. */}
+          一緒に、
+          <br className="max-sm:hidden" />
+          医療の未来をつくる。
         </h2>
         <p className="mt-4 text-lead font-light leading-[1.8] tracking-wide text-muted">
           ご応募・カジュアル面談のご希望は、お問い合わせフォームよりご連絡ください。

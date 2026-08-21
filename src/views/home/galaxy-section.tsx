@@ -18,7 +18,7 @@ export const GalaxySection = ({ content }: GalaxySectionProps) => {
 
   return (
     <section
-      aria-label="サービス"
+      aria-label="ブランドストーリー"
       className="pointer-events-none fixed inset-0 z-10 flex flex-col items-center justify-between px-5 py-[15vh] text-center"
     >
       <div className="flex flex-col items-center">
