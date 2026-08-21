@@ -5,13 +5,32 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
+/**
+ * Every entry points at a route that actually exists (`/`, `/services`,
+ * `/company`, `/careers`, `/contact`) — the two core businesses are anchors
+ * into the CORE BUSINESSES blocks on `/services`, not separate pages. There is
+ * deliberately no NEWS item: no such route exists.
+ *
+ * The two Japanese labels sit next to the English structural ones so the core
+ * businesses are legible straight from the header, per the brand direction.
+ */
 const NAV_ITEMS = [
   { href: "/", label: "HOME" },
-  { href: "/services", label: "SERVICES" },
+  { href: "/services#medical-digitalization", label: "カルテ電子化" },
+  { href: "/services#healthcare-ma", label: "M&A・事業承継" },
   { href: "/company", label: "COMPANY" },
-  { href: "/careers", label: "CAREERS" },
+  { href: "/careers", label: "RECRUIT" },
   { href: "/contact", label: "CONTACT" },
 ];
+
+/**
+ * Anchored hrefs (`/services#…`) are intentionally never marked active: both
+ * core-business links share the `/services` path, so a path comparison would
+ * light up two pills at once and read as a bug. Which section you are actually
+ * looking at isn't knowable from `pathname`.
+ */
+const isActive = (href: string, pathname: string) =>
+  !href.includes("#") && href === pathname;
 
 export const SiteHeader = () => {
   const pathname = usePathname();
@@ -59,16 +78,21 @@ export const SiteHeader = () => {
           />
         </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden items-center gap-2 sm:flex">
+        {/* Desktop nav — six items now, so the pills tighten up below `lg`.
+            The nav sits in its own translucent scrim: at scroll 0 the header is
+            transparent and the particle ring behind it peaks at ~250/255
+            luminance, which made white labels unreadable once the two Japanese
+            items widened the bar. A static backdrop (no transition — hard rule
+            #1) keeps them legible over any frame of the animation. */}
+        <nav className="hidden items-center gap-0.5 rounded-full bg-background/65 px-1 py-1 backdrop-blur-lg sm:flex lg:gap-1.5">
           {NAV_ITEMS.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className={`rounded-full px-4 py-2 text-xs font-medium tracking-[0.15em] ${
-                pathname === item.href
-                  ? "bg-foreground/10 text-foreground"
-                  : "text-foreground/60 hover:text-foreground"
+              className={`whitespace-nowrap rounded-full px-2.5 py-1.5 text-xs font-medium tracking-[0.1em] lg:px-3.5 lg:tracking-[0.12em] ${
+                isActive(item.href, pathname)
+                  ? "bg-foreground/15 text-foreground"
+                  : "text-foreground/75 hover:text-foreground"
               }`}
             >
               {item.label}
@@ -119,7 +143,7 @@ export const SiteHeader = () => {
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
                 className={`rounded-xl px-4 py-3.5 text-sm font-medium tracking-[0.1em] touch-manipulation ${
-                  pathname === item.href
+                  isActive(item.href, pathname)
                     ? "bg-foreground/8 text-foreground"
                     : "text-foreground/70 active:bg-foreground/5"
                 }`}

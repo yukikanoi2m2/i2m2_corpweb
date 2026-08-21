@@ -27,7 +27,9 @@ interface MetadataProps {
 }
 
 export function generateMetadata({
-  title = siteConfig.name,
+  // `title` is the marketing headline ("…｜カルテ電子化・医療M&A"); `name` stays
+  // the bare legal entity so OG `siteName` and JSON-LD aren't polluted by it.
+  title = siteConfig.title,
   description = siteConfig.description,
   url = "/",
   ogImage = siteConfig.ogImage,

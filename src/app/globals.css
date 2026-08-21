@@ -125,6 +125,18 @@ body {
 @layer components {
 }
 
+/* Japanese heading line-breaking. CJK has no spaces, so the browser will happily
+   break a compound noun mid-word ("カルテ電子/化・医療DX"). `keep-all` forbids
+   breaking inside a run of CJK characters, leaving the punctuation separators
+   (・, 、, ｜) as the only break opportunities — which is where a Japanese
+   reader expects the line to turn. Applied to headings only; body copy still
+   wraps freely so it doesn't overflow. */
+@utility text-balance-ja {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-break: strict;
+}
+
 /* Accent gradient fill clipped to text — .card-stat / .gradient-text in
    style.css. A genuine CSS exception (background-clip + transparent fill). */
 @utility text-gradient-accent {

@@ -122,7 +122,7 @@ export default function PrivacyPolicyPage() {
         className="mx-auto max-w-4xl px-5 text-center sm:px-6"
       >
         <Eyebrow>PRIVACY POLICY</Eyebrow>
-        <h1 className="mt-10 font-display text-display-sm font-light leading-title tracking-title text-foreground">
+        <h1 className="mt-10 text-balance-ja font-display text-display-sm font-light leading-title tracking-title text-foreground">
           プライバシーポリシー
         </h1>
         <p className="mt-5 text-lead font-light leading-[1.8] tracking-wide text-muted">

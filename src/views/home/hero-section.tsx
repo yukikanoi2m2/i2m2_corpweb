@@ -40,10 +40,43 @@ export const HeroSection = ({ content }: HeroSectionProps) => {
       <Reveal
         state={state}
         tag="p"
-        className="mb-12 max-w-lead text-lead leading-normal text-muted"
+        className="mb-10 max-w-lead text-lead leading-normal text-muted"
       >
         {content.subtitle}
       </Reveal>
+
+      {/* The two core businesses, readable at a glance. Deliberately shares one
+          type treatment across both — the brand direction differentiates them
+          by layout and typography, never by colour. The `×` is decorative, so
+          it's hidden from assistive tech. */}
+      {content.keywords && content.keywords.length > 0 && (
+        <Reveal
+          state={state}
+          delay={120}
+          className="mb-12 flex items-center justify-center gap-5 max-sm:flex-col max-sm:gap-3"
+        >
+          {content.keywords.map((keyword, i) => (
+            <div key={keyword.label} className="flex items-center gap-5 max-sm:gap-3">
+              {i > 0 && (
+                <span
+                  aria-hidden="true"
+                  className="text-lead font-light text-muted/50 max-sm:hidden"
+                >
+                  ×
+                </span>
+              )}
+              <div className="flex flex-col items-center gap-1.5">
+                <span className="text-eyebrow font-medium uppercase tracking-[0.2em] text-gradient-accent">
+                  {keyword.label}
+                </span>
+                <span className="text-kicker font-light tracking-wide text-muted">
+                  {keyword.name}
+                </span>
+              </div>
+            </div>
+          ))}
+        </Reveal>
+      )}
 
       <Reveal
         state={state}
