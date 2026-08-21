@@ -17,7 +17,25 @@ import { experienceProgress, PHASE } from "./experience";
  * not a CSS transition/keyframe, so hard rule #1 holds.
  */
 
-const ANGLE_OFFSETS = [0, (2 * Math.PI) / 3, (4 * Math.PI) / 3];
+/**
+ * Orbit phase per card, chosen so each one peaks at an evenly spaced point
+ * *inside* the container's fully-opaque window.
+ *
+ * A card is brightest when `sin(angle) === 1`, i.e. at
+ * `t = (π/2 − offset) / 2π` of its orbit. The previous even split
+ * (`0, 2π/3, 4π/3`) put those peaks at t = 0.25 / 0.92 / 0.58 — and the
+ * container itself is already fading out from t = 0.8 (scroll 0.34) onward.
+ * Card 2 (「289件+」) therefore peaked at t = 0.92 and could never exceed
+ * **0.417** opacity, while the other two reached a full 1.0. That is why it
+ * read as washed out next to 総売上 / 社員. Its peak also landed at y ≈ 30px,
+ * tucked under the fixed header.
+ *
+ * Ordering the offsets `0, 3π/2, π` moves the peaks to t = 0.25 / 0.50 / 0.75
+ * — equally spaced, all at container opacity 1.0, and all comfortably inside
+ * the viewport (y ≈ 680 / 530 / 380 at 900px tall). Same orbit, same motion,
+ * just re-phased: the ring is still 120° apart, so no two cards overlap.
+ */
+const ANGLE_OFFSETS = [0, (3 * Math.PI) / 2, Math.PI];
 const Y_OFFSETS = [-150, 0, 150];
 
 export interface DnaCardsProps {
@@ -68,7 +86,12 @@ export const DnaCards = ({ cards }: DnaCardsProps) => {
         const x = cx + Math.cos(angle) * rx;
         const y = cy + Math.sin(angle) * ry + globalYOffset + Y_OFFSETS[i];
         const scale = 0.8 + 0.2 * Math.sin(angle);
-        const opacity = 0.4 + 0.6 * Math.sin(angle);
+        // Clamped at 0: the raw curve dips to -0.2 on the back half of the
+        // orbit, and a negative opacity is written to the DOM verbatim. It
+        // renders the same as 0, but it means the far side of the ring spends
+        // longer fully invisible than the maths intends, which made the fade
+        // in/out feel uneven between cards.
+        const opacity = Math.max(0.4 + 0.6 * Math.sin(angle), 0);
         el.style.transform = `translate(-50%, -50%) translate3d(${x}px, ${y}px, 0) scale(${scale}) rotateY(${angle - Math.PI / 2}rad)`;
         el.style.opacity = `${opacity}`;
         el.style.zIndex = `${Math.round(scale * 100)}`;

@@ -123,40 +123,44 @@ export const homeContent: HomeContent = {
   // The two core businesses, stated as one idea rather than a service list.
   wave: {
     eyebrow: "CORE BUSINESSES",
-    titleLines: ["医療の「情報」と「事業」を、", "次の世代へ。"],
+    // Two lines, and two lines at every width. `SectionTitle` splits the
+    // heading into per-character spans for the letter-in spring, so a CJK
+    // bracket can end up alone on its own line and `text-balance-ja` cannot
+    // help (each character is already its own box). With the 「」 quotes the
+    // first line was 14 characters — 420px at the 30px floor of
+    // `--text-display-sm`, against a 342px content box on a 390px phone — so it
+    // wrapped and left 「」を、」 orphaned on line 2. Dropping the quotes brings
+    // it to 10 characters and it holds on one line. /services keeps the quoted
+    // form in its lead, where the type is small enough to fit.
+    titleLines: ["医療の情報と事業を、", "次の世代へ。"],
     // Kept as a plain-text fallback / SEO summary; the overlay renders `items`.
     subtitle:
       "紙カルテの電子化による医療DXと、医療M&A・事業承継。この2つを中核事業としています。",
+    // One line each. This overlay is `position: fixed` and shares the viewport
+    // with the wave canvas, so it is read at a glance while scrolling — the
+    // detail belongs on /services, not here.
     items: [
       {
         num: "01",
         label: "MEDICAL DIGITALIZATION",
         title: "カルテ電子化・医療DX",
-        description:
-          "紙カルテのスキャンとAI-OCRによる電子保存で、医療情報を安全に引き継ぎます。",
+        description: "紙カルテを電子化し、医療情報を次へ引き継ぐ。",
         href: "/services#medical-digitalization",
       },
       {
         num: "02",
         label: "HEALTHCARE M&A",
         title: "医療M&A・事業承継",
-        description:
-          "医療法人・クリニックの承継を、次の担い手へつなぎます。",
+        description: "医療法人・クリニックを、次の担い手へ。",
         href: "/services#healthcare-ma",
       },
     ],
-    buttons: [
-      {
-        label: "カルテ電子化について詳しく見る",
-        withArrow: true,
-        href: "/services#medical-digitalization",
-      },
-      {
-        label: "M&A・事業承継について詳しく見る",
-        withArrow: false,
-        href: "/services#healthcare-ma",
-      },
-    ],
+    // A single link to the business list, replacing the previous pair of
+    // 「…について詳しく見る」 buttons. Those labels were long enough to wrap to
+    // two lines inside a fixed-height pill and visibly spilled outside it at
+    // 1440px. Both destinations are on the same page anyway, so the two blocks
+    // above already say *which* business — the CTA only has to say *where*.
+    buttons: [{ label: "事業一覧を見る", withArrow: true, href: "/services" }],
   },
   // Brand story — the "why" behind the two businesses. Uses the second copy
   // variant so it never repeats the hero heading verbatim.
