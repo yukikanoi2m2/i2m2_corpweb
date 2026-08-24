@@ -103,7 +103,8 @@ export const homeContent: HomeContent = {
       title: "グループ総売上",
       stat: "36億円",
       description:
-        "創業1年2ヶ月でグループ総売上36億円を突破。急成長を実現しています。",
+        // 沿革（app/company/page.tsx の HISTORY 2026.07）と同じマイルストーン。
+        "創業1年3ヶ月でグループ総売上36億円を突破。急成長を実現しています。",
     },
     {
       id: "deals",
