@@ -38,7 +38,8 @@ const VALUES = [
   },
   {
     title: "スピード感",
-    description: "創業1年2ヶ月で641名を超える組織に。変化を恐れず、素早く実行します。",
+    // 沿革（app/company/page.tsx の HISTORY 2026.07）と同じマイルストーン。
+    description: "創業1年3ヶ月で641名を超える組織に。変化を恐れず、素早く実行します。",
   },
   {
     title: "医療を次の世代へ",
