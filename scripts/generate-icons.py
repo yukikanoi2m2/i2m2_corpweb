@@ -138,7 +138,16 @@ def main() -> None:
 
     # Multi-resolution .ico. Windows/omnibox pick the size they need; 48 is used
     # by Windows shortcuts and Chrome's bookmark bar on hi-dpi.
-    ico_sizes = (16, 24, 32, 48, 64, 128, 256)
+    #
+    # The frame list must be sorted LARGEST FIRST and the largest passed as the
+    # base image. Pillow's ICO writer skips any requested size bigger than the
+    # base image it was called on (`if size[0] > width: continue`), so calling
+    # `.save()` on the 16px frame silently produced a single-frame 16x16 .ico —
+    # every size above it was dropped, and hi-dpi tabs were upscaling a 16px
+    # bitmap. Verify with:
+    #   python3 -c "import struct;d=open('public/favicon.ico','rb').read();print(struct.unpack('<H',d[4:6])[0])"
+    # which must print the number of sizes below, not 1.
+    ico_sizes = (256, 128, 64, 48, 32, 24, 16)
     frames = [render(mark, s, rounded=True) for s in ico_sizes]
     for target in (PUBLIC / "favicon.ico", ROOT / "src" / "app" / "favicon.ico"):
         # `append_images` writes every frame into the one .ico container.
@@ -148,7 +157,7 @@ def main() -> None:
             sizes=[(s, s) for s in ico_sizes],
             append_images=frames[1:],
         )
-        print(f"wrote {target.relative_to(ROOT)}")
+        print(f"wrote {target.relative_to(ROOT)} ({len(ico_sizes)} frames)")
 
     # Apple touch icon — iOS ignores rounding (it applies its own mask) and
     # composites onto black, so ship it full-bleed.

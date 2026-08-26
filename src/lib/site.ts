@@ -21,7 +21,13 @@ export const siteConfig = {
    * sitemap, and JSON-LD. Set `NEXT_PUBLIC_SITE_URL` in production.
    */
   url: publicEnv.NEXT_PUBLIC_SITE_URL ?? "https://i2m2.com",
-  /** Default Open Graph / Twitter share image (path under `public/`). */
+  /**
+   * Default Open Graph / Twitter share image (path under `public/`).
+   *
+   * Built from the logo by `scripts/generate-og-image.py` — 1200×630, the size
+   * declared in `utils/seo/generate-page-metadata.ts`. Re-run that script after
+   * changing the logo; don't hand-edit the PNG.
+   */
   ogImage: "/open-graph.png",
   twitterHandle: "@i2m2_inc",
   author: "株式会社イズムズ",

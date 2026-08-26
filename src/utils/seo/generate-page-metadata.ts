@@ -53,8 +53,18 @@ export function generateMetadata({
       description,
       url,
       siteName,
-      // Dimensions must match the real asset; 1200×630 is the ideal size.
-      images: [{ url: ogImage, width: 900, height: 600 }],
+      // Dimensions must match the real asset, or the platform lays out a
+      // placeholder of the wrong shape and then re-crops the image into it.
+      // 1200×630 (1.91:1) is what Facebook, X, LinkedIn and Slack all
+      // document — `scripts/generate-og-image.py` renders exactly that.
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: `${siteName}｜カルテ電子化・医療DX × 医療M&A・事業承継`,
+        },
+      ],
       locale: "ja_JP",
       type: "website",
     },
