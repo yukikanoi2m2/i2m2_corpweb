@@ -45,38 +45,11 @@ export const HeroSection = ({ content }: HeroSectionProps) => {
         {content.subtitle}
       </Reveal>
 
-      {/* The two core businesses, readable at a glance. Deliberately shares one
-          type treatment across both — the brand direction differentiates them
-          by layout and typography, never by colour. The `×` is decorative, so
-          it's hidden from assistive tech. */}
-      {content.keywords && content.keywords.length > 0 && (
-        <Reveal
-          state={state}
-          delay={120}
-          className="mb-12 flex items-center justify-center gap-5 max-sm:flex-col max-sm:gap-3"
-        >
-          {content.keywords.map((keyword, i) => (
-            <div key={keyword.label} className="flex items-center gap-5 max-sm:gap-3">
-              {i > 0 && (
-                <span
-                  aria-hidden="true"
-                  className="text-lead font-light text-muted/50 max-sm:hidden"
-                >
-                  ×
-                </span>
-              )}
-              <div className="flex flex-col items-center gap-1.5">
-                <span className="text-eyebrow font-medium uppercase tracking-[0.2em] text-gradient-accent">
-                  {keyword.label}
-                </span>
-                <span className="text-kicker font-light tracking-wide text-muted">
-                  {keyword.name}
-                </span>
-              </div>
-            </div>
-          ))}
-        </Reveal>
-      )}
+      {/* The `MEDICAL DIGITALIZATION × HEALTHCARE M&A` keyword pair that used to
+          sit here was removed: it restated the eyebrow above it and the two CTA
+          labels below it, so the hero said the same thing three times. The two
+          businesses are still named by the eyebrow, the subtitle and the
+          buttons. */}
 
       <Reveal
         state={state}

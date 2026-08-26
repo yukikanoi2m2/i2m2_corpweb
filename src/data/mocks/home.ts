@@ -12,30 +12,12 @@ export interface ExperienceButton {
   href?: string;
 }
 
-/**
- * An English category label paired with its Japanese business name — the two
- * core businesses are always presented as this pair (see the brand direction:
- * differentiate by layout and typography, never by colour).
- */
-export interface CoreKeyword {
-  /** Uppercase English category, e.g. `MEDICAL DIGITALIZATION`. */
-  label: string;
-  /** Japanese business name, e.g. `カルテ電子化・医療DX`. */
-  name: string;
-}
-
 export interface ExperienceCopy {
   eyebrow: string;
   /** Heading split into lines — each entry was a `<br>`-separated row. */
   titleLines: string[];
   subtitle: string;
   buttons: ExperienceButton[];
-  /**
-   * Optional two-up keyword pair rendered under the hero heading, so a first
-   * time visitor reads "カルテ電子化 × 医療M&A" within seconds rather than
-   * having to scroll.
-   */
-  keywords?: CoreKeyword[];
   /**
    * Optional numbered business blocks. When present the section renders these
    * instead of `subtitle` as a single paragraph — the two core businesses need
@@ -91,10 +73,6 @@ export const homeContent: HomeContent = {
         withArrow: false,
         href: "/services#healthcare-ma",
       },
-    ],
-    keywords: [
-      { label: "MEDICAL DIGITALIZATION", name: "カルテ電子化・医療DX" },
-      { label: "HEALTHCARE M&A", name: "医療M&A・事業承継" },
     ],
   },
   cards: [

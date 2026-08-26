@@ -50,3 +50,7 @@ next-env.d.ts
 
 # Crash dumps
 core
+
+# Python bytecode from scripts/
+__pycache__/
+*.pyc
